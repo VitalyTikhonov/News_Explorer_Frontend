@@ -10,7 +10,10 @@ const cssnano = require('cssnano');
 const isDev = process.env.NODE_ENV === 'development';
 
 module.exports = {
-  entry: './src/scripts/index.js',
+  entry: {
+    index: './src/scripts/index.js',
+    'saved-news': './src/scripts/saved-news.js',
+  },
   output: {
     path: path.resolve(__dirname, 'dist'),
     filename: '[name].[chunkhash].js',
@@ -89,7 +92,14 @@ module.exports = {
   },
   plugins: [
     new HtmlWebpackPlugin({
+      filename: 'index.html',
       template: './src/index.html',
+      chunks: ['index'],
+    }),
+    new HtmlWebpackPlugin({
+      filename: 'saved-news.html',
+      template: './src/saved-news.html',
+      chunks: ['saved-news'],
     }),
     new MiniCssExtractPlugin({
       filename: '[name].[contenthash].css',
