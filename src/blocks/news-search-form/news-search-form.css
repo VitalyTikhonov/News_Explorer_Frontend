@@ -3,4 +3,6 @@
 
 .news-search-form {
   padding-top: 122px;
+  display: flex;
+  flex-direction: column;
 }
