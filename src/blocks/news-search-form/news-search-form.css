@@ -1,2 +1,6 @@
 @import url(./__bar/news-search-form__bar.css);
 @import url(./__button/news-search-form__button.css);
+
+.news-search-form {
+  padding-top: 122px;
+}

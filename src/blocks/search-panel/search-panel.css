@@ -2,7 +2,10 @@
 @import url(./__description/search-panel__description.css);
 
 .search-panel {
+  padding-top: 86px;
+  padding-bottom: 32px;
   background-image: url(../../images/georgia-de-lotz--UsJoNxLaNo-unsplash-320.png);
   background-size: cover;
   background-repeat: no-repeat;
+  color: #FFFFFF;
 }

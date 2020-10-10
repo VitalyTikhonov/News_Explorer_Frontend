@@ -1,8 +1,17 @@
-@import url(./__child-wide/root__child-wide.css);
-
+@import url(./__child-width/root__child-width.css);
 .root {
+  /* position: relative; */
   margin: 0 auto;
   max-width: 320px;
+  box-sizing: border-box;
+  font-family: Roboto, Arial, Calibri, sans-serif;
+  font-style: normal;
+  font-weight: normal;
+  font-size: 16px;
+  line-height: 22px;
+  color: #1A1B22;
+  /* transform: translate(0); */
+
   /* background-color: #2A2C2F;
   -moz-osx-font-smoothing: grayscale;
   -webkit-font-smoothing: antialiased;

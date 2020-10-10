@@ -1,0 +1,40 @@
+
+@font-face {
+  font-family: 'Roboto';
+  font-style:  normal;
+  font-weight: 400;
+  font-display: swap;
+  src: url(./fonts/roboto-regular.woff) format('woff');
+}
+
+@font-face {
+  font-family: 'Roboto Slab';
+  font-style:  normal;
+  font-weight: 700;
+  font-display: swap;
+  src: url(./fonts/robotoslab-regular.woff) format('woff');
+}
+
+/* @font-face {
+  font-family: 'Inter';
+  font-style:  normal;
+  font-weight: 800;
+  font-display: swap;
+  src: url(./fonts) format('woff');
+} */
+
+/* @font-face {
+  font-family: 'Inter';
+  font-style:  normal;
+  font-weight: 500;
+  font-display: swap;
+  src: url(./fonts) format('woff');
+} */
+
+/* @font-face {
+  font-family: 'Inter';
+  font-style:  normal;
+  font-weight: 400;
+  font-display: swap;
+  src: url(./fonts) format('woff');
+} */
