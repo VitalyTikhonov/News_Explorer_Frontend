@@ -1,6 +1,5 @@
 @import url(./__child-width/root__child-width.css);
 .root {
-  /* position: relative; */
   margin: 0 auto;
   max-width: 320px;
   box-sizing: border-box;
@@ -10,7 +9,6 @@
   font-size: 16px;
   line-height: 22px;
   color: #1A1B22;
-  /* transform: translate(0); */
 
   /* background-color: #2A2C2F;
   -moz-osx-font-smoothing: grayscale;
