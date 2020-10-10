@@ -1,2 +1,8 @@
 @import url(./__headline/search-panel__headline.css);
 @import url(./__description/search-panel__description.css);
+
+.search-panel {
+  background-image: url(../../images/georgia-de-lotz--UsJoNxLaNo-unsplash-320.png);
+  background-size: cover;
+  background-repeat: no-repeat;
+}

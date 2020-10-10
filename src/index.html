@@ -14,7 +14,7 @@
 
 <body>
   <div class="root">
-    <header class="header">
+    <header class="header root__child-wide">
       <h1 class="header__headline">NewsExplorer</h1>
 
       <button class="button header__menu-button"></button>
@@ -33,7 +33,7 @@
     </header>
 
     <main class="main">
-      <section class="search-panel">
+      <section class="search-panel root__child-wide">
         <h2 class="search-panel__headline">Что творится в мире?</h2>
 
         <p class="search-panel__description">Находите самые свежие статьи на любую тему и сохраняйте в своём личном
@@ -46,7 +46,7 @@
         </form>
       </section>
 
-      <section class="article-block">
+      <section class="article-block root__child-wide">
         <h2 class="article-block__headline">Результаты поиска</h2>
 
         <div class="article-block__card-container">
@@ -105,8 +105,9 @@
         <button class="button article-block__button">Показать еще</button>
       </section>
 
-      <section class="user-profile">
-        <img src="<%=require('./images/vitaliytikhonov.jpg')%>" alt="Аватар пользователя" class="user-profile__avatar"> <!-- Подставлять имя пользователя в alt? -->
+      <section class="user-profile root__child-wide">
+        <!-- <img src="<%=require('./images/vitaliytikhonov.jpg')%>" alt="Аватар пользователя" class="user-profile__avatar"> -->
+        <!-- Подставлять имя пользователя в alt? -->
 
         <div class="user-profile__description">
           <h3 class="user-profile__headline">Об авторе</h3>
@@ -120,7 +121,7 @@
       </section>
     </main>
 
-    <footer class="footer">
+    <footer class="footer root__child-wide">
       <nav class="menu footer__menu">
         <ul class="menu__options">
           <div class="menu__text-labelled-paths">
