@@ -1,3 +1,4 @@
 .card__cover {
   position: relative;
+  display: flex;
 }
