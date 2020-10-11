@@ -2,3 +2,9 @@
 @import url(./__description/user-profile__description.css);
 @import url(./__headline/user-profile__headline.css);
 @import url(./__text/user-profile__text.css);
+.user-profile {
+  padding-top: 32px;
+  padding-bottom: 80px;
+  display: flex;
+  flex-direction: column;
+}
