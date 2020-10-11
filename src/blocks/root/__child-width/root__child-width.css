@@ -1,6 +1,6 @@
 .root__child-width {
   margin: 0;
-  width: 28.8em;
-  padding-left: 1.6em;
-  padding-right: 1.6em;
+  width: 288px;
+  padding-left: 16px;
+  padding-right: 16px;
 }
