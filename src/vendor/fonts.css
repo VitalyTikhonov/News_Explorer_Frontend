@@ -15,21 +15,21 @@
   src: url(./fonts/robotoslab-regular.woff) format('woff');
 }
 
-/* @font-face {
-  font-family: 'Inter';
+@font-face {
+  font-family: 'Source Sans Pro';
   font-style:  normal;
-  font-weight: 800;
+  font-weight: 400;
   font-display: swap;
-  src: url(./fonts) format('woff');
-} */
+  src: url(./fonts/sourcesanspro-regular.woff) format('woff');
+}
 
-/* @font-face {
-  font-family: 'Inter';
+@font-face {
+  font-family: 'Roboto Slab';
   font-style:  normal;
-  font-weight: 500;
+  font-weight: bold;
   font-display: swap;
-  src: url(./fonts) format('woff');
-} */
+  src: url(./fonts/RobotoSlab-Bold.woff) format('woff');
+}
 
 /* @font-face {
   font-family: 'Inter';

@@ -1,0 +1,8 @@
+.card__headline {
+  font-family: Roboto Slab;
+  font-style: normal;
+  font-weight: normal;
+  font-size: 22px;
+  line-height: 26px;
+  /* or 118% */
+}

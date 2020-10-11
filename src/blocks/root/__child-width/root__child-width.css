@@ -1,5 +1,6 @@
 .root__child-width {
   margin: 0;
+  /* Можно заменить на проценты для production-режима */
   width: 288px;
   padding-left: 16px;
   padding-right: 16px;

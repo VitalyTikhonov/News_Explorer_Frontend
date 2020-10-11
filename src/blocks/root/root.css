@@ -18,3 +18,9 @@
   -moz-text-size-adjust: 100%; */
   /* text-rendering: optimizeLegibility; */
 }
+
+/* СЛУЖЕБНАЯ ПОДСВЕТКА ОБЪЕКТОВ ТЕНЬЮ */
+
+/* * {
+  box-shadow: 0 0 0 1px green;
+} */

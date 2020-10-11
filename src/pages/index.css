@@ -12,9 +12,3 @@
 @import url(../blocks/user-profile/user-profile.css);
 @import url(../blocks/footer/footer.css);
 @import url(../blocks/section-headline/section-headline.css);
-
-/* СЛУЖЕБНАЯ ПОДСВЕТКА ОБЪЕКТОВ ТЕНЬЮ */
-
-* {
-  box-shadow: 0 0 0 1px green;
-}

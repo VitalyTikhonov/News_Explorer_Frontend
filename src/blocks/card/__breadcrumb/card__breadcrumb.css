@@ -1,3 +1,14 @@
 @import url(./_keyword-button/card__breadcrumb_keyword-button.css);
 @import url(./_save-button/card__breadcrumb_save-button.css);
 @import url(./_tooltip/card__breadcrumb_tooltip.css);
+
+.card__breadcrumb {
+  position: absolute;
+  z-index: 1;
+  top: 5.56%;
+  right: 5.56%;
+  min-width: 40px;
+  min-height: 40px;
+  border: none;
+  border-radius: 8px;
+}
