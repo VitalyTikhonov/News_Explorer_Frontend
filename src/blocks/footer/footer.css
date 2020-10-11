@@ -1,2 +1,8 @@
 @import url(./__menu/footer__menu.css);
 @import url(./__copyright-notice/footer__copyright-notice.css);
+.footer {
+  padding-top: 20px;
+  padding-bottom: 40px;
+  display: flex;
+  flex-direction: column;
+}
