@@ -3,7 +3,7 @@
 @import url(./__button/article-block__button.css);
 
 .article-block {
-  padding-top: 3.2rem;
-  padding-bottom: 3.2rem;
+  padding-top: 32px;
+  padding-bottom: 32px;
   background: #F5F6F7;
 }
