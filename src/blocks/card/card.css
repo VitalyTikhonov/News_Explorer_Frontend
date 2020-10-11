@@ -1,7 +1,5 @@
 @import url(./__header/card__header.css);
 @import url(./__breadcrumb/card__breadcrumb.css);
-@import url(./__keyword-button/card__keyword-button.css);
-@import url(./__save-button/card__save-button.css);
 @import url(./__date/card__date.css);
 @import url(./__headline/card__headline.css);
 @import url(./__text/card__text.css);
