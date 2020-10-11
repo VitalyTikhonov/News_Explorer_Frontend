@@ -1,3 +1,7 @@
 .article-block__card-container {
   padding-top: 24px;
+  display: grid;
+  row-gap: 10px;
+  /* grid-template-columns: repeat(auto-fit, minmax(256px, 1fr)); */
+  /* grid-template-columns: repeat(auto-fit, minmax(225px, 1fr)); */
 }
