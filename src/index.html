@@ -35,7 +35,7 @@
     </header>
 
     <main class="main">
-      <section class="search-panel root__child-width">
+      <section class="search-panel root__child-width hidden">
         <h2 class="search-panel__headline">Что творится в мире?</h2>
 
         <p class="search-panel__description">Находите самые свежие статьи на любую тему и сохраняйте в своём личном
@@ -48,6 +48,15 @@
             class="button news-search-form__button button-rounded button-rounded_blue">Искать</button>
           <!-- button не используется -->
         </form>
+      </section>
+
+      <section class="saved-news-intro root__child-width">
+        <h2 class="saved-news-intro__headline">Сохранённые статьи</h2>
+
+        <h3 class="saved-news-intro__sub-headline">Грета, у Вас 5 сохранённых статей</h3>
+
+        <p class="saved-news-intro__details">По ключевым словам: <b class="emphasized-text">Природа</b>, <b
+            class="emphasized-text">Тайга</b> и <b class="emphasized-text">2-м другим</b></p>
       </section>
 
       <section class="article-block root__child-width">
@@ -121,7 +130,7 @@
         <button class="button article-block__button button-rounded button-rounded_white">Показать еще</button>
       </section>
 
-      <section class="user-profile root__child-width">
+      <section class="user-profile root__child-width hidden">
         <img src="<%=require('./images/vitaliytikhonov.jpg')%>" alt="Аватар пользователя" class="user-profile__avatar">
         <!-- Подставлять имя пользователя в alt? -->
 

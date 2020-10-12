@@ -8,6 +8,7 @@
 @import url(../blocks/main/main.css);
 @import url(../blocks/search-panel/search-panel.css);
 @import url(../blocks/news-search-form/news-search-form.css);
+@import url(../blocks/saved-news-intro/saved-news-intro.css);
 @import url(../blocks/article-block/article-block.css);
 @import url(../blocks/card/card.css);
 @import url(../blocks/user-profile/user-profile.css);

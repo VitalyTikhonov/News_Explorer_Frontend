@@ -1,0 +1,8 @@
+@import url(./__sub-headline/saved-news-intro__sub-headline.css);
+@import url(./__details/saved-news-intro__details.css);
+@import url(./__headline/saved-news-intro__headline.css);
+
+.saved-news-intro {
+  padding-top: 77px;
+  padding-bottom: 32px;
+}
