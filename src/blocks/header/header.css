@@ -1,3 +1,4 @@
+@import url(./__bar/header__bar.css);
 @import url(./__headline/header__headline.css);
 @import url(./__menu-button/header__menu-button.css);
 @import url(./__menu/header__menu.css);
@@ -6,9 +7,9 @@
   top: 0;
   z-index: 1;
   display: flex;
+  flex-direction: column;
   justify-content: space-between;
   padding-top: 16px;
   padding-bottom: 16px;
   color: #FFFFFF;
-  box-shadow: inset 0px -1px 0px rgba(255, 255, 255, 0.2);
 }

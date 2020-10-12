@@ -14,24 +14,24 @@
 
 <body>
   <div class="root">
-    <header class="header root__child-width">
-      <h1 class="header__headline">NewsExplorer</h1>
+    <header class="header">
+      <div class="header__bar root__child-width">
+        <h1 class="header__headline">NewsExplorer</h1>
 
-      <button class="button header__menu-button"></button>
-
-      <div class="header__menu">
-        <nav class="menu" aria-labelledby="header-navigation">
-          <h2 class="aria-labelledby-title" id="header-navigation">Основное меню (в шапке страницы)</h2>
-
-          <ul class="menu__text-options">
-            <li class="menu__path">Главная</li>
-
-            <li class="menu__path">Сохранённые статьи</li>
-
-            <button class="button menu__auth-button">Авторизоваться</button>
-          </ul>
-        </nav>
+        <button class="button header__menu-button"></button>
       </div>
+
+      <nav class="menu header__menu root__child-width" aria-labelledby="header-navigation">
+        <h2 class="aria-labelledby-title" id="header-navigation">Основное меню</h2>
+
+        <ul class="menu__text-options">
+          <li class="menu__path">Главная</li>
+
+          <li class="menu__path">Сохранённые статьи</li>
+
+          <button class="button menu__auth-button">Авторизоваться</button>
+        </ul>
+      </nav>
     </header>
 
     <main class="main">

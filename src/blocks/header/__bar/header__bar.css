@@ -1,0 +1,9 @@
+.header__bar {
+  max-width: 100%;
+  z-index: 2;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  padding-bottom: 16px;
+  box-shadow: inset 0px -1px 0px rgba(255, 255, 255, 0.2);
+}
