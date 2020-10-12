@@ -1,4 +1,5 @@
-.footer__menu {
+.menu__icon-options {
   display: flex;
+  flex-direction: row;
   justify-content: space-between;
 }

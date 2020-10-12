@@ -1,0 +1,7 @@
+.menu__text-options {
+  font-family: Roboto;
+  font-style: normal;
+  font-weight: 400;
+  font-size: 18px;
+  /* line-height: 48px; */ /* она не нужна в меню, поскольку опции однострочные */
+}

@@ -1,0 +1,7 @@
+.menu__text-path {
+  margin-bottom: 26px;
+}
+
+.menu__text-path:last-child {
+  margin-bottom: 0;
+}

@@ -1,0 +1,8 @@
+.menu__icon-path {
+  /* margin-right: 8.715625vw; */
+    margin-right: 27.89px;
+}
+
+.menu__icon-path:last-child {
+  margin-right: 0;
+}
