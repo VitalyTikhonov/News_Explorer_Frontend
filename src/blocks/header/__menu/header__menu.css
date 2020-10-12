@@ -1,7 +1,10 @@
 .header__menu {
-  /* display: none; */
+  display: flex;
+  flex-direction: column;
   margin-top: -56px;
-  padding-top: 56px;
+  padding-top: 88px;
+  padding-bottom: 24px;
   z-index: 1;
   background-color: #1A1B22;
+  /* display: none; */
 }

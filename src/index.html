@@ -18,18 +18,18 @@
       <div class="header__bar root__child-width">
         <h1 class="header__headline">NewsExplorer</h1>
 
-        <button class="button header__menu-button"></button>
+        <button class="button header__menu-button header__menu-button_open"></button> <!-- header__menu-button_close -->
       </div>
 
-      <nav class="menu header__menu root__child-width" aria-labelledby="header-navigation">
+      <nav class="header__menu menu root__child-width" aria-labelledby="header-navigation">
         <h2 class="aria-labelledby-title" id="header-navigation">Основное меню</h2>
 
-        <ul class="menu__text-options">
-          <li class="menu__path">Главная</li>
+        <ul class="menu__text-options list">
+          <li class="menu__text-path menu__text-path_higher">Главная</li>
 
-          <li class="menu__path">Сохранённые статьи</li>
+          <li class="menu__text-path menu__text-path_higher">Сохранённые статьи</li>
 
-          <button class="button menu__auth-button">Авторизоваться</button>
+          <button class="button menu__auth-button button-rounded button-rounded_black">Авторизоваться</button>
         </ul>
       </nav>
     </header>

@@ -1,4 +1,5 @@
 .button-rounded_white {
   background: #FFFFFF;
+  border: none;
   border-radius: 80px;
 }

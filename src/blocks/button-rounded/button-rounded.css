@@ -1,9 +1,10 @@
 @import url(./_blue/button-rounded_blue.css);
 @import url(./_white/button-rounded_white.css);
+@import url(./_black/button-rounded_black.css);
 .button-rounded {
+  width: 100%;
   padding-top: 16px;
   padding-bottom: 16px;
-  border: none;
   font-family: Roboto;
   font-style: normal;
   font-weight: 500;

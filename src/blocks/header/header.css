@@ -1,6 +1,8 @@
 @import url(./__bar/header__bar.css);
 @import url(./__headline/header__headline.css);
 @import url(./__menu-button/header__menu-button.css);
+@import url(./__menu-button/_open/header__menu-button_open.css);
+@import url(./__menu-button/_close/header__menu-button_close.css);
 @import url(./__menu/header__menu.css);
 .header {
   position: fixed;
@@ -9,7 +11,5 @@
   display: flex;
   flex-direction: column;
   justify-content: space-between;
-  padding-top: 16px;
-  padding-bottom: 16px;
   color: #FFFFFF;
 }
