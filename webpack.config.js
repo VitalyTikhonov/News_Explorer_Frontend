@@ -8,15 +8,26 @@ const OptimizeCssAssetsPlugin = require('optimize-css-assets-webpack-plugin');
 const cssnano = require('cssnano');
 
 const isDev = process.env.NODE_ENV === 'development';
+const PATHS = {
+  src: path.resolve(process.cwd(), 'src'),
+  dist: path.resolve(process.cwd(), 'dist'),
+  publicPath: path.resolve(process.cwd(), 'dist/pages'),
+};
 
 module.exports = {
   entry: {
-    index: './src/scripts/index.js',
-    'saved-news': './src/scripts/saved-news.js',
+    // main: './src/pages/main/index.js',
+    // savedNews: './src/pages/savedNews/index.js',
+    main: `${PATHS.src}/pages/main`,
+    savedNews: `${PATHS.src}/pages/savedNews`,
   },
   output: {
     path: path.resolve(__dirname, 'dist'),
-    filename: '[name].[chunkhash].js',
+    publicPath: PATHS.publicPath,
+    filename: './[name].[chunkhash].js',
+
+    // path: path.resolve(__dirname, 'dist'),
+    // filename: 'pages/[name]/[name].[chunkhash].js',
   },
   module: {
     rules: [
@@ -33,7 +44,12 @@ module.exports = {
       {
         test: /\.css$/,
         use: [
-          (isDev ? 'style-loader' : MiniCssExtractPlugin.loader),
+          // (isDev ? 'style-loader' : MiniCssExtractPlugin.loader),
+          (isDev ? 'style-loader' : {
+            loader: MiniCssExtractPlugin.loader, options: { publicPath: '../../' },
+          }),
+          // Без style-loader:
+          // { loader: MiniCssExtractPlugin.loader, options: { publicPath: '../../' } },
           {
             loader: 'css-loader',
             options: {
@@ -58,7 +74,14 @@ module.exports = {
           {
             loader: 'file-loader',
             options: {
-              name: './images/[name].[ext]',
+              publicPath: '../../',
+              name: 'images/[name].[ext]',
+              // не рабочее:
+              // прописывает в HTML-файле неверный для моей структуры путь:
+              // name: './images/[name].[ext]',
+              // прописывает правильный путь,
+              // но закидывает саму папку images выше папки всего проекта:
+              // name: '../../images/[name].[ext]',
               esModule: false,
             },
           },
@@ -92,18 +115,32 @@ module.exports = {
   },
   plugins: [
     new HtmlWebpackPlugin({
-      filename: 'index.html',
-      template: './src/index.html',
-      chunks: ['index'],
+      filename: 'pages/main/index.html',
+      template: './src/pages/main/index.html',
+      chunks: ['main'],
     }),
     new HtmlWebpackPlugin({
-      filename: 'saved-news.html',
-      template: './src/saved-news.html',
-      chunks: ['saved-news'],
+      filename: 'pages/savedNews/index.html',
+      template: './src/pages/savedNews/index.html',
+      chunks: ['savedNews'],
     }),
     new MiniCssExtractPlugin({
-      filename: '[name].[contenthash].css',
+      filename: 'pages/[name]/[name].[contenthash].css',
     }),
+
+    // new HtmlWebpackPlugin({
+    //   filename: 'pages/main/index.html',
+    //   template: './src/pages/main/index.html',
+    //   chunks: ['main'],
+    // }),
+    // new HtmlWebpackPlugin({
+    //   filename: 'pages/savedNews/index.html',
+    //   template: './src/pages/savedNews/index.html',
+    //   chunks: ['savedNews'],
+    // }),
+    // new MiniCssExtractPlugin({
+    //   filename: 'pages/[name]/[name].[contenthash].css',
+    // }),
     new OptimizeCssAssetsPlugin({
       assetNameRegExp: /\.css$/g,
       cssProcessor: cssnano,

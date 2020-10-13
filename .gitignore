@@ -16,6 +16,6 @@ node_modules
 images/PixelPerfect
 dist
 V_Tikhonov_Diploma_Frontend.*
-DevNotes*.txt
+DevNotes*.*
 .env
 .envOFF
