@@ -7,34 +7,16 @@ const webpack = require('webpack');
 const OptimizeCssAssetsPlugin = require('optimize-css-assets-webpack-plugin');
 const cssnano = require('cssnano');
 
-const { DefinePlugin } = webpack;
 const isDev = process.env.NODE_ENV === 'development';
-const PATHS = {
-  src: path.resolve(process.cwd(), 'src'),
-  dist: path.resolve(process.cwd(), 'dist'),
-};
-const ASSET_PATH = process.env.ASSET_PATH || '/';
 
 module.exports = {
   entry: {
-    main: `${PATHS.src}/pages/main`,
-    savedNews: `${PATHS.src}/pages/savedNews`,
+    main: './src/pages/main/index.js',
+    savedNews: './src/pages/savedNews/index.js',
   },
   output: {
-    path: PATHS.dist,
-
-    /* Не удалось оптимизировать ссылки на файлы CSS и JS в итоговых файлах HTML. Сейчас они
-    имеют вид ../../pages/main/main.bc245e3f1582459bf230.js, где часть ../../pages/main/
-    избыточна. Для исправления этого могло бы использоваться свойство publicPath. В файлы HTML
-    вставляются пути, которые получаются как publicPath + filename. То есть, нужно было бы
-    удалить из filename часть pages/[name]/ и поместить ее в publicPath (начиная с ./
-    – publicPath должен быть, емнип, относительным путем). Однако в publicPath не поддерживается
-    переменная пути [name]. Решить эту проблему с помощью регулярного выражения также не удалось:
-    видимо, это противоречит логике сопоставления путей, и на выходе оно подставляется в путь как
-    строка. */
-    // publicPath: './pages/[name]/',
-
-    filename: 'pages/[name]/[name].[chunkhash].js',
+    path: path.resolve(__dirname, 'dist'),
+    filename: 'js/[name].[chunkhash].js',
   },
   module: {
     rules: [
@@ -52,7 +34,7 @@ module.exports = {
         test: /\.css$/,
         use: [
           (isDev ? 'style-loader' : {
-            loader: MiniCssExtractPlugin.loader, options: { publicPath: '../../' },
+            loader: MiniCssExtractPlugin.loader, options: { publicPath: '../' },
           }),
           {
             loader: 'css-loader',
@@ -78,18 +60,7 @@ module.exports = {
           {
             loader: 'file-loader',
             options: {
-              publicPath: ASSET_PATH,
-              // publicPath: '../../',
               name: 'images/[name].[ext]',
-
-              /* не рабочее:
-              – прописывает в HTML-файле неверный для моей структуры путь:
-              publicPath не задан
-              name: './images/[name].[ext]',
-              – прописывает правильный путь,
-                   но закидывает саму папку images выше папки всего проекта:
-              publicPath не задан
-              name: '../../images/[name].[ext]', */
               esModule: false,
             },
           },
@@ -122,21 +93,18 @@ module.exports = {
     ],
   },
   plugins: [
-    new DefinePlugin({
-      'process.env.ASSET_PATH': JSON.stringify('/'),
-    }),
     new HtmlWebpackPlugin({
       filename: 'index.html',
       template: './src/index.html',
       chunks: ['main'],
     }),
     new HtmlWebpackPlugin({
-      filename: 'pages/savedNews/index.html',
+      filename: 'savedNews/index.html',
       template: './src/pages/savedNews/index.html',
       chunks: ['savedNews'],
     }),
     new MiniCssExtractPlugin({
-      filename: 'pages/[name]/[name].[contenthash].css',
+      filename: 'css/[name].[contenthash].css',
     }),
     new OptimizeCssAssetsPlugin({
       assetNameRegExp: /\.css$/g,
