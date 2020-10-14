@@ -11,12 +11,12 @@ const isDev = process.env.NODE_ENV === 'development';
 
 module.exports = {
   entry: {
-    main: './src/pages/main/index.js',
-    savedNews: './src/pages/savedNews/index.js',
+    index: './src/pages/index/index.js',
+    'saved-news': './src/pages/saved-news/index.js',
   },
   output: {
     path: path.resolve(__dirname, 'dist'),
-    filename: 'js/[name].[chunkhash].js',
+    filename: 'pages/[name]/[name].[chunkhash].js',
   },
   module: {
     rules: [
@@ -34,7 +34,7 @@ module.exports = {
         test: /\.css$/,
         use: [
           (isDev ? 'style-loader' : {
-            loader: MiniCssExtractPlugin.loader, options: { publicPath: '../' },
+            loader: MiniCssExtractPlugin.loader, options: { publicPath: '../../' },
           }),
           {
             loader: 'css-loader',
@@ -96,15 +96,15 @@ module.exports = {
     new HtmlWebpackPlugin({
       filename: 'index.html',
       template: './src/index.html',
-      chunks: ['main'],
+      chunks: ['index'],
     }),
     new HtmlWebpackPlugin({
-      filename: 'savedNews/index.html',
-      template: './src/pages/savedNews/index.html',
-      chunks: ['savedNews'],
+      filename: 'saved-news.html',
+      template: './src/saved-news.html',
+      chunks: ['saved-news'],
     }),
     new MiniCssExtractPlugin({
-      filename: 'css/[name].[contenthash].css',
+      filename: 'pages/[name]/[name].[contenthash].css',
     }),
     new OptimizeCssAssetsPlugin({
       assetNameRegExp: /\.css$/g,
