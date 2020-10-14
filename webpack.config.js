@@ -7,11 +7,13 @@ const webpack = require('webpack');
 const OptimizeCssAssetsPlugin = require('optimize-css-assets-webpack-plugin');
 const cssnano = require('cssnano');
 
+const { DefinePlugin } = webpack;
 const isDev = process.env.NODE_ENV === 'development';
 const PATHS = {
   src: path.resolve(process.cwd(), 'src'),
   dist: path.resolve(process.cwd(), 'dist'),
 };
+const ASSET_PATH = process.env.ASSET_PATH || '/';
 
 module.exports = {
   entry: {
@@ -76,7 +78,8 @@ module.exports = {
           {
             loader: 'file-loader',
             options: {
-              publicPath: '../../',
+              publicPath: ASSET_PATH,
+              // publicPath: '../../',
               name: 'images/[name].[ext]',
 
               /* не рабочее:
@@ -119,9 +122,12 @@ module.exports = {
     ],
   },
   plugins: [
+    new DefinePlugin({
+      'process.env.ASSET_PATH': JSON.stringify('/'),
+    }),
     new HtmlWebpackPlugin({
-      filename: 'pages/main/index.html',
-      template: './src/pages/main/index.html',
+      filename: 'index.html',
+      template: './src/index.html',
       chunks: ['main'],
     }),
     new HtmlWebpackPlugin({
