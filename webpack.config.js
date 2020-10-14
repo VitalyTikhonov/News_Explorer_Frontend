@@ -11,23 +11,28 @@ const isDev = process.env.NODE_ENV === 'development';
 const PATHS = {
   src: path.resolve(process.cwd(), 'src'),
   dist: path.resolve(process.cwd(), 'dist'),
-  publicPath: path.resolve(process.cwd(), 'dist/pages'),
 };
 
 module.exports = {
   entry: {
-    // main: './src/pages/main/index.js',
-    // savedNews: './src/pages/savedNews/index.js',
     main: `${PATHS.src}/pages/main`,
     savedNews: `${PATHS.src}/pages/savedNews`,
   },
   output: {
-    path: path.resolve(__dirname, 'dist'),
-    publicPath: PATHS.publicPath,
-    filename: './[name].[chunkhash].js',
+    path: PATHS.dist,
 
-    // path: path.resolve(__dirname, 'dist'),
-    // filename: 'pages/[name]/[name].[chunkhash].js',
+    /* Не удалось оптимизировать ссылки на файлы CSS и JS в итоговых файлах HTML. Сейчас они
+    имеют вид ../../pages/main/main.bc245e3f1582459bf230.js, где часть ../../pages/main/
+    избыточна. Для исправления этого могло бы использоваться свойство publicPath. В файлы HTML
+    вставляются пути, которые получаются как publicPath + filename. То есть, нужно было бы
+    удалить из filename часть pages/[name]/ и поместить ее в publicPath (начиная с ./
+    – publicPath должен быть, емнип, относительным путем). Однако в publicPath не поддерживается
+    переменная пути [name]. Решить эту проблему с помощью регулярного выражения также не удалось:
+    видимо, это противоречит логике сопоставления путей, и на выходе оно подставляется в путь как
+    строка. */
+    // publicPath: './pages/[name]/',
+
+    filename: 'pages/[name]/[name].[chunkhash].js',
   },
   module: {
     rules: [
@@ -44,12 +49,9 @@ module.exports = {
       {
         test: /\.css$/,
         use: [
-          // (isDev ? 'style-loader' : MiniCssExtractPlugin.loader),
           (isDev ? 'style-loader' : {
             loader: MiniCssExtractPlugin.loader, options: { publicPath: '../../' },
           }),
-          // Без style-loader:
-          // { loader: MiniCssExtractPlugin.loader, options: { publicPath: '../../' } },
           {
             loader: 'css-loader',
             options: {
@@ -76,12 +78,15 @@ module.exports = {
             options: {
               publicPath: '../../',
               name: 'images/[name].[ext]',
-              // не рабочее:
-              // прописывает в HTML-файле неверный для моей структуры путь:
-              // name: './images/[name].[ext]',
-              // прописывает правильный путь,
-              // но закидывает саму папку images выше папки всего проекта:
-              // name: '../../images/[name].[ext]',
+
+              /* не рабочее:
+              – прописывает в HTML-файле неверный для моей структуры путь:
+              publicPath не задан
+              name: './images/[name].[ext]',
+              – прописывает правильный путь,
+                   но закидывает саму папку images выше папки всего проекта:
+              publicPath не задан
+              name: '../../images/[name].[ext]', */
               esModule: false,
             },
           },
@@ -127,20 +132,6 @@ module.exports = {
     new MiniCssExtractPlugin({
       filename: 'pages/[name]/[name].[contenthash].css',
     }),
-
-    // new HtmlWebpackPlugin({
-    //   filename: 'pages/main/index.html',
-    //   template: './src/pages/main/index.html',
-    //   chunks: ['main'],
-    // }),
-    // new HtmlWebpackPlugin({
-    //   filename: 'pages/savedNews/index.html',
-    //   template: './src/pages/savedNews/index.html',
-    //   chunks: ['savedNews'],
-    // }),
-    // new MiniCssExtractPlugin({
-    //   filename: 'pages/[name]/[name].[contenthash].css',
-    // }),
     new OptimizeCssAssetsPlugin({
       assetNameRegExp: /\.css$/g,
       cssProcessor: cssnano,
