@@ -13,7 +13,7 @@ node_modules
 .DS_Store
 .idea
 .vscode
-images/PixelPerfect
+src/images/PixelPerfect
 dist
 V_Tikhonov_Diploma_Frontend.*
 DevNotes*.*

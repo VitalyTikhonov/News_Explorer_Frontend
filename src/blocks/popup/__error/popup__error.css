@@ -1,3 +1,15 @@
 .popup__error {
-  margin: 0 0 3px;
+  margin: 0 0 1px;
+  min-height: 15px;
+  font-family: Inter;
+  font-style: normal;
+  font-weight: normal;
+  font-size: 12px;
+  line-height: 15px;
+  color: #FF0000;
+}
+
+.popup__error:last-of-type {
+  min-height: 0;
+  margin: 0 0 7px;
 }

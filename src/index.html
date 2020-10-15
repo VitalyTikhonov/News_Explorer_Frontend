@@ -21,10 +21,10 @@
         <!-- <div class="header__bar root__child-width header__bar_white-on-black"> -->
         <h1 class="header__headline">NewsExplorer</h1>
 
-        <!-- закрыть меню 2 -->
-        <button class="header__menu-button button header__menu-button_open"></button>
-        <!-- открыть меню 2 -->
-        <!-- <button class="header__menu-button button header__menu-button_close"></button> -->
+        <!-- закрыть меню 2; закрыть попап 1 -->
+        <!-- <button class="header__menu-button button header__menu-button_open"></button> -->
+        <!-- открыть меню 2; открыть попап 1 -->
+        <button class="header__menu-button button header__menu-button_close"></button>
       </div>
 
       <!-- закрыть меню 3 -->
@@ -176,6 +176,42 @@
       </nav>
       <p class="footer__copyright-notice">&copy; 2020 Supersite, Powered by News API</p>
     </footer>
+
+    <!-- закрыть попап 2 -->
+    <!-- <div class="popup hidden"> -->
+      <!-- открыть попап 2 -->
+      <div class="popup">
+      <div class="popup__content root__child-width">
+        <h3 class="popup__title">Вход</h3>
+
+        <form class="popup__form" name="loginForm" novalidate>
+          <label class="popup__input-label" for="email">Email</label>
+
+          <input type="email" name="userEmail" id="email" class="popup__input" placeholder="Введите почту" required minlength="2"
+            maxlength="30">
+
+          <span class="popup__error" id="email-error"></span>
+          <!-- <span class="popup__error" id="email-error">Неправильный формат email</span> -->
+
+          <label class="popup__input-label" for="password">Пароль</label>
+
+          <input type="password" name="userPassword" id="password" class="popup__input" placeholder="Введите пароль" required>
+
+          <span class="popup__error" id="password-error"></span>
+          <!-- <span class="popup__error" id="password-error">Неправильный пароль</span> -->
+
+          <span class="popup__error" id="form-error"></span>
+          <!-- <span class="popup__error" id="form-error">Такой пользователь уже есть</span> -->
+
+          <!-- неактивная -->
+          <button type="submit" class="popup__button button button-rounded button-rounded_inactive-grey" disabled>Войти</button>
+          <!-- активная -->
+          <!-- <button type="submit" class="popup__button button button-rounded button-rounded_blue" disabled>Войти</button> -->
+
+          <p class="popup__signup-prompt">или <span class="popup__signup-prompt-link">зарегистрироваться</span></p>
+        </form>
+      </div>
+    </div>
   </div>
 </body>
 
