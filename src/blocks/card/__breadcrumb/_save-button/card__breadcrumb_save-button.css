@@ -1,6 +1,5 @@
-.card__breadcrumb_save-button {
+.card__breadcrumb.card__breadcrumb_save-button {
   background-image: url(../../../../images/save_flag.png);
   background-size: cover;
   background-repeat: no-repeat;
-  background-color: #FFFFFF;
 }

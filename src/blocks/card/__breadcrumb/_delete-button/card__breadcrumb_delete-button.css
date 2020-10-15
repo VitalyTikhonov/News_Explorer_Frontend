@@ -1,0 +1,5 @@
+.card__breadcrumb.card__breadcrumb_delete-button {
+  background-image: url(../../../../images/trashbin.png);
+  background-size: cover;
+  background-repeat: no-repeat;
+}

@@ -14,11 +14,11 @@
 
 <body>
   <div class="root">
-    <header class="header">
-      <div class="header__bar root__child-width">
+    <header class="header header_black-on-white">
+      <div class="header__bar root__child-width header__bar_black-on-white">
         <h1 class="header__headline">NewsExplorer</h1>
 
-        <button class="button header__menu-button header__menu-button_open"></button> <!-- header__menu-button_close -->
+        <button class="button header__menu-button header__menu-button_open-black-on-white"></button>
       </div>
 
       <nav class="header__menu menu root__child-width hidden" aria-labelledby="header-navigation">
@@ -34,23 +34,7 @@
       </nav>
     </header>
 
-    <main class="main">
-      <section class="search-panel root__child-width">
-        <h2 class="search-panel__headline">Что творится в мире?</h2>
-
-        <p class="search-panel__description">Находите самые свежие статьи на любую тему и сохраняйте в своём личном
-          кабинете.</p>
-
-        <form class="news-search-form">
-          <input type="text" class="news-search-form__bar" placeholder="Политика">
-
-          <button type="submit"
-            class="button news-search-form__button button-rounded button-rounded_blue">Искать</button>
-          <!-- button не используется -->
-        </form>
-      </section>
-
-      <section class="saved-news-intro root__child-width hidden">
+      <section class="saved-news-intro root__child-width">
         <h2 class="saved-news-intro__headline">Сохранённые статьи</h2>
 
         <h3 class="saved-news-intro__sub-headline">Грета, у Вас 5 сохранённых статей</h3>
@@ -59,17 +43,17 @@
             class="emphasized-text">Тайга</b> и <b class="emphasized-text">2-м другим</b></p>
       </section>
 
-      <section class="article-block root__child-width">
-        <h2 class="article-block__headline section-headline">Результаты поиска</h2>
+      <section class="article-block article-block_saved root__child-width">
+        <h2 class="article-block__headline section-headline invisible">Ваши статьи</h2>
 
         <div class="article-block__card-container">
           <article class="card">
             <div class="card__cover">
               <img src="<%=require('./images/image_07.png')%>" alt="Фото зарослей" class="card__image">
-              <button class="card__breadcrumb card__breadcrumb_keyword-button hidden">Природа</button>
+              <button class="card__breadcrumb card__breadcrumb_keyword-button">Природа</button>
               <div class="card__breadcrumb card__breadcrumb_tooltip hidden">Войдите, чтобы сохранять статьи</div>
               <!-- Убрать из сохранённых -->
-              <button class="card__breadcrumb card__breadcrumb_save-button"></button> <!-- card__delete -->
+              <button class="card__breadcrumb card__breadcrumb_delete-button"></button> <!-- card__delete -->
             </div>
 
             <div class="card__body">
@@ -87,10 +71,10 @@
           <article class="card">
             <div class="card__cover">
               <img src="<%=require('./images/image_07.png')%>" alt="Фото зарослей" class="card__image">
-              <button class="card__breadcrumb card__breadcrumb_keyword-button hidden">Природа</button>
+              <button class="card__breadcrumb card__breadcrumb_keyword-button">Природа</button>
               <div class="card__breadcrumb card__breadcrumb_tooltip hidden">Войдите, чтобы сохранять статьи</div>
               <!-- Убрать из сохранённых -->
-              <button class="card__breadcrumb card__breadcrumb_save-button"></button> <!-- card__delete -->
+              <button class="card__breadcrumb card__breadcrumb_delete-button"></button>
             </div>
 
             <div class="card__body">
@@ -108,10 +92,54 @@
           <article class="card">
             <div class="card__cover">
               <img src="<%=require('./images/image_07.png')%>" alt="Фото зарослей" class="card__image">
-              <button class="card__breadcrumb card__breadcrumb_keyword-button hidden">Природа</button>
+              <button class="card__breadcrumb card__breadcrumb_keyword-button">Природа</button>
               <div class="card__breadcrumb card__breadcrumb_tooltip hidden">Войдите, чтобы сохранять статьи</div>
               <!-- Убрать из сохранённых -->
-              <button class="card__breadcrumb card__breadcrumb_save-button"></button> <!-- card__delete -->
+              <button class="card__breadcrumb card__breadcrumb_delete-button"></button> <!-- card__delete -->
+            </div>
+
+            <div class="card__body">
+              <p class="card__date">2 августа 2019 г.</p>
+
+              <h3 class="card__headline">Национальное достояние – парки</h3>
+
+              <p class="card__text">В 2016 году Америка отмечала важный юбилей: сто лет назад здесь начала складываться
+                система национальных парков...</p>
+
+              <p class="card__source-name">Лента.ру</p>
+            </div>
+          </article>
+          </article>
+
+          <article class="card">
+            <div class="card__cover">
+              <img src="<%=require('./images/image_07.png')%>" alt="Фото зарослей" class="card__image">
+              <button class="card__breadcrumb card__breadcrumb_keyword-button">Природа</button>
+              <div class="card__breadcrumb card__breadcrumb_tooltip hidden">Войдите, чтобы сохранять статьи</div>
+              <!-- Убрать из сохранённых -->
+              <button class="card__breadcrumb card__breadcrumb_delete-button"></button> <!-- card__delete -->
+            </div>
+
+            <div class="card__body">
+              <p class="card__date">2 августа 2019 г.</p>
+
+              <h3 class="card__headline">Национальное достояние – парки</h3>
+
+              <p class="card__text">В 2016 году Америка отмечала важный юбилей: сто лет назад здесь начала складываться
+                система национальных парков...</p>
+
+              <p class="card__source-name">Лента.ру</p>
+            </div>
+          </article>
+          </article>
+
+          <article class="card">
+            <div class="card__cover">
+              <img src="<%=require('./images/image_07.png')%>" alt="Фото зарослей" class="card__image">
+              <button class="card__breadcrumb card__breadcrumb_keyword-button">Природа</button>
+              <div class="card__breadcrumb card__breadcrumb_tooltip hidden">Войдите, чтобы сохранять статьи</div>
+              <!-- Убрать из сохранённых -->
+              <button class="card__breadcrumb card__breadcrumb_delete-button"></button> <!-- card__delete -->
             </div>
 
             <div class="card__body">
@@ -127,22 +155,7 @@
           </article>
         </div>
 
-        <button class="button article-block__button button-rounded button-rounded_white">Показать еще</button>
-      </section>
-
-      <section class="user-profile root__child-width">
-        <img src="<%=require('./images/vitaliytikhonov.jpg')%>" alt="Аватар пользователя" class="user-profile__avatar">
-        <!-- Подставлять имя пользователя в alt? -->
-
-        <div class="user-profile__description">
-          <h3 class="user-profile__headline section-headline">Об авторе</h3>
-
-          <p class="user-profile__text">Это блок с описанием автора проекта. Здесь следует указать, как вас зовут, чем
-            вы занимаетесь, какими технологиями разработки владеете.</p>
-
-          <p class="user-profile__text">Также можно рассказать о процессе обучения в Практикуме, чему вы тут научились,
-            и чем можете помочь потенциальным заказчикам.</p>
-        </div>
+        <!-- <button class="button article-block__button button-rounded button-rounded_white">Показать еще</button> -->
       </section>
     </main>
 

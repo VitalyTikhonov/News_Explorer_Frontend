@@ -2,7 +2,7 @@
   "name": "news_explorer_frontend",
   "version": "0.0.1",
   "description": "Дипломный проект: бэкенд сайта для поиска новостей // Course final project: backend for a news search website",
-  "main": "./src/scripts/index.js",
+  "index": "./src/pages/index/index.js",
   "scripts": {
     "build": "rimraf dist && cross-env NODE_ENV=production webpack --mode production",
     "dev": "cross-env NODE_ENV=development webpack-dev-server --mode development --open --watch",

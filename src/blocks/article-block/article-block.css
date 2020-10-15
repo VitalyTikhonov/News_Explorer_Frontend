@@ -1,6 +1,7 @@
 @import url(./__headline/article-block__headline.css);
 @import url(./__card-container/article-block__card-container.css);
 @import url(./__button/article-block__button.css);
+@import url(./_saved/article-block_saved.css);
 
 .article-block {
   display: flex;
