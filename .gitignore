@@ -14,6 +14,7 @@ node_modules
 .idea
 .vscode
 src/images/PixelPerfect
+src/images/Non-optimized
 dist
 V_Tikhonov_Diploma_Frontend.*
 DevNotes*.*
