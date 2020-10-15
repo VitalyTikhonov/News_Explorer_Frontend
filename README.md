@@ -3,7 +3,6 @@
 ##### По-русски
 - [Описание](#Описание)
 - [Размещение](#Размещение)
-https://vitalytikhonov.github.io/News_Explorer_Frontend/
 - [Функционал проекта](#Функционал-проекта)
 - [Используемые технологии](#Используемые-технологии)
 - [Как воспользоваться проектом](#Как-воспользоваться-проектом)
@@ -18,6 +17,9 @@ https://vitalytikhonov.github.io/News_Explorer_Frontend/
 ##### Описание
 Версия 0.0.1
 ##### Размещение
+Проект опубликован:
+[на GitHub Pages](https://vitalytikhonov.github.io/News_Explorer_Frontend/)
+
 [Наверх :arrow_up:](#news-explorer-backend)
 ##### Функционал проекта
 [Наверх :arrow_up:](#news-explorer-backend)
