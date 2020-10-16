@@ -10,3 +10,16 @@
   line-height: 22px;
   color: #FFFFFF;
 }
+
+@media (min-width: 321px) and (max-width: 768px) {
+  .search-panel {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding-top: 104px;
+    padding-bottom: 48px;
+    padding-left: 20.83vw;
+    padding-right: 20.83vw;
+    background-image: url(../../images/georgia-de-lotz--UsJoNxLaNo-unsplash-768.png);
+  }
+}

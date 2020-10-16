@@ -3,5 +3,23 @@
   background: #FFFFFF;
   border: 1px solid #D1D2D6;
   border-radius: 100px;
+}
+
+.news-search-form__bar {
+  font-family: Roboto;
+  font-style: normal;
+  font-weight: normal;
+  font-size: 16px;
+  line-height: 22px;
+}
+
+.news-search-form__bar::placeholder {
   color: #B6BCBF;
+}
+
+@media (min-width: 321px) and (max-width: 768px) {
+  .news-search-form__bar {
+    min-width: 99.8%;
+    padding: 16px 1px 16px 24px;
+  }
 }

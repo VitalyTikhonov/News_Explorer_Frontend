@@ -1,7 +1,14 @@
 .root__child-width {
   margin: 0;
-  /* Можно заменить на проценты для production-режима */
-  width: 288px;
+  box-sizing: border-box;
   padding-left: 16px;
   padding-right: 16px;
+}
+
+@media (min-width: 321px) and (max-width: 768px) {
+  .root__child-width {
+    max-width: 100vw;
+    padding-left: 5.21vw;
+    padding-right: 5.21vw;
+  }
 }

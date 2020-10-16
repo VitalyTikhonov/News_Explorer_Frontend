@@ -9,7 +9,6 @@
   font-size: 16px;
   line-height: 22px;
   color: #1A1B22;
-
   /* background-color: #2A2C2F;
   -moz-osx-font-smoothing: grayscale;
   -webkit-font-smoothing: antialiased;
@@ -19,8 +18,14 @@
   /* text-rendering: optimizeLegibility; */
 }
 
+@media (min-width: 321px) and (max-width: 768px) {
+  .root {
+    max-width: 100vw;
+  }
+}
+
 /* СЛУЖЕБНАЯ ПОДСВЕТКА ОБЪЕКТОВ ТЕНЬЮ */
 
-/* * {
+* {
   box-shadow: 0 0 0 1px green;
-} */
+}

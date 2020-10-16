@@ -6,3 +6,12 @@
   font-size: 36px;
   line-height: 40px;
 }
+
+@media (min-width: 321px) and (max-width: 768px) {
+  .search-panel__headline {
+    margin: 0;
+    width: 50.13vw;
+    padding-left: 4px;
+    align-self: flex-start;
+  }
+}

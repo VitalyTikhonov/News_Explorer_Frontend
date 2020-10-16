@@ -1,9 +1,6 @@
-.hidden {
-  display: none;
-}
-
 @media (min-width: 321px) and (max-width: 768px) {
-  .header__menu.hidden {
+  .header__menu-options {
     display: flex;
+    flex-direction: row;
   }
 }
