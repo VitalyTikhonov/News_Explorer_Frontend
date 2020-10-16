@@ -1,0 +1,14 @@
+@import url(./_blue/button_blue.css);
+@import url(./_white/button_white.css);
+@import url(./_inactive-grey/button_inactive-grey.css);
+.button {
+  width: 100%;
+  padding-top: 16px;
+  padding-bottom: 16px;
+  font-family: Roboto;
+  font-style: normal;
+  font-weight: 500;
+  font-size: 18px;
+  line-height: 24px;
+  text-align: center;
+}

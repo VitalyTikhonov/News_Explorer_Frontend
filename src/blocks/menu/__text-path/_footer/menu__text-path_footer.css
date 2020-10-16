@@ -1,0 +1,11 @@
+.menu__text-path.menu__text-path_footer {
+  margin-bottom: 26px;
+  font-family: Roboto;
+  font-style: normal;
+  font-weight: 400;
+  font-size: 18px;
+}
+
+.menu__text-path.menu__text-path_footer:last-child {
+  margin-bottom: 0;
+}

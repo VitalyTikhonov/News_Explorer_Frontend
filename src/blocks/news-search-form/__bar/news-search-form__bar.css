@@ -19,7 +19,7 @@
 
 @media (min-width: 321px) and (max-width: 768px) {
   .news-search-form__bar {
-    min-width: 99.8%;
+    min-width: 94.8%;
     padding: 16px 1px 16px 24px;
   }
 }

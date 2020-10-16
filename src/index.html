@@ -22,9 +22,9 @@
         <h1 class="header__headline">NewsExplorer</h1>
 
         <!-- закрыть меню 2; закрыть попап 1 -->
-        <button class="header__menu-button button header__menu-button_open"></button>
+        <button class="header__menu-button header__menu-button_open"></button>
         <!-- открыть меню 2; открыть попап 1 -->
-        <!-- <button class="header__menu-button button header__menu-button_close"></button> -->
+        <!-- <button class="header__menu-button header__menu-button_close"></button> -->
       </div>
 
       <!-- закрыть меню 3 -->
@@ -34,9 +34,23 @@
         <h2 class="aria-labelledby-title" id="header-navigation">Основное меню</h2>
 
         <ul class="menu__text-options header__menu-options list">
-          <li class="menu__text-path menu__text-path_higher">Главная</li>
+          <!-- АКТИВНЫЙ ПУНКТ МЕНЮ -->
+          <li class="menu__text-path menu__text-path_header menu___text-path_current">Главная</li>
+          <!-- НЕАКТИВНЫЙ -->
+          <!-- <li class="menu__text-path menu__text-path_header">Главная</li> -->
 
-          <button class="button menu__auth-button button-rounded button-rounded_black">Авторизоваться</button>
+          <button class="menu__auth-button button">Авторизоваться</button>
+          <!-- <button class="menu__auth-button button hidden">Авторизоваться</button> -->
+
+          <!-- СКРЫТЫЙ ПУНКТ МЕНЮ -->
+          <li class="menu__text-path menu__text-path_header hidden">Сохранённые статьи</li>
+          <!-- АКТИВНЫЙ ПУНКТ МЕНЮ -->
+          <!-- <li class="menu__text-path menu__text-path_header menu___text-path_current">Сохранённые статьи</li> -->
+          <!-- НЕАКТИВНЫЙ -->
+          <!-- <li class="menu__text-path menu__text-path_header">Сохранённые статьи</li> -->
+
+          <button class="menu__auth-button button hidden">Грета >></button>
+          <!-- <button class="menu__auth-button button">Грета >></button> -->
         </ul>
       </nav>
     </header>
@@ -52,8 +66,8 @@
           <input type="text" class="news-search-form__bar" placeholder="Политика">
 
           <button type="submit"
-            class="button news-search-form__button button-rounded button-rounded_blue">Искать</button>
-          <!-- button не используется -->
+            class="news-search-form__button button button_blue">Искать</button>
+          <!-- не используется -->
         </form>
       </section>
 
@@ -122,7 +136,7 @@
           </article>
         </div>
 
-        <button class="button article-block__button button-rounded button-rounded_white">Показать ещё</button>
+        <button class="article-block__button button button_white">Показать ещё</button>
       </section>
 
       <section class="user-profile root__child-width">
@@ -146,11 +160,11 @@
         <h2 class="aria-labelledby-title" id="footer-navigation">Меню в нижней части страницы</h2>
 
         <ul class="menu__text-options list">
-          <li class="menu__text-path">
+          <li class="menu__text-path menu__text-path_footer">
             <a href="" class="menu__link">Главная</a>
           </li>
 
-          <li class="menu__text-path">
+          <li class="menu__text-path menu__text-path_footer">
             <a href="" class="menu__link">Яндекс.Практикум</a>
           </li>
         </ul>
@@ -199,9 +213,9 @@
           <!-- <span class="popup__error" id="form-error">Такой пользователь уже есть</span> -->
 
           <!-- неактивная -->
-          <button type="submit" class="popup__button button button-rounded button-rounded_inactive-grey" disabled>Войти</button>
+          <button type="submit" class="popup__button button button_inactive-grey" disabled>Войти</button>
           <!-- активная -->
-          <!-- <button type="submit" class="popup__button button button-rounded button-rounded_blue" disabled>Войти</button> -->
+          <!-- <button type="submit" class="popup__button button button_blue" disabled>Войти</button> -->
 
           <p class="popup__signup-prompt">или <span class="popup__signup-prompt-link">зарегистрироваться</span></p>
         </form>

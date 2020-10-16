@@ -3,7 +3,7 @@
 @import url(../../blocks/root/root.css);
 @import url(../../blocks/header/header.css);
 @import url(../../blocks/button/button.css);
-@import url(../../blocks/button-rounded/button-rounded.css);
+@import url(../../blocks/button/button.css);
 @import url(../../blocks/menu/menu.css);
 @import url(../../blocks/main/main.css);
 @import url(../../blocks/search-panel/search-panel.css);

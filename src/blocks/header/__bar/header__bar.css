@@ -16,5 +16,6 @@
   .header__bar {
     padding-top: 22.73px;
     padding-bottom: 18.47px;
+    box-shadow: none;
   }
 }
