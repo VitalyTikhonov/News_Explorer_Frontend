@@ -1,3 +1,12 @@
 .article-block__button {
   margin-top: 15px;
 }
+
+@media (min-width: 321px) and (max-width: 768px) {
+  .article-block__button {
+    align-self: center;
+    margin-top: 24px;
+    width: 240px;
+    padding-bottom: 16px;
+  }
+}

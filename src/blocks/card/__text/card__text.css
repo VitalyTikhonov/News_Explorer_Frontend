@@ -5,9 +5,9 @@
   font-weight: normal;
   font-size: 16px;
   line-height: 22px;
-  /* or 137% */
 }
 
+/* Для удобства сравнения в PixelPerfect */
 @media (min-width: 321px) and (max-width: 768px) {
   .card__text {
     display: -webkit-box;

@@ -5,3 +5,9 @@
 .user-profile__text:last-child {
   margin: 24px 0 0;
 }
+
+@media (min-width: 321px) and (max-width: 768px) {
+  .user-profile__text {
+    margin: 12px 0 0;
+  }
+}

@@ -5,3 +5,12 @@
   border-radius: 50%;
   align-self: center;
 }
+
+@media (min-width: 321px) and (max-width: 768px) {
+  .user-profile__avatar {
+    margin-top: 17px;
+    margin-right: 4.1vw;
+    width: 30.21vw;
+    height: 30.21vw;
+  }
+}

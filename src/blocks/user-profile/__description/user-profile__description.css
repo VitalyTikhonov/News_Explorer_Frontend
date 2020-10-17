@@ -6,3 +6,9 @@
   font-size: 18px;
   line-height: 24px;
 }
+
+@media (min-width: 321px) and (max-width: 768px) {
+  .user-profile__description {
+    margin: 0;
+  }
+}

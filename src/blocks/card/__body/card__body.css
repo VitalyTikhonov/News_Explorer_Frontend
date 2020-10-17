@@ -1,6 +1,5 @@
 .card__body {
   padding: 5.56%;
-  background: #FFFFFF;
 }
 
 @media (min-width: 321px) and (max-width: 768px) {

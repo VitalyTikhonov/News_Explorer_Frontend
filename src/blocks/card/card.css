@@ -10,6 +10,7 @@
 .card {
   border-radius: 16px/16px;
   overflow: hidden;
+  background: #FFFFFF;
 }
 
 @media (min-width: 321px) and (max-width: 768px) {
