@@ -8,6 +8,12 @@
 @import url(./__source-name/card__source-name.css);
 
 .card {
-  border-radius: 5% / 3%;
+  border-radius: 16px/16px;
   overflow: hidden;
+}
+
+@media (min-width: 321px) and (max-width: 768px) {
+  .card {
+    border-radius: 14px/14px;
+  }
 }

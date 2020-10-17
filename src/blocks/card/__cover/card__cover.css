@@ -3,3 +3,9 @@
   display: flex;
   z-index: 0;
 }
+
+@media (min-width: 321px) and (max-width: 768px) {
+  .card__cover {
+    height: 150px;
+  }
+}

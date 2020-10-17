@@ -13,3 +13,10 @@
   border: none;
   border-radius: 8px;
 }
+
+@media (min-width: 321px) and (max-width: 768px) {
+  .card__breadcrumb {
+    top: 5%;
+    right: 3%;
+  }
+}
