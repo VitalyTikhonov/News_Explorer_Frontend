@@ -17,9 +17,9 @@
   color: #B6BCBF;
 }
 
-@media (min-width: 321px) and (max-width: 768px) {
+@media (min-width: 450px) and (max-width: 768px) {
   .news-search-form__bar {
-    min-width: 94.8%;
+    min-width: 73%;
     padding: 16px 1px 16px 24px;
   }
 }

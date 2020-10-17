@@ -11,7 +11,7 @@
   /* display: none; */
 }
 
-@media (min-width: 321px) and (max-width: 768px) {
+@media (min-width: 450px) and (max-width: 768px) {
   .header__menu {
     margin-top: 0;
     padding-top: 0;

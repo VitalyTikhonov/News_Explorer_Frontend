@@ -10,7 +10,7 @@
   border: none;
 }
 
-@media (min-width: 321px) {
+@media (min-width: 450px) {
   .header__menu-button {
     display: none;
   }
