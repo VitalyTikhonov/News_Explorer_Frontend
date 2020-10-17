@@ -2,3 +2,8 @@
   display: flex;
   justify-content: space-between;
 }
+
+/* @media (min-width: 321px) and (max-width: 768px) {
+  .footer__menu {
+  }
+} */

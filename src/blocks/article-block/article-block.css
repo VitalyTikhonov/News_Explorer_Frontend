@@ -16,7 +16,5 @@
     max-width: 100vw;
     padding-top: 41px;
     padding-bottom: 41px;
-    grid-template-columns: repeat(3, 224px);
-    gap: 8px;
   }
 }

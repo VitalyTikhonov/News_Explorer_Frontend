@@ -5,14 +5,9 @@
   font-weight: normal;
   font-size: 16px;
   line-height: 22px;
-}
-
-/* Для удобства сравнения в PixelPerfect */
-@media (min-width: 321px) and (max-width: 768px) {
-  .card__text {
-    display: -webkit-box;
-    -webkit-box-orient: vertical;
-    -webkit-line-clamp: 4;
-    overflow: hidden;
-  }
+  /* Для удобства сравнения в PixelPerfect */
+  display: -webkit-box;
+  -webkit-box-orient: vertical;
+  -webkit-line-clamp: 4;
+  overflow: hidden;
 }

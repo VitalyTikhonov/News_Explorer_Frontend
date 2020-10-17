@@ -3,3 +3,10 @@
   padding: 0;
   list-style: none;
 }
+
+@media (min-width: 321px) and (max-width: 768px) {
+  .footer__menu-options.list {
+    margin-right: 10px;
+    align-items: center;
+  }
+}

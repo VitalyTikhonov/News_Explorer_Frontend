@@ -1,8 +1,20 @@
 @import url(./__menu/footer__menu.css);
+@import url(./__menu-options/footer__menu-options.css);
 @import url(./__copyright-notice/footer__copyright-notice.css);
 .footer {
   padding-top: 20px;
   padding-bottom: 40px;
   display: flex;
   flex-direction: column;
+}
+
+@media (min-width: 321px) and (max-width: 768px) {
+  .footer {
+    display: flex;
+    flex-direction: row-reverse;
+    justify-content: space-between;
+    align-items: center;
+    padding-top: 27px;
+    padding-bottom: 16px;
+  }
 }

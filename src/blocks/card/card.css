@@ -6,14 +6,25 @@
 @import url(./__headline/card__headline.css);
 @import url(./__text/card__text.css);
 @import url(./__source-name/card__source-name.css);
-
 .card {
   border-radius: 16px/16px;
   overflow: hidden;
   background: #FFFFFF;
 }
 
-@media (min-width: 321px) and (max-width: 768px) {
+@media (min-width: 321px) and (max-width: 767px) {
+  .card {
+    border-radius: 14px/14px;
+  }
+  .card:nth-child(odd) {
+    justify-self: end;
+  }
+  .card:nth-child(odd) {
+    justify-self: start;
+  }
+}
+
+@media (max-width: 768px) {
   .card {
     border-radius: 14px/14px;
   }

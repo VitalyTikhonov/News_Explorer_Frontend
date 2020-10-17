@@ -5,7 +5,7 @@
 @media (min-width: 321px) and (max-width: 768px) {
   .article-block__button {
     align-self: center;
-    margin-top: 24px;
+    margin-top: 32px;
     width: 240px;
     padding-bottom: 16px;
   }

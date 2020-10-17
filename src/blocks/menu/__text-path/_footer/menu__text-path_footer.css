@@ -9,3 +9,14 @@
 .menu__text-path.menu__text-path_footer:last-child {
   margin-bottom: 0;
 }
+
+@media (min-width: 321px) and (max-width: 768px) {
+  .menu__text-path.menu__text-path_footer {
+    margin-right: 2.34vw;
+    margin-bottom: 0;
+  }
+
+  .menu__text-path.menu__text-path_footer:last-child {
+    margin-right: 3vw;
+  }
+}
