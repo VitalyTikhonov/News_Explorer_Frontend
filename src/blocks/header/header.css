@@ -1,9 +1,9 @@
 @import url(./__bar/header__bar.css);
 @import url(./__headline/header__headline.css);
-@import url(./__menu-button/header__menu-button.css);
 @import url(./__menu/header__menu.css);
-@import url(./_black-on-white/header_black-on-white.css);
 @import url(./__menu-options/header__menu-options.css);
+@import url(./__menu-button/header__menu-button.css);
+@import url(./_black-on-white/header_black-on-white.css);
 .header {
   position: fixed;
   top: 0;

@@ -1,2 +1,5 @@
-/* .header.header_black-on-white {
-} */
+@media (min-width: 450px) and (max-width: 768px) {
+  .header.header_black-on-white {
+    box-shadow: inset 0px -1px 0px #D1D2D6;
+  }
+}

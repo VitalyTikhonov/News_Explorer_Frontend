@@ -14,7 +14,7 @@
 
 <body>
   <div class="root">
-    <header class="header">
+    <header class="header header_black-on-white">
       <!-- закрыть меню 1 -->
       <div class="header__bar root__child-width header__bar_black-on-white">
         <!-- открыть меню 1 -->
@@ -22,9 +22,9 @@
         <h1 class="header__headline">NewsExplorer</h1>
 
         <!-- закрыть меню 2 -->
-        <button class="header__menu-button button header__menu-button_open-black-on-white"></button>
+        <button class="header__menu-button header__menu-button_open-black-on-white"></button>
         <!-- открыть меню 2 -->
-        <!-- <button class="header__menu-button button header__menu-button_close"></button> -->
+        <!-- <button class="header__menu-button header__menu-button_close"></button> -->
       </div>
 
       <!-- закрыть меню 3 -->
@@ -33,17 +33,21 @@
         <!-- <nav class="header__menu menu root__child-width" aria-labelledby="header-navigation"> -->
         <h2 class="aria-labelledby-title" id="header-navigation">Основное меню</h2>
 
-        <ul class="menu__text-options list">
-          <li class="menu__text-path menu__text-path_higher">Главная</li>
+        <ul class="menu__text-options header__menu-options list">
+          <!-- АКТИВНЫЙ ПУНКТ МЕНЮ -->
+          <li class="menu__text-path menu__text-path_header menu___text-path_current">Главная</li>
+          <!-- НЕАКТИВНЫЙ -->
+          <!-- <li class="menu__text-path menu__text-path_header">Главная</li> -->
 
-          <li class="menu__text-path menu__text-path_higher">Сохранённые статьи</li>
+          <li class="menu__text-path menu__text-path_header">Сохранённые статьи</li>
 
           <!-- Нет в макете -->
-          <!-- <button class="menu__auth-button button button_black">Выйти</button> -->
+          <button class="menu__auth-button button button_black">Грета >></button>
         </ul>
       </nav>
     </header>
 
+    <main class="main">
     <section class="saved-news-intro root__child-width">
       <h2 class="saved-news-intro__headline">Сохранённые статьи</h2>
 
@@ -62,7 +66,7 @@
             <img src="<%=require('./images/image_07.png')%>" alt="Фото зарослей" class="card__image">
             <button class="card__breadcrumb card__breadcrumb_keyword-button">Природа</button>
             <div class="card__breadcrumb card__breadcrumb_tooltip hidden">Убрать из сохранённых</div>
-            <button class="card__breadcrumb card__breadcrumb_delete-button"></button> <!-- card__delete -->
+            <button class="card__breadcrumb card__breadcrumb_delete-button"></button>
           </div>
 
           <div class="card__body">
@@ -102,7 +106,7 @@
             <img src="<%=require('./images/image_07.png')%>" alt="Фото зарослей" class="card__image">
             <button class="card__breadcrumb card__breadcrumb_keyword-button">Природа</button>
             <div class="card__breadcrumb card__breadcrumb_tooltip hidden">Убрать из сохранённых</div>
-            <button class="card__breadcrumb card__breadcrumb_delete-button"></button> <!-- card__delete -->
+            <button class="card__breadcrumb card__breadcrumb_delete-button"></button>
           </div>
 
           <div class="card__body">
@@ -116,14 +120,13 @@
             <p class="card__source-name">Лента.ру</p>
           </div>
         </article>
-        </article>
 
         <article class="card">
           <div class="card__cover">
             <img src="<%=require('./images/image_07.png')%>" alt="Фото зарослей" class="card__image">
             <button class="card__breadcrumb card__breadcrumb_keyword-button">Природа</button>
             <div class="card__breadcrumb card__breadcrumb_tooltip hidden">Убрать из сохранённых</div>
-            <button class="card__breadcrumb card__breadcrumb_delete-button"></button> <!-- card__delete -->
+            <button class="card__breadcrumb card__breadcrumb_delete-button"></button>
           </div>
 
           <div class="card__body">
@@ -137,14 +140,13 @@
             <p class="card__source-name">Лента.ру</p>
           </div>
         </article>
-        </article>
 
         <article class="card">
           <div class="card__cover">
             <img src="<%=require('./images/image_07.png')%>" alt="Фото зарослей" class="card__image">
             <button class="card__breadcrumb card__breadcrumb_keyword-button">Природа</button>
             <div class="card__breadcrumb card__breadcrumb_tooltip hidden">Убрать из сохранённых</div>
-            <button class="card__breadcrumb card__breadcrumb_delete-button"></button> <!-- card__delete -->
+            <button class="card__breadcrumb card__breadcrumb_delete-button"></button>
           </div>
 
           <div class="card__body">
@@ -160,7 +162,7 @@
         </article>
       </div>
 
-      <!-- <button class="article-block__button button button_white">Показать еще</button> -->
+      <!-- <button class="article-block__button button button_white">Показать ещё</button> -->
     </section>
     </main>
 
@@ -168,12 +170,12 @@
       <nav class="menu footer__menu" aria-labelledby="footer-navigation">
         <h2 class="aria-labelledby-title" id="footer-navigation">Меню в нижней части страницы</h2>
 
-        <ul class="menu__text-options list">
-          <li class="menu__text-path">
+        <ul class="menu__text-options footer__menu-options list">
+          <li class="menu__text-path menu__text-path_footer">
             <a href="" class="menu__link">Главная</a>
           </li>
 
-          <li class="menu__text-path">
+          <li class="menu__text-path menu__text-path_footer">
             <a href="" class="menu__link">Яндекс.Практикум</a>
           </li>
         </ul>
