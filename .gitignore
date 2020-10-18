@@ -16,8 +16,4 @@ node_modules
 src/images/PixelPerfect
 src/images/Non-optimized
 dist
-V_Tikhonov_Diploma_Frontend.*
-DevNotes*.*
-.env
-.envOFF
-Diploma_Frontend*
+Dev_Aux_Files

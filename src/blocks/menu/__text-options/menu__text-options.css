@@ -1,4 +1,4 @@
-@media (min-width: 450px) and (max-width: 768px) {
+@media (min-width: 510px) and (max-width: 768px) {
   .menu__text-options {
     display: flex;
     flex-direction: row;
