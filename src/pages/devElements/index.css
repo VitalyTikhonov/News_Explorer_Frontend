@@ -1,14 +1,16 @@
 @import url(../../vendor/normalize.css);
 @import url(../../vendor/fonts.css);
 .body {
-  width: 1000px;
-  height: 5000px;
-  border: 3px solid #E5E5E4;
   background-color: #1A1B22;
 }
 
+.column-container {
+  display: flex;
+  flex-direction: row;
+}
+
 .container {
-  width: 300px;
+  width: 200px;
   border: 1px solid green;
   padding: 5px;
 }
@@ -114,16 +116,14 @@ button__icon_logout-white
 button__icon_logout-black
 */
 
-
 .button__rounded {
   /* outer */
-  width: 100%;
   /* inner */
   box-sizing: border-box;
   padding-top: 15px;
   padding-bottom: 15px;
-  padding-left: 5px;
-  padding-right: 5px;
+  padding-left: 15px;
+  padding-right: 15px;
   /* font */
   font-family: Roboto;
   font-style: normal;
@@ -139,6 +139,7 @@ button__icon_logout-black
   background: #FFFFFF;
   color: #1A1B22;
   border-radius: 80px;
+  border: none;
 }
 
 .button__rounded_white:hover {
@@ -219,10 +220,14 @@ button__icon_logout-black
   justify-content: center;
 }
 
+.button__rounded_size_parent {
+  width: 100%;
+}
+
 .button__icon {
   width: 24px;
   height: 24px;
-  margin: auto 0;
+  margin: auto 0 auto 5px;
   display: inline-block;
   background-size: cover;
   background-repeat: no-repeat;
