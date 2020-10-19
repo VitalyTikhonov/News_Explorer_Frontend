@@ -1,24 +1,23 @@
-@import url(./_black-on-white/header__bar_black-on-white.css);
-@import url(./_white-on-black/header__bar_white-on-black.css);
+@import url(./_thicker-border/header__bar_thicker-border.css);
 .header__bar {
+  /* scheme */
+  display: flex;
+  flex-direction: row;
+  box-shadow: inset 0px -1px 0px rgba(255, 255, 255, 0.2);
+  /* end of scheme */
   max-width: 100%;
   z-index: 2;
   box-sizing: border-box;
-  display: flex;
-  flex-direction: row;
   justify-content: space-between;
   padding-top: 16px;
   padding-bottom: 16px;
-  color: #FFFFFF;
-  box-shadow: inset 0px -1px 0px rgba(255, 255, 255, 0.2);
 }
 
 @media (min-width: 450px) and (max-width: 768px) {
   .header__bar {
+    box-shadow: inset 0px -1px 0px #D1D2D6;
+    /* end of scheme */
     padding-top: 22.73px;
     padding-bottom: 18.47px;
-    box-shadow: none;
-    color: #FFFFFF;
-    background-color: #1A1B22;
   }
 }

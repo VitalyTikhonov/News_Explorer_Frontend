@@ -1,0 +1,5 @@
+@media (max-width: 449px) {
+  .header__menu-button.header__menu-button_cross-white {
+    background-image: url(../../../../images/close_white.png);
+  }
+}

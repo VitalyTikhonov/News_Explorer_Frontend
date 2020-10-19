@@ -1,23 +1,24 @@
-@import url(./_black-on-white/header__menu_black-on-white.css);
+@import url(./_show/header__menu_show.css);
+@import url(./_thicker-border/header__menu_thicker-border.css);
+@import url(./_thinner-border/header__menu_thinner-border.css);
 .header__menu {
+  display: none;
+  box-shadow: none;
+  /* end of scheme */
   box-sizing: border-box;
-  display: flex;
-  flex-direction: column;
   margin-top: -56px;
   padding-top: 88px;
   padding-bottom: 24px;
   z-index: 1;
-  /* background-color: #1A1B22; */
-  color: #FFFFFF;
-  /* display: none; */
 }
 
 @media (min-width: 450px) and (max-width: 768px) {
   .header__menu {
+    display: flex;
+    flex-direction: row;
+    /* end of scheme */
     margin-top: 0;
     padding-top: 0;
     padding-bottom: 0;
-    flex-direction: row;
-    background-color: transparent;
   }
 }

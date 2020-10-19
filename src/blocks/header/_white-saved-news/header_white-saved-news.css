@@ -1,0 +1,16 @@
+@media (max-width: 449px) {
+  .header.header_white-saved-news {
+    background: #1A1B22;
+    color: #FFFFFF;
+    /* end of scheme */
+  }
+}
+
+@media (min-width: 450px) {
+  .header.header_white-saved-news {
+    /* scheme */
+    background: #FFFFFF;
+    color: #1A1B22;
+    /* end of scheme */
+  }
+}

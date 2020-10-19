@@ -1,5 +1,6 @@
-@media (min-width: 450px) and (max-width: 768px) {
-  .header.header_black-on-white {
-    box-shadow: inset 0px -1px 0px #D1D2D6;
-  }
+.header.header_black-on-white {
+  /* scheme */
+  background: #FFFFFF;
+  color: #1A1B22;
+  /* end of scheme */
 }

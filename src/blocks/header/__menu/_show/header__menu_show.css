@@ -1,0 +1,7 @@
+@media (max-width: 449px) {
+  .header__menu.header__menu_show {
+    display: flex;
+    flex-direction: column;
+    /* end of scheme */
+  }
+}
