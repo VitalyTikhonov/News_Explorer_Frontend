@@ -1,0 +1,128 @@
+@import url(../../vendor/normalize.css);
+@import url(../../vendor/fonts.css);
+.body {
+  width: 1000px;
+  height: 5000px;
+  border: 3px solid #E5E5E4;
+  background-color: #1A1B22;
+}
+
+.container {
+  width: 300px;
+  border: 1px solid green;
+  padding: 5px;
+}
+
+.container_light {
+  background-color: #FFFFFF;
+}
+
+/* .container_dark {
+} */
+
+.aux {
+  margin-top: 5px;
+}
+
+/* .button {} */
+
+.button_rounded {
+  /* outer */
+  width: 100%;
+  /* inner */
+  box-sizing: border-box;
+  padding-top: 15px;
+  padding-bottom: 15px;
+  padding-left: 5px;
+  padding-right: 5px;
+  /* font */
+  font-family: Roboto;
+  font-style: normal;
+  font-weight: 500;
+  font-size: 18px;
+  line-height: 24px;
+  letter-spacing: 0px;
+}
+
+.button_rounded-white {
+  /* outer */
+  /* inner */
+  background: #FFFFFF;
+  color: #1A1B22;
+  border-radius: 80px;
+  border: none;
+}
+
+.button_rounded-white:hover {
+  /* outer */
+  /* inner */
+  opacity: .9;
+}
+
+.button_rounded-blue {
+  /* outer */
+  /* inner */
+  background: #2F71E5;
+  color: #FFFFFF;
+  border-radius: 100px;
+  border: none;
+  box-shadow: 0px 5px 15px rgba(14, 26, 57, 0.2);
+}
+
+.button_rounded-blue:hover {
+  /* outer */
+  /* inner */
+  background: #347EFF;
+}
+
+.button_rounded-black-outline-white {
+  /* outer */
+  /* inner */
+  background: #1A1B22;
+  color: #FFFFFF;
+  border-radius: 100px;
+  border: 1px solid #FFFFFF;
+}
+
+.button_rounded-black-outline-white:hover {
+  /* outer */
+  /* inner */
+  opacity: .5;
+}
+
+.button_rounded-white-outline-grey {
+  /* outer */
+  /* inner */
+  background: #FFFFFF;
+  color: #1A1B22;
+  border-radius: 100px;
+  border: 1px solid #D1D2D6;
+}
+
+.button_rounded-white-outline-grey:hover {
+  /* outer */
+  /* inner */
+  opacity: .9;
+}
+
+.button_with-icon {
+  display: flex;
+  justify-content: center;
+}
+
+.button__icon {
+  width: 24px;
+  height: 24px;
+  margin: auto 0;
+  display: inline-block;
+  background-size: contain;
+  background-repeat: no-repeat;
+}
+
+.button__icon_logout-white {
+  background-image: url(../../images/logout_white.png);
+}
+
+.button__icon_logout-black {
+  background-image: url(../../images/logout_black.png);
+}
