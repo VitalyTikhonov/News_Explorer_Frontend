@@ -3,6 +3,7 @@
 @import url(./__menu/header__menu.css);
 @import url(./__menu-options/header__menu-options.css);
 @import url(./__menu-button/header__menu-button.css);
+@import url(./_thicker-border/header_thicker-border.css);
 @import url(./_black-on-white/header_black-on-white.css);
 @import url(./_white-index/header_white-index.css);
 @import url(./_white-saved-news/header_white-saved-news.css);
@@ -24,6 +25,7 @@
 @media (min-width: 450px) and (max-width: 768px) {
   .header {
     flex-direction: row;
+    box-shadow: inset 0px -1px 0px rgba(255, 255, 255, 0.2);
     /* end of scheme */
   }
 }

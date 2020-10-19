@@ -1,6 +1,6 @@
-@media (min-width: 450px) and (max-width: 768px) {
+/* @media (min-width: 450px) and (max-width: 768px) {
   .header__menu.header__menu_thinner-border {
+    box-shadow: none;
     box-shadow: inset 0px -1px 0px rgba(255, 255, 255, 0.2);
-    /* end of scheme */
   }
-}
+} */

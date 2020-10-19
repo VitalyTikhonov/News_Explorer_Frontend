@@ -15,7 +15,7 @@
 
 @media (min-width: 450px) and (max-width: 768px) {
   .header__bar {
-    box-shadow: inset 0px -1px 0px #D1D2D6;
+    box-shadow: none;
     /* end of scheme */
     padding-top: 22.73px;
     padding-bottom: 18.47px;
