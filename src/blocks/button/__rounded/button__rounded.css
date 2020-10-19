@@ -1,0 +1,24 @@
+@import url(./_white/button__rounded_white.css);
+@import url(./_blue/button__rounded_blue.css);
+@import url(./_blue-inactive/button__rounded_blue-inactive.css);
+@import url(./_black-outline-white/button__rounded_black-outline-white.css);
+@import url(./_transparent-outline-white/button__rounded_transparent-outline-white.css);
+@import url(./_white-outline-grey/button__rounded_white-outline-grey.css);
+@import url(./_with-icon/button__rounded_with-icon.css);
+@import url(./_size_parent/button__rounded_size_parent.css);
+.button__rounded {
+  /* outer */
+  /* inner */
+  box-sizing: border-box;
+  padding-top: 15px;
+  padding-bottom: 15px;
+  padding-left: 15px;
+  padding-right: 15px;
+  /* font */
+  font-family: Roboto;
+  font-style: normal;
+  font-weight: 500;
+  font-size: 18px;
+  line-height: 24px;
+  letter-spacing: 0px;
+}

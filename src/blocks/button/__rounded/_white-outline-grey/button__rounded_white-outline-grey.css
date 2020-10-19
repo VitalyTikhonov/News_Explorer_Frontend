@@ -1,0 +1,12 @@
+.button__rounded_white-outline-grey {
+  /* outer */
+  /* inner */
+  background: #FFFFFF;
+  color: #1A1B22;
+  border-radius: 100px;
+  border: 1px solid #D1D2D6;
+}
+
+.button__rounded_white-outline-grey:hover {
+  background-color: rgba(27, 28, 35, 0.08);
+}

@@ -1,0 +1,10 @@
+@import url(./_logout-white/button__icon_logout-white.css);
+@import url(./_logout-black/button__icon_logout-black.css);
+.button__icon {
+  width: 24px;
+  height: 24px;
+  margin: auto 0 auto 5px;
+  display: inline-block;
+  background-size: cover;
+  background-repeat: no-repeat;
+}

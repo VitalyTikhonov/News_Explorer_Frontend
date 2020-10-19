@@ -1,0 +1,12 @@
+.button__rounded_white {
+  /* outer */
+  /* inner */
+  background: #FFFFFF;
+  color: #1A1B22;
+  border-radius: 80px;
+  border: none;
+}
+
+.button__rounded_white:hover {
+  opacity: .9;
+}

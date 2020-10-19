@@ -1,0 +1,8 @@
+
+.button__breadcrumb_icon-trashbin {
+  background-image: url(../../src/images/trashbin_grey.png);
+}
+
+.button__breadcrumb_icon-trashbin:hover {
+  background-image: url(../../src/images/trashbin_black.png);
+}

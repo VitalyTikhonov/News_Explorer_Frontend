@@ -13,7 +13,6 @@ module.exports = {
   entry: {
     index: './src/pages/index/index.js',
     'saved-news': './src/pages/saved-news/index.js',
-    devElements: './src/pages/devElements/index.js',
   },
   output: {
     path: path.resolve(__dirname, 'dist'),
@@ -100,14 +99,9 @@ module.exports = {
       chunks: ['index'],
     }),
     new HtmlWebpackPlugin({
-      filename: 'saved-news.html',
-      template: './src/saved-news.html',
+      filename: 'index.html',
+      template: './src/saved-news/index.html',
       chunks: ['saved-news'],
-    }),
-    new HtmlWebpackPlugin({
-      filename: 'devElements.html',
-      template: './src/devElements.html',
-      chunks: ['devElements'],
     }),
     new MiniCssExtractPlugin({
       filename: 'pages/[name]/[name].[contenthash].css',
