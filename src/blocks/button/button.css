@@ -1,5 +1,6 @@
 @import url(./_blue/button_blue.css);
 @import url(./_white/button_white.css);
+@import url(./_outlined/button_outlined.css);
 @import url(./_inactive-grey/button_inactive-grey.css);
 .button {
   width: 100%;

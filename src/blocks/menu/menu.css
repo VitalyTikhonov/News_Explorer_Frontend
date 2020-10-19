@@ -1,7 +1,8 @@
+@import url(./__button/menu__button.css);
+@import url(./__button-logout/menu__button-logout.css);
+@import url(./__icon/menu__icon.css);
+@import url(./__icon-options/menu__icon-options.css);
+@import url(./__icon-path/menu__icon-path.css);
+@import url(./__link/menu__link.css);
 @import url(./__text-options/menu__text-options.css);
 @import url(./__text-path/menu__text-path.css);
-@import url(./__icon-path/menu__icon-path.css);
-@import url(./__auth-button/menu__auth-button.css);
-@import url(./__icon-options/menu__icon-options.css);
-@import url(./__link/menu__link.css);
-@import url(./__icon/menu__icon.css);
