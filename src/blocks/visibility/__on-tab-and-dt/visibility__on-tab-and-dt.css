@@ -1,0 +1,5 @@
+@media (max-width: 449px) {
+  .visibility__on-tab-and-dt {
+    display: none;
+  }
+}

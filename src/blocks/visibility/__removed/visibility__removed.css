@@ -1,10 +1,10 @@
-.hidden {
+.visibility__removed {
   display: none;
 }
 
 /* предполагаю при написании JS заменить на манипуляцию с самим свойством display */
 @media (min-width: 450px) and (max-width: 768px) {
-  .header__menu.hidden {
+  .header__menu.visibility__removed {
     display: flex;
   }
 }

@@ -14,23 +14,23 @@
 
 <body>
   <div class="root">
-    <!-- <header class="header header_black-on-white header_thicker-border"> -->
-    <!-- МЕНЮ – ШАГ 1 из 4: ᐃᐃᐃ закрыто или не скрывается – открыто ᐁᐁᐁ -->
-    <header class="header header_white-saved-news header_thicker-border">
-      <!-- <div class="header__bar root__child-width header__bar_thicker-border"> -->
-      <!-- МЕНЮ – ШАГ 2 из 4: ᐃᐃᐃ закрыто или не скрывается – открыто ᐁᐁᐁ -->
-      <div class="header__bar root__child-width">
+    <header class="header header_black-on-white header_thicker-border">
+    <!-- МЕНЮ – ШАГ 1 из 5: ᐃᐃᐃ закрыто или не скрывается – открыто ᐁᐁᐁ -->
+    <!-- <header class="header header_white-saved-news header_thicker-border"> -->
+      <div class="header__bar root__child-width header__bar_thicker-border">
+      <!-- МЕНЮ – ШАГ 2 из 5: ᐃᐃᐃ закрыто или не скрывается – открыто ᐁᐁᐁ -->
+      <!-- <div class="header__bar root__child-width"> -->
         <h1 class="header__headline">NewsExplorer</h1>
 
-        <!-- <button class="button button__modal button__modal_burger-black button_hover-on-white"></button> -->
-        <!-- МЕНЮ – ШАГ 3 из 4: ᐃᐃᐃ закрыто или не скрывается – открыто ᐁᐁᐁ -->
-        <button
-          class="header__menu-button button button__modal button__modal_cross-white button_hover-on-black"></button>
+        <button class="button button__modal button__modal_burger-black button_hover-on-white"></button>
+        <!-- МЕНЮ – ШАГ 3 из 5: ᐃᐃᐃ закрыто или не скрывается – открыто ᐁᐁᐁ -->
+        <!-- <button
+          class="header__menu-button button button__modal button__modal_cross-white button_hover-on-black"></button> -->
       </div>
 
-      <!-- <nav class="header__menu menu root__child-width header__menu_thicker-border" aria-labelledby="header-navigation"> -->
+      <nav class="header__menu menu root__child-width header__menu_thicker-border" aria-labelledby="header-navigation">
       <!-- МЕНЮ – ШАГ 4 из 5: ᐃᐃᐃ закрыто или не скрывается – открыто ᐁᐁᐁ -->
-      <nav class="header__menu menu root__child-width header__menu_show" aria-labelledby="header-navigation">
+      <!-- <nav class="header__menu menu root__child-width header__menu_show" aria-labelledby="header-navigation"> -->
         <h2 class="aria-labelledby-title" id="header-navigation">Основное меню</h2>
 
         <ul class="menu__text-options header__menu-options list">
@@ -41,13 +41,13 @@
           <li class="menu__text-path menu__text-path_header menu___text-path_current-black-on-white">Сохранённые статьи
           </li>
 
-          <!-- СДЕЛАТЬ КЛАССЫ visible_on-mobile и visible_on-tablet-and-desktop -->
-          <!-- <button
-            class="menu__button button button__rounded button__rounded_white-outline-grey button_hover-on-white button__rounded_with-icon">Грета<span
-              class="button__icon button__icon_logout-black"></span></button> -->
-          <!-- МЕНЮ – ШАГ 5 из 5: ᐃᐃᐃ закрыто или не скрывается – открыто ᐁᐁᐁ -->
+          <!-- visibility__on-mob visibility__on-tab-and-dt -->
           <button
-            class="menu__button button button__rounded button__rounded_size_parent button__rounded_black-outline-white button_hover-on-black button__rounded_with-icon">Грета<span
+            class="menu__button visibility__on-tab-and-dt button button__rounded button__rounded_white-outline-grey button_hover-on-white button__rounded_with-icon">Грета<span
+              class="button__icon button__icon_logout-black"></span></button>
+          <!-- ᐃᐃᐃ с JS заменить на манипуляцию модификатором? ᐁᐁᐁ -->
+          <button
+            class="menu__button visibility__on-mob button button__rounded button__rounded_size_parent button__rounded_black-outline-white button_hover-on-black button__rounded_with-icon">Грета<span
               class="button__icon button__icon_logout-white"></span></button>
         </ul>
       </nav>
@@ -64,16 +64,16 @@
       </section>
 
       <section class="article-block article-block_saved root__child-width">
-        <h2 class="article-block__headline section-headline invisible">Ваши статьи</h2>
+        <h2 class="article-block__headline section-headline visibility__visibility__removed">Ваши статьи</h2>
 
         <div class="article-block__card-container">
           <article class="card">
             <div class="card__cover">
               <img src="<%=require('./images/image_07.png')%>" alt="Фото зарослей" class="card__image">
               <button
-                class="card__breadcrumb_keyword-button hidden button button__breadcrumb button__breadcrumb_labelled button__breadcrumb_labelled-keyword">Природа</button>
+                class="card__breadcrumb_keyword-button visibility__removed button button__breadcrumb button__breadcrumb_labelled button__breadcrumb_labelled-keyword">Природа</button>
               <button
-                class="card__breadcrumb hidden card__breadcrumb_tooltip button button__breadcrumb button__breadcrumb_labelled button__breadcrumb_labelled-tooltip">Войдите,
+                class="card__breadcrumb visibility__removed card__breadcrumb_tooltip button button__breadcrumb button__breadcrumb_labelled button__breadcrumb_labelled-tooltip">Войдите,
                 чтобы сохранять статьи</button>
               <button
                 class="card__breadcrumb card__breadcrumb_delete-button button button__breadcrumb button__breadcrumb_icon button__breadcrumb_icon-trashbin"></button>
@@ -94,7 +94,7 @@
         </div>
 
         <button
-          class="article-block__button hidden button button__rounded button__rounded_white button_hover-on-black">Показать
+          class="article-block__button visibility__removed button button__rounded button__rounded_white button_hover-on-black">Показать
           ещё</button>
       </section>
     </main>
