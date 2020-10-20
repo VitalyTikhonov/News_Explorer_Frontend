@@ -8,10 +8,6 @@
   z-index: 1;
   top: 7.56%;
   right: 5.56%;
-  min-width: 40px;
-  min-height: 40px;
-  border: none;
-  border-radius: 8px;
 }
 
 @media (min-width: 321px) and (max-width: 768px) {

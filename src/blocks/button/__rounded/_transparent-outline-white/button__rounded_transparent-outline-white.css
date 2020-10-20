@@ -6,7 +6,3 @@
   border-radius: 100px;
   border: 1px solid #FFFFFF;
 }
-
-.button__rounded_transparent-outline-white:hover {
-  opacity: .5;
-}

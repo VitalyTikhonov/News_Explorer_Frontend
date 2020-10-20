@@ -1,0 +1,6 @@
+/* .button__rounded_black-outline-white { */
+/* .button__rounded_transparent-outline-white { */
+/* .button__rounded_white */
+.button_hover-on-black:hover {
+  opacity: .5;
+}
