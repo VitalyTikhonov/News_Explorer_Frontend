@@ -100,7 +100,7 @@ module.exports = {
     }),
     new HtmlWebpackPlugin({
       filename: 'index.html',
-      template: './src/saved-news/index.html',
+      template: './src/pages/saved-news/index.html',
       chunks: ['saved-news'],
     }),
     new MiniCssExtractPlugin({

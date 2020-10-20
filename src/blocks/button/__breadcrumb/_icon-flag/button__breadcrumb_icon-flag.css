@@ -1,8 +1,8 @@
 
 .button__breadcrumb_icon-flag {
-  background-image: url(../../src/images/save_flag_grey.png);
+  background-image: url(../../../../images/save_flag_grey.png);
 }
 
 .button__breadcrumb_icon-flag:hover {
-  background-image: url(../../src/images/save_flag_black.png);
+  background-image: url(../../../../images/save_flag_black.png);
 }
