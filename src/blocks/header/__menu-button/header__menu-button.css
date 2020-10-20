@@ -1,6 +1,3 @@
-@import url(./_burger-black/header__menu-button_burger-black.css);
-@import url(./_burger-white/header__menu-button_burger-white.css);
-@import url(./_cross-white/header__menu-button_cross-white.css);
 .header__menu-button {
   width: 24px;
   height: 24px;

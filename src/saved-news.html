@@ -14,158 +14,89 @@
 
 <body>
   <div class="root">
-    <!-- меню закрыто или не скрывается 1 -->
     <!-- <header class="header header_black-on-white header_thicker-border"> -->
-      <!-- меню открыто 1 -->
+    <!-- МЕНЮ – ШАГ 1 из 4: ᐃᐃᐃ закрыто или не скрывается – открыто ᐁᐁᐁ -->
     <header class="header header_white-saved-news header_thicker-border">
-      <!-- меню закрыто или не скрывается 2 -->
       <!-- <div class="header__bar root__child-width header__bar_thicker-border"> -->
-      <!-- меню открыто 2 -->
+      <!-- МЕНЮ – ШАГ 2 из 4: ᐃᐃᐃ закрыто или не скрывается – открыто ᐁᐁᐁ -->
       <div class="header__bar root__child-width">
         <h1 class="header__headline">NewsExplorer</h1>
 
-        <!-- меню закрыто или не скрывается 3 -->
-        <!-- <button class="header__menu-button header__menu-button_burger-black"></button> -->
-        <!-- меню открыто 3 -->
-        <button class="header__menu-button header__menu-button_cross-white"></button>
+        <!-- <button class="button button__modal button__modal_burger-black button_hover-on-white"></button> -->
+        <!-- МЕНЮ – ШАГ 3 из 4: ᐃᐃᐃ закрыто или не скрывается – открыто ᐁᐁᐁ -->
+        <button
+          class="header__menu-button button button__modal button__modal_cross-white button_hover-on-black"></button>
       </div>
 
-      <!-- меню закрыто 4 -->
       <!-- <nav class="header__menu menu root__child-width header__menu_thicker-border" aria-labelledby="header-navigation"> -->
-      <!-- меню открыто 4 -->
+      <!-- МЕНЮ – ШАГ 4 из 5: ᐃᐃᐃ закрыто или не скрывается – открыто ᐁᐁᐁ -->
       <nav class="header__menu menu root__child-width header__menu_show" aria-labelledby="header-navigation">
         <h2 class="aria-labelledby-title" id="header-navigation">Основное меню</h2>
 
         <ul class="menu__text-options header__menu-options list">
+          <!-- НЕАКТИВНЫЙ ПУНКТ МЕНЮ -->
+          <li class="menu__text-path menu__text-path_header">Главная</li>
+
           <!-- АКТИВНЫЙ ПУНКТ МЕНЮ -->
-          <li class="menu__text-path menu__text-path_header menu___text-path_current-black-on-white">Главная</li>
-          <!-- НЕАКТИВНЫЙ -->
-          <!-- <li class="menu__text-path menu__text-path_header">Главная</li> -->
+          <li class="menu__text-path menu__text-path_header menu___text-path_current-black-on-white">Сохранённые статьи
+          </li>
 
-          <li class="menu__text-path menu__text-path_header">Сохранённые статьи</li>
-
-          <button class="menu__button-logout button button_outlined menu__auth-button_logout-black">Грета<span class="menu__button_logout-icon-white"></span></button>
+          <!-- СДЕЛАТЬ КЛАССЫ visible_on-mobile и visible_on-tablet-and-desktop -->
+          <!-- <button
+            class="menu__button button button__rounded button__rounded_white-outline-grey button_hover-on-white button__rounded_with-icon">Грета<span
+              class="button__icon button__icon_logout-black"></span></button> -->
+          <!-- МЕНЮ – ШАГ 5 из 5: ᐃᐃᐃ закрыто или не скрывается – открыто ᐁᐁᐁ -->
+          <button
+            class="menu__button button button__rounded button__rounded_size_parent button__rounded_black-outline-white button_hover-on-black button__rounded_with-icon">Грета<span
+              class="button__icon button__icon_logout-white"></span></button>
         </ul>
       </nav>
     </header>
 
     <main class="main">
-    <section class="saved-news-intro root__child-width">
-      <h2 class="saved-news-intro__headline">Сохранённые статьи</h2>
+      <section class="saved-news-intro root__child-width">
+        <h2 class="saved-news-intro__headline">Сохранённые статьи</h2>
 
-      <h3 class="saved-news-intro__sub-headline">Грета, у Вас 5 сохранённых статей</h3>
+        <h3 class="saved-news-intro__sub-headline">Грета, у Вас 5 сохранённых статей</h3>
 
-      <p class="saved-news-intro__details">По ключевым словам: <b class="emphasized-text">Природа</b>, <b
-          class="emphasized-text">Тайга</b> и <b class="emphasized-text">2-м другим</b></p>
-    </section>
+        <p class="saved-news-intro__details">По ключевым словам: <b class="emphasized-text">Природа</b>, <b
+            class="emphasized-text">Тайга</b> и <b class="emphasized-text">2-м другим</b></p>
+      </section>
 
-    <section class="article-block article-block_saved root__child-width">
-      <h2 class="article-block__headline section-headline invisible">Ваши статьи</h2>
+      <section class="article-block article-block_saved root__child-width">
+        <h2 class="article-block__headline section-headline invisible">Ваши статьи</h2>
 
-      <div class="article-block__card-container">
-        <article class="card">
-          <div class="card__cover">
-            <img src="<%=require('./images/image_07.png')%>" alt="Фото зарослей" class="card__image">
-            <button class="card__breadcrumb card__breadcrumb_keyword-button">Природа</button>
-            <div class="card__breadcrumb card__breadcrumb_tooltip hidden">Убрать из сохранённых</div>
-            <button class="card__breadcrumb card__breadcrumb_delete-button"></button>
-          </div>
+        <div class="article-block__card-container">
+          <article class="card">
+            <div class="card__cover">
+              <img src="<%=require('./images/image_07.png')%>" alt="Фото зарослей" class="card__image">
+              <button
+                class="card__breadcrumb_keyword-button hidden button button__breadcrumb button__breadcrumb_labelled button__breadcrumb_labelled-keyword">Природа</button>
+              <button
+                class="card__breadcrumb hidden card__breadcrumb_tooltip button button__breadcrumb button__breadcrumb_labelled button__breadcrumb_labelled-tooltip">Войдите,
+                чтобы сохранять статьи</button>
+              <button
+                class="card__breadcrumb card__breadcrumb_delete-button button button__breadcrumb button__breadcrumb_icon button__breadcrumb_icon-trashbin"></button>
+            </div>
 
-          <div class="card__body">
-            <p class="card__date">2 августа 2019 г.</p>
+            <div class="card__body">
+              <p class="card__date">2 августа 2019 г.</p>
 
-            <h3 class="card__headline">Национальное достояние – парки</h3>
+              <h3 class="card__headline">Национальное достояние – парки</h3>
 
-            <p class="card__text">В 2016 году Америка отмечала важный юбилей: сто лет назад здесь начала складываться
-              система национальных парков...</p>
+              <p class="card__text">В 2016 году Америка отмечала важный юбилей: сто лет назад здесь начала складываться
+                система национальных парков...</p>
 
-            <p class="card__source-name">Лента.ру</p>
-          </div>
-        </article>
+              <p class="card__source-name">Лента.ру</p>
+            </div>
+          </article>
 
-        <article class="card">
-          <div class="card__cover">
-            <img src="<%=require('./images/image_07.png')%>" alt="Фото зарослей" class="card__image">
-            <button class="card__breadcrumb card__breadcrumb_keyword-button">Природа</button>
-            <div class="card__breadcrumb card__breadcrumb_tooltip hidden">Убрать из сохранённых</div>
-            <button class="card__breadcrumb card__breadcrumb_delete-button"></button>
-          </div>
+        </div>
 
-          <div class="card__body">
-            <p class="card__date">2 августа 2019 г.</p>
-
-            <h3 class="card__headline">Национальное достояние – парки</h3>
-
-            <p class="card__text">В 2016 году Америка отмечала важный юбилей: сто лет назад здесь начала складываться
-              система национальных парков...</p>
-
-            <p class="card__source-name">Лента.ру</p>
-          </div>
-        </article>
-
-        <article class="card">
-          <div class="card__cover">
-            <img src="<%=require('./images/image_07.png')%>" alt="Фото зарослей" class="card__image">
-            <button class="card__breadcrumb card__breadcrumb_keyword-button">Природа</button>
-            <div class="card__breadcrumb card__breadcrumb_tooltip hidden">Убрать из сохранённых</div>
-            <button class="card__breadcrumb card__breadcrumb_delete-button"></button>
-          </div>
-
-          <div class="card__body">
-            <p class="card__date">2 августа 2019 г.</p>
-
-            <h3 class="card__headline">Национальное достояние – парки</h3>
-
-            <p class="card__text">В 2016 году Америка отмечала важный юбилей: сто лет назад здесь начала складываться
-              система национальных парков...</p>
-
-            <p class="card__source-name">Лента.ру</p>
-          </div>
-        </article>
-
-        <article class="card">
-          <div class="card__cover">
-            <img src="<%=require('./images/image_07.png')%>" alt="Фото зарослей" class="card__image">
-            <button class="card__breadcrumb card__breadcrumb_keyword-button">Природа</button>
-            <div class="card__breadcrumb card__breadcrumb_tooltip hidden">Убрать из сохранённых</div>
-            <button class="card__breadcrumb card__breadcrumb_delete-button"></button>
-          </div>
-
-          <div class="card__body">
-            <p class="card__date">2 августа 2019 г.</p>
-
-            <h3 class="card__headline">Национальное достояние – парки</h3>
-
-            <p class="card__text">В 2016 году Америка отмечала важный юбилей: сто лет назад здесь начала складываться
-              система национальных парков...</p>
-
-            <p class="card__source-name">Лента.ру</p>
-          </div>
-        </article>
-
-        <article class="card">
-          <div class="card__cover">
-            <img src="<%=require('./images/image_07.png')%>" alt="Фото зарослей" class="card__image">
-            <button class="card__breadcrumb card__breadcrumb_keyword-button">Природа</button>
-            <div class="card__breadcrumb card__breadcrumb_tooltip hidden">Убрать из сохранённых</div>
-            <button class="card__breadcrumb card__breadcrumb_delete-button"></button>
-          </div>
-
-          <div class="card__body">
-            <p class="card__date">2 августа 2019 г.</p>
-
-            <h3 class="card__headline">Национальное достояние – парки</h3>
-
-            <p class="card__text">В 2016 году Америка отмечала важный юбилей: сто лет назад здесь начала складываться
-              система национальных парков...</p>
-
-            <p class="card__source-name">Лента.ру</p>
-          </div>
-        </article>
-      </div>
-
-      <!-- <button class="article-block__button button button_white">Показать ещё</button> -->
-    </section>
+        <button
+          class="article-block__button hidden button button__rounded button__rounded_white button_hover-on-black">Показать
+          ещё</button>
+      </section>
     </main>
 
     <footer class="footer root__child-width">

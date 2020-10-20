@@ -1,5 +1,5 @@
-@import url(../../src/vendor/normalize.css);
-@import url(../../src/vendor/fonts.css);
+@import url(../vendor/normalize.css);
+@import url(../vendor/fonts.css);
 /*
 Именование
 button
@@ -110,23 +110,23 @@ button_hover-on-white
 }
 
 .button__breadcrumb_icon-flag {
-  background-image: url(../../src/images/save_flag_grey.png);
+  background-image: url(../images/save_flag_grey.png);
 }
 
 .button__breadcrumb_icon-flag:hover {
-  background-image: url(../../src/images/save_flag_black.png);
+  background-image: url(../images/save_flag_black.png);
 }
 
 .button__breadcrumb_icon-flag-marked {
-  background-image: url(../../src/images/save_flag_marked.png);
+  background-image: url(../images/save_flag_marked.png);
 }
 
 .button__breadcrumb_icon-trashbin {
-  background-image: url(../../src/images/trashbin_grey.png);
+  background-image: url(../images/trashbin_grey.png);
 }
 
 .button__breadcrumb_icon-trashbin:hover {
-  background-image: url(../../src/images/trashbin_black.png);
+  background-image: url(../images/trashbin_black.png);
 }
 
 .button__rounded {
@@ -247,11 +247,11 @@ button_hover-on-white
 }
 
 .button__icon_logout-white {
-  background-image: url(../../src/images/logout_white.png);
+  background-image: url(../images/logout_white.png);
 }
 
 .button__icon_logout-black {
-  background-image: url(../../src/images/logout_black.png);
+  background-image: url(../images/logout_black.png);
 }
 
 .button__modal {
@@ -264,15 +264,15 @@ button_hover-on-white
 }
 
 .button__modal_burger-black {
-  background-image: url(../../src/images/burger_black.png);
+  background-image: url(../images/burger_black.png);
 }
 
 .button__modal_burger-white {
-  background-image: url(../../src/images/burger_white.png);
+  background-image: url(../images/burger_white.png);
 }
 
 .button__modal_cross-white {
-  background-image: url(../../src/images/cross_white.png);
+  background-image: url(../images/cross_white.png);
 }
 
 /* .button__rounded_black-outline-white { */

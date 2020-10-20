@@ -14,45 +14,45 @@
 
 <body>
   <div class="root">
-    <!-- меню закрыто 1 -->
     <header class="header">
-    <!-- меню открыто 1 -->
-    <!-- <header class="header header_white-index"> -->
+      <!-- МЕНЮ – ШАГ 1 из 3: ᐃᐃᐃ закрыто – открыто ᐁᐁᐁ -->
+      <!-- <header class="header header_white-index"> -->
       <div class="header__bar root__child-width">
         <h1 class="header__headline">NewsExplorer</h1>
 
-        <!-- меню закрыто 2; попап закрыт 1-->
-        <button class="header__menu-button header__menu-button_burger-white"></button>
-        <!-- меню открыто 2; попап открыт 1 -->
-        <!-- <button class="header__menu-button header__menu-button_cross-white"></button> -->
+        <button
+          class="header__menu-button button button__modal button__modal_burger-white button_hover-on-black"></button>
+        <!-- МЕНЮ – ШАГ 2 из 3: ᐃᐃᐃ закрыто – открыто ᐁᐁᐁ;
+        ПОПАП – ШАГ 1 из 2: ᐃᐃᐃ закрыт – открыт ᐁᐁᐁ  -->
+        <!-- <button class="header__menu-button button button__modal button__modal_cross-white button_hover-on-black"></button> -->
       </div>
 
-      <!-- меню закрыто 3 -->
       <nav class="header__menu menu root__child-width header__menu_thinner-border" aria-labelledby="header-navigation">
-      <!-- меню открыто 3 -->
-      <!-- <nav class="header__menu menu root__child-width header__menu_show" aria-labelledby="header-navigation"> -->
+        <!-- МЕНЮ – ШАГ 3 из 3: ᐃᐃᐃ закрыто – открыто ᐁᐁᐁ -->
+        <!-- <nav class="header__menu menu root__child-width header__menu_show" aria-labelledby="header-navigation"> -->
         <h2 class="aria-labelledby-title" id="header-navigation">Основное меню</h2>
 
         <ul class="menu__text-options header__menu-options list">
           <!-- АКТИВНЫЙ ПУНКТ МЕНЮ -->
           <li class="menu__text-path menu__text-path_header menu___text-path_current">Главная</li>
-          <!-- НЕАКТИВНЫЙ -->
-          <!-- <li class="menu__text-path menu__text-path_header">Главная</li> -->
 
-          <button class="menu__button button button_outlined menu__button_logout-white">Авторизоваться</button>
-          <!-- <button class="menu__button button hidden">Авторизоваться</button> -->
-
-          <!-- СКРЫТЫЙ ПУНКТ МЕНЮ -->
-          <li class="menu__text-path menu__text-path_header hidden">Сохранённые статьи</li>
-          <!-- ОТКРЫТЫЙ АКТИВНЫЙ ПУНКТ МЕНЮ -->
-          <!-- <li class="menu__text-path menu__text-path_header menu___text-path_current">Сохранённые статьи</li> -->
-          <!-- ОТКРЫТЫЙ НЕАКТИВНЫЙ ПУНКТ МЕНЮ -->
+          <!-- ВИДИМЫЙ НЕАКТИВНЫЙ ПУНКТ МЕНЮ -->
           <!-- <li class="menu__text-path menu__text-path_header">Сохранённые статьи</li> -->
+          <!-- СКРЫТЫЙ НЕАКТИВНЫЙ ПУНКТ МЕНЮ -->
+          <li class="menu__text-path hidden menu__text-path_header">Сохранённые статьи</li>
 
-          <!-- СКРЫТЫЙ ПУНКТ МЕНЮ -->
-          <button class="menu__button button hidden">Грета >></button>
-          <!-- ОТКРЫТЫЙ ПУНКТ МЕНЮ -->
-          <!-- <button class="menu__button button">Грета >></button> -->
+          <!-- ВИДИМЫЙ ПУНКТ МЕНЮ (КНОПКА) -->
+          <button
+          class="menu__button button button__rounded button__rounded_size_parent button__rounded_black-outline-white button_hover-on-black">Авторизоваться</button>
+          <!-- СКРЫТЫЙ ПУНКТ МЕНЮ (КНОПКА) -->
+          <!-- <button class="menu__button hidden button button__rounded button__rounded_size_parent button__rounded_black-outline-white button_hover-on-black">Авторизоваться</button> -->
+
+          <!-- ВИДИМЫЙ ПУНКТ МЕНЮ (КНОПКА) -->
+          <!-- <button class="menu__button button button__rounded button__rounded_black-outline-white button_hover-on-black button__rounded_with-icon">Грета<span class="button__icon button__icon_logout-white"></span></button> -->
+          <!-- СКРЫТЫЙ ПУНКТ МЕНЮ (КНОПКА) -->
+          <button
+            class="menu__button hidden button button__rounded button__rounded_black-outline-white button_hover-on-black button__rounded_with-icon">Грета
+            <span class="button__icon button__icon_logout-white"></span></button>
         </ul>
       </nav>
     </header>
@@ -68,8 +68,9 @@
           <input type="text" class="news-search-form__bar" placeholder="Политика">
 
           <button type="submit"
-            class="news-search-form__button button button_blue">Искать</button>
-          <!-- не используется -->
+            class="news-search-form__button button button__rounded button__rounded_size_parent button__rounded_blue">Искать</button>
+          <!-- НЕАКТИВНАЯ КНОПКА ДЛЯ ВАЛИДАЦИИ ФОРМЫ -->
+          <!-- <button type="submit" class="news-search-form__button button button__rounded button__rounded_size_parent button__rounded_blue-inactive">Искать</button> -->
         </form>
       </section>
 
@@ -80,11 +81,15 @@
           <article class="card">
             <div class="card__cover">
               <img src="<%=require('./images/image_07.png')%>" alt="Фото зарослей" class="card__image">
-              <div class="card__breadcrumb card__breadcrumb_tooltip hidden">Войдите, чтобы сохранять статьи</div>
-              <!-- Кнопка неактивна -->
-              <button class="card__breadcrumb card__breadcrumb_save-button"></button>
-              <!-- Кнопка активна -->
-              <!-- <button class="card__breadcrumb card__breadcrumb_save-button"></button> -->
+              <button
+                class="card__breadcrumb_keyword-button hidden button button__breadcrumb button__breadcrumb_labelled button__breadcrumb_labelled-keyword">Природа</button>
+              <button
+                class="card__breadcrumb hidden card__breadcrumb_tooltip button button__breadcrumb button__breadcrumb_labelled button__breadcrumb_labelled-tooltip">Войдите,
+                чтобы сохранять статьи</button>
+              <button
+                class="card__breadcrumb card__breadcrumb_save-button button button__breadcrumb button__breadcrumb_icon button__breadcrumb_icon-flag"></button>
+              <!-- <button class="card__breadcrumb card__breadcrumb_save-button button button__breadcrumb button__breadcrumb_icon button__breadcrumb_icon-flag-marked"></button> -->
+              <!-- <button class="card__breadcrumb card__breadcrumb_delete-button button button__breadcrumb button__breadcrumb_icon button__breadcrumb_icon-trashbin"></button> -->
             </div>
 
             <div class="card__body">
@@ -98,55 +103,11 @@
             </div>
           </article>
 
-          <article class="card">
-            <div class="card__cover">
-              <img src="<%=require('./images/image_07.png')%>" alt="Фото зарослей" class="card__image">
-              <div class="card__breadcrumb card__breadcrumb_tooltip hidden">Войдите, чтобы сохранять статьи</div>
-              <!-- Кнопка неактивна -->
-              <button class="card__breadcrumb card__breadcrumb_save-button"></button>
-              <!-- Кнопка активна -->
-              <!-- <button class="card__breadcrumb card__breadcrumb_save-button"></button> -->
-            </div>
-
-            <div class="card__body">
-              <p class="card__date">2 августа 2019 г.</p>
-
-              <h3 class="card__headline">Национальное достояние – парки</h3>
-
-              <p class="card__text">В 2016 году Америка отмечала важный юбилей: сто лет назад здесь начала складываться
-                система национальных парков...</p>
-
-              <p class="card__source-name">Лента.ру</p>
-            </div>
-          </article>
-
-          <article class="card">
-            <div class="card__cover">
-              <img src="<%=require('./images/image_07.png')%>" alt="Фото зарослей" class="card__image">
-              <div class="card__breadcrumb card__breadcrumb_tooltip hidden">Войдите, чтобы сохранять статьи</div>
-              <!-- Кнопка неактивна -->
-              <button class="card__breadcrumb card__breadcrumb_save-button"></button>
-              <!-- Кнопка активна -->
-              <!-- <button class="card__breadcrumb card__breadcrumb_save-button"></button> -->
-            </div>
-
-            <div class="card__body">
-              <p class="card__date">2 августа 2019 г.</p>
-
-              <h3 class="card__headline">Национальное достояние – парки</h3>
-
-              <p class="card__text">В 2016 году Америка отмечала важный юбилей: сто лет назад здесь начала складываться
-                система национальных парков... В 2016 году Америка отмечала важный юбилей: сто лет назад здесь начала складываться
-                система национальных парков... В 2016 году Америка отмечала важный юбилей: сто лет назад здесь начала складываться
-                система национальных парков... В 2016 году Америка отмечала важный юбилей: сто лет назад здесь начала складываться
-                система национальных парков...</p>
-
-              <p class="card__source-name">Лента.ру</p>
-            </div>
-          </article>
         </div>
 
-        <button class="article-block__button button button_white">Показать ещё</button>
+        <button
+          class="article-block__button button button__rounded button__rounded_white button_hover-on-black">Показать
+          ещё</button>
       </section>
 
       <section class="user-profile root__child-width">
@@ -196,9 +157,8 @@
       <p class="footer__copyright-notice">&copy; 2020 Supersite, Powered by News API</p>
     </footer>
 
-    <!-- закрыть попап 2 -->
     <div class="popup hidden">
-      <!-- открыть попап 2 -->
+      <!-- ПОПАП – ШАГ 2 из 2: ᐃᐃᐃ закрыт – открыт ᐁᐁᐁ  -->
       <!-- <div class="popup"> -->
       <div class="popup__content root__child-width">
         <h3 class="popup__title">Вход</h3>
@@ -206,15 +166,16 @@
         <form class="popup__form" name="loginForm" novalidate>
           <label class="popup__input-label" for="email">Email</label>
 
-          <input type="email" name="userEmail" id="email" class="popup__input" placeholder="Введите почту" required minlength="2"
-            maxlength="30">
+          <input type="email" name="userEmail" id="email" class="popup__input" placeholder="Введите почту" required
+            minlength="2" maxlength="30">
 
           <span class="popup__error" id="email-error"></span>
           <!-- <span class="popup__error" id="email-error">Неправильный формат email</span> -->
 
           <label class="popup__input-label" for="password">Пароль</label>
 
-          <input type="password" name="userPassword" id="password" class="popup__input" placeholder="Введите пароль" required>
+          <input type="password" name="userPassword" id="password" class="popup__input" placeholder="Введите пароль"
+            required>
 
           <span class="popup__error" id="password-error"></span>
           <!-- <span class="popup__error" id="password-error">Неправильный пароль</span> -->
@@ -222,10 +183,12 @@
           <span class="popup__error" id="form-error"></span>
           <!-- <span class="popup__error" id="form-error">Такой пользователь уже есть</span> -->
 
-          <!-- неактивная -->
-          <button type="submit" class="popup__button button button_inactive-grey" disabled>Войти</button>
           <!-- активная -->
-          <!-- <button type="submit" class="popup__button button button_blue" disabled>Войти</button> -->
+          <!-- <button type="submit" class="popup__button button button__rounded button__rounded_size_parent button__rounded_blue">Войти</button> -->
+          <!-- неактивная -->
+          <button type="submit"
+            class="popup__button button button__rounded button__rounded_size_parent button__rounded_blue-inactive"
+            disabled>Войти</button>
 
           <p class="popup__signup-prompt">или <span class="popup__signup-prompt-link">зарегистрироваться</span></p>
         </form>

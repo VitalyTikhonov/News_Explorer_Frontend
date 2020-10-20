@@ -1,0 +1,11 @@
+@import url(./_burger-black/button__modal_burger-black.css);
+@import url(./_burger-white/button__modal_burger-white.css);
+@import url(./_cross-white/button__modal_cross-white.css);
+.button__modal {
+  width: 24px;
+  height: 24px;
+  background-color: transparent;
+  background-size: cover;
+  background-repeat: no-repeat;
+  border: none;
+}
