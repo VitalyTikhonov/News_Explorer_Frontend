@@ -1,4 +1,4 @@
-@media (max-width: 449px) {
+@media (max-width: 689px) {
   .header__menu.header__menu_show {
     display: flex;
     flex-direction: column;

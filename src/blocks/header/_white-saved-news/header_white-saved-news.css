@@ -1,4 +1,4 @@
-@media (max-width: 449px) {
+@media (max-width: 689px) {
   .header.header_white-saved-news {
     background: #1A1B22;
     color: #FFFFFF;
@@ -6,7 +6,7 @@
   }
 }
 
-@media (min-width: 450px) {
+@media (min-width: 690px) {
   .header.header_white-saved-news {
     /* scheme */
     background: #FFFFFF;

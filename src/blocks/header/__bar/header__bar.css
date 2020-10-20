@@ -13,7 +13,7 @@
   padding-bottom: 16px;
 }
 
-@media (min-width: 450px) and (max-width: 768px) {
+@media (min-width: 690px) and (max-width: 768px) {
   .header__bar {
     box-shadow: none;
     /* end of scheme */

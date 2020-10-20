@@ -1,3 +1,4 @@
+@import url(./_general/popup__error_general.css);
 .popup__error {
   margin: 0 0 1px;
   min-height: 15px;

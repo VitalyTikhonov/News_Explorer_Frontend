@@ -1,7 +1,0 @@
-@media (min-width: 510px) and (max-width: 768px) {
-  .menu__text-options {
-    display: flex;
-    flex-direction: row;
-    align-items: center;
-  }
-}

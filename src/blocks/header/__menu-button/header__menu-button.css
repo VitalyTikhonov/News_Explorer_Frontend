@@ -3,7 +3,7 @@
   height: 24px;
 }
 
-@media (min-width: 450px) {
+@media (min-width: 690px) {
   .header__menu-button {
     display: none;
   }
