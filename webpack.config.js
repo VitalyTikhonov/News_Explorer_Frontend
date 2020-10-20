@@ -99,8 +99,8 @@ module.exports = {
       chunks: ['index'],
     }),
     new HtmlWebpackPlugin({
-      filename: 'index.html',
-      template: './src/pages/saved-news/index.html',
+      filename: 'saved-news.html',
+      template: './src/saved-news.html',
       chunks: ['saved-news'],
     }),
     new MiniCssExtractPlugin({
