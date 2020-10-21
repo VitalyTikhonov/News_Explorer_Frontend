@@ -1,0 +1,15 @@
+.popup__close-icon {
+  width: 36px;
+  height: 36px;
+  position: absolute;
+  top: -46px;
+  right: 10px;
+  cursor: pointer;
+}
+
+@media (min-width: 502px) {
+  .popup__close-icon {
+    top: -36px;
+    right: -36px;
+  }
+}

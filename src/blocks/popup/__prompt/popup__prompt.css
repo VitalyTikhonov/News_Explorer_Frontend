@@ -1,4 +1,4 @@
-.popup__signup-prompt {
+.popup__prompt {
   font-family: Inter;
   font-style: normal;
   font-weight: normal;
@@ -7,4 +7,8 @@
   text-align: center;
   color: #000000;
   margin: 0;
+}
+
+.popup__message ~ .popup__prompt {
+  text-align: left;
 }
