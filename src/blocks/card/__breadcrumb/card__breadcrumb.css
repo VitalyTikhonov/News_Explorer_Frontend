@@ -2,17 +2,7 @@
 @import url(./_save-button/card__breadcrumb_save-button.css);
 @import url(./_delete-button/card__breadcrumb_delete-button.css);
 @import url(./_tooltip/card__breadcrumb_tooltip.css);
-
 .card__breadcrumb {
   position: absolute;
   z-index: 1;
-  top: 7.56%;
-  right: 5.56%;
-}
-
-@media (min-width: 321px) and (max-width: 768px) {
-  .card__breadcrumb {
-    top: 5%;
-    right: 3%;
-  }
 }
