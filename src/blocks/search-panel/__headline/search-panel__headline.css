@@ -7,11 +7,24 @@
   line-height: 40px;
 }
 
-@media (min-width: 321px) and (max-width: 768px) {
+@media (min-width: 321px) {
+  .search-panel__headline {
+    align-self: flex-start;
+  }
+}
+
+@media (min-width: 321px) and (max-width: 1241px) {
   .search-panel__headline {
     margin: 0;
     width: 50.13vw;
     padding-left: 4px;
-    align-self: flex-start;
+  }
+}
+
+@media (min-width: 1242px) {
+  .search-panel__headline {
+    margin: 0;
+    width: 50.13vw;
+    padding-left: 4px;
   }
 }

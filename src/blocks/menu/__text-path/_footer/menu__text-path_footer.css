@@ -10,7 +10,8 @@
   margin-bottom: 0;
 }
 
-@media (min-width: 510px) and (max-width: 768px) {
+/* @media (min-width: 510px) and (max-width: 768px) { */
+@media (min-width: 510px) {
   .menu__text-path.menu__text-path_footer {
     margin-right: 2.34vw;
     margin-bottom: 0;

@@ -1,4 +1,5 @@
-@media (min-width: 510px) and (max-width: 768px) {
+/* @media (min-width: 510px) and (max-width: 768px) { */
+@media (min-width: 510px) {
   .footer__menu-options {
     display: flex;
     flex-direction: row;

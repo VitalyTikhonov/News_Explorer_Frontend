@@ -3,7 +3,7 @@
 }
 
 /* предполагаю при написании JS заменить на манипуляцию с самим свойством display */
-@media (min-width: 690px) and (max-width: 768px) {
+@media (min-width: 690px) {
   .header__menu.visibility__removed {
     display: flex;
   }

@@ -18,9 +18,16 @@
   /* text-rendering: optimizeLegibility; */
 }
 
-@media (min-width: 321px) and (max-width: 768px) {
+@media (min-width: 321px) and (max-width: 1241px) {
   .root {
-    max-width: 100vw;
+    max-width: 768px;
+  }
+}
+
+/* ПОПРОБОВАТЬ ПРОСТО В ОСНОВНОМ ПРАВИЛЕ ПОСТАВИТЬ max-width: 1440px; */
+@media (min-width: 1242px) {
+  .root {
+    max-width: 1440px;
   }
 }
 

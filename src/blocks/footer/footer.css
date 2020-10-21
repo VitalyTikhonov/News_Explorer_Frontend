@@ -8,7 +8,8 @@
   flex-direction: column;
 }
 
-@media (min-width: 510px) and (max-width: 768px) {
+/* @media (min-width: 510px) and (max-width: 768px) { */
+@media (min-width: 510px) {
   .footer {
     display: flex;
     flex-direction: row-reverse;

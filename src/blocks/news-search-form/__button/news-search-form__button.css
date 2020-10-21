@@ -2,7 +2,8 @@
   margin-top: 16px;
 }
 
-@media (min-width: 450px) and (max-width: 768px) {
+/* @media (min-width: 450px) and (max-width: 768px) { */
+@media (min-width: 450px) {
   .news-search-form__button {
     width: 36%;
     position: absolute;

@@ -7,7 +7,8 @@
   line-height: 24px;
 }
 
-@media (min-width: 321px) and (max-width: 768px) {
+/* @media (min-width: 321px) and (max-width: 768px) { */
+  @media (min-width: 321px) {
   .header__headline {
     font-size: 20px;
   }

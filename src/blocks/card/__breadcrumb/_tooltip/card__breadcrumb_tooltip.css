@@ -3,7 +3,8 @@
 }
 
 /* Переделать на JS-решение для выявления ховера */
-@media (min-width: 321px) and (max-width: 768px) {
+/* @media (min-width: 321px) and (max-width: 768px) { */
+@media (min-width: 321px) {
   .card__breadcrumb_save-button:hover + .card__breadcrumb_tooltip {
     display: block;
     top: 5%;

@@ -12,7 +12,8 @@
   z-index: 1;
 }
 
-@media (min-width: 690px) and (max-width: 768px) {
+/* @media (min-width: 690px) and (max-width: 768px) { */
+@media (min-width: 690px) {
   .header__menu {
     display: flex;
     flex-direction: row;

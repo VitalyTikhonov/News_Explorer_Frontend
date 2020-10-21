@@ -1,4 +1,4 @@
-@media (min-width: 690px) and (max-width: 768px) {
+@media (min-width: 690px) {
   .visibility__on-mob {
     display: none;
   }

@@ -1,4 +1,5 @@
-@media (min-width: 450px) and (max-width: 768px) {
+/* @media (min-width: 450px) and (max-width: 768px) { */
+@media (min-width: 450px) {
   .menu___text-path_current-black-on-white {
     height: 100%;
     padding: 23px 0 18px;

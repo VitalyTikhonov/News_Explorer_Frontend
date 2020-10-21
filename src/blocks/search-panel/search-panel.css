@@ -11,11 +11,26 @@
   color: #FFFFFF;
 }
 
-@media (min-width: 450px) and (max-width: 768px) {
+@media (min-width: 450px) {
   .search-panel {
     display: flex;
     flex-direction: column;
     align-items: center;
+  }
+}
+
+@media (min-width: 450px) and (max-width: 1241px) {
+  .search-panel {
+    padding-top: 104px;
+    padding-bottom: 48px;
+    padding-left: 20.83vw;
+    padding-right: 20.83vw;
+    background-image: url(../../images/georgia-de-lotz--UsJoNxLaNo-unsplash-768.png);
+  }
+}
+
+@media (min-width: 1242px) {
+  .search-panel {
     padding-top: 104px;
     padding-bottom: 48px;
     padding-left: 20.83vw;

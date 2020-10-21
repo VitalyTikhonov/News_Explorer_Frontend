@@ -3,7 +3,8 @@
   right: 5.56%;
 }
 
-@media (min-width: 321px) and (max-width: 768px) {
+/* @media (min-width: 321px) and (max-width: 768px) { */
+@media (min-width: 321px) {
   .card__breadcrumb.card__breadcrumb_delete-button {
     top: 5%;
     right: 3%;
