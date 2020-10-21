@@ -24,7 +24,9 @@
 @media (min-width: 1242px) {
   .search-panel__headline {
     margin: 0;
-    width: 50.13vw;
+    width: 46.13vw;
     padding-left: 4px;
+    font-size: 60px;
+    line-height: 64px;
   }
 }

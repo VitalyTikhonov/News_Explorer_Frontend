@@ -1,10 +1,19 @@
-/* @media (min-width: 450px) and (max-width: 768px) { */
 @media (min-width: 450px) {
   .menu___text-path_current-black-on-white {
     height: 100%;
-    padding: 23px 0 18px;
     display: block;
     border-bottom: 3px solid #1A1B22;
     box-sizing: border-box;
+  }
+}
+@media (min-width: 450px) and (max-width: 1241px) {
+  .menu___text-path_current-black-on-white {
+    padding: 23px 0 18px;
+  }
+}
+
+@media (min-width: 1242px) {
+  .menu___text-path_current-black-on-white {
+    padding: 28.5px 0 25.5px;
   }
 }

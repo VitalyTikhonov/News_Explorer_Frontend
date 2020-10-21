@@ -13,12 +13,23 @@
   padding-bottom: 16px;
 }
 
-/* @media (min-width: 690px) and (max-width: 768px) { */
 @media (min-width: 690px) {
   .header__bar {
     box-shadow: none;
     /* end of scheme */
+  }
+}
+
+@media (min-width: 690px) and (max-width: 1241px) {
+  .header__bar {
     padding-top: 22.73px;
     padding-bottom: 18.47px;
+  }
+}
+
+@media (min-width: 1242px) {
+  .header__bar {
+    padding-top: 30px;
+    padding-bottom: 26px;
   }
 }

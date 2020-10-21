@@ -5,11 +5,17 @@
   padding-right: 16px;
 }
 
-/* @media (min-width: 321px) and (max-width: 768px) { */
-@media (min-width: 321px) {
+@media (min-width: 321px) and (max-width: 1241px) {
   .root__child-width {
     max-width: 100vw;
     padding-left: 5.21vw;
     padding-right: 5.21vw;
+  }
+}
+
+@media (min-width: 1242px) {
+  .root__child-width {
+    padding-left: 7.22vw;
+    padding-right: 7.22vw;
   }
 }

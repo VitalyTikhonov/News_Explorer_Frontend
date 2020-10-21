@@ -7,14 +7,18 @@
   flex-direction: column;
 }
 
-/* @media (min-width: 450px) and (max-width: 768px) { */
 @media (min-width: 450px) {
   .news-search-form {
     position: relative;
     margin: 0;
     width: 100%;
-    padding-top: 48px;
     align-self: flex-start;
     flex-direction: row;
+  }
+}
+
+@media (min-width: 1242px) {
+  .news-search-form {
+    padding-top: 65px;
   }
 }

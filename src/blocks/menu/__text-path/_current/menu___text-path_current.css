@@ -1,10 +1,20 @@
-/* @media (min-width: 690px) and (max-width: 768px) { */
-  @media (min-width: 690px) {
-    .menu___text-path_current {
+  /* В menu___text-path_current-black-on-white – от 450px, а здесь должно быть от 690! */
+@media (min-width: 690px) {
+  .menu___text-path_current {
     height: 100%;
-    padding: 23px 0 18px;
     display: block;
     border-bottom: 3px solid #FFFFFF;
     box-sizing: border-box;
+  }
+}
+@media (min-width: 690px) and (max-width: 1241px) {
+  .menu___text-path_current {
+    padding: 23px 0 18px;
+  }
+}
+
+@media (min-width: 1242px) {
+  .menu___text-path_current {
+    padding: 28.5px 0 25.5px;
   }
 }

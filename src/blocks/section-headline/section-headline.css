@@ -6,3 +6,10 @@
   font-size: 30px;
   line-height: 34px;
 }
+
+@media (min-width: 1242px) {
+  .section-headline {
+    font-size: 40px;
+    line-height: 46px;
+  }
+}

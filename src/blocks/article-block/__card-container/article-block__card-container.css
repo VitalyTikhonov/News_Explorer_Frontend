@@ -7,23 +7,24 @@
   /* grid-template-columns: repeat(auto-fit, minmax(225px, 1fr)); */
 }
 
-@media (min-width: 321px) and (max-width: 768px) {
+@media (min-width: 321px) {
   .article-block__card-container {
     max-width: 100vw;
     padding-top: 31px;
-    gap: 8px;
   }
 }
 
 @media (min-width: 321px) and (max-width: 767px) {
   .article-block__card-container {
     grid-template-columns: repeat(auto-fill, 288px);
+    gap: 8px;
   }
 }
 
 @media (min-width: 768px) and (max-width: 1241px) {
   .article-block__card-container {
     grid-template-columns: repeat(auto-fill, 224px);
+    gap: 8px;
   }
 }
 
@@ -31,5 +32,6 @@
   .article-block__card-container {
     grid-template-columns: repeat(auto-fill, 400px);
     gap: 16px;
+    padding-top: 63px;
   }
 }

@@ -2,8 +2,7 @@
   margin-top: 16px;
 }
 
-/* @media (min-width: 450px) and (max-width: 768px) { */
-@media (min-width: 450px) {
+@media (min-width: 450px) and (max-width: 1241px) {
   .news-search-form__button {
     width: 36%;
     position: absolute;
@@ -11,5 +10,16 @@
     margin-top: 0;
     padding-top: 16px;
     padding-bottom: 16px;
+  }
+}
+
+@media (min-width: 1242px) {
+  .news-search-form__button {
+    width: 27.63%;
+    position: absolute;
+    right: 0%;
+    margin-top: 0;
+    padding-top: 20px;
+    padding-bottom: 20px;
   }
 }

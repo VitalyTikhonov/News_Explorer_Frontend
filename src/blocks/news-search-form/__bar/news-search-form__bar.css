@@ -17,10 +17,16 @@
   color: #B6BCBF;
 }
 
-/* @media (min-width: 450px) and (max-width: 768px) { */
-@media (min-width: 450px) {
+@media (min-width: 450px) and (max-width: 1241px) {
   .news-search-form__bar {
     min-width: 73%;
     padding: 16px 1px 16px 24px;
+  }
+}
+
+@media (min-width: 1242px) {
+  .news-search-form__bar {
+    min-width: 90%;
+    padding: 20px 1px 20px 24px;
   }
 }
