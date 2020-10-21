@@ -15,43 +15,44 @@
 <body>
   <div class="root">
     <header class="header header_black-on-white header_thicker-border">
-    <!-- МЕНЮ – ШАГ 1 из 4: ᐃᐃᐃ закрыто или не скрывается – открыто ᐁᐁᐁ -->
-    <!-- <header class="header header_white-saved-news header_thicker-border"> -->
+      <!-- МЕНЮ – ШАГ 1 из 4: ᐃᐃᐃ закрыто или не скрывается – открыто ᐁᐁᐁ -->
+      <!-- <header class="header header_white-saved-news header_thicker-border"> -->
       <div class="header__bar root__child-width header__bar_thicker-border">
-      <!-- МЕНЮ – ШАГ 2 из 4: ᐃᐃᐃ закрыто или не скрывается – открыто ᐁᐁᐁ -->
-      <!-- <div class="header__bar root__child-width"> -->
+        <!-- МЕНЮ – ШАГ 2 из 4: ᐃᐃᐃ закрыто или не скрывается – открыто ᐁᐁᐁ -->
+        <!-- <div class="header__bar root__child-width"> -->
         <h1 class="header__headline">NewsExplorer</h1>
 
-        <button
+        <button type="button"
           class="header__menu-button button button__modal button__modal_burger-black button_hover-on-white"></button>
         <!-- МЕНЮ – ШАГ 3 из 4: ᐃᐃᐃ закрыто или не скрывается – открыто ᐁᐁᐁ -->
-        <!-- <button
-          class="header__menu-button button button__modal button__modal_cross-white button_hover-on-black"></button> -->
+        <!-- <button type="button" class="header__menu-button button button__modal button__modal_cross-white button_hover-on-black"></button> -->
       </div>
 
       <nav class="header__menu menu root__child-width header__menu_thicker-border" aria-labelledby="header-navigation">
-      <!-- МЕНЮ – ШАГ 4 из 4: ᐃᐃᐃ закрыто или не скрывается – открыто ᐁᐁᐁ -->
-      <!-- <nav class="header__menu menu root__child-width header__menu_show" aria-labelledby="header-navigation"> -->
+        <!-- МЕНЮ – ШАГ 4 из 4: ᐃᐃᐃ закрыто или не скрывается – открыто ᐁᐁᐁ -->
+        <!-- <nav class="header__menu menu root__child-width header__menu_show" aria-labelledby="header-navigation"> -->
         <h2 class="aria-labelledby-title" id="header-navigation">Основное меню</h2>
 
-        <ul class="menu__text-options header__menu-options list">
-          <!-- НЕАКТИВНЫЙ ПУНКТ МЕНЮ -->
-          <li class="menu__text-path menu__text-path_header"><a href="./index.html" class="link">Главная</a></li>
+        <div class="menu__options">
+          <ul class="menu__text-options header__menu-options list">
+            <!-- НЕАКТИВНЫЙ ПУНКТ МЕНЮ -->
+            <li class="menu__text-path menu__text-path_header"><a href="./index.html" class="link">Главная</a></li>
 
-          <!-- АКТИВНЫЙ ПУНКТ МЕНЮ -->
-          <li class="menu__text-path menu__text-path_header menu___text-path_current-black-on-white"><a
-              href="./saved-news.html" class="link">Сохранённые статьи</a>
-          </li>
+            <!-- АКТИВНЫЙ ПУНКТ МЕНЮ -->
+            <li class="menu__text-path menu__text-path_header menu___text-path_current-black-on-white"><a
+                href="./saved-news.html" class="link">Сохранённые статьи</a>
+            </li>
+          </ul>
 
           <!-- visibility__on-mob visibility__on-tab-and-dt -->
-          <button
+          <button type="button"
             class="menu__button visibility__on-tab-and-dt button button__rounded button__rounded_white-outline-grey button_hover-on-white button__rounded_with-icon">Грета<span
               class="button__icon button__icon_logout-black"></span></button>
           <!-- ᐃᐃᐃ с JS заменить на манипуляцию модификатором? ᐁᐁᐁ -->
-          <button
+          <button type="button"
             class="menu__button visibility__on-mob button button__rounded button__rounded_size_parent button__rounded_black-outline-white button_hover-on-black button__rounded_with-icon">Грета<span
               class="button__icon button__icon_logout-white"></span></button>
-        </ul>
+        </div>
       </nav>
     </header>
 
@@ -72,11 +73,11 @@
           <article class="card">
             <div class="card__cover">
               <img src="<%=require('./images/image_07.png')%>" alt="Фото зарослей" class="card__image">
-              <button
+              <button type="button"
                 class="card__breadcrumb card__breadcrumb_keyword-button button button__breadcrumb button__breadcrumb_labelled button__breadcrumb_labelled-keyword">Природа</button>
-              <button
+              <button type="button"
                 class="card__breadcrumb card__breadcrumb_delete-button button button__breadcrumb button__breadcrumb_icon button__breadcrumb_icon-trashbin"></button>
-              <button
+              <button type="button"
                 class="card__breadcrumb card__breadcrumb_tooltip visibility__removed button button__breadcrumb button__breadcrumb_labelled button__breadcrumb_labelled-tooltip">Войдите,
                 чтобы сохранять статьи</button>
             </div>
@@ -99,11 +100,11 @@
           <article class="card">
             <div class="card__cover">
               <img src="<%=require('./images/image_07.png')%>" alt="Фото зарослей" class="card__image">
-              <button
+              <button type="button"
                 class="card__breadcrumb card__breadcrumb_keyword-button button button__breadcrumb button__breadcrumb_labelled button__breadcrumb_labelled-keyword">Природа</button>
-              <button
+              <button type="button"
                 class="card__breadcrumb card__breadcrumb_delete-button button button__breadcrumb button__breadcrumb_icon button__breadcrumb_icon-trashbin"></button>
-              <button
+              <button type="button"
                 class="card__breadcrumb card__breadcrumb_tooltip visibility__removed button button__breadcrumb button__breadcrumb_labelled button__breadcrumb_labelled-tooltip">Войдите,
                 чтобы сохранять статьи</button>
             </div>
@@ -126,11 +127,11 @@
           <article class="card">
             <div class="card__cover">
               <img src="<%=require('./images/image_07.png')%>" alt="Фото зарослей" class="card__image">
-              <button
+              <button type="button"
                 class="card__breadcrumb card__breadcrumb_keyword-button button button__breadcrumb button__breadcrumb_labelled button__breadcrumb_labelled-keyword">Природа</button>
-              <button
+              <button type="button"
                 class="card__breadcrumb card__breadcrumb_delete-button button button__breadcrumb button__breadcrumb_icon button__breadcrumb_icon-trashbin"></button>
-              <button
+              <button type="button"
                 class="card__breadcrumb card__breadcrumb_tooltip visibility__removed button button__breadcrumb button__breadcrumb_labelled button__breadcrumb_labelled-tooltip">Войдите,
                 чтобы сохранять статьи</button>
             </div>
@@ -153,11 +154,11 @@
           <article class="card">
             <div class="card__cover">
               <img src="<%=require('./images/image_07.png')%>" alt="Фото зарослей" class="card__image">
-              <button
+              <button type="button"
                 class="card__breadcrumb card__breadcrumb_keyword-button button button__breadcrumb button__breadcrumb_labelled button__breadcrumb_labelled-keyword">Природа</button>
-              <button
+              <button type="button"
                 class="card__breadcrumb card__breadcrumb_delete-button button button__breadcrumb button__breadcrumb_icon button__breadcrumb_icon-trashbin"></button>
-              <button
+              <button type="button"
                 class="card__breadcrumb card__breadcrumb_tooltip visibility__removed button button__breadcrumb button__breadcrumb_labelled button__breadcrumb_labelled-tooltip">Войдите,
                 чтобы сохранять статьи</button>
             </div>
@@ -180,11 +181,11 @@
           <article class="card">
             <div class="card__cover">
               <img src="<%=require('./images/image_07.png')%>" alt="Фото зарослей" class="card__image">
-              <button
+              <button type="button"
                 class="card__breadcrumb card__breadcrumb_keyword-button button button__breadcrumb button__breadcrumb_labelled button__breadcrumb_labelled-keyword">Природа</button>
-              <button
+              <button type="button"
                 class="card__breadcrumb card__breadcrumb_delete-button button button__breadcrumb button__breadcrumb_icon button__breadcrumb_icon-trashbin"></button>
-              <button
+              <button type="button"
                 class="card__breadcrumb card__breadcrumb_tooltip visibility__removed button button__breadcrumb button__breadcrumb_labelled button__breadcrumb_labelled-tooltip">Войдите,
                 чтобы сохранять статьи</button>
             </div>
@@ -205,7 +206,7 @@
           </article>
         </div>
 
-        <button
+        <button type="button"
           class="article-block__button visibility__removed button button__rounded button__rounded_white button_hover-on-black">Показать
           ещё</button>
       </section>
@@ -221,19 +222,20 @@
           </li>
 
           <li class="menu__text-path menu__text-path_footer">
-            <a href="https://praktikum.yandex.ru/" class="link">Яндекс.Практикум</a>
+            <a target="_blank" rel="noopener noreferrer" href="https://praktikum.yandex.ru/"
+              class="link">Яндекс.Практикум</a>
           </li>
         </ul>
 
         <ul class="menu__icon-options list">
           <li class="menu__icon-path">
-            <a href="https://github.com/VitalyTikhonov" class="link">
+            <a target="_blank" rel="noopener noreferrer" href="https://github.com/VitalyTikhonov" class="link">
               <img src="<%=require('./images/github.png')%>" alt="Ссылка на GitHub" class="menu__icon">
             </a>
           </li>
 
           <li class="menu__icon-path">
-            <a href="https://t.me/VitalSense" class="link">
+            <a target="_blank" rel="noopener noreferrer" href="https://t.me/VitalSense" class="link">
               <img src="<%=require('./images/telegram-small.png')%>" alt="Ссылка на Telegram" class="menu__icon">
             </a>
           </li>

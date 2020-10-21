@@ -15,58 +15,58 @@
 <body>
   <div class="root">
     <header class="header">
-    <!-- МЕНЮ – ШАГ 1 из 3: ᐃᐃᐃ закрыто – открыто ᐁᐁᐁ -->
-    <!-- <header class="header header_white-index"> -->
+      <!-- МЕНЮ – ШАГ 1 из 3: ᐃᐃᐃ закрыто – открыто ᐁᐁᐁ -->
+      <!-- <header class="header header_white-index"> -->
       <div class="header__bar root__child-width">
         <h1 class="header__headline">NewsExplorer</h1>
 
-        <button
+        <button type="button"
           class="header__menu-button button button__modal button__modal_burger-white button_hover-on-black"></button>
         <!-- МЕНЮ – ШАГ 2 из 3: ᐃᐃᐃ закрыто – открыто ᐁᐁᐁ; ======= ЛЮБОЙ ПОПАП – общий ШАГ 1 из 2: ᐃᐃᐃ закрыт -->
-        <!-- <button
-          class="header__menu-button button button__modal button__modal_cross-white button_hover-on-black"></button> -->
+        <!-- <button type="button" class="header__menu-button button button__modal button__modal_cross-white button_hover-on-black"></button> -->
         <!-- ======================================================= ЛЮБОЙ ПОПАП – общий ШАГ 1 из 2: ------------- открыт ᐁᐁᐁ -->
-        <!-- <button
-          class="header__menu-button visibility__removed button button__modal button__modal_cross-white button_hover-on-black"></button> -->
+        <!-- <button type="button" class="header__menu-button visibility__removed button button__modal button__modal_cross-white button_hover-on-black"></button> -->
       </div>
 
       <nav class="header__menu menu root__child-width header__menu_thinner-border" aria-labelledby="header-navigation">
-      <!-- МЕНЮ – ШАГ 3 из 3: ᐃᐃᐃ закрыто – открыто ᐁᐁᐁ -->
-      <!-- <nav class="header__menu menu root__child-width header__menu_show" aria-labelledby="header-navigation"> -->
+        <!-- МЕНЮ – ШАГ 3 из 3: ᐃᐃᐃ закрыто – открыто ᐁᐁᐁ -->
+        <!-- <nav class="header__menu menu root__child-width header__menu_show" aria-labelledby="header-navigation"> -->
         <h2 class="aria-labelledby-title" id="header-navigation">Основное меню</h2>
 
-        <ul class="menu__text-options header__menu-options list">
-          <!-- АКТИВНЫЙ ПУНКТ МЕНЮ -->
-          <li class="menu__text-path menu__text-path_header menu___text-path_current"><a href="./index.html"
-              class="link">Главная</a></li>
+        <div class="menu__options">
+          <ul class="menu__text-options header__menu-options list">
+            <!-- АКТИВНЫЙ ПУНКТ МЕНЮ -->
+            <li class="menu__text-path menu__text-path_header menu___text-path_current"><a href="./index.html"
+                class="link">Главная</a></li>
 
-          <!-- ВИДИМЫЙ НЕАКТИВНЫЙ ПУНКТ МЕНЮ -->
-          <li class="menu__text-path menu__text-path_header"><a href="./saved-news.html" class="link">Сохранённые
-              статьи</a></li>
-          <!-- СКРЫТЫЙ НЕАКТИВНЫЙ ПУНКТ МЕНЮ -->
-          <!-- <li class="menu__text-path visibility__removed menu__text-path_header"><a href="./saved-news.html" class="link">Сохранённые статьи</a></li> -->
+            <!-- ВИДИМЫЙ НЕАКТИВНЫЙ ПУНКТ МЕНЮ -->
+            <li class="menu__text-path menu__text-path_header"><a href="./saved-news.html" class="link">Сохранённые
+                статьи</a></li>
+            <!-- СКРЫТЫЙ НЕАКТИВНЫЙ ПУНКТ МЕНЮ -->
+            <!-- <li class="menu__text-path visibility__removed menu__text-path_header"><a href="./saved-news.html" class="link">Сохранённые статьи</a></li> -->
+          </ul>
 
           <!-- visibility__on-mob visibility__on-tab-and-dt -->
           <!-- ВИДИМЫЙ ПУНКТ МЕНЮ (КНОПКА) -->
-          <button
+          <button type="button"
             class="menu__button visibility__on-mob button button__rounded button__rounded_size_parent button__rounded_black-outline-white button_hover-on-black">Авторизоваться</button>
-          <button
+          <button type="button"
             class="menu__button visibility__on-tab-and-dt button button__rounded button__rounded_size_parent button__rounded_transparent-outline-white button_hover-on-black">Авторизоваться</button>
           <!-- СКРЫТЫЙ ПУНКТ МЕНЮ (КНОПКА) -->
-          <!-- <button class="menu__button visibility__on-mob visibility__removed button button__rounded button__rounded_size_parent button__rounded_black-outline-white button_hover-on-black">Авторизоваться</button> -->
-          <!-- <button class="menu__button visibility__on-tab-and-dt visibility__removed button button__rounded button__rounded_size_parent button__rounded_transparent-outline-white button_hover-on-black">Авторизоваться</button> -->
+          <!-- <button type="button" class="menu__button visibility__on-mob visibility__removed button button__rounded button__rounded_size_parent button__rounded_black-outline-white button_hover-on-black">Авторизоваться</button> -->
+          <!-- <button type="button" class="menu__button visibility__on-tab-and-dt visibility__removed button button__rounded button__rounded_size_parent button__rounded_transparent-outline-white button_hover-on-black">Авторизоваться</button> -->
 
           <!-- ВИДИМЫЙ ПУНКТ МЕНЮ (КНОПКА) -->
-          <!-- <button class="menu__button visibility__on-mob button button__rounded button__rounded_black-outline-white button_hover-on-black button__rounded_with-icon">Грета<span class="button__icon button__icon_logout-white"></span></button> -->
-          <!-- <button class="menu__button visibility__on-tab-and-dt button button__rounded button__rounded_transparent-outline-white button_hover-on-black button__rounded_with-icon">Грета<span class="button__icon button__icon_logout-white"></span></button> -->
+          <!-- <button type="button" class="menu__button visibility__on-mob button button__rounded button__rounded_black-outline-white button_hover-on-black button__rounded_with-icon">Грета<span class="button__icon button__icon_logout-white"></span></button> -->
+          <!-- <button type="button" class="menu__button visibility__on-tab-and-dt button button__rounded button__rounded_transparent-outline-white button_hover-on-black button__rounded_with-icon">Грета<span class="button__icon button__icon_logout-white"></span></button> -->
           <!-- СКРЫТЫЙ ПУНКТ МЕНЮ (КНОПКА) -->
-          <button
+          <button type="button"
             class="menu__button visibility__on-mob visibility__removed button button__rounded button__rounded_black-outline-white button_hover-on-black button__rounded_with-icon">Грета
             <span class="button__icon button__icon_logout-white"></span></button>
-          <button
+          <button type="button"
             class="menu__button visibility__on-tab-and-dt visibility__removed button button__rounded button__rounded_transparent-outline-white button_hover-on-black button__rounded_with-icon">Грета
             <span class="button__icon button__icon_logout-white"></span></button>
-        </ul>
+        </div>
       </nav>
     </header>
 
@@ -94,15 +94,15 @@
           <article class="card">
             <div class="card__cover">
               <img src="<%=require('./images/image_07.png')%>" alt="Фото зарослей" class="card__image">
-              <button
+              <button type="button"
                 class="card__breadcrumb card__breadcrumb_keyword-button visibility__removed button button__breadcrumb button__breadcrumb_labelled button__breadcrumb_labelled-keyword">Природа</button>
-              <button
+              <button type="button"
                 class="card__breadcrumb card__breadcrumb_save-button button button__breadcrumb button__breadcrumb_icon button__breadcrumb_icon-flag"></button>
-              <button
+              <button type="button"
                 class="card__breadcrumb card__breadcrumb_tooltip visibility__removed button button__breadcrumb button__breadcrumb_labelled button__breadcrumb_labelled-tooltip">Войдите,
                 чтобы сохранять статьи</button>
-              <!-- <button class="card__breadcrumb card__breadcrumb_save-button button button__breadcrumb button__breadcrumb_icon button__breadcrumb_icon-flag-marked"></button> -->
-              <!-- <button class="card__breadcrumb card__breadcrumb_delete-button button button__breadcrumb button__breadcrumb_icon button__breadcrumb_icon-trashbin"></button> -->
+              <!-- <button type="button" class="card__breadcrumb card__breadcrumb_save-button button button__breadcrumb button__breadcrumb_icon button__breadcrumb_icon-flag-marked"></button> -->
+              <!-- <button type="button" class="card__breadcrumb card__breadcrumb_delete-button button button__breadcrumb button__breadcrumb_icon button__breadcrumb_icon-trashbin"></button> -->
             </div>
 
             <div class="card__body">
@@ -123,15 +123,15 @@
           <article class="card">
             <div class="card__cover">
               <img src="<%=require('./images/image_07.png')%>" alt="Фото зарослей" class="card__image">
-              <button
+              <button type="button"
                 class="card__breadcrumb card__breadcrumb_keyword-button visibility__removed button button__breadcrumb button__breadcrumb_labelled button__breadcrumb_labelled-keyword">Природа</button>
-              <button
+              <button type="button"
                 class="card__breadcrumb card__breadcrumb_save-button button button__breadcrumb button__breadcrumb_icon button__breadcrumb_icon-flag"></button>
-              <button
+              <button type="button"
                 class="card__breadcrumb card__breadcrumb_tooltip visibility__removed button button__breadcrumb button__breadcrumb_labelled button__breadcrumb_labelled-tooltip">Войдите,
                 чтобы сохранять статьи</button>
-              <!-- <button class="card__breadcrumb card__breadcrumb_save-button button button__breadcrumb button__breadcrumb_icon button__breadcrumb_icon-flag-marked"></button> -->
-              <!-- <button class="card__breadcrumb card__breadcrumb_delete-button button button__breadcrumb button__breadcrumb_icon button__breadcrumb_icon-trashbin"></button> -->
+              <!-- <button type="button" class="card__breadcrumb card__breadcrumb_save-button button button__breadcrumb button__breadcrumb_icon button__breadcrumb_icon-flag-marked"></button> -->
+              <!-- <button type="button" class="card__breadcrumb card__breadcrumb_delete-button button button__breadcrumb button__breadcrumb_icon button__breadcrumb_icon-trashbin"></button> -->
             </div>
 
             <div class="card__body">
@@ -152,15 +152,15 @@
           <article class="card">
             <div class="card__cover">
               <img src="<%=require('./images/image_07.png')%>" alt="Фото зарослей" class="card__image">
-              <button
+              <button type="button"
                 class="card__breadcrumb card__breadcrumb_keyword-button visibility__removed button button__breadcrumb button__breadcrumb_labelled button__breadcrumb_labelled-keyword">Природа</button>
-              <button
+              <button type="button"
                 class="card__breadcrumb card__breadcrumb_save-button button button__breadcrumb button__breadcrumb_icon button__breadcrumb_icon-flag"></button>
-              <button
+              <button type="button"
                 class="card__breadcrumb card__breadcrumb_tooltip visibility__removed button button__breadcrumb button__breadcrumb_labelled button__breadcrumb_labelled-tooltip">Войдите,
                 чтобы сохранять статьи</button>
-              <!-- <button class="card__breadcrumb card__breadcrumb_save-button button button__breadcrumb button__breadcrumb_icon button__breadcrumb_icon-flag-marked"></button> -->
-              <!-- <button class="card__breadcrumb card__breadcrumb_delete-button button button__breadcrumb button__breadcrumb_icon button__breadcrumb_icon-trashbin"></button> -->
+              <!-- <button type="button" class="card__breadcrumb card__breadcrumb_save-button button button__breadcrumb button__breadcrumb_icon button__breadcrumb_icon-flag-marked"></button> -->
+              <!-- <button type="button" class="card__breadcrumb card__breadcrumb_delete-button button button__breadcrumb button__breadcrumb_icon button__breadcrumb_icon-trashbin"></button> -->
             </div>
 
             <div class="card__body">
@@ -179,7 +179,7 @@
           </article>
         </div>
 
-        <button
+        <button type="button"
           class="article-block__button button button__rounded button__rounded_white button_hover-on-black">Показать
           ещё</button>
       </section>
@@ -210,19 +210,20 @@
           </li>
 
           <li class="menu__text-path menu__text-path_footer">
-            <a href="https://praktikum.yandex.ru/" class="link">Яндекс.Практикум</a>
+            <a target="_blank" rel="noopener noreferrer" href="https://praktikum.yandex.ru/"
+              class="link">Яндекс.Практикум</a>
           </li>
         </ul>
 
         <ul class="menu__icon-options list">
           <li class="menu__icon-path">
-            <a href="https://github.com/VitalyTikhonov" class="link">
+            <a target="_blank" rel="noopener noreferrer" href="https://github.com/VitalyTikhonov" class="link">
               <img src="<%=require('./images/github.png')%>" alt="Ссылка на GitHub" class="menu__icon">
             </a>
           </li>
 
           <li class="menu__icon-path">
-            <a href="https://t.me/VitalSense" class="link">
+            <a target="_blank" rel="noopener noreferrer" href="https://t.me/VitalSense" class="link">
               <img src="<%=require('./images/telegram-small.png')%>" alt="Ссылка на Telegram" class="menu__icon">
             </a>
           </li>
@@ -235,28 +236,30 @@
       <!-- ПОПАП "ВХОД" – ШАГ 2 из 2: ᐃᐃᐃ закрыт – открыт ᐁᐁᐁ  -->
       <!-- <div class="popup"> -->
       <div class="popup__content">
-        <button class="popup__close-icon button button__modal button__modal_cross-white button_hover-on-black"></button>
+        <button type="button"
+          class="popup__close-icon button button__modal button__modal_cross-white button_hover-on-black"></button>
         <h3 class="popup__title">Вход</h3>
 
         <form class="popup__form" name="loginForm" novalidate>
-          <label class="popup__input-label" for="email">Email</label>
+          <label class="popup__input-label" for="login-email">Email</label>
 
-          <input type="email" name="userEmail" id="email" class="popup__input" placeholder="Введите почту" required
-            minlength="2" maxlength="30">
+          <input type="email" name="userEmail" id="login-email" class="popup__input" placeholder="Введите почту"
+            required minlength="2" maxlength="30">
 
-          <!-- <span class="popup__error" id="email-error"></span> -->
-          <span class="popup__error" id="email-error">Неправильный формат email</span>
+          <!-- <span class="popup__error" id="login-email-error"></span> -->
+          <span class="popup__error" id="login-email-error">Неправильный формат email</span>
 
-          <label class="popup__input-label" for="password">Пароль</label>
+          <label class="popup__input-label" for="login-password">Пароль</label>
 
-          <input type="password" name="userPassword" id="password" class="popup__input" placeholder="Введите пароль"
-            required>
+          <input type="password" name="userPassword" id="login-password" class="popup__input"
+            placeholder="Введите пароль" required>
 
-          <!-- <span class="popup__error" id="password-error"></span> -->
-          <span class="popup__error" id="password-error">Неправильный пароль</span>
+          <!-- <span class="popup__error" id="login-password-error"></span> -->
+          <span class="popup__error" id="login-password-error">Неправильный пароль</span>
 
-          <!-- <span class="popup__error" id="form-error"></span> -->
-          <span class="popup__error popup__error_general" id="form-error">Введите действительные логин и пароль</span>
+          <!-- <span class="popup__error" id="login-form-error"></span> -->
+          <span class="popup__error popup__error_general" id="login-form-error">Введите действительные логин и
+            пароль</span>
 
           <!-- активная -->
           <!-- <button type="submit" class="popup__button button button__rounded button__rounded_size_parent button__rounded_blue">Войти</button> -->
@@ -274,7 +277,8 @@
       <!-- ПОПАП "РЕГИСТРАЦИЯ" – ШАГ 2 из 2: ᐃᐃᐃ закрыт – открыт ᐁᐁᐁ  -->
       <!-- <div class="popup"> -->
       <div class="popup__content">
-        <button class="popup__close-icon button button__modal button__modal_cross-white button_hover-on-black"></button>
+        <button type="button"
+          class="popup__close-icon button button__modal button__modal_cross-white button_hover-on-black"></button>
         <h3 class="popup__title">Регистрация</h3>
 
         <form class="popup__form" name="loginForm" novalidate>
@@ -320,11 +324,11 @@
       <!-- ПОПАП "СООБЩЕНИЕ" – ШАГ 2 из 2: ᐃᐃᐃ закрыт – открыт ᐁᐁᐁ  -->
       <!-- <div class="popup"> -->
       <div class="popup__content">
-        <button class="popup__close-icon button button__modal button__modal_cross-white button_hover-on-black"></button>
+        <button type="button"
+          class="popup__close-icon button button__modal button__modal_cross-white button_hover-on-black"></button>
         <p class="popup__message">Пользователь успешно зарегистрирован!</p>
 
         <p class="popup__prompt"><span class="popup__prompt-link">Войти</span></p>
-        </form>
       </div>
     </div>
   </div>

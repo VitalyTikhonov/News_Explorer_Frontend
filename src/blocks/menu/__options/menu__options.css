@@ -1,0 +1,7 @@
+@media (min-width: 690px) {
+  .menu__options {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+  }
+}

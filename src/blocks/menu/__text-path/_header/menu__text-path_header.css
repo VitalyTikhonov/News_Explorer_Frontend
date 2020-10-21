@@ -6,10 +6,6 @@
   font-size: 18px;
 }
 
-.menu__text-path.menu__text-path_header:last-child {
-  margin-bottom: 0;
-}
-
 /* @media (min-width: 690px) and (max-width: 768px) { */
 @media (min-width: 690px) {
   .menu__text-path.menu__text-path_header {
