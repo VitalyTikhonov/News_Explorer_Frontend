@@ -252,7 +252,7 @@
           <label class="popup__input-label" for="login-password">Пароль</label>
 
           <input type="password" name="userPassword" id="login-password" class="popup__input"
-            placeholder="Введите пароль" required>
+            placeholder="Введите пароль" required minlength="8">
 
           <!-- <span class="popup__error" id="login-password-error"></span> -->
           <span class="popup__error" id="login-password-error">Неправильный пароль</span>
@@ -293,14 +293,14 @@
           <label class="popup__input-label" for="password">Пароль</label>
 
           <input type="password" name="userPassword" id="password" class="popup__input" placeholder="Введите пароль"
-            required>
+            required minlength="8">
 
           <!-- <span class="popup__error" id="password-error"></span> -->
           <span class="popup__error" id="password-error">Неправильный пароль</span>
 
           <label class="popup__input-label" for="username">Имя</label>
 
-          <input type="text" name="userName" id="username" class="popup__input" placeholder="Введите имя" required>
+          <input type="text" name="userName" id="username" class="popup__input" placeholder="Введите имя" required minlength="2" maxlength="30">
 
           <!-- <span class="popup__error" id="username-error"></span> -->
           <span class="popup__error" id="username-error">Недопустимое имя</span>
