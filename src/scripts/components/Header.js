@@ -1,16 +1,15 @@
 import BaseComponent from './BaseComponent';
 
 class Header extends BaseComponent {
-  constructor(domEventHandlerCombs, doms) {
-    super(domEventHandlerCombs);
-    this._doms = doms;
+  constructor(authButton, popup) {
+    super();
+    this._authButton = authButton;
+    this._popup = popup;
   }
 
   render() {
+    this._domEventHandlerMap.push({ domElement: this._authButton, event: 'click', handler: this._popup.open });
     /* здесь логику состояния хедера */
-    // console.log('this._doms', this._doms);
-    // console.log('this._setHandlers', this._setHandlers);
-    // this._domEventHandlerCombs = this._doms;
     this._setHandlers();
   }
 }

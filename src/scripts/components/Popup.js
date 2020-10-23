@@ -1,13 +1,15 @@
 import BaseComponent from './BaseComponent';
 
 class Popup extends BaseComponent {
-  // constructor(domEventHandlerCombs) {
-  //   super(domEventHandlerCombs);
-  // }
-  // constructor() {
-  // }
+  constructor(pageRoot) {
+    super();
+    this._pageRoot = pageRoot;
+    this._domElements = {};
+    this.open = this._open.bind(this);
+    this._close = this._close.bind(this);
+  }
 
-  render() {
+  _open() {
     const markup = `
         <div class="popup">
           <div class="popup__content">
@@ -18,6 +20,18 @@ class Popup extends BaseComponent {
     `;
     const element = document.createElement('div');
     element.insertAdjacentHTML('afterbegin', markup);
+    this._popup = element.firstElementChild;
+    this._domElements.closeIcon = this._popup.querySelector('.popup__close-icon');
+
+    this._domEventHandlerMap.push({ domElement: this._domElements.closeIcon, event: 'click', handler: this._close });
+    /* здесь логику состояния хедера */
+    this._setHandlers();
+    this._pageRoot.appendChild(this._popup);
+  }
+
+  _close() {
+    this._removeHandlers();
+    this._popup.remove();
   }
 }
 

@@ -5,23 +5,21 @@ class BaseComponent {
   //   // Где будет привязка к this? Вероятно, в том классе, где будет объявляться сам метод.
   // }
 
-  constructor(domEventHandlerCombs) {
-    this._domEventHandlerCombs = domEventHandlerCombs; // на вход – массив
+  constructor() {
+    this._domEventHandlerMap = [];
   }
 
   _setHandlers() {
-    this._domEventHandlerCombs.forEach((combination) => {
+    this._domEventHandlerMap.forEach((combination) => {
       const { domElement, event, handler } = combination;
       domElement.addEventListener(event, handler);
-      // Где будет привязка к this? Вероятно, в том классе, где будет объявляться сам метод.
     });
   }
 
   _removeHandlers() {
-    this._domEventHandlerCombs.forEach((combination) => {
+    this._domEventHandlerMap.forEach((combination) => {
       const { domElement, event, handler } = combination;
       domElement.removeEventListener(event, handler);
-      // Где будет привязка к this? Вероятно, в том классе, где будет объявляться сам метод.
     });
   }
 }
