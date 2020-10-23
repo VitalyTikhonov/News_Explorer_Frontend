@@ -16,7 +16,7 @@ module.exports = {
   },
   output: {
     path: path.resolve(__dirname, 'dist'),
-    filename: 'pages/[name]/[name].[chunkhash].js',
+    filename: 'js/[name].[chunkhash].js',
   },
   module: {
     rules: [
@@ -34,7 +34,7 @@ module.exports = {
         test: /\.css$/,
         use: [
           (isDev ? 'style-loader' : {
-            loader: MiniCssExtractPlugin.loader, options: { publicPath: '../../' },
+            loader: MiniCssExtractPlugin.loader, options: { publicPath: '../' },
           }),
           {
             loader: 'css-loader',
@@ -99,12 +99,12 @@ module.exports = {
       chunks: ['index'],
     }),
     new HtmlWebpackPlugin({
-      filename: 'saved-news.html',
+      filename: 'saved-news/index.html',
       template: './src/saved-news.html',
       chunks: ['saved-news'],
     }),
     new MiniCssExtractPlugin({
-      filename: 'pages/[name]/[name].[contenthash].css',
+      filename: 'css/[name].[contenthash].css',
     }),
     new OptimizeCssAssetsPlugin({
       assetNameRegExp: /\.css$/g,
