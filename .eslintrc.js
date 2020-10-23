@@ -14,8 +14,7 @@ module.exports = {
     "ecmaVersion": 11,
     "sourceType": "module",
   },
-  // "rules": {
-  //   "no-underscore-dangle": "off",
-    // "linebreak-style": ["error", "windows"],
-  // },
+  "rules": {
+    "no-underscore-dangle": "off",
+  },
 };
