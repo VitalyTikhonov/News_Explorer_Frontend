@@ -12,8 +12,13 @@ class BaseComponent {
 
   _removeHandlers() {
     this._domEventHandlerMap.forEach((combination) => {
-      const { domElement, event, handler } = combination;
-      domElement.removeEventListener(event, handler);
+      const {
+        domElement,
+        event,
+        handler,
+        useCapture = false,
+      } = combination;
+      domElement.removeEventListener(event, handler, useCapture);
     });
   }
 }

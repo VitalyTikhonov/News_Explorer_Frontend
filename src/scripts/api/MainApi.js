@@ -1,8 +1,7 @@
 class MainApi {
-  constructor({ baseUrl, authorization, contentType }) {
-    this.baseUrl = baseUrl;
-    this.authorization = authorization;
-    this.contentType = contentType;
+  constructor(API_URL, CONTENT_TYPE) {
+    this._API_URL = API_URL;
+    this._CONTENT_TYPE = CONTENT_TYPE;
   }
 
   /*
@@ -20,17 +19,17 @@ class MainApi {
     return Promise.reject(this._res);
   }
 
-  signup(userEmail, userPassword, userName) {
+  signup({ email, password, name }) {
     return fetch(
-      `${this.baseUrl}/signup`,
+      `${this._API_URL}/signup`,
       {
         method: 'POST',
-        headers: { 'Content-Type': this.contentType },
+        headers: { 'Content-Type': this._CONTENT_TYPE },
         credentials: 'include',
         body: JSON.stringify({
-          email: userEmail,
-          password: userPassword,
-          name: userName,
+          email,
+          password,
+          name,
         }),
       },
     )

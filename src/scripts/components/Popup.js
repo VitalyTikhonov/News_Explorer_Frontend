@@ -3,16 +3,14 @@ import BaseComponent from './BaseComponent';
 class Popup extends BaseComponent {
   constructor(
     pageRoot,
-    popupMarkup,
-    popupInnerContainerSelector,
-    closeIconSelector,
+    popupShell,
     contentsSource,
   ) {
     super();
     this._pageRoot = pageRoot;
-    this._popupMarkup = popupMarkup;
-    this._popupInnerContainerSelector = popupInnerContainerSelector;
-    this._closeIconSelector = closeIconSelector;
+    this._popupMarkup = popupShell.markup;
+    this._popupInnerContainerSelector = popupShell.innerContainerSelector;
+    this._closeIconSelector = popupShell.closeIconSelector;
     this._contentsSource = contentsSource;
     this.open = this.open.bind(this);
     this._close = this._close.bind(this);
