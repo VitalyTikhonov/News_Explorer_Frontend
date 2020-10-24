@@ -2,6 +2,7 @@
 import './index.css';
 import Header from '../../scripts/components/Header';
 import Popup from '../../scripts/components/Popup';
+import { popupMarkup, popupCloseIconSelector, signupFormMarkup } from '../../scripts/constants/constants';
 
 (function site() {
   /* ГЛОБАЛЬНЫЕ ПЕРЕМЕННЫЕ */
@@ -9,10 +10,12 @@ import Popup from '../../scripts/components/Popup';
   const header = pageRoot.querySelector('.header');
   const authButton = header.querySelector('.menu__auth-button');
   /* КОЛБЕКИ */
+  // function renderForm(params) {
+
+  // }
   /* ЭКЗЕМПЛЯРЫ КЛАССОВ */
-  const popup = new Popup(pageRoot);
+  const popup = new Popup(pageRoot, popupMarkup, popupCloseIconSelector);
   const headerObj = new Header(authButton, popup);
-  // const headerObj = new Header([{ domElement: authButton, event: 'click', handler: openPopup }]);
   /* ВЫЗОВЫ ФУНКЦИЙ */
   headerObj.render();
 }());
