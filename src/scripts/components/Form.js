@@ -1,9 +1,8 @@
 import BaseComponent from './BaseComponent';
 
 class Form extends BaseComponent {
-  constructor(container, markup, formProcessor) {
+  constructor(markup, formProcessor) {
     super();
-    this._container = container;
     this._markup = markup;
     this._processForm = formProcessor;
     // this.open = this._open.bind(this);
@@ -27,12 +26,13 @@ class Form extends BaseComponent {
   //     });
   // }
 
-  _render() {
+  render() {
     const element = document.createElement('div');
     element.insertAdjacentHTML('afterbegin', this._markup);
+    // console.log('this._markup', this._markup);
+    // console.log('element', element);
+    // console.log('element.firstElementChild', element.firstElementChild);
     this._form = element.firstElementChild;
-    this._domElements.closeIcon = this._form.querySelector('.popup__close-icon');
-
     // this._domEventHandlerMap.push(
     //   {
     //     domElement: ,
@@ -40,8 +40,8 @@ class Form extends BaseComponent {
     //     handler: ,
     //   },
     // );
-    this._setHandlers();
-    this._container.appendChild(this._form);
+    // this._setHandlers();
+    return this._form;
   }
 }
 

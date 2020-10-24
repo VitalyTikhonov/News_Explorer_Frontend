@@ -6,7 +6,8 @@ class Popup extends BaseComponent {
     this._pageRoot = pageRoot;
     this._popupMarkup = popupMarkup;
     this._closeIconSelector = closeIconSelector;
-    this.open = this._open.bind(this);
+    this._popupContents = null;
+    this.open = this.open.bind(this);
     this._close = this._close.bind(this);
     this._escapeHandler = this._escapeHandler.bind(this);
     this._clickAwayHandler = this._clickAwayHandler.bind(this);
@@ -29,11 +30,20 @@ class Popup extends BaseComponent {
     }
   }
 
-  _open() {
+  set popupContents(value) {
+    this._popupContents = value.toString();
+  }
+
+  open() {
     const element = document.createElement('div');
     element.insertAdjacentHTML('afterbegin', this._popupMarkup);
+    console.log('typeof this._popupMarkup', typeof this._popupMarkup);
+    console.log('this._popupMarkup', this._popupMarkup);
     this._popup = element.firstElementChild;
     this._closeIcon = this._popup.querySelector(this._closeIconSelector);
+    console.log('typeof this._popupContents', typeof this._popupContents);
+    console.log('this._popupContents', this._popupContents);
+    this._popup.insertAdjacentHTML('beforeend', this._popupContents);
 
     this._domEventHandlerMap.push(
       {
