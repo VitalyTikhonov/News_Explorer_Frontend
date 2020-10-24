@@ -1,14 +1,14 @@
 import BaseComponent from './BaseComponent';
 
 class Header extends BaseComponent {
-  constructor(authButton, popup) {
+  constructor(authButton, renderFormPopup) {
     super();
     this._authButton = authButton;
-    this._popup = popup;
+    this._renderFormPopup = renderFormPopup;
   }
 
   render() {
-    this._domEventHandlerMap.push({ domElement: this._authButton, event: 'click', handler: this._popup.open });
+    this._domEventHandlerMap.push({ domElement: this._authButton, event: 'click', handler: this._renderFormPopup.open });
     /* здесь логику состояния хедера */
     this._setHandlers();
   }
