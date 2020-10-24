@@ -1,4 +1,6 @@
-// const Markup = ``;
+const pageRoot = document.querySelector('.root');
+const header = pageRoot.querySelector('.header');
+const authButton = header.querySelector('.menu__auth-button');
 const popupMarkup = `
   <div class="popup" tabindex="0">
     <div class="popup__body">
@@ -7,6 +9,7 @@ const popupMarkup = `
     </div>
   </div>
 `;
+const popupInnerContainerSelector = '.popup__body';
 const popupCloseIconSelector = '.popup__close-icon';
 const signupFormMarkup = `
   <div class="popup__content">
@@ -53,7 +56,11 @@ const signupFormMarkup = `
 `;
 
 module.exports = {
+  pageRoot,
+  header,
+  authButton,
   popupMarkup,
+  popupInnerContainerSelector,
   popupCloseIconSelector,
   signupFormMarkup,
 };

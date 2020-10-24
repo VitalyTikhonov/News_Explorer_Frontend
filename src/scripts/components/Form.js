@@ -29,9 +29,6 @@ class Form extends BaseComponent {
   render() {
     const element = document.createElement('div');
     element.insertAdjacentHTML('afterbegin', this._markup);
-    // console.log('this._markup', this._markup);
-    // console.log('element', element);
-    // console.log('element.firstElementChild', element.firstElementChild);
     this._form = element.firstElementChild;
     // this._domEventHandlerMap.push(
     //   {
