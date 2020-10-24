@@ -1,10 +1,6 @@
 /* ИМПОРТ МОДУЛЕЙ */
 import './index.css';
-import {
-  NODE_ENV,
-  API_URL,
-  CONTENT_TYPE,
-} from '../../configs/config';
+import { API_URL, CONTENT_TYPE } from '../../configs/config';
 import Header from '../../scripts/components/Header';
 import Popup from '../../scripts/components/Popup';
 import Form from '../../scripts/components/Form';
@@ -21,20 +17,17 @@ import {
 
 (function site() {
   /* КОЛБЕКИ */
-  function createSignupForm() {
-    return new Form(signupFormMarkup, mainApi).render();
-  }
   /* ЭКЗЕМПЛЯРЫ КЛАССОВ */
   const mainApi = new MainApi({ API_URL, CONTENT_TYPE });
+  const signupForm = new Form(signupFormMarkup, mainApi);
   const signUpPopup = new Popup(
     pageRoot,
     popupMarkup,
     popupInnerContainerSelector,
     popupCloseIconSelector,
-    createSignupForm,
+    signupForm,
   );
   const headerObj = new Header(authButton, signUpPopup);
   /* ВЫЗОВЫ ФУНКЦИЙ */
-  console.log('NODE_ENV', NODE_ENV);
   headerObj.render();
 }());

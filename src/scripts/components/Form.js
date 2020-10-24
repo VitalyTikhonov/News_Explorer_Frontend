@@ -1,35 +1,42 @@
 import BaseComponent from './BaseComponent';
 
 class Form extends BaseComponent {
-  constructor(markup, formProcessor) {
+  constructor(markup, api) {
     super();
     this._markup = markup;
-    this._processForm = formProcessor;
-    // this.open = this._open.bind(this);
-    // this._close = this._close.bind(this);
-    // this._escapeHandler = this._escapeHandler.bind(this);
-    // this._clickAwayHandler = this._clickAwayHandler.bind(this);
+    this._api = api;
   }
 
-  // _formSubmitHandler(event) {
-  //   event.preventDefault();
-  //   // this.toggleButtonText(false);
-  //   this._processForm(this._form)
-  //     .then(() => {
-  //       this._form.reset();
-  //     })
-  //     .catch((err) => {
-  //       alert(`Произошла ошибка: ${err.status} ${err.statusText}`);
-  //     })
-  //     .finally(() => {
-  //       // this.toggleButtonText(true);
-  //     });
-  // }
+  _formSubmitHandler(event) {
+    event.preventDefault();
+    // this.toggleButtonText(false);
+    this._processForm(this._formOuterNode)
+      .then(() => {
+        this._formOuterNode.reset();
+      })
+      .catch((err) => {
+        alert(`Произошла ошибка: ${err.status} ${err.statusText}`);
+      })
+      .finally(() => {
+        // this.toggleButtonText(true);
+      });
+  }
 
-  render() {
+  _getFormFields() {
+    this._inputElements = Array.from(this._form.elements)
+      .filter((inputElement) => inputElement.type !== 'submit' && inputElement.type !== 'button');
+    // console.log('this._inputElements', this._inputElements);
+    console.log('this._form.elements', this._form.elements);
+    // console.log('Array.isArray(this._form.elements)', Array.isArray(this._form.elements));
+    /* итерироваться, вероятно reduce */
+  }
+
+  create() {
     const element = document.createElement('div');
     element.insertAdjacentHTML('afterbegin', this._markup);
-    this._form = element.firstElementChild;
+    this._formOuterNode = element.firstElementChild;
+    this._form = this._formOuterNode.querySelector('form');
+    this._getFormFields();
     // this._domEventHandlerMap.push(
     //   {
     //     domElement: ,
@@ -38,7 +45,7 @@ class Form extends BaseComponent {
     //   },
     // );
     // this._setHandlers();
-    return this._form;
+    return this._formOuterNode;
   }
 }
 

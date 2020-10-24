@@ -6,14 +6,14 @@ class Popup extends BaseComponent {
     popupMarkup,
     popupInnerContainerSelector,
     closeIconSelector,
-    generateContents,
+    contentsSource,
   ) {
     super();
     this._pageRoot = pageRoot;
     this._popupMarkup = popupMarkup;
     this._popupInnerContainerSelector = popupInnerContainerSelector;
     this._closeIconSelector = closeIconSelector;
-    this._generateContents = generateContents;
+    this._contentsSource = contentsSource;
     this.open = this.open.bind(this);
     this._close = this._close.bind(this);
     this._escapeHandler = this._escapeHandler.bind(this);
@@ -43,7 +43,7 @@ class Popup extends BaseComponent {
     this._popup = element.firstElementChild;
     this._innerContainer = this._popup.querySelector(this._popupInnerContainerSelector);
     this._closeIcon = this._popup.querySelector(this._closeIconSelector);
-    this._innerContainer.appendChild(this._generateContents());
+    this._innerContainer.appendChild(this._contentsSource.create());
 
     this._domEventHandlerMap.push(
       {
