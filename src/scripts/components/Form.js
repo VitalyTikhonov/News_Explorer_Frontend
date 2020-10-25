@@ -34,7 +34,8 @@ class Form extends BaseComponent {
   }
 
   _dismiss() {
-    // this._removeHandlers();
+    this._removeHandlers();
+    // this._dismiss(); // Maximum call stack size exceeded???
     this._form.dispatchEvent(this._formDismissalEvent);
   }
 

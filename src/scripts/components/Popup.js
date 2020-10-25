@@ -10,7 +10,7 @@ class Popup extends BaseComponent {
     /* own */
     this._closeIconSelector = closeIconSelector;
     this.open = this.open.bind(this);
-    this._dismiss = this._dismiss.bind(this);
+    this.dismiss = this._dismiss.bind(this);
     this._escapeHandler = this._escapeHandler.bind(this);
     this._clickAwayHandler = this._clickAwayHandler.bind(this);
   }
@@ -36,7 +36,7 @@ class Popup extends BaseComponent {
       {
         domElement: this._closeIcon,
         event: 'click',
-        handler: this._dismiss,
+        handler: this.dismiss,
       },
       {
         domElement: document,

@@ -13,7 +13,7 @@ class Header extends BaseComponent {
   }
 
   _formDismissalHandler() {
-    this._popup._dismiss();
+    this._popup.dismiss();
   }
 
   _createAuthDialog() {
