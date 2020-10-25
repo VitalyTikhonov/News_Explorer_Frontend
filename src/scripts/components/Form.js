@@ -1,21 +1,30 @@
 import BaseComponent from './BaseComponent';
 
 class Form extends BaseComponent {
-  constructor(formConfig, api, closeSignUpPopup) {
-    super();
-    this._markup = formConfig.markup;
-    this._fieldSelectors = formConfig.fieldSelectors;
-    this._genErrMessSelector = formConfig.genErrMessSelector;
-    this._submitButtonSelector = formConfig.submitButtonSelector;
+  constructor(
+    parentArgs,
+    fieldSelectors,
+    submitButtonSelector,
+    genErrMessSelector,
+    api,
+    formDismissalEvent,
+    closeSignUpPopup,
+  ) {
+    super(parentArgs);
+    this._fieldSelectors = fieldSelectors;
+    this._submitButtonSelector = submitButtonSelector;
+    this._genErrMessSelector = genErrMessSelector;
     this._api = api;
+    this._formDismissalEvent = formDismissalEvent;
     this._closeSignUpPopup = closeSignUpPopup;
+    this.create = this.create.bind(this);
     this._formSubmitHandler = this._formSubmitHandler.bind(this);
     // this._getFieldValueMap = this._getFieldValueMap.bind(this);
   }
 
   _getFormFields() {
     this._inputElements = this._fieldSelectors
-      .map((selector) => this._form.querySelector(selector));
+      .map((selector) => this._formProper.querySelector(selector));
   }
 
   _getFieldValueMap() {
@@ -24,42 +33,58 @@ class Form extends BaseComponent {
     // console.log('this._fieldValueMap', this._fieldValueMap);
   }
 
+  _dismiss() {
+    // this._removeHandlers();
+    this._form.dispatchEvent(this._formDismissalEvent);
+  }
+
+  // eslint-disable-next-line class-methods-use-this
+  // _dismissalTemporaryHandler() {
+  //   console.log('It works!');
+  // }
+
   _formSubmitHandler(event) {
     event.preventDefault();
     this._getFieldValueMap();
     // this.toggleButtonText(false);
     this._api.signup(this._fieldValueMap)
       .then((res) => {
-        this._closeSignUpPopup();
         console.log(res);
+        this._dismiss();
       })
       .catch((err) => {
         // console.log(err.message);
         this._generalErrorMessage.textContent = err.message;
+      })
+      .finally(() => {
+        // this._closeSignUpPopup();
+        // this.toggleButtonText(true);
       });
-    // .finally(() => {
-    //   // this.toggleButtonText(true);
-    // });
   }
 
   create() {
-    const element = document.createElement('div');
-    element.insertAdjacentHTML('afterbegin', this._markup);
-    this._formOuterNode = element.firstElementChild;
-    this._form = this._formOuterNode.querySelector('form');
+    this._create();
+    // console.log('this._component', this._component);
+    this._form = this._component;
+    this._formProper = this._form.querySelector('form');
     this._getFormFields(); // Заранее создаем массив с полями формы
-    this._generalErrorMessage = this._formOuterNode.querySelector(this._genErrMessSelector);
-    this._submitButton = this._formOuterNode.querySelector(this._submitButtonSelector);
+    this._generalErrorMessage = this._form.querySelector(this._genErrMessSelector);
+    this._submitButton = this._form.querySelector(this._submitButtonSelector);
     this._domEventHandlerMap.push(
       {
-        domElement: this._form,
+        domElement: this._formProper,
         event: 'submit',
         handler: this._formSubmitHandler,
         useCapture: true,
       },
+      // {
+      //   domElement: this._form,
+      //   event: 'formDismissal',
+      //   handler: this._dismissalTemporaryHandler,
+      // },
     );
     this._setHandlers();
-    return this._formOuterNode;
+    return this._form;
   }
 }
 

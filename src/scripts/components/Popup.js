@@ -2,14 +2,11 @@ import BaseComponent from './BaseComponent';
 
 class Popup extends BaseComponent {
   constructor(
-    parent,
-    innerContainerSelector,
-    markup,
-    contents,
+    parentArgs,
     /* own */
     closeIconSelector,
   ) {
-    super(parent, innerContainerSelector, markup, contents);
+    super(parentArgs);
     /* own */
     this._closeIconSelector = closeIconSelector;
     this.open = this.open.bind(this);
@@ -34,7 +31,7 @@ class Popup extends BaseComponent {
     this._create();
     this._popup = this._component;
     this._closeIcon = this._popup.querySelector(this._closeIconSelector);
-    // this._insertChild();
+    this._insertChild();
     this._domEventHandlerMap.push(
       {
         domElement: this._closeIcon,

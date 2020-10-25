@@ -1,5 +1,16 @@
 class BaseComponent {
-  constructor(parent, innerContainerSelector, markup, contents) {
+  // constructor(
+  //   parent,
+  //   innerContainerSelector,
+  //   markup,
+  //   contents,
+  // ) {
+  constructor({
+    parent,
+    innerContainerSelector,
+    markup,
+    contents,
+  }) {
     this._parent = parent;
     this._innerContainerSelector = innerContainerSelector;
     this._markup = markup;
@@ -34,6 +45,9 @@ class BaseComponent {
     const element = document.createElement('div');
     element.insertAdjacentHTML('afterbegin', this._markup);
     this._component = element.firstElementChild;
+    // console.log('this._parent', this._parent);
+    // console.log('this._markup', this._markup);
+    // console.log('this._component', this._component);
     return this._component;
   }
 

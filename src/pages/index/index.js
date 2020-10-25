@@ -6,6 +6,7 @@ import Popup from '../../scripts/components/Popup';
 import Form from '../../scripts/components/Form';
 import ActionMessage from '../../scripts/components/ActionMessage';
 import MainApi from '../../scripts/api/MainApi';
+import { formDismissalEvent } from '../../scripts/utils/utils';
 import {
   pageConfig,
   popupShellConfig,
@@ -16,21 +17,35 @@ import {
 (function site() {
   /* КОЛБЕКИ */
   function createPopup(contentsSource) {
-  // function createPopup() {
     // console.log('createPopup');
     return new Popup(
-      pageConfig.rootNode,
-      popupShellConfig.innerContainerSelector,
-      popupShellConfig.markup,
-      contentsSource,
+      {
+        parent: pageConfig.rootNode,
+        innerContainerSelector: popupShellConfig.innerContainerSelector,
+        markup: popupShellConfig.markup,
+        contents: contentsSource,
+      },
+      // pageConfig.rootNode,
+      // popupShellConfig.innerContainerSelector,
+      // popupShellConfig.markup,
+      // contentsSource,
       popupShellConfig.closeIconSelector,
     );
   }
 
   const generatePopupContents = {
     createSignupForm() {
-      // eslint-disable-next-line no-use-before-define
-      return new Form(signupFormConfig, mainApi);
+      // console.log('createSignupForm');
+      return new Form(
+        { markup: signupFormConfig.markup },
+        // signupFormConfig.markup,
+        signupFormConfig.fieldSelectors,
+        signupFormConfig.submitButtonSelector,
+        signupFormConfig.genErrMessSelector,
+        // eslint-disable-next-line no-use-before-define
+        mainApi,
+        formDismissalEvent,
+      );
     },
 
     // createLoginForm() {
@@ -44,7 +59,7 @@ import {
   };
   /* ЭКЗЕМПЛЯРЫ КЛАССОВ */
   const mainApi = new MainApi(API_URL, CONTENT_TYPE);
-  const headerObj = new Header(pageConfig.authButton, createPopup, generatePopupContents);
+  const headerObj = new Header({}, pageConfig.authButton, createPopup, generatePopupContents);
   /* ВЫЗОВЫ ФУНКЦИЙ */
   headerObj.render();
 }());
