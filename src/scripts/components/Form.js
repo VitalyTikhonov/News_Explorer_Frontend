@@ -31,14 +31,14 @@ class Form extends BaseComponent {
     // this.toggleButtonText(false);
     this._api.signup(this._fieldValueMap)
       .then((res) => {
-        console.log('res\n', res);
+        console.log(res);
       })
       .catch((err) => {
-        alert(`Произошла ошибка: ${err.status} ${err.statusText}`);
-      })
-      .finally(() => {
-        // this.toggleButtonText(true);
+        console.log(err.message);
       });
+      // .finally(() => {
+      //   // this.toggleButtonText(true);
+      // });
   }
 
   create() {

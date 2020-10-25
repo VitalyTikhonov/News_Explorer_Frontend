@@ -16,7 +16,9 @@ class MainApi {
     if (this._res.ok) {
       return this._res.json();
     }
-    return Promise.reject(this._res);
+    const json = this._res.json();
+    return json
+      .then(Promise.reject.bind(Promise));
   }
 
   signup({ email, password, name }) {
@@ -35,7 +37,7 @@ class MainApi {
     )
       .then((res) => {
         this._res = res;
-        this._primaryResponseHandler();
+        return this._primaryResponseHandler();
       });
   }
 }
