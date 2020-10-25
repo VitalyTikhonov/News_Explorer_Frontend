@@ -1,12 +1,14 @@
 import BaseComponent from './BaseComponent';
 
 class Form extends BaseComponent {
-  constructor(formConfig, api) {
+  constructor(formConfig, api, closeSignUpPopup) {
     super();
     this._markup = formConfig.markup;
     this._fieldSelectors = formConfig.fieldSelectors;
+    this._genErrMessSelector = formConfig.genErrMessSelector;
     this._submitButtonSelector = formConfig.submitButtonSelector;
     this._api = api;
+    this._closeSignUpPopup = closeSignUpPopup;
     this._formSubmitHandler = this._formSubmitHandler.bind(this);
     // this._getFieldValueMap = this._getFieldValueMap.bind(this);
   }
@@ -25,20 +27,19 @@ class Form extends BaseComponent {
   _formSubmitHandler(event) {
     event.preventDefault();
     this._getFieldValueMap();
-    // console.log('this._inputElements', this._inputElements);
-    // console.log('this', this);
-    // console.log('this._fieldValueMap', this._fieldValueMap);
     // this.toggleButtonText(false);
     this._api.signup(this._fieldValueMap)
       .then((res) => {
+        this._closeSignUpPopup();
         console.log(res);
       })
       .catch((err) => {
-        console.log(err.message);
+        // console.log(err.message);
+        this._generalErrorMessage.textContent = err.message;
       });
-      // .finally(() => {
-      //   // this.toggleButtonText(true);
-      // });
+    // .finally(() => {
+    //   // this.toggleButtonText(true);
+    // });
   }
 
   create() {
@@ -47,6 +48,7 @@ class Form extends BaseComponent {
     this._formOuterNode = element.firstElementChild;
     this._form = this._formOuterNode.querySelector('form');
     this._getFormFields(); // Заранее создаем массив с полями формы
+    this._generalErrorMessage = this._formOuterNode.querySelector(this._genErrMessSelector);
     this._submitButton = this._formOuterNode.querySelector(this._submitButtonSelector);
     this._domEventHandlerMap.push(
       {

@@ -15,7 +15,7 @@ import {
   /* КОЛБЕКИ */
   /* ЭКЗЕМПЛЯРЫ КЛАССОВ */
   const mainApi = new MainApi(API_URL, CONTENT_TYPE);
-  const signupFormObj = new Form(signupForm, mainApi);
+  const signupFormObj = new Form(signupForm, mainApi, closeSignUpPopup);
   const signUpPopup = new Popup(
     page.rootNode,
     popupShell,

@@ -43,7 +43,7 @@ const signupForm = {
         <span class="popup__error" id="username-error"></span>
         <!-- <span class="popup__error" id="username-error">Недопустимое имя</span> -->
 
-        <span class="popup__error" id="form-error"></span>
+        <span class="popup__error popup__error_general" id="form-error"></span>
         <!-- <span class="popup__error popup__error_general" id="form-error">Такой пользователь уже есть</span> -->
 
         <button type="submit" class="popup__button button__rounded button__rounded_size_parent button__rounded_blue">Зарегистрироваться</button>
@@ -58,6 +58,7 @@ const signupForm = {
     '#signupPassword',
     '#signupName',
   ],
+  genErrMessSelector: '.popup__error_general',
   submitButtonSelector: '.popup__button',
 };
 
