@@ -1,10 +1,4 @@
 class BaseComponent {
-  // constructor(
-  //   parent,
-  //   innerContainerSelector,
-  //   markup,
-  //   contents,
-  // ) {
   constructor({
     parent,
     innerContainerSelector,
@@ -24,8 +18,13 @@ class BaseComponent {
 
   _setHandlers() {
     this._domEventHandlerMap.forEach((combination) => {
-      const { domElement, event, handler } = combination;
-      domElement.addEventListener(event, handler);
+      const {
+        domElement,
+        event,
+        handler,
+        useCapture = false,
+      } = combination;
+      domElement.addEventListener(event, handler, useCapture);
     });
   }
 
@@ -45,9 +44,6 @@ class BaseComponent {
     const element = document.createElement('div');
     element.insertAdjacentHTML('afterbegin', this._markup);
     this._component = element.firstElementChild;
-    // console.log('this._parent', this._parent);
-    // console.log('this._markup', this._markup);
-    // console.log('this._component', this._component);
     return this._component;
   }
 

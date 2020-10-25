@@ -39,11 +39,6 @@ class Form extends BaseComponent {
     this._form.dispatchEvent(this._formDismissalEvent);
   }
 
-  // eslint-disable-next-line class-methods-use-this
-  // _dismissalTemporaryHandler() {
-  //   console.log('It works!');
-  // }
-
   _formSubmitHandler(event) {
     event.preventDefault();
     this._getFieldValueMap();
@@ -78,11 +73,6 @@ class Form extends BaseComponent {
         handler: this._formSubmitHandler,
         useCapture: true,
       },
-      // {
-      //   domElement: this._form,
-      //   event: 'formDismissal',
-      //   handler: this._dismissalTemporaryHandler,
-      // },
     );
     this._setHandlers();
     return this._form;
