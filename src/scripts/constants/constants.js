@@ -2,6 +2,7 @@ const rootNode = document.querySelector('.root');
 const header = rootNode.querySelector('.header');
 const authButton = header.querySelector('.menu__auth-button');
 const popupShellConfig = {
+  innerContainerSelector: '.popup__body',
   markup: `
     <div class="popup" tabindex="0">
       <div class="popup__body">
@@ -10,7 +11,6 @@ const popupShellConfig = {
       </div>
     </div>
   `,
-  innerContainerSelector: '.popup__body',
   closeIconSelector: '.popup__close-icon',
 };
 const signupFormConfig = {

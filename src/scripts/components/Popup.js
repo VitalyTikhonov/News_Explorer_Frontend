@@ -2,52 +2,44 @@ import BaseComponent from './BaseComponent';
 
 class Popup extends BaseComponent {
   constructor(
-    pageRoot,
-    popupShell,
-    contentsSource,
+    parent,
+    innerContainerSelector,
+    markup,
+    contents,
+    /* own */
+    closeIconSelector,
   ) {
-    super();
-    this._pageRoot = pageRoot;
-    this._popupMarkup = popupShell.markup;
-    this._popupInnerContainerSelector = popupShell.innerContainerSelector;
-    this._closeIconSelector = popupShell.closeIconSelector;
-    this._contentsSource = contentsSource;
+    super(parent, innerContainerSelector, markup, contents);
+    /* own */
+    this._closeIconSelector = closeIconSelector;
     this.open = this.open.bind(this);
-    this._close = this._close.bind(this);
+    this._dismiss = this._dismiss.bind(this);
     this._escapeHandler = this._escapeHandler.bind(this);
     this._clickAwayHandler = this._clickAwayHandler.bind(this);
   }
 
-  _close() {
-    this._removeHandlers();
-    this._popup.remove();
-  }
-
   _escapeHandler(event) {
     if (event.key === 'Escape' && this._popup) {
-      this._close();
+      this._dismiss();
     }
   }
 
   _clickAwayHandler(event) {
     if (event.target === this._popup) {
-      this._close();
+      this._dismiss();
     }
   }
 
   open() {
-    const element = document.createElement('div');
-    element.insertAdjacentHTML('afterbegin', this._popupMarkup);
-    this._popup = element.firstElementChild;
-    this._innerContainer = this._popup.querySelector(this._popupInnerContainerSelector);
+    this._create();
+    this._popup = this._component;
     this._closeIcon = this._popup.querySelector(this._closeIconSelector);
-    this._innerContainer.appendChild(this._contentsSource.create());
-
+    // this._insertChild();
     this._domEventHandlerMap.push(
       {
         domElement: this._closeIcon,
         event: 'click',
-        handler: this._close,
+        handler: this._dismiss,
       },
       {
         domElement: document,
@@ -60,8 +52,8 @@ class Popup extends BaseComponent {
         handler: this._clickAwayHandler,
       },
     );
-    this._setHandlers();
-    this._pageRoot.appendChild(this._popup);
+    this._setHandlers(); // не может быть в родительском классе
+    this._open();
   }
 }
 

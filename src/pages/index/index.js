@@ -16,10 +16,14 @@ import {
 (function site() {
   /* КОЛБЕКИ */
   function createPopup(contentsSource) {
+  // function createPopup() {
+    // console.log('createPopup');
     return new Popup(
       pageConfig.rootNode,
-      popupShellConfig,
+      popupShellConfig.innerContainerSelector,
+      popupShellConfig.markup,
       contentsSource,
+      popupShellConfig.closeIconSelector,
     );
   }
 
