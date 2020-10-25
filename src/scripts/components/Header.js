@@ -1,11 +1,13 @@
 import BaseComponent from './BaseComponent';
 
 class Header extends BaseComponent {
-  constructor(authButton, popup) {
+  constructor(authButton, createPopup, generatePopupContents) {
     super();
     this._authButton = authButton;
-    this._popup = popup;
-    this._form = undefined;
+    this._createPopup = createPopup;
+    this._createSignupForm = generatePopupContents.createSignupForm;
+    this._createLoginForm = generatePopupContents.createLoginForm;
+    this._createActionMessage = generatePopupContents.createActionMessage;
   }
 
   render() {

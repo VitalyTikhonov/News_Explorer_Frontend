@@ -1,7 +1,7 @@
 const rootNode = document.querySelector('.root');
 const header = rootNode.querySelector('.header');
 const authButton = header.querySelector('.menu__auth-button');
-const popupShell = {
+const popupShellConfig = {
   markup: `
     <div class="popup" tabindex="0">
       <div class="popup__body">
@@ -13,7 +13,7 @@ const popupShell = {
   innerContainerSelector: '.popup__body',
   closeIconSelector: '.popup__close-icon',
 };
-const signupForm = {
+const signupFormConfig = {
   markup: `
     <div class="popup__content">
       <h3 class="popup__title">Регистрация</h3>
@@ -61,15 +61,28 @@ const signupForm = {
   genErrMessSelector: '.popup__error_general',
   submitButtonSelector: '.popup__button',
 };
+const messageConfig = {
+  signupSuccess: {
+    markup: `
+  <div class="popup__content">
+    <p class="popup__message"></p>
+    <!-- <p class="popup__message">Пользователь успешно зарегистрирован!</p> -->
+
+    <p class="popup__prompt"><span class="popup__prompt-link">Войти</span></p>
+  </div>
+  `,
+  },
+};
 
 module.exports = {
-  page: {
+  pageConfig: {
     rootNode,
     header,
     authButton,
   },
-  popupShell,
-  signupForm,
+  popupShellConfig,
+  signupFormConfig,
+  messageConfig,
 };
 
 /*
