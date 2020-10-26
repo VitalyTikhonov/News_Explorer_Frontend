@@ -4,26 +4,59 @@ import { API_URL, CONTENT_TYPE } from '../../configs/config';
 import Header from '../../scripts/components/Header';
 import Popup from '../../scripts/components/Popup';
 import Form from '../../scripts/components/Form';
-import ActionMessage from '../../scripts/components/ActionMessage';
 import MainApi from '../../scripts/api/MainApi';
 import { createNode } from '../../scripts/utils/utils';
 import {
   pageConfig,
   popupShellConfig,
+  genFormConfig,
   signupFormConfig,
+  loginFormConfig,
   messageConfig,
 } from '../../scripts/constants/constants';
 
 (function site() {
   /* КОЛБЕКИ */
-  function createPopup(contentsSource) {
+  const generatePopupContents = {
+    createSignupForm() {
+      // console.log('createSignupForm');
+      return new Form(
+        { markup: signupFormConfig.markup, createNode },
+        // signupFormConfig.markup,
+        signupFormConfig.nameAttr,
+        signupFormConfig.fieldSelectors,
+        genFormConfig,
+        messageConfig.signupSuccess,
+
+        // eslint-disable-next-line no-use-before-define
+        mainApi,
+      );
+    },
+
+    createLoginForm() {
+      // console.log('createLoginForm');
+      return new Form(
+        { markup: loginFormConfig.markup, createNode },
+        // loginFormConfig.markup,
+        loginFormConfig.nameAttr,
+        loginFormConfig.fieldSelectors,
+        genFormConfig,
+        messageConfig.signupSuccess,
+        // eslint-disable-next-line no-use-before-define
+        mainApi,
+      );
+    },
+    signupFormNameAttr: signupFormConfig.nameAttr,
+    loginFormNameAttr: loginFormConfig.nameAttr,
+  };
+
+  function createPopup(isUserLoggedIn) {
     // console.log('createPopup');
     return new Popup(
       {
         parent: pageConfig.rootNode,
         innerContainerSelector: popupShellConfig.innerContainerSelector,
         markup: popupShellConfig.markup,
-        contents: contentsSource,
         createNode,
       },
       // pageConfig.rootNode,
@@ -31,36 +64,20 @@ import {
       // popupShellConfig.markup,
       // contentsSource,
       popupShellConfig.closeIconSelector,
+      isUserLoggedIn,
+      generatePopupContents,
+      // genFormConfig.promptLinkSelector,
     );
   }
-
-  const generatePopupContents = {
-    createSignupForm() {
-      // console.log('createSignupForm');
-      return new Form(
-        { markup: signupFormConfig.markup, createNode },
-        // signupFormConfig.markup,
-        signupFormConfig.fieldSelectors,
-        signupFormConfig.submitButtonSelector,
-        signupFormConfig.genErrMessSelector,
-        messageConfig.signupSuccess,
-        // eslint-disable-next-line no-use-before-define
-        mainApi,
-      );
-    },
-
-    // createLoginForm() {
-    //   // eslint-disable-next-line no-use-before-define
-    //   return new Form(, mainApi);
-    // },
-
-    createActionMessage() {
-      return new ActionMessage(messageConfig);
-    },
-  };
   /* ЭКЗЕМПЛЯРЫ КЛАССОВ */
   const mainApi = new MainApi(API_URL, CONTENT_TYPE);
-  const headerObj = new Header({}, pageConfig.authButton, createPopup, generatePopupContents);
+  const headerObj = new Header(
+    {},
+    mainApi,
+    pageConfig.authButton,
+    pageConfig.optionForAuthUsers,
+    createPopup,
+  );
   /* ВЫЗОВЫ ФУНКЦИЙ */
   headerObj.render();
 }());

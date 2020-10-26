@@ -1,31 +1,43 @@
 import BaseComponent from './BaseComponent';
 
 class Header extends BaseComponent {
-  constructor(parentArgs, authButton, createPopup, generatePopupContents) {
+  constructor(parentArgs, api, authButton, optionForAuthUsers, createPopup) {
     super(parentArgs);
+    this._api = api;
     this._authButton = authButton;
+    this._optionForAuthUsers = optionForAuthUsers;
     this._createPopup = createPopup;
-    this._createSignupForm = generatePopupContents.createSignupForm;
-    this._createLoginForm = generatePopupContents.createLoginForm;
-    this._createActionMessage = generatePopupContents.createActionMessage;
+    this._isLoggedIn = false;
     this._createAndOpenPopup = this._createAndOpenPopup.bind(this);
   }
 
-  _createAuthDialog() {
-    // console.log('_createAuthDialog');
-    this._formObj = this._createSignupForm();
-    this._form = this._formObj.create();
-    this._setHandlers();
-    return this._form;
+  _checkUserStatus() {
+    this._api.authenticate()
+      .then((res) => {
+        // console.log(res);
+        this._isLoggedIn = true;
+        /* isLoggedIn — залогинен ли пользователь;
+    userName */
+      })
+      .catch((err) => {
+        // console.log(err);
+        // console.log(err.message);
+        this._isLoggedIn = false;
+      })
+      .finally(() => this._isLoggedIn);
   }
 
   _createAndOpenPopup() {
     // console.log('_createAndOpenPopup');
-    this._popup = this._createPopup(this._createAuthDialog());
+    this._popup = this._createPopup(this._checkUserStatus());
     this._popup.open();
   }
 
   render() {
+    // this._checkUserStatus();
+    // if (this._isLoggedIn = true) {
+
+    // }
     this._domEventHandlerMap.push({
       domElement: this._authButton,
       event: 'click',

@@ -3,22 +3,23 @@ import BaseComponent from './BaseComponent';
 class Form extends BaseComponent {
   constructor(
     parentArgs,
+    nameAttr,
     fieldSelectors,
-    submitButtonSelector,
-    genErrMessSelector,
+    genFormConfig,
     signupSuccess,
     api,
-    closeSignUpPopup,
   ) {
     super(parentArgs);
+    this._nameAttr = nameAttr;
     this._fieldSelectors = fieldSelectors;
-    this._submitButtonSelector = submitButtonSelector;
-    this._genErrMessSelector = genErrMessSelector;
+    this._submitButtonSelector = genFormConfig.submitButtonSelector;
+    this._genErrMessSelector = genFormConfig.genErrMessSelector;
+    this._promptLinkSelector = genFormConfig.promptLinkSelector;
     this._signupSuccess = signupSuccess;
     this._api = api;
-    this._closeSignUpPopup = closeSignUpPopup;
     this.create = this.create.bind(this);
     this._formSubmitHandler = this._formSubmitHandler.bind(this);
+    this._requestFormChange = this._requestFormChange.bind(this);
     // this._getFieldValueMap = this._getFieldValueMap.bind(this);
   }
 
@@ -45,6 +46,17 @@ class Form extends BaseComponent {
     this._form.dispatchEvent(dismissalEvent);
   }
 
+  _requestFormChange() {
+    this._removeHandlers();
+    const formChangeRequestEvent = new CustomEvent(
+      'formChangeRequest',
+      {
+        detail: this._nameAttr,
+      },
+    );
+    this._form.dispatchEvent(formChangeRequestEvent);
+  }
+
   _formSubmitHandler(event) {
     event.preventDefault();
     this._getFieldValueMap();
@@ -58,7 +70,6 @@ class Form extends BaseComponent {
         this._generalErrorMessage.textContent = err.message;
       })
       .finally(() => {
-        // this._closeSignUpPopup();
         // this.toggleButtonText(true);
       });
   }
@@ -71,12 +82,18 @@ class Form extends BaseComponent {
     this._getFormFields(); // Заранее создаем массив с полями формы
     this._generalErrorMessage = this._form.querySelector(this._genErrMessSelector);
     this._submitButton = this._form.querySelector(this._submitButtonSelector);
+    this._promptLink = this._form.querySelector(this._promptLinkSelector);
     this._domEventHandlerMap.push(
       {
         domElement: this._formProper,
         event: 'submit',
         handler: this._formSubmitHandler,
         useCapture: true,
+      },
+      {
+        domElement: this._promptLink,
+        event: 'click',
+        handler: this._requestFormChange,
       },
     );
     this._setHandlers();

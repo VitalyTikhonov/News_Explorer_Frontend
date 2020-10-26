@@ -17,3 +17,13 @@
   /* inner */
   background: #2A65CC;
 }
+
+.button__rounded_blue:disabled {
+  /* outer */
+  /* inner */
+  background: #E6E8EB;
+  color: #B6BCBF;
+  border-radius: 100px;
+  border: none;
+  box-shadow: none;
+}

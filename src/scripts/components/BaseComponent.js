@@ -3,15 +3,14 @@ class BaseComponent {
     parent,
     innerContainerSelector,
     markup,
-    contents,
     createNode,
   }) {
     this._parent = parent;
     this._innerContainerSelector = innerContainerSelector;
     this._markup = markup;
-    this._contents = contents;
     this._createNode = createNode;
     /* внутренние */
+    this._contents = null;
     this._domEventHandlerMap = [];
     this._component = null;
     this._innerContainer = null;
