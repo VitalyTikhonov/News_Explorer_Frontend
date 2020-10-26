@@ -13,10 +13,13 @@ class Popup extends BaseComponent {
     this.dismiss = this._dismiss.bind(this);
     this._escapeHandler = this._escapeHandler.bind(this);
     this._clickAwayHandler = this._clickAwayHandler.bind(this);
+    this._childDismissalHandler = this._childDismissalHandler.bind(this);
   }
 
   _childDismissalHandler(event) {
-    // console.log('e.detail', event.detail); replaceChild
+    this._removeChild();
+    this._contents = this._createNode(event.detail);
+    this._insertChild();
   }
 
   _escapeHandler(event) {
@@ -55,11 +58,6 @@ class Popup extends BaseComponent {
       {
         domElement: this._contents,
         event: 'dismissal',
-        handler: this._childDismissalHandler,
-      },
-      {
-        domElement: this._contents,
-        event: 'customDismissal',
         handler: this._childDismissalHandler,
       },
     );

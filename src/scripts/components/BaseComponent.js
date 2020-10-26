@@ -4,11 +4,13 @@ class BaseComponent {
     innerContainerSelector,
     markup,
     contents,
+    createNode,
   }) {
     this._parent = parent;
     this._innerContainerSelector = innerContainerSelector;
     this._markup = markup;
     this._contents = contents;
+    this._createNode = createNode;
     /* внутренние */
     this._domEventHandlerMap = [];
     this._component = null;
@@ -41,9 +43,7 @@ class BaseComponent {
   }
 
   _create() {
-    const element = document.createElement('div');
-    element.insertAdjacentHTML('afterbegin', this._markup);
-    this._component = element.firstElementChild;
+    this._component = this._createNode(this._markup);
     return this._component;
   }
 

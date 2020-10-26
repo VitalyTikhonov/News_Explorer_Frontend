@@ -6,7 +6,7 @@ import Popup from '../../scripts/components/Popup';
 import Form from '../../scripts/components/Form';
 import ActionMessage from '../../scripts/components/ActionMessage';
 import MainApi from '../../scripts/api/MainApi';
-import { dismissalEvent } from '../../scripts/utils/utils';
+import { createNode } from '../../scripts/utils/utils';
 import {
   pageConfig,
   popupShellConfig,
@@ -24,6 +24,7 @@ import {
         innerContainerSelector: popupShellConfig.innerContainerSelector,
         markup: popupShellConfig.markup,
         contents: contentsSource,
+        createNode,
       },
       // pageConfig.rootNode,
       // popupShellConfig.innerContainerSelector,
@@ -37,7 +38,7 @@ import {
     createSignupForm() {
       // console.log('createSignupForm');
       return new Form(
-        { markup: signupFormConfig.markup },
+        { markup: signupFormConfig.markup, createNode },
         // signupFormConfig.markup,
         signupFormConfig.fieldSelectors,
         signupFormConfig.submitButtonSelector,
@@ -45,7 +46,6 @@ import {
         messageConfig.signupSuccess,
         // eslint-disable-next-line no-use-before-define
         mainApi,
-        dismissalEvent,
       );
     },
 

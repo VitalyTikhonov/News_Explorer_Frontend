@@ -1,5 +1,9 @@
-const dismissalEvent = new Event('dismissal');
+function createNode(markup) {
+  const element = document.createElement('div');
+  element.insertAdjacentHTML('afterbegin', markup);
+  return element.firstElementChild;
+}
 
 module.exports = {
-  dismissalEvent,
+  createNode,
 };

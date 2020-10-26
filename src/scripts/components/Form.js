@@ -8,7 +8,6 @@ class Form extends BaseComponent {
     genErrMessSelector,
     signupSuccess,
     api,
-    dismissalEvent,
     closeSignUpPopup,
   ) {
     super(parentArgs);
@@ -17,7 +16,6 @@ class Form extends BaseComponent {
     this._genErrMessSelector = genErrMessSelector;
     this._signupSuccess = signupSuccess;
     this._api = api;
-    this._dismissalEvent = dismissalEvent;
     this._closeSignUpPopup = closeSignUpPopup;
     this.create = this.create.bind(this);
     this._formSubmitHandler = this._formSubmitHandler.bind(this);
@@ -38,14 +36,13 @@ class Form extends BaseComponent {
   _dismiss() {
     this._removeHandlers();
     // this._dismiss(); // Maximum call stack size exceeded???
-    // this._form.dispatchEvent(this._dismissalEvent);
-    const customDismissalEvent = new CustomEvent(
-      'customDismissal',
+    const dismissalEvent = new CustomEvent(
+      'dismissal',
       {
         detail: this._signupSuccess,
       },
     );
-    this._form.dispatchEvent(customDismissalEvent);
+    this._form.dispatchEvent(dismissalEvent);
   }
 
   _formSubmitHandler(event) {
@@ -53,8 +50,7 @@ class Form extends BaseComponent {
     this._getFieldValueMap();
     // this.toggleButtonText(false);
     this._api.signup(this._fieldValueMap)
-      .then((res) => {
-        console.log(res);
+      .then(() => {
         this._dismiss();
       })
       .catch((err) => {
