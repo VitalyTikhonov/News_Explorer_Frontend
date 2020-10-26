@@ -1,24 +1,32 @@
 import BaseComponent from './BaseComponent';
 
 class Header extends BaseComponent {
-  constructor(parentArgs, api, authButton, optionForAuthUsers, createPopup) {
+  constructor(
+    parentArgs,
+    mainApi,
+    authButton,
+    optionForAuthUsers,
+    createPopup,
+    // createNewsSearchFormObj,
+  ) {
     super(parentArgs);
-    this._api = api;
+    this._mainApi = mainApi;
     this._authButton = authButton;
     this._optionForAuthUsers = optionForAuthUsers;
     this._createPopup = createPopup;
+    // this._createNewsSearchFormObj = createNewsSearchFormObj;
     this._isLoggedIn = false;
     this._createAndOpenPopup = this._createAndOpenPopup.bind(this);
   }
 
   _checkUserStatus() {
-    this._api.authenticate()
-      .then((res) => {
+    this._mainApi.authenticate()
+      .then(() => {
         this._isLoggedIn = true;
         /* isLoggedIn — залогинен ли пользователь;
         userName */
       })
-      .catch((err) => {
+      .catch(() => {
         // console.log(err);
         this._isLoggedIn = false;
         // console.log(this._isLoggedIn);
@@ -37,6 +45,7 @@ class Header extends BaseComponent {
     // if (this._isLoggedIn = true) {
 
     // }
+    // this._createNewsSearchFormObj();
     this._domEventHandlerMap.push({
       domElement: this._authButton,
       event: 'click',

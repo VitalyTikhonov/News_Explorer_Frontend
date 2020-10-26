@@ -1,17 +1,27 @@
 /* ИМПОРТ МОДУЛЕЙ */
 import './index.css';
-import { API_URL, CONTENT_TYPE } from '../../configs/config';
+import {
+  API_URL,
+  CONTENT_TYPE,
+  NEWSAPI_TOKEN,
+  NEWSAPI_BASE_PATH,
+  NEWSAPI_FLIGHT,
+  NEWSAPI_PAGE_SIZE,
+} from '../../configs/config';
 import Header from '../../scripts/components/Header';
 import Popup from '../../scripts/components/Popup';
 import Form from '../../scripts/components/Form';
+import NewsSearchForm from '../../scripts/components/NewsSearchForm';
 import MainApi from '../../scripts/api/MainApi';
-import { createNode } from '../../scripts/utils/utils';
+import NewsApi from '../../scripts/api/NewsApi';
+import { createNode, dateMethods } from '../../scripts/utils/utils';
 import {
   pageConfig,
   popupShellConfig,
   genFormConfig,
   signupFormConfig,
   loginFormConfig,
+  newsSearchFormConfig,
   messageConfig,
 } from '../../scripts/constants/constants';
 
@@ -69,15 +79,46 @@ import {
       // genFormConfig.promptLinkSelector,
     );
   }
+
+  // function createNewsSearchFormObj() {
+  //   return new Form(
+  //     { markup: loginFormConfig.markup, createNode },
+  //     // loginFormConfig.markup,
+  //     loginFormConfig.nameAttr,
+  //     loginFormConfig.fieldSelectors,
+  //     genFormConfig,
+  //     messageConfig.signupSuccess,
+  //     // eslint-disable-next-line no-use-before-define
+  //     newsApi,
+  //   );
+  // }
   /* ЭКЗЕМПЛЯРЫ КЛАССОВ */
   const mainApi = new MainApi(API_URL, CONTENT_TYPE);
+  const newsApi = new NewsApi(
+    NEWSAPI_TOKEN,
+    NEWSAPI_BASE_PATH,
+    NEWSAPI_FLIGHT,
+    NEWSAPI_PAGE_SIZE,
+    dateMethods,
+  );
+  const newsSearchForm = new NewsSearchForm(
+    {},
+    newsSearchFormConfig.selector,
+    newsSearchFormConfig.fieldSelector,
+    newsSearchFormConfig.submitButtonSelector,
+    genFormConfig,
+    // eslint-disable-next-line no-use-before-define
+    newsApi,
+  );
   const headerObj = new Header(
     {},
     mainApi,
     pageConfig.authButton,
     pageConfig.optionForAuthUsers,
     createPopup,
+    // createNewsSearchFormObj,
   );
   /* ВЫЗОВЫ ФУНКЦИЙ */
   headerObj.render();
+  newsSearchForm.render();
 }());

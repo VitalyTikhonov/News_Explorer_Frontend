@@ -92,6 +92,12 @@ const loginFormConfig = {
     '#loginPassword',
   ],
 };
+const newsSearchFormConfig = {
+  // nameAttr: 'loginForm',
+  selector: '.news-search-form',
+  fieldSelector: '#newsSearchField',
+  submitButtonSelector: '.news-search-form__button',
+};
 const genFormConfig = {
   genErrMessSelector: '.popup__error_general',
   submitButtonSelector: '.popup__button',
@@ -138,5 +144,6 @@ module.exports = {
   genFormConfig,
   signupFormConfig,
   loginFormConfig,
+  newsSearchFormConfig,
   messageConfig,
 };
