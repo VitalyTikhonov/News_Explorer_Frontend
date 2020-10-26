@@ -1,7 +1,7 @@
 class ActionMessage {
   constructor(messageConfig) {
     this._signupSuccessMarkup = messageConfig.signupSuccess.markup;
-  };
+  }
 
 }
 
