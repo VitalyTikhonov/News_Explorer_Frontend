@@ -14,16 +14,6 @@ const popupShellConfig = {
   `,
   closeIconSelector: '.popup__close-icon',
 };
-const genFormConfig = {
-  genErrMessSelector: '.popup__error_general',
-  submitButtonSelector: '.popup__button',
-  promptLinkSelector: '.popup__prompt-link',
-  /*
-  genFormConfig.genErrMessSelector
-  genFormConfig.submitButtonSelector
-  genFormConfig.promptLinkSelector
-   */
-};
 const signupFormConfig = {
   nameAttr: 'signupForm',
   markup: `
@@ -101,6 +91,20 @@ const loginFormConfig = {
     '#logiEmail',
     '#loginPassword',
   ],
+};
+const genFormConfig = {
+  genErrMessSelector: '.popup__error_general',
+  submitButtonSelector: '.popup__button',
+  promptLinkSelector: '.popup__prompt-link',
+  nameAttributes: {
+    signupFormNameAttr: signupFormConfig.nameAttr, // nameAttributes.signupFormNameAttr
+    loginFormNameAttr: loginFormConfig.nameAttr, // nameAttributes.loginFormNameAttr
+  },
+  /*
+  genFormConfig.genErrMessSelector
+  genFormConfig.submitButtonSelector
+  genFormConfig.promptLinkSelector
+   */
 };
 const messageConfig = {
   signupSuccess: `

@@ -15,6 +15,8 @@ class Form extends BaseComponent {
     this._submitButtonSelector = genFormConfig.submitButtonSelector;
     this._genErrMessSelector = genFormConfig.genErrMessSelector;
     this._promptLinkSelector = genFormConfig.promptLinkSelector;
+    this._signupFormNameAttr = genFormConfig.nameAttributes.signupFormNameAttr;
+    this._loginFormNameAttr = genFormConfig.nameAttributes.loginFormNameAttr;
     this._signupSuccess = signupSuccess;
     this._api = api;
     this.create = this.create.bind(this);
@@ -34,13 +36,28 @@ class Form extends BaseComponent {
     // console.log('this._fieldValueMap', this._fieldValueMap);
   }
 
-  _dismiss() {
+  _dismiss(replacingNodeMarkup) {
     this._removeHandlers();
     // this._dismiss(); // Maximum call stack size exceeded???
+    if (replacingNodeMarkup) {
+      const replacingNode = this._createNode(replacingNodeMarkup);
+      const promptLink = replacingNode.querySelector(this._promptLinkSelector);
+      this._domEventHandlerMap.push(
+        {
+          domElement: promptLink,
+          event: 'click',
+          handler: this._requestFormChange,
+        },
+      );
+      this._setHandlers();
+    }
     const dismissalEvent = new CustomEvent(
       'dismissal',
       {
-        detail: this._signupSuccess,
+        detail: {
+          replacingNode: null,
+          promptLink: null,
+        },
       },
     );
     this._form.dispatchEvent(dismissalEvent);
@@ -57,14 +74,25 @@ class Form extends BaseComponent {
     this._form.dispatchEvent(formChangeRequestEvent);
   }
 
+  _apiResponseProcessor() {
+    if (this._nameAttr === this._signupFormNameAttr) {
+      return this._api.signup(this._fieldValueMap)
+        .then(() => {
+          this._dismiss(this._signupSuccess);
+        });
+    }
+    return this._api.signin(this._fieldValueMap)
+      .then((res) => {
+        console.log(res.message);
+        this._dismiss();
+      });
+  }
+
   _formSubmitHandler(event) {
     event.preventDefault();
     this._getFieldValueMap();
     // this.toggleButtonText(false);
-    this._api.signup(this._fieldValueMap)
-      .then(() => {
-        this._dismiss();
-      })
+    this._apiResponseProcessor()
       .catch((err) => {
         // console.log(err.message);
         this._generalErrorMessage.textContent = err.message;

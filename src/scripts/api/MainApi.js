@@ -27,11 +27,30 @@ class MainApi {
       {
         method: 'POST',
         headers: { 'Content-Type': this._CONTENT_TYPE },
-        credentials: 'include',
+        // credentials: 'include',
         body: JSON.stringify({
           email,
           password,
           name,
+        }),
+      },
+    )
+      .then((res) => {
+        this._res = res;
+        return this._primaryResponseHandler();
+      });
+  }
+
+  signin({ email, password }) {
+    return fetch(
+      `${this._API_URL}/signin`,
+      {
+        method: 'POST',
+        headers: { 'Content-Type': this._CONTENT_TYPE },
+        // credentials: 'include',
+        body: JSON.stringify({
+          email,
+          password,
         }),
       },
     )

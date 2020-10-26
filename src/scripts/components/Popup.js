@@ -23,13 +23,27 @@ class Popup extends BaseComponent {
     this._escapeHandler = this._escapeHandler.bind(this);
     this._clickAwayHandler = this._clickAwayHandler.bind(this);
     this._childDismissalHandler = this._childDismissalHandler.bind(this);
-    this._changeForm = this._changeForm.bind(this);
+    this._changeFormHandler = this._changeFormHandler.bind(this);
   }
 
   _childDismissalHandler(event) {
     this._removeChild();
-    this._contents = this._createNode(event.detail);
-    this._insertChild();
+    const newContents = event.detail.replacingNode;
+    // this._newPromptLink = event.detail.promptLink;
+    if (newContents) {
+      this._contents = newContents;
+      this._insertChild();
+      this._domEventHandlerMap.push( // рефакторить
+        {
+          domElement: newContents,
+          event: 'formChangeRequest',
+          handler: this._changeFormHandler,
+        },
+      );
+      this._setHandlers();
+    } else {
+      this._dismiss();
+    }
   }
 
   _escapeHandler(event) {
@@ -45,16 +59,16 @@ class Popup extends BaseComponent {
   }
 
   _createContents() {
-    if (this._isUserLoggedIn === false) {
-      this._formObj = this._createSignupForm();
-    } else {
-      this._formObj = this._createLoginForm();
-    }
+    // if (this._isUserLoggedIn === false) {
+    //   this._formObj = this._createSignupForm();
+    // } else {
+    this._formObj = this._createLoginForm();
+    // }
     this._form = this._formObj.create();
     return this._form;
   }
 
-  _changeForm(event) {
+  _changeFormHandler(event) {
     if (event.detail === this._signupFormNameAttr) {
       this._formObj = this._createLoginForm();
     } else {
@@ -73,7 +87,7 @@ class Popup extends BaseComponent {
       {
         domElement: this._form,
         event: 'formChangeRequest',
-        handler: this._changeForm,
+        handler: this._changeFormHandler,
       },
     );
     this._setHandlers();
@@ -110,7 +124,7 @@ class Popup extends BaseComponent {
       {
         domElement: this._form,
         event: 'formChangeRequest',
-        handler: this._changeForm,
+        handler: this._changeFormHandler,
       },
     );
     this._setHandlers(); // не может быть в родительском классе
