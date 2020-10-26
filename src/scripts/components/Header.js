@@ -9,24 +9,12 @@ class Header extends BaseComponent {
     this._createLoginForm = generatePopupContents.createLoginForm;
     this._createActionMessage = generatePopupContents.createActionMessage;
     this._createAndOpenPopup = this._createAndOpenPopup.bind(this);
-    this._formDismissalHandler = this._formDismissalHandler.bind(this);
-  }
-
-  _formDismissalHandler() {
-    this._popup.dismiss();
   }
 
   _createAuthDialog() {
     // console.log('_createAuthDialog');
     this._formObj = this._createSignupForm();
     this._form = this._formObj.create();
-    this._domEventHandlerMap.push(
-      {
-        domElement: this._form,
-        event: 'formDismissal',
-        handler: this._formDismissalHandler,
-      },
-    );
     this._setHandlers();
     return this._form;
   }
@@ -38,7 +26,11 @@ class Header extends BaseComponent {
   }
 
   render() {
-    this._domEventHandlerMap.push({ domElement: this._authButton, event: 'click', handler: this._createAndOpenPopup });
+    this._domEventHandlerMap.push({
+      domElement: this._authButton,
+      event: 'click',
+      handler: this._createAndOpenPopup,
+    });
     /* здесь логику состояния хедера */
     this._setHandlers();
   }

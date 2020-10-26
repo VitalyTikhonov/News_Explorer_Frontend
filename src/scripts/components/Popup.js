@@ -15,6 +15,10 @@ class Popup extends BaseComponent {
     this._clickAwayHandler = this._clickAwayHandler.bind(this);
   }
 
+  _childDismissalHandler(event) {
+    // console.log('e.detail', event.detail); replaceChild
+  }
+
   _escapeHandler(event) {
     if (event.key === 'Escape' && this._popup) {
       this._dismiss();
@@ -47,6 +51,16 @@ class Popup extends BaseComponent {
         domElement: this._popup,
         event: 'click',
         handler: this._clickAwayHandler,
+      },
+      {
+        domElement: this._contents,
+        event: 'dismissal',
+        handler: this._childDismissalHandler,
+      },
+      {
+        domElement: this._contents,
+        event: 'customDismissal',
+        handler: this._childDismissalHandler,
       },
     );
     this._setHandlers(); // не может быть в родительском классе

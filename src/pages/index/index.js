@@ -6,7 +6,7 @@ import Popup from '../../scripts/components/Popup';
 import Form from '../../scripts/components/Form';
 import ActionMessage from '../../scripts/components/ActionMessage';
 import MainApi from '../../scripts/api/MainApi';
-import { formDismissalEvent } from '../../scripts/utils/utils';
+import { dismissalEvent } from '../../scripts/utils/utils';
 import {
   pageConfig,
   popupShellConfig,
@@ -42,9 +42,10 @@ import {
         signupFormConfig.fieldSelectors,
         signupFormConfig.submitButtonSelector,
         signupFormConfig.genErrMessSelector,
+        messageConfig.signupSuccess,
         // eslint-disable-next-line no-use-before-define
         mainApi,
-        formDismissalEvent,
+        dismissalEvent,
       );
     },
 

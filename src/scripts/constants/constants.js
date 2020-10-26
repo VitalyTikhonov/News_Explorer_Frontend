@@ -62,16 +62,24 @@ const signupFormConfig = {
   submitButtonSelector: '.popup__button',
 };
 const messageConfig = {
-  signupSuccess: {
-    markup: `
-  <div class="popup__content">
-    <p class="popup__message"></p>
-    <!-- <p class="popup__message">Пользователь успешно зарегистрирован!</p> -->
+  signupSuccess: `
+    <div class="popup__content">
+    <p class="popup__message">Пользователь успешно зарегистрирован!</p>
 
     <p class="popup__prompt"><span class="popup__prompt-link">Войти</span></p>
-  </div>
-  `,
-  },
+    </div>
+`, // messageConfig.signupSuccess.markup
+  // signupSuccess:
+  // {
+  //   markup: `
+  //     <div class="popup__content">
+  //       <p class="popup__message"></p>
+
+  //       <p class="popup__prompt"><span class="popup__prompt-link">Войти</span></p>
+  //     </div>
+  //   `, // messageConfig.signupSuccess.markup
+  //   text: 'Пользователь успешно зарегистрирован!', // messageConfig.signupSuccess.text
+  // },
 };
 
 module.exports = {

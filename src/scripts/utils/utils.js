@@ -1,5 +1,5 @@
-const formDismissalEvent = new Event('formDismissal');
+const dismissalEvent = new Event('dismissal');
 
 module.exports = {
-  formDismissalEvent,
+  dismissalEvent,
 };
