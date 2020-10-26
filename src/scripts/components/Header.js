@@ -14,15 +14,14 @@ class Header extends BaseComponent {
   _checkUserStatus() {
     this._api.authenticate()
       .then((res) => {
-        // console.log(res);
         this._isLoggedIn = true;
         /* isLoggedIn — залогинен ли пользователь;
-    userName */
+        userName */
       })
       .catch((err) => {
         // console.log(err);
-        // console.log(err.message);
         this._isLoggedIn = false;
+        // console.log(this._isLoggedIn);
       })
       .finally(() => this._isLoggedIn);
   }

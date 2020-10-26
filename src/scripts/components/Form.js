@@ -40,11 +40,11 @@ class Form extends BaseComponent {
     this._removeHandlers();
     // this._dismiss(); // Maximum call stack size exceeded???
     if (replacingNodeMarkup) {
-      const replacingNode = this._createNode(replacingNodeMarkup);
-      const promptLink = replacingNode.querySelector(this._promptLinkSelector);
+      this._replacingNode = this._createNode(replacingNodeMarkup);
+      this._replacingPromptLink = this._replacingNode.querySelector(this._promptLinkSelector);
       this._domEventHandlerMap.push(
         {
-          domElement: promptLink,
+          domElement: this._replacingPromptLink,
           event: 'click',
           handler: this._requestFormChange,
         },
@@ -55,8 +55,8 @@ class Form extends BaseComponent {
       'dismissal',
       {
         detail: {
-          replacingNode: null,
-          promptLink: null,
+          replacingNode: this._replacingNode || null,
+          promptLink: this._replacingPromptLink || null,
         },
       },
     );

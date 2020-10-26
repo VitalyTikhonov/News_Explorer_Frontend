@@ -47,7 +47,7 @@ class MainApi {
       {
         method: 'POST',
         headers: { 'Content-Type': this._CONTENT_TYPE },
-        // credentials: 'include',
+        credentials: 'include',
         body: JSON.stringify({
           email,
           password,
