@@ -15,20 +15,12 @@ class Header extends BaseComponent {
     this._popup = popup;
   }
 
-  // _renderForAuthorized() {
-
-  // }
-
   render() {
-    // if (!this._checkUserStatus()) {
-    //   this._renderForAuthorized();
-    // }
     this._domEventHandlerMap.push({
       domElement: this._authButton,
       event: 'click',
       handler: this._popup.open,
     });
-    /* здесь логику состояния хедера */
     this._setHandlers();
   }
 }
