@@ -10,27 +10,19 @@ class Header extends BaseComponent {
     this._mainApi = mainApi;
     this._authButton = pageConfig.authButton;
     this._optionForAuthUsers = pageConfig.optionForAuthUsers;
+    this._authorizedSelector = pageConfig.accessMarkers.authorizedSelector;
+    this._nonAuthorizedSelector = pageConfig.accessMarkers.nonAuthorizedSelector;
     this._popup = popup;
-    /* inner */
-    this._isLoggedIn = false;
   }
 
-  _checkUserStatus() {
-    this._mainApi.authenticate()
-      .then(() => {
-        this._isLoggedIn = true;
-        /* isLoggedIn — залогинен ли пользователь;
-        userName */
-      })
-      .catch(() => {
-        // console.log(err);
-        this._isLoggedIn = false;
-        // console.log(this._isLoggedIn);
-      })
-      .finally(() => this._isLoggedIn);
-  }
+  // _renderForAuthorized() {
+
+  // }
 
   render() {
+    // if (!this._checkUserStatus()) {
+    //   this._renderForAuthorized();
+    // }
     this._domEventHandlerMap.push({
       domElement: this._authButton,
       event: 'click',

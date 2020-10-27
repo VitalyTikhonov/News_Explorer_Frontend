@@ -2,3 +2,6 @@
 @import url(./__removed/visibility__removed.css);
 @import url(./__on-mob/visibility__on-mob.css);
 @import url(./__on-tab-and-dt/visibility__on-tab-and-dt.css);
+@import url(./__for-authorized/visibility__for-authorized.css);
+@import url(./__for-non-authorized/visibility__for-non-authorized.css);
+@import url(./__in-saved-articles/visibility__in-saved-articles.css);

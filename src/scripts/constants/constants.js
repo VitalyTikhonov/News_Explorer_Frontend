@@ -1,7 +1,21 @@
 const rootNode = document.querySelector('.root');
 const header = rootNode.querySelector('.header');
-const authButton = header.querySelector('.menu__auth-button');
-const optionForAuthUsers = header.querySelector('.menu__text-path_for-authorized');
+const authButton = header.querySelector('.menu__auth-button-wrap');
+// const authButton = header.querySelector('.menu__auth-button');
+const accessMarkers = {
+  authorizedSelector: '.visibility__for-authorized',
+  nonAuthorizedSelector: '.visibility__for-non-authorized',
+  removalClassName: 'visibility__removed',
+};
+const articleBlockConfig = {
+  article: {
+    markup: {
+      // forMainPage: ``,
+      // forSavedNewsPage: ``,
+    },
+    saveButtonSelector: '.card__breadcrumb_save-button',
+  },
+};
 const popupShellConfig = {
   innerContainerSelector: '.popup__body',
   markup: `
@@ -138,7 +152,7 @@ module.exports = {
     rootNode,
     header,
     authButton,
-    optionForAuthUsers,
+    accessMarkers,
   },
   popupShellConfig,
   genFormConfig,
@@ -146,4 +160,5 @@ module.exports = {
   loginFormConfig,
   newsSearchFormConfig,
   messageConfig,
+  articleBlockConfig,
 };

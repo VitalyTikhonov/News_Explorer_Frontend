@@ -8,13 +8,18 @@ import {
   NEWSAPI_PERIOD,
   NEWSAPI_PAGE_SIZE,
 } from '../../configs/config';
+import AccessControl from '../../scripts/AccessControl';
 import Header from '../../scripts/components/Header';
 import Popup from '../../scripts/components/Popup';
 import DialogForm from '../../scripts/components/DialogForm';
 import NewsSearchForm from '../../scripts/components/NewsSearchForm';
 import MainApi from '../../scripts/api/MainApi';
 import NewsApi from '../../scripts/api/NewsApi';
-import { createNode, formatDate, getPeriodStartDate } from '../../scripts/utils/utils';
+import {
+  createNode,
+  formatDate,
+  getPeriodStartDate,
+} from '../../scripts/utils/utils';
 import {
   pageConfig,
   popupShellConfig,
@@ -23,6 +28,7 @@ import {
   loginFormConfig,
   newsSearchFormConfig,
   messageConfig,
+  articleBlockConfig,
 } from '../../scripts/constants/constants';
 
 (function site() {
@@ -30,6 +36,15 @@ import {
 
   /* ЭКЗЕМПЛЯРЫ КЛАССОВ */
   const mainApi = new MainApi(API_URL, CONTENT_TYPE);
+
+  const accessControl = new AccessControl({
+    api: mainApi,
+    pageRootSelector: pageConfig.rootNode,
+    nonAuthorizedSelector: pageConfig.accessMarkers.nonAuthorizedSelector,
+    authorizedSelector: pageConfig.accessMarkers.authorizedSelector,
+    removalClassName: pageConfig.accessMarkers.removalClassName,
+    cardSaveButton: articleBlockConfig.article.saveButtonSelector,
+  });
 
   const newsApi = new NewsApi(
     NEWSAPI_TOKEN,
@@ -87,6 +102,7 @@ import {
   });
 
   /* ВЫЗОВЫ ФУНКЦИЙ */
+  accessControl.configurePageOnLogin();
   headerObj.render();
   newsSearchForm.render();
 }());
