@@ -2,29 +2,23 @@ import Form from './Form';
 
 class NewsSearchForm extends Form {
   constructor(
-    parentArgs,
+    baseComArgs,
+    formArgs,
     selector,
     fieldSelector,
     submitButtonSelector,
     genFormConfig,
     api,
   ) {
-    super(parentArgs);
-    // this._nameAttr = nameAttr;
+    super(baseComArgs, formArgs);
     this._selector = selector;
     this._fieldSelector = fieldSelector;
     this._submitButtonSelector = submitButtonSelector;
-    // this._submitButtonSelector = genFormConfig.submitButtonSelector;
-    // this._genErrMessSelector = genFormConfig.genErrMessSelector;
-    // this._promptLinkSelector = genFormConfig.promptLinkSelector;
-    // this._signupFormNameAttr = genFormConfig.nameAttributes.signupFormNameAttr;
-    // this._loginFormNameAttr = genFormConfig.nameAttributes.loginFormNameAttr;
-    // this._signupSuccess = signupSuccess;
     this._api = api;
+    /* inner */
     this.create = this.create.bind(this);
     this._formSubmitHandler = this._formSubmitHandler.bind(this);
     this._requestFormChange = this._requestFormChange.bind(this);
-    // this._getFieldValueMap = this._getFieldValueMap.bind(this);
   }
 
   _getFormFields() {

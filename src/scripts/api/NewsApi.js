@@ -2,16 +2,17 @@ class NewsApi {
   constructor(
     NEWSAPI_TOKEN,
     NEWSAPI_BASE_PATH,
-    NEWSAPI_FLIGHT,
+    NEWSAPI_PERIOD,
     NEWSAPI_PAGE_SIZE,
-    dateMethods,
+    formatDate,
+    getPeriodStartDate,
   ) {
     this._NEWSAPI_TOKEN = NEWSAPI_TOKEN;
     this._API_URL = NEWSAPI_BASE_PATH;
-    this._NEWSAPI_FLIGHT = NEWSAPI_FLIGHT;
+    this._NEWSAPI_PERIOD = NEWSAPI_PERIOD;
     this._NEWSAPI_PAGE_SIZE = NEWSAPI_PAGE_SIZE;
-    this._formDate = dateMethods.formDate;
-    this._getNDaysInThePastDate = dateMethods.getNDaysInThePastDate;
+    this._formatDate = formatDate;
+    this._getPeriodStartDate = getPeriodStartDate;
   }
 
   _primaryResponseHandler() {
@@ -24,9 +25,8 @@ class NewsApi {
   }
 
   getNews(searchTerm) {
-    const from = this._getNDaysInThePastDate(this._NEWSAPI_FLIGHT);
-    const today = new Date();
-    const to = this._formDate(today.getFullYear(), today.getMonth() + 1, today.getDate());
+    const from = this._formatDate(this._getPeriodStartDate(this._NEWSAPI_PERIOD));
+    const to = this._formatDate(new Date());
     return fetch(
       `${this._API_URL}q=${searchTerm}&from=${from}&to=${to}&pageSize=${this._NEWSAPI_PAGE_SIZE}&apiKey=${this._NEWSAPI_TOKEN}`,
       {
