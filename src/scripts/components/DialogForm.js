@@ -1,26 +1,25 @@
 import BaseComponent from './BaseComponent';
 
-class Form extends BaseComponent {
-  constructor(
-    parentArgs,
-    {
-      nameAttr,
-      fieldSelectors,
-      genFormConfig,
-      signupSuccess,
-      api,
-    },
-  ) {
-    super(parentArgs);
+class DialogForm extends BaseComponent {
+  constructor({
+    markup,
+    createNode,
+    nameAttr,
+    fieldSelectors,
+    genFormConfig,
+    signupSuccess,
+    api,
+  }) {
+    super({ markup, createNode });
     this._nameAttr = nameAttr;
     this._fieldSelectors = fieldSelectors;
     this._submitButtonSelector = genFormConfig.submitButtonSelector;
     this._genErrMessSelector = genFormConfig.genErrMessSelector;
     this._promptLinkSelector = genFormConfig.promptLinkSelector;
     this._signupFormNameAttr = genFormConfig.nameAttributes.signupFormNameAttr;
-    this._loginFormNameAttr = genFormConfig.nameAttributes.loginFormNameAttr;
     this._signupSuccess = signupSuccess;
     this._api = api;
+    /* inner */
     this.create = this.create.bind(this);
     this._formSubmitHandler = this._formSubmitHandler.bind(this);
     this._requestFormChange = this._requestFormChange.bind(this);
@@ -76,7 +75,7 @@ class Form extends BaseComponent {
     this._form.dispatchEvent(formChangeRequestEvent);
   }
 
-  _apiResponseProcessor() {
+  _requestApi() {
     if (this._nameAttr === this._signupFormNameAttr) {
       return this._api.signup(this._fieldValueMap)
         .then(() => {
@@ -94,7 +93,7 @@ class Form extends BaseComponent {
     event.preventDefault();
     this._getFieldValueMap();
     // this.toggleButtonText(false);
-    this._apiResponseProcessor()
+    this._requestApi()
       .catch((err) => {
         // console.log(err.message);
         this._generalErrorMessage.textContent = err.message;
@@ -131,4 +130,4 @@ class Form extends BaseComponent {
   }
 }
 
-export { Form as default };
+export { DialogForm as default };

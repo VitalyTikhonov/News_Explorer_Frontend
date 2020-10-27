@@ -1,22 +1,18 @@
 import BaseComponent from './BaseComponent';
 
 class Header extends BaseComponent {
-  constructor(
-    parentArgs,
+  constructor({
     mainApi,
-    authButton,
-    optionForAuthUsers,
-    createPopup,
-    // createNewsSearchFormObj,
-  ) {
-    super(parentArgs);
+    pageConfig,
+    popup,
+  }) {
+    super({});
     this._mainApi = mainApi;
-    this._authButton = authButton;
-    this._optionForAuthUsers = optionForAuthUsers;
-    this._createPopup = createPopup;
-    // this._createNewsSearchFormObj = createNewsSearchFormObj;
+    this._authButton = pageConfig.authButton;
+    this._optionForAuthUsers = pageConfig.optionForAuthUsers;
+    this._popup = popup;
+    /* inner */
     this._isLoggedIn = false;
-    this._createAndOpenPopup = this._createAndOpenPopup.bind(this);
   }
 
   _checkUserStatus() {
@@ -34,22 +30,11 @@ class Header extends BaseComponent {
       .finally(() => this._isLoggedIn);
   }
 
-  _createAndOpenPopup() {
-    // console.log('_createAndOpenPopup');
-    this._popup = this._createPopup(this._checkUserStatus());
-    this._popup.open();
-  }
-
   render() {
-    // this._checkUserStatus();
-    // if (this._isLoggedIn = true) {
-
-    // }
-    // this._createNewsSearchFormObj();
     this._domEventHandlerMap.push({
       domElement: this._authButton,
       event: 'click',
-      handler: this._createAndOpenPopup,
+      handler: this._popup.open,
     });
     /* здесь логику состояния хедера */
     this._setHandlers();

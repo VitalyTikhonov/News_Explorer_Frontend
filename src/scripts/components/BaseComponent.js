@@ -9,12 +9,11 @@ class BaseComponent {
     this._innerContainerSelector = innerContainerSelector;
     this._markup = markup;
     this._createNode = createNode;
-    /* внутренние */
+    /* inner */
     this._contents = null;
     this._domEventHandlerMap = [];
     this._component = null;
     this._innerContainer = null;
-    // this._close = this._close.bind(this);
   }
 
   _setHandlers() {

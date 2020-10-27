@@ -1,18 +1,14 @@
 import BaseComponent from './BaseComponent';
 
 class NewsSearchForm extends BaseComponent {
-  constructor(
-    parentArgs,
-    selector,
-    fieldSelector,
-    submitButtonSelector,
-    genFormConfig,
+  constructor({
+    newsSearchFormConfig,
     api,
-  ) {
-    super(parentArgs);
-    this._selector = selector;
-    this._fieldSelector = fieldSelector;
-    this._submitButtonSelector = submitButtonSelector;
+  }) {
+    super({});
+    this._selector = newsSearchFormConfig.selector;
+    this._fieldSelector = newsSearchFormConfig.fieldSelector;
+    this._submitButtonSelector = newsSearchFormConfig.submitButtonSelector;
     this._api = api;
     /* inner */
     this.render = this.render.bind(this);
