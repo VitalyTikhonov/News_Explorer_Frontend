@@ -10,7 +10,7 @@ import {
 } from '../../configs/config';
 import Header from '../../scripts/components/Header';
 import Popup from '../../scripts/components/Popup';
-import UserDataForm from '../../scripts/components/UserDataForm';
+import Form from '../../scripts/components/Form';
 import NewsSearchForm from '../../scripts/components/NewsSearchForm';
 import MainApi from '../../scripts/api/MainApi';
 import NewsApi from '../../scripts/api/NewsApi';
@@ -29,7 +29,7 @@ import {
   /* КОЛБЕКИ */
   const generatePopupContents = {
     createSignupForm() {
-      return new UserDataForm(
+      return new Form(
         { markup: signupFormConfig.markup, createNode },
         {
           nameAttr: signupFormConfig.nameAttr,
@@ -43,7 +43,7 @@ import {
     },
 
     createLoginForm() {
-      return new UserDataForm(
+      return new Form(
         { markup: loginFormConfig.markup, createNode },
         {
           nameAttr: loginFormConfig.nameAttr,
