@@ -1,6 +1,6 @@
-import BaseComponent from './BaseComponent';
+import Form from './Form';
 
-class Form extends BaseComponent {
+class UserDataForm extends Form {
   constructor(
     parentArgs,
     {
@@ -131,4 +131,4 @@ class Form extends BaseComponent {
   }
 }
 
-export { Form as default };
+export { UserDataForm as default };

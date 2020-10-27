@@ -5,16 +5,16 @@ import {
   CONTENT_TYPE,
   NEWSAPI_TOKEN,
   NEWSAPI_BASE_PATH,
-  NEWSAPI_FLIGHT,
+  NEWSAPI_PERIOD,
   NEWSAPI_PAGE_SIZE,
 } from '../../configs/config';
 import Header from '../../scripts/components/Header';
 import Popup from '../../scripts/components/Popup';
-import Form from '../../scripts/components/Form';
+import UserDataForm from '../../scripts/components/UserDataForm';
 import NewsSearchForm from '../../scripts/components/NewsSearchForm';
 import MainApi from '../../scripts/api/MainApi';
 import NewsApi from '../../scripts/api/NewsApi';
-import { createNode, dateMethods } from '../../scripts/utils/utils';
+import { createNode, formatDate, getPeriodStartDate } from '../../scripts/utils/utils';
 import {
   pageConfig,
   popupShellConfig,
@@ -29,31 +29,30 @@ import {
   /* КОЛБЕКИ */
   const generatePopupContents = {
     createSignupForm() {
-      // console.log('createSignupForm');
-      return new Form(
+      return new UserDataForm(
         { markup: signupFormConfig.markup, createNode },
-        // signupFormConfig.markup,
-        signupFormConfig.nameAttr,
-        signupFormConfig.fieldSelectors,
-        genFormConfig,
-        messageConfig.signupSuccess,
-
-        // eslint-disable-next-line no-use-before-define
-        mainApi,
+        {
+          nameAttr: signupFormConfig.nameAttr,
+          fieldSelectors: signupFormConfig.fieldSelectors,
+          genFormConfig,
+          signupSuccess: messageConfig.signupSuccess,
+          // eslint-disable-next-line no-use-before-define
+          api: mainApi,
+        },
       );
     },
 
     createLoginForm() {
-      // console.log('createLoginForm');
-      return new Form(
+      return new UserDataForm(
         { markup: loginFormConfig.markup, createNode },
-        // loginFormConfig.markup,
-        loginFormConfig.nameAttr,
-        loginFormConfig.fieldSelectors,
-        genFormConfig,
-        messageConfig.signupSuccess,
-        // eslint-disable-next-line no-use-before-define
-        mainApi,
+        {
+          nameAttr: loginFormConfig.nameAttr,
+          fieldSelectors: loginFormConfig.fieldSelectors,
+          genFormConfig,
+          signupSuccess: messageConfig.signupSuccess,
+          // eslint-disable-next-line no-use-before-define
+          api: mainApi,
+        },
       );
     },
     signupFormNameAttr: signupFormConfig.nameAttr,
@@ -61,7 +60,6 @@ import {
   };
 
   function createPopup(isUserLoggedIn) {
-    // console.log('createPopup');
     return new Popup(
       {
         parent: pageConfig.rootNode,
@@ -69,37 +67,20 @@ import {
         markup: popupShellConfig.markup,
         createNode,
       },
-      // pageConfig.rootNode,
-      // popupShellConfig.innerContainerSelector,
-      // popupShellConfig.markup,
-      // contentsSource,
       popupShellConfig.closeIconSelector,
       isUserLoggedIn,
       generatePopupContents,
-      // genFormConfig.promptLinkSelector,
     );
   }
-
-  // function createNewsSearchFormObj() {
-  //   return new Form(
-  //     { markup: loginFormConfig.markup, createNode },
-  //     // loginFormConfig.markup,
-  //     loginFormConfig.nameAttr,
-  //     loginFormConfig.fieldSelectors,
-  //     genFormConfig,
-  //     messageConfig.signupSuccess,
-  //     // eslint-disable-next-line no-use-before-define
-  //     newsApi,
-  //   );
-  // }
   /* ЭКЗЕМПЛЯРЫ КЛАССОВ */
   const mainApi = new MainApi(API_URL, CONTENT_TYPE);
   const newsApi = new NewsApi(
     NEWSAPI_TOKEN,
     NEWSAPI_BASE_PATH,
-    NEWSAPI_FLIGHT,
+    NEWSAPI_PERIOD,
     NEWSAPI_PAGE_SIZE,
-    dateMethods,
+    formatDate,
+    getPeriodStartDate,
   );
   const newsSearchForm = new NewsSearchForm(
     {},
@@ -116,7 +97,6 @@ import {
     pageConfig.authButton,
     pageConfig.optionForAuthUsers,
     createPopup,
-    // createNewsSearchFormObj,
   );
   /* ВЫЗОВЫ ФУНКЦИЙ */
   headerObj.render();

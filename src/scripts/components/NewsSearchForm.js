@@ -1,6 +1,6 @@
-import Form from './Form';
+import BaseComponent from './BaseComponent';
 
-class NewsSearchForm extends Form {
+class NewsSearchForm extends BaseComponent {
   constructor(
     parentArgs,
     selector,
@@ -10,21 +10,14 @@ class NewsSearchForm extends Form {
     api,
   ) {
     super(parentArgs);
-    // this._nameAttr = nameAttr;
     this._selector = selector;
     this._fieldSelector = fieldSelector;
     this._submitButtonSelector = submitButtonSelector;
-    // this._submitButtonSelector = genFormConfig.submitButtonSelector;
-    // this._genErrMessSelector = genFormConfig.genErrMessSelector;
-    // this._promptLinkSelector = genFormConfig.promptLinkSelector;
-    // this._signupFormNameAttr = genFormConfig.nameAttributes.signupFormNameAttr;
-    // this._loginFormNameAttr = genFormConfig.nameAttributes.loginFormNameAttr;
-    // this._signupSuccess = signupSuccess;
     this._api = api;
-    this.create = this.create.bind(this);
+    /* inner */
+    this.render = this.render.bind(this);
     this._formSubmitHandler = this._formSubmitHandler.bind(this);
     this._requestFormChange = this._requestFormChange.bind(this);
-    // this._getFieldValueMap = this._getFieldValueMap.bind(this);
   }
 
   _getFormFields() {
@@ -78,7 +71,6 @@ class NewsSearchForm extends Form {
 
   _formSubmitHandler(event) {
     event.preventDefault();
-    // this._getFieldValueMap();
     // this.toggleButtonText(false);
     this._api.getNews(this._field.value)
       .then((res) => {
@@ -93,14 +85,9 @@ class NewsSearchForm extends Form {
   }
 
   render() {
-    // console.log('this._component', this._component);
-    // this._form = this._component;
     this._formProper = document.querySelector(this._selector);
     this._field = this._formProper.querySelector(this._fieldSelector);
-    // this._getFormFields(); // Заранее создаем массив с полями формы
-    // this._generalErrorMessage = this._form.querySelector(this._genErrMessSelector);
-    this._submitButton = this._form.querySelector(this._submitButtonSelector);
-    // this._promptLink = this._form.querySelector(this._promptLinkSelector);
+    this._submitButton = this._formProper.querySelector(this._submitButtonSelector);
     this._domEventHandlerMap.push(
       {
         domElement: this._formProper,
@@ -110,7 +97,6 @@ class NewsSearchForm extends Form {
       },
     );
     this._setHandlers();
-    // return this._form;
   }
 }
 
