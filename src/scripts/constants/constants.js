@@ -7,6 +7,22 @@ const accessMarkers = {
   nonAuthorizedSelector: '.visibility__for-non-authorized',
   removalClassName: 'visibility__removed',
 };
+const headerMenuConfig = {
+  selectors: {
+    header: '.header',
+    headerMenuButton: '.header__menu-button',
+    headerMenu: 'header__menu',
+  },
+  defaultClassNames: {
+    headerMenuButton: 'button__modal_burger-white',
+    headerMenu: 'header__menu_thinner-border',
+  },
+  openClassNames: {
+    header: 'header_white-index',
+    headerMenuButton: 'button__modal_cross-white',
+    headerMenu: 'header__menu_show',
+  },
+};
 const articleBlockConfig = {
   article: {
     markup: {
@@ -161,4 +177,5 @@ module.exports = {
   newsSearchFormConfig,
   messageConfig,
   articleBlockConfig,
+  headerMenuConfig,
 };

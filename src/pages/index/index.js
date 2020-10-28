@@ -19,6 +19,8 @@ import {
   createNode,
   formatDate,
   getPeriodStartDate,
+  // removeClassFromElems,
+  // addClassToElems,
 } from '../../scripts/utils/utils';
 import {
   pageConfig,
@@ -29,6 +31,7 @@ import {
   newsSearchFormConfig,
   messageConfig,
   articleBlockConfig,
+  headerMenuConfig,
 } from '../../scripts/constants/constants';
 
 (function site() {
@@ -44,6 +47,8 @@ import {
     authorizedSelector: pageConfig.accessMarkers.authorizedSelector,
     removalClassName: pageConfig.accessMarkers.removalClassName,
     cardSaveButton: articleBlockConfig.article.saveButtonSelector,
+    // removeClassFromElems,
+    // addClassToElems,
   });
 
   const newsApi = new NewsApi(
@@ -99,6 +104,7 @@ import {
     mainApi,
     pageConfig,
     popup,
+    headerMenuConfig,
   });
 
   /* ВЫЗОВЫ ФУНКЦИЙ */

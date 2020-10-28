@@ -63,6 +63,47 @@ class BaseComponent {
     this._removeHandlers();
     this._component.remove();
   }
+
+  /* multiple elements – REMOVE one class */
+  _removeClassFromElems() {
+    // this._elemsToRemoveClass = ;
+    // this._controlClassName = ;
+    this._elemsToRemoveClass.forEach((element) => {
+      element.classList.remove(this._controlClassName);
+    });
+  }
+
+  /* multiple elements – ADD one class */
+  _addClassToElems() {
+    // this._elemsToAddClass = ;
+    // this._controlClassName = ;
+    this._elemsToAddClass.forEach((element) => {
+      element.classList.add(this._controlClassName);
+    });
+  }
+
+  /* one element – remove and add multiple classes */
+  _configureClasses() {
+    // this._elemClassMap = [].push(
+    //   {
+    //     // element: ,
+    //     classesToRemove: [
+
+    //     ],
+    //     classesToAdd: [
+
+    //     ],
+    //   },
+    // );
+    this._elemClassMap.forEach((combination) => {
+      combination.classesToRemove.forEach((className) => {
+        combination.element.classList.remove(className);
+      });
+      combination.classesToAdd.forEach((className) => {
+        combination.element.classList.add(className);
+      });
+    });
+  }
 }
 
 export { BaseComponent as default };

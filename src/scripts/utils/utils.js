@@ -15,6 +15,18 @@ export function getPeriodStartDate(period) {
   return localeString;
 }
 
+// export function removeClassFromElems(elemsToRemoveClassArray, className) {
+//   elemsToRemoveClassArray.forEach((element) => {
+//     element.classList.remove(className);
+//   });
+// }
+
+// export function addClassToElems(elemsToAddClassArray, className) {
+//   elemsToAddClassArray.forEach((element) => {
+//     element.classList.add(className);
+//   });
+// }
+
 // const createNode = function createNode(markup) {
 //   const element = document.createElement('div');
 //   element.insertAdjacentHTML('afterbegin', markup);
