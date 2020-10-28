@@ -50,8 +50,8 @@ class BaseComponent {
   }
 
   _removeChild() {
-    this._innerContainer.removeChild(this._contents);
-    // this._contents.remove();
+    // this._innerContainer.removeChild(this._contents);
+    this._contents.remove();
   }
 
   _open() {

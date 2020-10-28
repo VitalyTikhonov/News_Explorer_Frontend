@@ -35,7 +35,25 @@ const articleBlockConfig = {
     saveButtonSelector: '.card__breadcrumb_save-button',
   },
   preloader: {
-    markup: '<div class="preloader"><i class="preloader__circle"></i></div>',
+    markup: `
+    <div class="article-block__bumper">
+      <i class="article-block__bumper-preloader-circle"></i>
+
+      <p class="article-block__bumper-message">Идет поиск новостей&hellip;</p>
+    </div>
+    `,
+  },
+  noNewsBumper: {
+    markup: `
+    <div class="article-block__bumper">
+      <img src="./src/images/no-news-icon.png" alt="Значок &laquo;Ничего не найдено&raquo;"
+        class="article-block__bumper-no-news-icon">
+      <h3 class="article-block__bumper-title">Ничего не найдено</h3>
+
+      <p class="article-block__bumper-message">К сожалению, по Вашему запросу
+          ничего не найдено.</p>
+    </div>
+    `,
   },
 };
 const popupShellConfig = {

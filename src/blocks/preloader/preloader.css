@@ -1,8 +1,0 @@
-@import url(./__circle/preloader__circle.css);
-.preloader {
-  position: relative;
-	margin: 0;
-	height: 282px;
-	background-color: #333;
-	overflow: hidden;
-}

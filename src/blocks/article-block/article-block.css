@@ -3,6 +3,11 @@
 @import url(./__button/article-block__button.css);
 @import url(./_saved/article-block_saved.css);
 @import url(./__contents/article-block__contents.css);
+@import url(./__bumper-message/article-block__bumper-message.css);
+@import url(./__bumper-preloader-circle/article-block__bumper-preloader-circle.css);
+@import url(./__bumper-title/article-block__bumper-title.css);
+@import url(./__bumper/article-block__bumper.css);
+@import url(./__bumper-no-news-icon/article-block__bumper-no-news-icon.css);
 
 /* .article-block {
   display: flex;

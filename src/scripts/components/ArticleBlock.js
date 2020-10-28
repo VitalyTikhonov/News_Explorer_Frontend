@@ -11,17 +11,31 @@ class ArticleBlock extends BaseComponent {
     });
     this._component = articleBlockConfig.node;
     this._preloaderMarkup = articleBlockConfig.preloader.markup;
+    this._noNewsBumper = articleBlockConfig.noNewsBumper.markup;
   }
 
-  _showPreloader() {
+  showPreloader() {
+    // this._component.removeChild(this._contents);
+    if (this._contents) {
+      this._removeChild();
+    }
     this._contents = this._createNode(this._preloaderMarkup);
     this._component.appendChild(this._contents);
     /* _insertChild не подходит */
   }
 
-  // render() {
+  showNoNewsBumper() {
+    // this._component.removeChild(this._contents);
+    if (this._contents) {
+      this._removeChild();
+    }
+    this._contents = this._createNode(this._noNewsBumper);
+    this._component.appendChild(this._contents);
+  }
 
-  // }
+  renderArticles() {
+
+  }
 }
 
 export { ArticleBlock as default };
