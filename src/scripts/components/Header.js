@@ -2,14 +2,15 @@ import BaseComponent from './BaseComponent';
 
 class Header extends BaseComponent {
   constructor({
-    mainApi,
+    accessControl,
     pageConfig,
     popup,
     headerMenuConfig,
   }) {
     super({});
-    this._mainApi = mainApi;
+    this._accessControl = accessControl;
     this._authButton = pageConfig.authButton;
+    this._logoutButton = pageConfig.logoutButton;
     this._optionForAuthUsers = pageConfig.optionForAuthUsers;
     this._authorizedSelector = pageConfig.accessMarkers.authorizedSelector;
     this._nonAuthorizedSelector = pageConfig.accessMarkers.nonAuthorizedSelector;
@@ -115,6 +116,11 @@ class Header extends BaseComponent {
         domElement: this._authButton,
         event: 'click',
         handler: this._popup.open,
+      },
+      {
+        domElement: this._logoutButton,
+        event: 'click',
+        handler: this._accessControl.signout,
       },
       {
         domElement: this._headerMenuButton,

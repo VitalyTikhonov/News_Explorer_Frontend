@@ -68,6 +68,7 @@ import {
     genFormConfig,
     signupSuccess: messageConfig.signupSuccess,
     // eslint-disable-next-line no-use-before-define
+    accessControl,
     api: mainApi,
   });
 
@@ -79,6 +80,7 @@ import {
     genFormConfig,
     signupSuccess: messageConfig.signupSuccess,
     // eslint-disable-next-line no-use-before-define
+    accessControl,
     api: mainApi,
   });
 
@@ -101,14 +103,14 @@ import {
   });
 
   const headerObj = new Header({
-    mainApi,
+    accessControl,
     pageConfig,
     popup,
     headerMenuConfig,
   });
 
   /* ВЫЗОВЫ ФУНКЦИЙ */
-  accessControl.configurePageOnLogin();
+  accessControl.configurePageOnLoad();
   headerObj.render();
   newsSearchForm.render();
 }());

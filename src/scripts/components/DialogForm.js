@@ -8,6 +8,7 @@ class DialogForm extends BaseComponent {
     fieldSelectors,
     genFormConfig,
     signupSuccess,
+    accessControl,
     api,
   }) {
     super({ markup, createNode });
@@ -18,6 +19,7 @@ class DialogForm extends BaseComponent {
     this._promptLinkSelector = genFormConfig.promptLinkSelector;
     this._signupFormNameAttr = genFormConfig.nameAttributes.signupFormNameAttr;
     this._signupSuccess = signupSuccess;
+    this._accessControl = accessControl;
     this._api = api;
     /* inner */
     this.create = this.create.bind(this);
@@ -43,13 +45,13 @@ class DialogForm extends BaseComponent {
     if (replacingNodeMarkup) {
       this._replacingNode = this._createNode(replacingNodeMarkup);
       this._replacingPromptLink = this._replacingNode.querySelector(this._promptLinkSelector);
-      BaseComponent.setHandlers(
+      BaseComponent.setHandlers([
         {
           domElement: this._replacingPromptLink,
           event: 'click',
           handler: this._requestFormChange,
         },
-      );
+      ]);
     }
     const dismissalEvent = new CustomEvent(
       'dismissal',
@@ -77,13 +79,15 @@ class DialogForm extends BaseComponent {
   _requestApi() {
     if (this._nameAttr === this._signupFormNameAttr) {
       return this._api.signup(this._fieldValueMap)
+      // return this._api.signup(this._fieldValueMap)
         .then(() => {
           this._dismiss(this._signupSuccess);
         });
     }
-    return this._api.signin(this._fieldValueMap)
+    return this._accessControl.signin(this._fieldValueMap)
+    // return this._api.signin(this._fieldValueMap)
       .then((res) => {
-        console.log(res.message);
+        console.log(res);
         this._dismiss();
       });
   }

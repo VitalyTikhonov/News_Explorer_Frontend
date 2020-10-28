@@ -1,7 +1,7 @@
 const rootNode = document.querySelector('.root');
 const header = rootNode.querySelector('.header');
-const authButton = header.querySelector('.menu__auth-button-wrap');
-// const authButton = header.querySelector('.menu__auth-button');
+const authButton = header.querySelector('.menu__auth-button-login');
+const logoutButton = header.querySelector('.menu__auth-button-logout');
 const accessMarkers = {
   authorizedSelector: '.visibility__for-authorized',
   nonAuthorizedSelector: '.visibility__for-non-authorized',
@@ -168,6 +168,7 @@ module.exports = {
     rootNode,
     header,
     authButton,
+    logoutButton,
     accessMarkers,
   },
   popupShellConfig,

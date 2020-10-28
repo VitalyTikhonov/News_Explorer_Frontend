@@ -2,6 +2,7 @@ class MainApi {
   constructor(API_URL, CONTENT_TYPE) {
     this._API_URL = API_URL;
     this._CONTENT_TYPE = CONTENT_TYPE;
+    this.signout = this.signout.bind(this);
   }
 
   /*
@@ -52,6 +53,21 @@ class MainApi {
           email,
           password,
         }),
+      },
+    )
+      .then((res) => {
+        this._res = res;
+        return this._primaryResponseHandler();
+      });
+  }
+
+  signout() {
+    return fetch(
+      `${this._API_URL}/signout`,
+      {
+        method: 'POST',
+        headers: { 'Content-Type': this._CONTENT_TYPE },
+        credentials: 'include',
       },
     )
       .then((res) => {

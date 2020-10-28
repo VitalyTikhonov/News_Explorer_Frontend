@@ -25,6 +25,7 @@ class AccessControl extends BaseComponent {
     // this._addClassToElems = addClassToElems;
     /* inner */
     this._isLoggedIn = false;
+    this.signout = this.signout.bind(this);
   }
 
   _checkUserStatus() {
@@ -56,7 +57,7 @@ class AccessControl extends BaseComponent {
     this._moveClassBetweenElements();
   }
 
-  configurePageOnLogin() {
+  configurePageOnLoad() {
     this._elemsForNonAuth = this._pageRootSelector.querySelectorAll(this._nonAuthorizedSelector);
     this._elemsForAuth = this._pageRootSelector.querySelectorAll(this._authorizedSelector);
     // console.log('this._checkUserStatus()', this._checkUserStatus());
@@ -72,6 +73,30 @@ class AccessControl extends BaseComponent {
         const error = new Error();
         error.message = err;
         throw error;
+      });
+  }
+
+  signin(fieldValueMap) {
+    return this._api.signin(fieldValueMap)
+      .then((res) => {
+        // console.log(res);
+        this._isLoggedIn = true;
+        this._setupForAuth();
+        return res;
+      });
+  }
+
+  signout() {
+    this._api.signout()
+      .then((res) => {
+        console.log(res);
+      })
+      .catch((err) => {
+        console.log(err);
+      })
+      .finally(() => {
+        this._isLoggedIn = false;
+        this._setupForNonAuth();
       });
   }
 }
