@@ -8,10 +8,10 @@ const accessMarkers = {
   removalClassName: 'visibility__removed',
 };
 const headerMenuConfig = {
-  selectors: {
-    header: '.header',
-    headerMenuButton: '.header__menu-button',
-    headerMenu: 'header__menu',
+  elements: {
+    header: rootNode.querySelector('.header'),
+    headerMenuButton: header.querySelector('.header__menu-button'),
+    headerMenu: header.querySelector('.header__menu'),
   },
   defaultClassNames: {
     headerMenuButton: 'button__modal_burger-white',

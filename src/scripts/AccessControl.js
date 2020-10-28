@@ -1,4 +1,9 @@
-class AccessControl {
+import BaseComponent from './components/BaseComponent';
+/* Наследование BaseComponent в этом классе – вынужденное временное решение,
+связанное с тем, что вынести методы для замены классов в DOM-узлах в utils не получается
+(модуль их почему-то не видит там, как не прописывал). */
+
+class AccessControl extends BaseComponent {
   constructor({
     api,
     pageRootSelector,
@@ -9,6 +14,7 @@ class AccessControl {
     // removeClassFromElems,
     // addClassToElems,
   }) {
+    super({});
     this._api = api;
     this._pageRootSelector = pageRootSelector;
     this._nonAuthorizedSelector = nonAuthorizedSelector;
@@ -38,53 +44,17 @@ class AccessControl {
     // console.log('this._isLoggedIn', this._isLoggedIn);
   }
 
-  // _setupForAuth() {
-  //   this._addClassToElems(this._elemsForNonAuth, this._addedClassName);
-  //   this._removeClassFromElems(this._elemsForAuth, this._removedClassName);
-  // }
-
-  // _setupForNonAuth() {
-  //   this._addClassToElems(this._elemsForAuth, this._addedClassName);
-  //   this._removeClassFromElems(this._elemsForNonAuth, this._removedClassName);
-  // }
-
   _setupForAuth() {
-    this._elemsToAddClass = this._elemsForNonAuth;
-    this._addClassToElems();
     this._elemsToRemoveClass = this._elemsForAuth;
-    this._removeClassFromElems();
+    this._elemsToAddClass = this._elemsForNonAuth;
+    this._moveClassBetweenElements();
   }
 
   _setupForNonAuth() {
-    this._elemsToAddClass = this._elemsForAuth;
-    this._addClassToElems();
     this._elemsToRemoveClass = this._elemsForNonAuth;
-    this._removeClassFromElems();
+    this._elemsToAddClass = this._elemsForAuth;
+    this._moveClassBetweenElements();
   }
-
-  // _setupForAuth() {
-  //   // console.log('_setupForAuth');
-  //   this._elemsForNonAuth.forEach((element) => {
-  //     element.classList.add(this._addedClassName);
-  //     // console.log('_elemsForNonAuth', element);
-  //   });
-  //   this._elemsForAuth.forEach((element) => {
-  //     element.classList.remove(this._removedClassName);
-  //     // console.log('_elemsForAuth', element);
-  //   });
-  // }
-
-  // _setupForNonAuth() {
-  //   // console.log('elemsForNonAuth', elemsForNonAuth);
-  //   this._elemsForNonAuth.forEach((element) => {
-  //     element.classList.remove(this._removedClassName);
-  //     // console.log('element', element);
-  //   });
-  //   this._elemsForAuth.forEach((element) => {
-  //     element.classList.add(this._addedClassName);
-  //     // console.log('element', element);
-  //   });
-  // }
 
   configurePageOnLogin() {
     this._elemsForNonAuth = this._pageRootSelector.querySelectorAll(this._nonAuthorizedSelector);

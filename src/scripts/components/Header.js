@@ -15,9 +15,9 @@ class Header extends BaseComponent {
     this._nonAuthorizedSelector = pageConfig.accessMarkers.nonAuthorizedSelector;
     this._popup = popup;
     /* ----------- */
-    this._headerSelector = headerMenuConfig.selectors.header;
-    this._headerMenuButtonSelector = headerMenuConfig.selectors.headerMenuButton;
-    this._headerMenuSelector = headerMenuConfig.selectors.headerMenu;
+    this._header = headerMenuConfig.elements.header;
+    this._headerMenuButton = headerMenuConfig.elements.headerMenuButton;
+    this._headerMenu = headerMenuConfig.elements.headerMenu;
     /* ----------- */
     this._headerMenuButtonDefClass = headerMenuConfig.defaultClassNames.headerMenuButton;
     this._headerMenuDefClass = headerMenuConfig.defaultClassNames.headerMenu;
@@ -25,60 +25,107 @@ class Header extends BaseComponent {
     this._headerOpenClass = headerMenuConfig.openClassNames.header;
     this._headerMenuButtonOpenClass = headerMenuConfig.openClassNames.headerMenuButton;
     this._headerMenuOpenClass = headerMenuConfig.openClassNames.headerMenu;
+    /* ----------- */
+    this._openMenu = this._openMenu.bind(this);
+    this._closeMenu = this._closeMenu.bind(this);
   }
 
   _openMenu() {
-    this._elemClassMap = [].push(
+    this._domEventHandlerMap.push(
       {
-        element: ,
-        classesToRemove: [
-
-        ],
-        classesToAdd: [
-
-        ],
+        domElement: this._headerMenuButton,
+        event: 'click',
+        handler: this._openMenu,
       },
     );
-    this._configureClasses();
+    this._removeHandlers();
+
+    this._domEventHandlerMap.push(
+      {
+        domElement: this._headerMenuButton,
+        event: 'click',
+        handler: this._closeMenu,
+      },
+    );
+    this._setHandlers();
+
+    this._elemClassMap = [].concat(
+      {
+        element: this._header,
+        // classToRemove: ,
+        classToAdd: this._headerOpenClass,
+      },
+      {
+        element: this._headerMenuButton,
+        classToRemove: this._headerMenuButtonDefClass,
+        classToAdd: this._headerMenuButtonOpenClass,
+      },
+      {
+        element: this._headerMenu,
+        classToRemove: this._headerMenuDefClass,
+        classToAdd: this._headerMenuOpenClass,
+      },
+    );
+    this._configureClassesOnElem();
   }
 
   _closeMenu() {
-    this._elemClassMap = [].push(
+    this._domEventHandlerMap.push(
       {
-        element: ,
-        classesToRemove: [
-
-        ],
-        classesToAdd: [
-
-        ],
+        domElement: this._headerMenuButton,
+        event: 'click',
+        handler: this._closeMenu,
       },
     );
-    this._configureClasses();
+    this._removeHandlers();
+
+    this._domEventHandlerMap.push(
+      {
+        domElement: this._headerMenuButton,
+        event: 'click',
+        handler: this._openMenu,
+      },
+    );
+    this._setHandlers();
+
+    this._elemClassMap = [].concat(
+      {
+        element: this._header,
+        classToRemove: this._headerOpenClass,
+        // classToAdd: ,
+      },
+      {
+        element: this._headerMenuButton,
+        classToRemove: this._headerMenuButtonOpenClass,
+        classToAdd: this._headerMenuButtonDefClass,
+      },
+      {
+        element: this._headerMenu,
+        classToRemove: this._headerMenuOpenClass,
+        classToAdd: this._headerMenuDefClass,
+      },
+      // {
+      //   element: ,
+      //   classToRemove:,
+      //   classToAdd:,
+      // },
+    );
+    this._configureClassesOnElem();
   }
 
-  // _removeClassFromElems() {
-  //   // this._elemsToRemoveClass = ;
-  //   // this._controlClassName = ;
-  //   this._elemsToRemoveClass.forEach((element) => {
-  //     element.classList.remove(this._controlClassName);
-  //   });
-  // }
-
-  // _addClassToElems() {
-  //   // this._elemsToAddClass = ;
-  //   // this._controlClassName = ;
-  //   this._elemsToAddClass.forEach((element) => {
-  //     element.classList.add(this._controlClassName);
-  //   });
-  // }
-
   render() {
-    this._domEventHandlerMap.push({
-      domElement: this._authButton,
-      event: 'click',
-      handler: this._popup.open,
-    });
+    this._domEventHandlerMap.push(
+      {
+        domElement: this._authButton,
+        event: 'click',
+        handler: this._popup.open,
+      },
+      {
+        domElement: this._headerMenuButton,
+        event: 'click',
+        handler: this._openMenu,
+      },
+    );
     this._setHandlers();
   }
 }
