@@ -2,8 +2,9 @@
 @import url(./__card-container/article-block__card-container.css);
 @import url(./__button/article-block__button.css);
 @import url(./_saved/article-block_saved.css);
+@import url(./__contents/article-block__contents.css);
 
-.article-block {
+/* .article-block {
   display: flex;
   flex-direction: column;
   padding-top: 32px;
@@ -12,10 +13,9 @@
 }
 
 @media (min-width: 321px) {
-/* @media (min-width: 321px) and (max-width: 768px) { */
   .article-block {
     max-width: 100vw;
     padding-top: 81px;
     padding-bottom: 41px;
   }
-}
+} */

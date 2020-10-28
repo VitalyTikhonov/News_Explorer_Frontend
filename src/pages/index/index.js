@@ -9,12 +9,13 @@ import {
   NEWSAPI_PAGE_SIZE,
 } from '../../configs/config';
 import AccessControl from '../../scripts/AccessControl';
+import MainApi from '../../scripts/api/MainApi';
+import NewsApi from '../../scripts/api/NewsApi';
 import Header from '../../scripts/components/Header';
 import Popup from '../../scripts/components/Popup';
 import DialogForm from '../../scripts/components/DialogForm';
 import NewsSearchForm from '../../scripts/components/NewsSearchForm';
-import MainApi from '../../scripts/api/MainApi';
-import NewsApi from '../../scripts/api/NewsApi';
+import ArticleBlock from '../../scripts/components/ArticleBlock';
 import {
   createNode,
   formatDate,
@@ -96,10 +97,16 @@ import {
     loginFormNameAttr: loginFormConfig.nameAttr,
   });
 
+  const articleBlock = new ArticleBlock({
+    articleBlockConfig,
+    createNode,
+  });
+
   const newsSearchForm = new NewsSearchForm({
     newsSearchFormConfig,
     // eslint-disable-next-line no-use-before-define
     api: newsApi,
+    articleBlock,
   });
 
   const headerObj = new Header({

@@ -4,12 +4,14 @@ class NewsSearchForm extends BaseComponent {
   constructor({
     newsSearchFormConfig,
     api,
+    articleBlock,
   }) {
     super({});
     this._selector = newsSearchFormConfig.selector;
     this._fieldSelector = newsSearchFormConfig.fieldSelector;
     this._submitButtonSelector = newsSearchFormConfig.submitButtonSelector;
     this._api = api;
+    this._articleBlock = articleBlock;
     /* inner */
     this.render = this.render.bind(this);
     this._formSubmitHandler = this._formSubmitHandler.bind(this);
@@ -66,6 +68,7 @@ class NewsSearchForm extends BaseComponent {
 
   _formSubmitHandler(event) {
     event.preventDefault();
+    this._articleBlock._showPreloader();
     // this.toggleButtonText(false);
     this._api.getNews(this._field.value)
       .then((res) => {

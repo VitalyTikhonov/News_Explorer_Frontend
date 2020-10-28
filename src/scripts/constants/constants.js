@@ -24,12 +24,18 @@ const headerMenuConfig = {
   },
 };
 const articleBlockConfig = {
+  node: document.querySelector('.article-block'),
+  selector: '.article-block',
+  innerContainerSelector: '.article-block__card-container',
   article: {
     markup: {
       // forMainPage: ``,
       // forSavedNewsPage: ``,
     },
     saveButtonSelector: '.card__breadcrumb_save-button',
+  },
+  preloader: {
+    markup: '<div class="preloader"><i class="preloader__circle"></i></div>',
   },
 };
 const popupShellConfig = {

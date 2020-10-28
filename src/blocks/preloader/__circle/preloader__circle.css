@@ -1,12 +1,4 @@
-body {
-	margin: 0;
-	min-height: 100vh;
-	background-color: #333;
-
-	overflow: hidden;
-}
-
-.circle-preloader {
+.preloader__circle {
 	display: block;
 	width: 50px;
 	height: 50px;
