@@ -38,19 +38,18 @@ class DialogForm extends BaseComponent {
   }
 
   _dismiss(replacingNodeMarkup) {
-    this._removeHandlers();
+    BaseComponent.removeHandlers(this._formEventHandlerMap);
     // this._dismiss(); // Maximum call stack size exceeded???
     if (replacingNodeMarkup) {
       this._replacingNode = this._createNode(replacingNodeMarkup);
       this._replacingPromptLink = this._replacingNode.querySelector(this._promptLinkSelector);
-      this._domEventHandlerMap.push(
+      BaseComponent.setHandlers(
         {
           domElement: this._replacingPromptLink,
           event: 'click',
           handler: this._requestFormChange,
         },
       );
-      this._setHandlers();
     }
     const dismissalEvent = new CustomEvent(
       'dismissal',
@@ -65,7 +64,7 @@ class DialogForm extends BaseComponent {
   }
 
   _requestFormChange() {
-    this._removeHandlers();
+    BaseComponent.removeHandlers(this._formEventHandlerMap);
     const formChangeRequestEvent = new CustomEvent(
       'formChangeRequest',
       {
@@ -112,7 +111,7 @@ class DialogForm extends BaseComponent {
     this._generalErrorMessage = this._form.querySelector(this._genErrMessSelector);
     this._submitButton = this._form.querySelector(this._submitButtonSelector);
     this._promptLink = this._form.querySelector(this._promptLinkSelector);
-    this._domEventHandlerMap.push(
+    this._formEventHandlerMap = [
       {
         domElement: this._formProper,
         event: 'submit',
@@ -124,8 +123,8 @@ class DialogForm extends BaseComponent {
         event: 'click',
         handler: this._requestFormChange,
       },
-    );
-    this._setHandlers();
+    ];
+    BaseComponent.setHandlers(this._formEventHandlerMap);
     return this._form;
   }
 }

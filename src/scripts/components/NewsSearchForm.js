@@ -28,19 +28,18 @@ class NewsSearchForm extends BaseComponent {
   }
 
   _dismiss(replacingNodeMarkup) {
-    this._removeHandlers();
+    BaseComponent.setHandlers(this._formEventHandlerMap);
     // this._dismiss(); // Maximum call stack size exceeded???
     if (replacingNodeMarkup) {
       this._replacingNode = this._createNode(replacingNodeMarkup);
       this._replacingPromptLink = this._replacingNode.querySelector(this._promptLinkSelector);
-      this._domEventHandlerMap.push(
+      BaseComponent.setHandlers([
         {
           domElement: this._replacingPromptLink,
           event: 'click',
           handler: this._requestFormChange,
         },
-      );
-      this._setHandlers();
+      ]);
     }
     const dismissalEvent = new CustomEvent(
       'dismissal',
@@ -55,7 +54,7 @@ class NewsSearchForm extends BaseComponent {
   }
 
   _requestFormChange() {
-    this._removeHandlers();
+    BaseComponent.setHandlers(this._formEventHandlerMap);
     const formChangeRequestEvent = new CustomEvent(
       'formChangeRequest',
       {
@@ -84,15 +83,15 @@ class NewsSearchForm extends BaseComponent {
     this._formProper = document.querySelector(this._selector);
     this._field = this._formProper.querySelector(this._fieldSelector);
     this._submitButton = this._formProper.querySelector(this._submitButtonSelector);
-    this._domEventHandlerMap.push(
+    this._formEventHandlerMap = [
       {
         domElement: this._formProper,
         event: 'submit',
         handler: this._formSubmitHandler,
         useCapture: true,
       },
-    );
-    this._setHandlers();
+    ];
+    BaseComponent.setHandlers(this._formEventHandlerMap);
   }
 }
 

@@ -32,7 +32,7 @@ class Popup extends BaseComponent {
     // this._loginFormNameAttr = generateContents.loginFormNameAttr;
     /* inner */
     this.open = this.open.bind(this);
-    this.dismiss = this._dismiss.bind(this);
+    this._dismiss = this._dismiss.bind(this);
     this._escapeHandler = this._escapeHandler.bind(this);
     this._clickAwayHandler = this._clickAwayHandler.bind(this);
     this._childDismissalHandler = this._childDismissalHandler.bind(this);
@@ -45,14 +45,13 @@ class Popup extends BaseComponent {
     if (newContents) {
       this._contents = newContents;
       this._insertChild();
-      this._domEventHandlerMap.push( // рефакторить
+      BaseComponent.setHandlers([ // рефакторить
         {
           domElement: newContents,
           event: 'formChangeRequest',
           handler: this._changeFormHandler,
         },
-      );
-      this._setHandlers();
+      ]);
     } else {
       this._dismiss();
     }
@@ -84,7 +83,7 @@ class Popup extends BaseComponent {
     this._removeChild();
     this._contents = this._form;
     this._insertChild();
-    this._domEventHandlerMap.push( // рефакторить
+    BaseComponent.setHandlers([ // рефакторить
       {
         domElement: this._form,
         event: 'dismissal',
@@ -95,8 +94,12 @@ class Popup extends BaseComponent {
         event: 'formChangeRequest',
         handler: this._changeFormHandler,
       },
-    );
-    this._setHandlers();
+    ]);
+  }
+
+  _dismiss() {
+    BaseComponent.removeHandlers(this._domEventHandlerMap);
+    super._dismiss();
   }
 
   open() {
@@ -105,11 +108,11 @@ class Popup extends BaseComponent {
     this._closeIcon = this._popup.querySelector(this._closeIconSelector);
     this._contents = this._createContents();
     this._insertChild();
-    this._domEventHandlerMap.push(
+    this._domEventHandlerMap = [
       {
         domElement: this._closeIcon,
         event: 'click',
-        handler: this.dismiss,
+        handler: this._dismiss,
       },
       {
         domElement: document,
@@ -131,8 +134,8 @@ class Popup extends BaseComponent {
         event: 'formChangeRequest',
         handler: this._changeFormHandler,
       },
-    );
-    this._setHandlers(); // не может быть в родительском классе
+    ];
+    BaseComponent.setHandlers(this._domEventHandlerMap);
     this._open();
     this._popup.focus();
     /* Без focus(), если не установить курсор ни в одно из полей,

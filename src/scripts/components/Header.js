@@ -31,23 +31,21 @@ class Header extends BaseComponent {
   }
 
   _openMenu() {
-    this._domEventHandlerMap.push(
+    BaseComponent.removeHandlers([
       {
         domElement: this._headerMenuButton,
         event: 'click',
         handler: this._openMenu,
       },
-    );
-    this._removeHandlers();
+    ]);
 
-    this._domEventHandlerMap.push(
+    BaseComponent.setHandlers([
       {
         domElement: this._headerMenuButton,
         event: 'click',
         handler: this._closeMenu,
       },
-    );
-    this._setHandlers();
+    ]);
 
     this._elemClassMap = [].concat(
       {
@@ -70,23 +68,21 @@ class Header extends BaseComponent {
   }
 
   _closeMenu() {
-    this._domEventHandlerMap.push(
+    BaseComponent.removeHandlers([
       {
         domElement: this._headerMenuButton,
         event: 'click',
         handler: this._closeMenu,
       },
-    );
-    this._removeHandlers();
+    ]);
 
-    this._domEventHandlerMap.push(
+    BaseComponent.setHandlers([
       {
         domElement: this._headerMenuButton,
         event: 'click',
         handler: this._openMenu,
       },
-    );
-    this._setHandlers();
+    ]);
 
     this._elemClassMap = [].concat(
       {
@@ -114,7 +110,7 @@ class Header extends BaseComponent {
   }
 
   render() {
-    this._domEventHandlerMap.push(
+    BaseComponent.setHandlers([
       {
         domElement: this._authButton,
         event: 'click',
@@ -125,8 +121,7 @@ class Header extends BaseComponent {
         event: 'click',
         handler: this._openMenu,
       },
-    );
-    this._setHandlers();
+    ]);
   }
 }
 

@@ -11,13 +11,12 @@ class BaseComponent {
     this._createNode = createNode;
     /* inner */
     this._contents = null;
-    this._domEventHandlerMap = [];
     this._component = null;
     this._innerContainer = null;
   }
 
-  _setHandlers() {
-    this._domEventHandlerMap.forEach((combination) => {
+  static setHandlers(map) { // super.setHandlers
+    map.forEach((combination) => {
       const {
         domElement,
         event,
@@ -28,8 +27,8 @@ class BaseComponent {
     });
   }
 
-  _removeHandlers() {
-    this._domEventHandlerMap.forEach((combination) => {
+  static removeHandlers(map) { // super.removeHandlers
+    map.forEach((combination) => {
       const {
         domElement,
         event,
@@ -60,7 +59,6 @@ class BaseComponent {
   }
 
   _dismiss() {
-    this._removeHandlers();
     this._component.remove();
   }
 
@@ -86,7 +84,6 @@ class BaseComponent {
     //     classToAdd: ,
     //   },
     // );
-    console.log('this._elemClassMap', this._elemClassMap);
     this._elemClassMap.forEach((combination) => {
       combination.element.classList.remove(combination.classToRemove);
       combination.element.classList.add(combination.classToAdd);
