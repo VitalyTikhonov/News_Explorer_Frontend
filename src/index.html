@@ -15,44 +15,31 @@
 <body>
   <div class="root">
     <header class="header">
-      <!-- МЕНЮ – ШАГ 1 из 3: ᐃᐃᐃ закрыто – открыто ᐁᐁᐁ -->
-      <!-- <header class="header header_white-index"> -->
       <div class="header__bar root__child-width">
         <h1 class="header__headline">NewsExplorer</h1>
 
         <button type="button"
           class="header__menu-button button__modal button__modal_burger-white button_hover-on-black"></button>
-        <!-- МЕНЮ – ШАГ 2 из 3: ᐃᐃᐃ закрыто – открыто ᐁᐁᐁ; ======= ЛЮБОЙ ПОПАП – общий ШАГ 1 из 2: ᐃᐃᐃ закрыт -->
-        <!-- <button type="button" class="header__menu-button button__modal button__modal_cross-white button_hover-on-black"></button> -->
-        <!-- ======================================================= ЛЮБОЙ ПОПАП – общий ШАГ 1 из 2: ------------- открыт ᐁᐁᐁ -->
-        <!-- <button type="button" class="header__menu-button visibility__removed button__modal button__modal_cross-white button_hover-on-black"></button> -->
       </div>
 
       <nav class="header__menu menu root__child-width header__menu_thinner-border" aria-labelledby="header-navigation">
-        <!-- МЕНЮ – ШАГ 3 из 3: ᐃᐃᐃ закрыто – открыто ᐁᐁᐁ -->
-        <!-- <nav class="header__menu menu root__child-width header__menu_show" aria-labelledby="header-navigation"> -->
         <h2 class="aria-labelledby-title" id="header-navigation">Основное меню</h2>
 
         <div class="menu__options">
           <ul class="menu__text-options header__menu-options list">
-            <!-- АКТИВНЫЙ ПУНКТ МЕНЮ -->
             <li class="menu__text-path menu__text-path_header menu___text-path_current"><a href="./"
                 class="link">Главная</a></li>
 
-            <!-- СКРЫТЫЙ НЕАКТИВНЫЙ ПУНКТ МЕНЮ -->
             <li class="menu__text-path visibility__removed menu__text-path_header visibility__for-authorized"><a
                 href="./saved-news" class="link">Сохранённые статьи</a></li>
           </ul>
 
-          <!-- visibility__on-mob visibility__on-tab-and-dt -->
-          <!-- ВИДИМЫЙ ПУНКТ МЕНЮ (КНОПКА) -->
           <div class="menu__auth-button-login">
             <button type="button"
               class="menu__auth-button visibility__on-mob button__rounded button__rounded_size_parent button__rounded_black-outline-white button_hover-on-black visibility__for-non-authorized">Авторизоваться</button>
             <button type="button"
               class="menu__auth-button visibility__on-tab-and-dt button__rounded button__rounded_size_parent button__rounded_transparent-outline-white button_hover-on-black visibility__for-non-authorized">Авторизоваться</button>
           </div>
-          <!-- СКРЫТЫЙ ПУНКТ МЕНЮ (КНОПКА) -->
           <div class="menu__auth-button-logout">
             <button type="button"
               class="menu__auth-button visibility__on-mob visibility__removed button__rounded button__rounded_black-outline-white button_hover-on-black button__rounded_with-icon visibility__for-authorized">Выйти
@@ -77,8 +64,6 @@
 
           <button type="submit"
             class="news-search-form__button button__rounded button__rounded_size_parent button__rounded_blue">Искать</button>
-          <!-- НЕАКТИВНАЯ КНОПКА – ДЛЯ НЕВАЛИДНОЙ ФОРМЫ -->
-          <!-- <button type="submit" class="news-search-form__button button__rounded button__rounded_size_parent button__rounded_blue-inactive">Искать</button> -->
         </form>
       </section>
 
@@ -97,7 +82,6 @@
 
       <section class="user-profile root__child-width">
         <img src="<%=require('./images/vitaliytikhonov.jpg')%>" alt="Фото автора" class="user-profile__avatar">
-        <!-- Подставлять имя пользователя в alt? -->
 
         <div class="user-profile__description">
           <h3 class="user-profile__headline section-headline">Об авторе</h3>
