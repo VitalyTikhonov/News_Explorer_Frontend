@@ -32,7 +32,7 @@ import {
   loginFormConfig,
   newsSearchFormConfig,
   messageConfig,
-  articleBlockConfig,
+  articleBlockConf,
   headerMenuConfig,
 } from '../../scripts/constants/constants';
 
@@ -40,8 +40,7 @@ import {
   /* КОЛБЕКИ */
   function createArticleOnMainPage(content) {
     return new Article({
-      markup: articleBlockConfig.article.markup.forMainPage,
-      articleBlockConfig,
+      articleBlockConf,
       createNode,
       content,
       // eslint-disable-next-line no-use-before-define
@@ -57,7 +56,7 @@ import {
     nonAuthorizedSelector: pageConfig.accessMarkers.nonAuthorizedSelector,
     authorizedSelector: pageConfig.accessMarkers.authorizedSelector,
     removalClassName: pageConfig.accessMarkers.removalClassName,
-    articleBlockConfig,
+    articleBlockConf,
   });
 
   const newsApi = new NewsApi(
@@ -106,7 +105,7 @@ import {
   });
 
   const articleBlock = new ArticleBlock({
-    articleBlockConfig,
+    articleBlockConf,
     createNode,
     createArticle: createArticleOnMainPage,
     pageConfig,

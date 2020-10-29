@@ -1,4 +1,4 @@
-.article-block__contents {
+.article-block__proper {
   display: flex;
   flex-direction: column;
   padding-top: 32px;
@@ -8,7 +8,7 @@
 
 @media (min-width: 321px) {
 /* @media (min-width: 321px) and (max-width: 768px) { */
-  .article-block__contents {
+  .article-block__proper {
     max-width: 100vw;
     padding-top: 81px;
     padding-bottom: 41px;

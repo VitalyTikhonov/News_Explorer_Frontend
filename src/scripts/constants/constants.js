@@ -23,27 +23,43 @@ const headerMenuConfig = {
     headerMenu: 'header__menu_show',
   },
 };
-const articleBlockConfig = {
+const articleBlockConf = {
   node: document.querySelector('.article-block'),
   selector: '.article-block',
-  articleBlockContentsNode: document.querySelector('.article-block__contents'),
-  innerContainerSelector: '.article-block__card-container',
-  article: {
-    selectors: {
-      title: '.card__headline',
-      releaseDate: '.card__date',
-      description: '.card__text',
-      image: '.card__image',
-      source: '.card__source-name',
-      originUrl: '.card__link-wrap',
+  articleBlockProperConf: {
+    // selector: '.article-block__proper',
+    innerContainerSelector: '.article-block__card-container',
+    markup: `
+      <div class="article-block__proper root__child-width">
+        <h2 class="article-block__headline section-headline">Результаты поиска</h2>
+
+        <div class="article-block__card-container">
+        </div>
+      </div>
+    `,
+    moreButton: {
+      markup: `
+        <button type="button"
+        class="article-block__button button__rounded button__rounded_white button_hover-on-black">Показать
+        ещё</button>
+      `,
     },
-    saveButton: {
-      identifierSelector: '.card__breadcrumb_save-button',
-      unsavedArticleClass: 'button__breadcrumb_icon-flag',
-      savedArticleClass: 'button__breadcrumb_icon-flag-marked',
-    },
-    markup: {
-      forMainPage: `
+    article: {
+      selectors: {
+        title: '.card__headline',
+        date: '.card__date',
+        description: '.card__text',
+        image: '.card__image',
+        source: '.card__source-name',
+        originUrl: '.card__link-wrap',
+      },
+      saveButton: {
+        selector: '.card__breadcrumb_save-button',
+        unsavedArticleClass: 'button__breadcrumb_icon-flag',
+        savedArticleClass: 'button__breadcrumb_icon-flag-marked',
+      },
+      markup: {
+        forMainPage: `
       <article class="card">
         <a href="" class="card__link-wrap link" target="_blank" rel="noopener noreferrer">
           <div class="card__cover">
@@ -69,7 +85,8 @@ const articleBlockConfig = {
         </a>
       </article>
       `,
-      // forSavedNewsPage: ``,
+        // forSavedNewsPage: ``,
+      },
     },
   },
   preloader: {
@@ -239,6 +256,6 @@ module.exports = {
   loginFormConfig,
   newsSearchFormConfig,
   messageConfig,
-  articleBlockConfig,
+  articleBlockConf,
   headerMenuConfig,
 };

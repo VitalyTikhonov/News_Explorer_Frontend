@@ -62,6 +62,31 @@ class BaseComponent {
   //   });
   // }
 
+  // BaseComponent.insertChild(container, child);
+  static insertChild(container, child) {
+    container.appendChild(child);
+  }
+
+  // // BaseComponent.removeChild(node);
+  // static removeChild(node) {
+  //   node.remove();
+  // }
+
+  // BaseComponent.removeChildren(node);
+  static removeChildren(node) {
+    // const { firstChild } = node; Так выносить нельзя! (ссылка за пределы цикла)
+    while (node.firstChild) {
+      node.removeChild(node.firstChild);
+    }
+  }
+
+  // BaseComponent.create(markup);
+  static create(markup) {
+    const element = document.createElement('div');
+    element.insertAdjacentHTML('afterbegin', markup);
+    return element.firstElementChild;
+  }
+
   _create() {
     this._component = this._createNode(this._markup);
     return this._component;
@@ -79,12 +104,12 @@ class BaseComponent {
     }
   }
 
-  _removeAllChildren() {
-    const { firstChild } = this._innerContainer;
-    while (firstChild) {
-      this._innerContainer.removeChild(firstChild);
-    }
-  }
+  // _removeAllChildren() {
+  //   const { firstChild } = this._innerContainer;
+  //   while (firstChild) {
+  //     this._innerContainer.removeChild(firstChild);
+  //   }
+  // }
 
   _open() {
     this._parent.appendChild(this._component);

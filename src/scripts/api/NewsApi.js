@@ -33,6 +33,7 @@ class NewsApi {
       // `${this._API_URL}top-headlines?country=ru&q=${searchTerm}&from=${from}&to=${to}&pageSize=${this._NEWSAPI_PAGE_SIZE}&apiKey=${this._NEWSAPI_TOKEN}`,
       {
         method: 'GET',
+        credentials: 'omit',
       },
     )
       .then((res) => {

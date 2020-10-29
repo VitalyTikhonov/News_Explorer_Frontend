@@ -2,37 +2,47 @@ import BaseComponent from './BaseComponent';
 
 class ArticleBlock extends BaseComponent {
   constructor({
-    articleBlockConfig,
+    articleBlockConf,
     createNode,
     createArticle,
     pageConfig,
     accessControl,
   }) {
     super({
-      innerContainerSelector: articleBlockConfig.innerContainerSelector,
+      innerContainerSelector: articleBlockConf.innerContainerSelector,
       createNode,
     });
-    this._component = articleBlockConfig.node;
-    this._articleBlockContentsNode = articleBlockConfig.articleBlockContentsNode;
-    this._preloaderMarkup = articleBlockConfig.preloader.markup;
-    this._noNewsBumperMarkup = articleBlockConfig.noNewsBumper.markup;
-    this._cardSaveButtonSelector = articleBlockConfig.article.saveButton.identifierSelector;
+    this._component = articleBlockConf.node;
+    this._markup = articleBlockConf.articleBlockProperConf.markup;
+    this._cardContainerSel = articleBlockConf.articleBlockProperConf.innerContainerSelector;
+    // this._innerContainer = articleBlockConf.selector;
+    this._preloaderMarkup = articleBlockConf.preloader.markup;
+    this._noNewsBumperMarkup = articleBlockConf.noNewsBumper.markup;
+    this._cardSaveBtSel = articleBlockConf.articleBlockProperConf.article.saveButton.selector;
     this._createArticle = createArticle;
     this._removalClassName = pageConfig.accessMarkers.removalClassName;
     this._checkUserStatus = accessControl.checkUserStatus;
     this._getUserStatus = accessControl.getUserStatus;
   }
 
+  _clearCards() {
+    BaseComponent.removeChildren(this._cardContainer);
+  }
+
+  _clearAllSection() {
+    BaseComponent.removeChildren(this._component);
+  }
+
   showPreloader() {
-    this._removeChild();
-    this._contents = this._createNode(this._preloaderMarkup);
-    this._component.appendChild(this._contents);
+    this._clearAllSection();
+    this._preloader = BaseComponent.create(this._preloaderMarkup);
+    BaseComponent.insertChild(this._component, this._preloader);
   }
 
   showNoNewsBumper() {
-    this._removeChild();
-    this._contents = this._createNode(this._noNewsBumperMarkup);
-    this._component.appendChild(this._contents);
+    this._clearAllSection();
+    this._noNewsBumper = BaseComponent.create(this._noNewsBumperMarkup);
+    BaseComponent.insertChild(this._component, this._noNewsBumper);
   }
 
   _renderArticlesForNonAuth() {
@@ -40,8 +50,7 @@ class ArticleBlock extends BaseComponent {
     this._articleData.articles.forEach((article) => {
       const card = this._createArticle(article).render();
       this._cardArray.push(card);
-      this._contents = card;
-      this._insertChild();
+      BaseComponent.insertChild(this._cardContainer, card);
     });
   }
 
@@ -51,22 +60,36 @@ class ArticleBlock extends BaseComponent {
       const card = this._createArticle(article).render();
       this._cardArray.push(card);
       this._contents = card;
-      const button = card.querySelector(this._cardSaveButtonSelector);
+      const button = card.querySelector(this._cardSaveBtSel);
       BaseComponent.enableButton(button);
-      this._insertChild();
+      BaseComponent.insertChild(this._cardContainer, card);
     });
+  }
+
+  _renderArticleBlockShell() {
+    this._articleBlockShell = BaseComponent.create(this._markup);
+    this._cardContainer = this._articleBlockShell.querySelector(this._cardContainerSel);
+    BaseComponent.insertChild(this._component, this._articleBlockShell);
   }
 
   renderArticles(articleData) {
     this._articleData = articleData;
-    this._removeChild();
-    this._articleBlockContentsNode.classList.remove(this._removalClassName);
+    this._clearAllSection();
+    if (!this._articleBlockShell) {
+      //   console.log('ra tr');
+      //   this._clearCards(); Это никогда не нужно делать,
+      // так как перед любым поиском показывается прелоадер, который все сносит.
+      // По неустановл. причине вызов BaseComponent.removeChildren в _clearCards
+      // прерывал исполнение
+      // } else {
+      //   console.log('ra f');
+      this._renderArticleBlockShell();
+    }
     if (!this._getUserStatus()) {
       this._renderArticlesForNonAuth();
     } else {
       this._renderArticlesForAuth();
     }
-    this._contents = null;
   }
 }
 
