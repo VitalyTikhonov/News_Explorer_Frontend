@@ -45,7 +45,7 @@ import {
       createNode,
       content,
       // eslint-disable-next-line no-use-before-define
-      accessControl,
+      // accessControl,
     });
   }
   /* ЭКЗЕМПЛЯРЫ КЛАССОВ */
@@ -110,6 +110,7 @@ import {
     createNode,
     createArticle: createArticleOnMainPage,
     pageConfig,
+    accessControl,
   });
 
   const newsSearchForm = new NewsSearchForm({

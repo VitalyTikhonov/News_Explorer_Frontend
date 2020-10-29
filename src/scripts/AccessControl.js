@@ -21,47 +21,52 @@ class AccessControl extends BaseComponent {
     this._articleBlockConfig = articleBlockConfig;
     this._cardSaveButtonSelector = articleBlockConfig.article.selectors.saveButton;
     /* inner */
-    this._isLoggedIn = false;
+    this.isUserLoggedIn = false;
     this.signout = this.signout.bind(this);
-    this.setButtonState = this.setButtonState.bind(this);
+    this.checkUserStatus = this.checkUserStatus.bind(this);
+    this.getUserStatus = this.getUserStatus.bind(this);
+    // this.setButtonState = this.setButtonState.bind(this);
   }
 
-  _checkUserStatus() {
+  checkUserStatus() {
     return this._api.authenticate()
       .then((res) => {
-        this._isLoggedIn = true;
+        this.isUserLoggedIn = true;
         /* isLoggedIn — залогинен ли пользователь;
         userName */
-        console.log(res);
+        // console.log(res);
+        // console.log('this AccessC', this);
+        // console.log('this.isUserLoggedIn', this.isUserLoggedIn);
       })
       .catch(() => {
         // console.log(err);
-        this._isLoggedIn = false;
-        // console.log(this._isLoggedIn);
-      })
-      .finally(() => this._isLoggedIn);
-    // console.log('this._isLoggedIn', this._isLoggedIn);
+        this.isUserLoggedIn = false;
+        // console.log('catch chekUS', this.isUserLoggedIn);
+      });
   }
 
-  setButtonState(button) {
-    if (this._isLoggedIn) {
-      button.removeAttribute('disabled');
-    } else {
-      button.setAttribute('disabled', 'disabled');
-    }
+  getUserStatus() {
+    return this.isUserLoggedIn;
   }
+  // setButtonState(button) {
+  //   if (this.isUserLoggedIn) {
+  //     button.removeAttribute('disabled');
+  //   } else {
+  //     button.setAttribute('disabled', 'disabled');
+  //   }
+  // }
 
-  setMultipleButtonsState(buttonArray) {
-    if (this._isLoggedIn) {
-      buttonArray.forEach((button) => {
-        button.removeAttribute('disabled');
-      });
-    } else {
-      buttonArray.forEach((button) => {
-        button.setAttribute('disabled', 'disabled');
-      });
-    }
-  }
+  // setMultipleButtonsState(buttonArray) {
+  //   if (this.isUserLoggedIn) {
+  //     buttonArray.forEach((button) => {
+  //       button.removeAttribute('disabled');
+  //     });
+  //   } else {
+  //     buttonArray.forEach((button) => {
+  //       button.setAttribute('disabled', 'disabled');
+  //     });
+  //   }
+  // }
 
   _setupHeaderForAuth() {
     this._elemsToRemoveClass = this._elemsForAuth;
@@ -69,7 +74,7 @@ class AccessControl extends BaseComponent {
     this._moveClassBetweenElements();
   }
 
-  _setupHeaderNonAuth() {
+  _setupHeaderForNonAuth() {
     this._elemsToRemoveClass = this._elemsForNonAuth;
     this._elemsToAddClass = this._elemsForAuth;
     this._moveClassBetweenElements();
@@ -78,13 +83,11 @@ class AccessControl extends BaseComponent {
   configurePageOnLoad() {
     this._elemsForNonAuth = this._pageRootSelector.querySelectorAll(this._nonAuthorizedSelector);
     this._elemsForAuth = this._pageRootSelector.querySelectorAll(this._authorizedSelector);
-    this._cardSaveButtonArray = this._pageRootSelector
-      .querySelectorAll(this._cardSaveButtonSelector);
-    this._checkUserStatus()
+    // this._cardSaveButtonArray = this._pageRootSelector
+    //   .querySelectorAll(this._cardSaveButtonSelector);
+    this.checkUserStatus()
       .then(() => {
-        // console.log('res', res); // почему unfdefined??
-        // console.log('this._isLoggedIn', this._isLoggedIn);
-        if (this._isLoggedIn) {
+        if (this.isUserLoggedIn) {
           this._setupHeaderForAuth();
         }
       })
@@ -99,7 +102,7 @@ class AccessControl extends BaseComponent {
     return this._api.signin(fieldValueMap)
       .then((res) => {
         // console.log(res);
-        this._isLoggedIn = true;
+        this.isUserLoggedIn = true;
         this._setupHeaderForAuth();
         return res;
       });
@@ -114,8 +117,8 @@ class AccessControl extends BaseComponent {
         console.log(err);
       })
       .finally(() => {
-        this._isLoggedIn = false;
-        this._setupHeaderNonAuth();
+        this.isUserLoggedIn = false;
+        this._setupHeaderForNonAuth();
       });
   }
 }

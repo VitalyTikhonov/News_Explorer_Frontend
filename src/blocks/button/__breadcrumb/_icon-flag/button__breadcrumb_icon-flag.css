@@ -6,7 +6,3 @@
 .button__breadcrumb_icon-flag:hover {
   background-image: url(../../../../images/save_flag_black.png);
 }
-
-.button__breadcrumb_icon-flag:enabled {
-  background-image: url(../../../../images/save_flag_marked.png);
-}

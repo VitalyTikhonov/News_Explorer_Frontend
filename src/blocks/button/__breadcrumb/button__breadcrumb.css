@@ -3,6 +3,7 @@
 @import url(./_labelled-keyword/button__breadcrumb_labelled-keyword.css);
 @import url(./_icon/button__breadcrumb_icon.css);
 @import url(./_icon-flag/button__breadcrumb_icon-flag.css);
+@import url(./_icon-flag-marked/button__breadcrumb_icon-flag-marked.css);
 @import url(./_icon-trashbin/button__breadcrumb_icon-trashbin.css);
 .button__breadcrumb {
   /* outer */

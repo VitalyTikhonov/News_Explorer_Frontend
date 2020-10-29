@@ -42,9 +42,9 @@ class BaseComponent {
 
   // BaseComponent.enableButton(button);
   // BaseComponent.disableButton(button);
-  // static enableButton(button) {
-  //   button.removeAttribute('disabled');
-  // }
+  static enableButton(button) {
+    button.removeAttribute('disabled');
+  }
 
   // static disableButton(button) {
   //   button.setAttribute('disabled', 'disabled');
@@ -79,6 +79,13 @@ class BaseComponent {
     }
   }
 
+  _removeAllChildren() {
+    const { firstChild } = this._innerContainer;
+    while (firstChild) {
+      this._innerContainer.removeChild(firstChild);
+    }
+  }
+
   _open() {
     this._parent.appendChild(this._component);
   }
@@ -102,13 +109,12 @@ class BaseComponent {
 
   /* any elements – remove class if any, add class if any */
   _configureClassesOnElem() {
-    // this._elemClassMap.push( // this._elemClassMap = [] задан в конструкторе BaseComponent
+    // this._elemClassMap = [] задан в конструкторе BaseComponent
+    // this._elemClassMap.push(
     //   {
     //     element: ,
     //     classToRemove: ,
     //     classToAdd: ,
-    //     attributeToSet: {name: , value: },
-    //     attributeToRemove: {name: , value: },
     //   },
     // );
     this._elemClassMap.forEach((combination) => {
