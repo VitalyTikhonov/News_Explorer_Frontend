@@ -35,32 +35,35 @@ const articleBlockConfig = {
       description: '.card__text',
       image: '.card__image',
       source: '.card__source-name',
+      originUrl: '.card__link-wrap',
     },
     markup: {
       forMainPage: `
-        <article class="card">
-        <div class="card__cover">
-          <img src="./src/images/image_07.png" alt="Фото зарослей" class="card__image">
-          <!-- заменить на дефолтную картинку -->
-          <button type="button"
-            class="card__breadcrumb card__breadcrumb_save-button button__breadcrumb button__breadcrumb_icon button__breadcrumb_icon-flag"
-            disabled></button>
-          <!-- <button type="button" class="card__breadcrumb card__breadcrumb_save-button button__breadcrumb button__breadcrumb_icon button__breadcrumb_icon-flag-marked"></button> -->
-          <button type="button"
-            class="card__breadcrumb card__breadcrumb_tooltip visibility__removed button__breadcrumb button__breadcrumb_labelled button__breadcrumb_labelled-tooltip">Войдите,
-            чтобы сохранять статьи</button>
-        </div>
+      <article class="card">
+        <a href="" class="card__link-wrap link" target="_blank" rel="noopener noreferrer">
+          <div class="card__cover">
+            <img src="<%=require('./images/image_07.png')%>" alt="Фото зарослей" class="card__image">
+            <!-- заменить на дефолтную картинку -->
+            <button type="button"
+              class="card__breadcrumb card__breadcrumb_save-button button__breadcrumb button__breadcrumb_icon button__breadcrumb_icon-flag"
+              disabled></button>
+            <!-- <button type="button" class="card__breadcrumb card__breadcrumb_save-button button__breadcrumb button__breadcrumb_icon button__breadcrumb_icon-flag-marked"></button> -->
+            <button type="button"
+              class="card__breadcrumb card__breadcrumb_tooltip visibility__removed button__breadcrumb button__breadcrumb_labelled button__breadcrumb_labelled-tooltip">Войдите,
+              чтобы сохранять статьи</button>
+          </div>
 
-        <div class="card__body">
-          <p class="card__date"></p>
+          <div class="card__body">
+            <p class="card__date"></p>
 
-          <h3 class="card__headline"></h3>
+            <h3 class="card__headline"></h3>
 
-          <p class="card__text"></p>
+            <p class="card__text"></p>
 
-          <p class="card__source-name"></p>
-        </div>
-        </article>
+            <p class="card__source-name"></p>
+          </div>
+        </a>
+      </article>
       `,
       // forSavedNewsPage: ``,
     },

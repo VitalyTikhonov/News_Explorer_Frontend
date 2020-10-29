@@ -1,25 +1,25 @@
 .user-profile__avatar {
   object-fit: cover;
-  width: 85vw;
-  height: 85vw;
-  max-width: 464px;
-  max-height: 464px;
+  width: 272px;
+  height: 272px;
   border-radius: 50%;
-  /* align-self: center; */
+  align-self: center;
 }
 
-/* @media (min-width: 321px) and (max-width: 768px) { */
-@media (min-width: 321px) {
+@media (min-width: 510px) and (max-width: 1241px) {
   .user-profile__avatar {
-    width: 30.21vw;
-    height: 30.21vw;
+    align-self: flex-start;
+    margin-right: 32px;
+    width: 232px;
+    height: 232px;
   }
 }
 
-/* @media (min-width: 510px) and (max-width: 768px) { */
-@media (min-width: 510px) {
+@media (min-width: 1242px) {
   .user-profile__avatar {
     margin-top: 17px;
     margin-right: 4.1vw;
+    width: 464px;
+    height: 464px;
   }
 }

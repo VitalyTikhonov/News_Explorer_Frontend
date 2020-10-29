@@ -1,4 +1,8 @@
 .card__body {
+  display: flex;
+  box-sizing: border-box;
+  flex-direction: column;
+  height: calc(100% - 150px);
   padding: 5.56%;
 }
 
@@ -6,5 +10,12 @@
 @media (min-width: 321px) {
   .card__body {
     padding: 7%;
+  }
+}
+
+@media (min-width: 1242px) {
+  .card__body {
+    height: 272px;
+    height: calc(100% - 272px);
   }
 }
