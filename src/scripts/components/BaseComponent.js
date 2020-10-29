@@ -13,6 +13,7 @@ class BaseComponent {
     this._contents = null;
     this._component = null;
     this._innerContainer = null;
+    this._elemClassMap = [];
   }
 
   static setHandlers(map) { // super.setHandlers
@@ -39,6 +40,28 @@ class BaseComponent {
     });
   }
 
+  // BaseComponent.enableButton(button);
+  // BaseComponent.disableButton(button);
+  // static enableButton(button) {
+  //   button.removeAttribute('disabled');
+  // }
+
+  // static disableButton(button) {
+  //   button.setAttribute('disabled', 'disabled');
+  // }
+
+  // static enableMultipleButtons(buttonArray) {
+  //   buttonArray.forEach((button) => {
+  //     this.enableButton(button);
+  //   });
+  // }
+
+  // static disableMultipleButtons(buttonArray) {
+  //   buttonArray.forEach((button) => {
+  //     this.disableButton(button);
+  //   });
+  // }
+
   _create() {
     this._component = this._createNode(this._markup);
     return this._component;
@@ -64,7 +87,7 @@ class BaseComponent {
     this._component.remove();
   }
 
-  /* multiple elements – remove and add one class */
+  /* multiple elements – remove class from ones and add to the others */
   _moveClassBetweenElements() {
     // this._controlClassName = ;
     // this._elemsToRemoveClass = ;
@@ -77,19 +100,22 @@ class BaseComponent {
     });
   }
 
-  /* one element – remove and add multiple classes */
+  /* any elements – remove class if any, add class if any */
   _configureClassesOnElem() {
-    // this._elemClassMap = [].push(
+    // this._elemClassMap.push( // this._elemClassMap = [] задан в конструкторе BaseComponent
     //   {
     //     element: ,
     //     classToRemove: ,
     //     classToAdd: ,
+    //     attributeToSet: {name: , value: },
+    //     attributeToRemove: {name: , value: },
     //   },
     // );
     this._elemClassMap.forEach((combination) => {
       combination.element.classList.remove(combination.classToRemove);
       combination.element.classList.add(combination.classToAdd);
     });
+    this._elemClassMap = null;
   }
 }
 

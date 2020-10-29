@@ -6,6 +6,7 @@ class Article extends BaseComponent {
     articleBlockConfig,
     createNode,
     content,
+    accessControl,
   }) {
     super({
       markup,
@@ -18,6 +19,7 @@ class Article extends BaseComponent {
     this._imageSelector = articleBlockConfig.article.selectors.image;
     this._sourceSelector = articleBlockConfig.article.selectors.source;
     this._originUrlSelector = articleBlockConfig.article.selectors.originUrl;
+    this._saveButtonSelector = articleBlockConfig.article.selectors.saveButton;
     /* data */
     this._titleData = content.title;
     this._releaseDateData = content.publishedAt;
@@ -25,6 +27,8 @@ class Article extends BaseComponent {
     this._imageData = content.urlToImage;
     this._sourceData = content.source.name;
     this._originUrl = content.url;
+    /* other */
+    this._setButtonState = accessControl.setButtonState;
   }
 
   render() {
@@ -40,6 +44,7 @@ class Article extends BaseComponent {
     this._imageElem = this._component.querySelector(this._imageSelector);
     this._sourceElem = this._component.querySelector(this._sourceSelector);
     this._originUrlElem = this._component.querySelector(this._originUrlSelector);
+    this._saveButtonElem = this._component.querySelector(this._saveButtonSelector);
     this._titleElem.textContent = this._titleData;
     this._releaseDateElem.textContent = new Date(this._releaseDateData)
       .toLocaleDateString(
@@ -50,6 +55,9 @@ class Article extends BaseComponent {
     this._imageElem.setAttribute('src', this._imageData);
     this._originUrlElem.setAttribute('href', this._originUrl);
     this._sourceElem.textContent = this._sourceData;
+    // console.log('this._setButtonState', this._setButtonState);
+    // console.log('this._saveButtonElem', this._saveButtonElem);
+    this._setButtonState(this._saveButtonElem);
     return this._component;
   }
 }

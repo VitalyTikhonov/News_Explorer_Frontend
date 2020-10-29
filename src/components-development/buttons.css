@@ -108,6 +108,7 @@ button_hover-on-white
   background-repeat: no-repeat;
   border-radius: 8px;
 }
+/* ! */
 
 .button__breadcrumb_icon-flag {
   background-image: url(../images/save_flag_grey.png);
@@ -117,9 +118,23 @@ button_hover-on-white
   background-image: url(../images/save_flag_black.png);
 }
 
-.button__breadcrumb_icon-flag-marked {
+.button__breadcrumb_icon-flag:enabled {
   background-image: url(../images/save_flag_marked.png);
 }
+
+/* ! */
+/* .button__breadcrumb_icon-flag {
+  background-image: url(../images/save_flag_grey.png);
+}
+
+.button__breadcrumb_icon-flag:hover {
+  background-image: url(../images/save_flag_black.png);
+}
+
+.button__breadcrumb_icon-flag-marked {
+  background-image: url(../images/save_flag_marked.png);
+} */
+/* ! */
 
 .button__breadcrumb_icon-trashbin {
   background-image: url(../images/trashbin_grey.png);

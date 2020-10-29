@@ -44,6 +44,8 @@ import {
       articleBlockConfig,
       createNode,
       content,
+      // eslint-disable-next-line no-use-before-define
+      accessControl,
     });
   }
   /* ЭКЗЕМПЛЯРЫ КЛАССОВ */
@@ -55,9 +57,7 @@ import {
     nonAuthorizedSelector: pageConfig.accessMarkers.nonAuthorizedSelector,
     authorizedSelector: pageConfig.accessMarkers.authorizedSelector,
     removalClassName: pageConfig.accessMarkers.removalClassName,
-    cardSaveButton: articleBlockConfig.article.saveButtonSelector,
-    // removeClassFromElems,
-    // addClassToElems,
+    articleBlockConfig,
   });
 
   const newsApi = new NewsApi(

@@ -36,7 +36,11 @@ const articleBlockConfig = {
       image: '.card__image',
       source: '.card__source-name',
       originUrl: '.card__link-wrap',
+      saveButton: '.card__breadcrumb_save-button',
     },
+    // saveButton: {
+    //   identifierSelector: '.card__breadcrumb_save-button',
+    // },
     markup: {
       forMainPage: `
       <article class="card">
@@ -47,8 +51,6 @@ const articleBlockConfig = {
             <button type="button"
               class="card__breadcrumb card__breadcrumb_save-button button__breadcrumb button__breadcrumb_icon button__breadcrumb_icon-flag"
               disabled></button>
-            <!-- <button type="button" class="card__breadcrumb card__breadcrumb_save-button button__breadcrumb button__breadcrumb_icon button__breadcrumb_icon-flag-marked"></button> -->
-            <button type="button"
               class="card__breadcrumb card__breadcrumb_tooltip visibility__removed button__breadcrumb button__breadcrumb_labelled button__breadcrumb_labelled-tooltip">Войдите,
               чтобы сохранять статьи</button>
           </div>
@@ -67,7 +69,6 @@ const articleBlockConfig = {
       `,
       // forSavedNewsPage: ``,
     },
-    saveButtonSelector: '.card__breadcrumb_save-button',
   },
   preloader: {
     markup: `

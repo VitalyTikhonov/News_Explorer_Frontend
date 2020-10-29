@@ -31,7 +31,7 @@ class NewsSearchForm extends BaseComponent {
         this._articleBlock.renderArticles(res);
       })
       .catch((err) => {
-        console.log(err.message);
+        console.log(err);
       });
     // .finally(() => {
     // this.toggleButtonText(true);
