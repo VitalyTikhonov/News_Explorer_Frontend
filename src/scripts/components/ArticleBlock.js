@@ -17,7 +17,6 @@ class ArticleBlock extends BaseComponent {
     this._noNewsBumperMarkup = articleBlockConfig.noNewsBumper.markup;
     this._createArticle = createArticle;
     this._removalClassName = pageConfig.accessMarkers.removalClassName;
-    // this.renderArticles = this.renderArticles.bind(this);
   }
 
   showPreloader() {
@@ -42,6 +41,7 @@ class ArticleBlock extends BaseComponent {
       this._contents = card;
       this._insertChild();
     });
+    this._contents = null;
   }
 }
 

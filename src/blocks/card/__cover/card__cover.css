@@ -2,13 +2,13 @@
   position: relative;
   display: flex;
   z-index: 0;
+  height: 150px;
 }
 
-@media (min-width: 321px) and (max-width: 1241px) {
+/* @media (min-width: 321px) and (max-width: 1241px) {
   .card__cover {
-    height: 150px;
   }
-}
+} */
 
 @media (min-width: 1242px) {
   .card__cover {

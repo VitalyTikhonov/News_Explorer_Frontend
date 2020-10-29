@@ -23,7 +23,7 @@
 
 @media (min-width: 768px) and (max-width: 1241px) {
   .article-block__card-container {
-    grid-template-columns: repeat(auto-fill, 224px);
+    grid-template-columns: repeat(auto-fill, 29vw);
     gap: 8px;
   }
 }

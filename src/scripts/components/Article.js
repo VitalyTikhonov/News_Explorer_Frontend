@@ -38,7 +38,11 @@ class Article extends BaseComponent {
     this._imageElem = this._component.querySelector(this._imageSelector);
     this._sourceElem = this._component.querySelector(this._sourceSelector);
     this._titleElem.textContent = this._titleData;
-    this._releaseDateElem.textContent = this._releaseDateData;
+    this._releaseDateElem.textContent = new Date(this._releaseDateData)
+      .toLocaleDateString(
+        'ru-RU',
+        { year: 'numeric', month: 'long', day: 'numeric' },
+      );
     this._descriptionElem.textContent = this._descriptionData;
     this._imageElem.setAttribute('src', this._imageData);
     this._sourceElem.textContent = this._sourceData;
