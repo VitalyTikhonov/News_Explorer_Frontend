@@ -16,6 +16,7 @@ import Popup from '../../scripts/components/Popup';
 import DialogForm from '../../scripts/components/DialogForm';
 import NewsSearchForm from '../../scripts/components/NewsSearchForm';
 import ArticleBlock from '../../scripts/components/ArticleBlock';
+import Article from '../../scripts/components/Article';
 import {
   createNode,
   formatDate,
@@ -37,7 +38,14 @@ import {
 
 (function site() {
   /* КОЛБЕКИ */
-
+  function createArticleOnMainPage(content) {
+    return new Article({
+      markup: articleBlockConfig.article.markup.forMainPage,
+      articleBlockConfig,
+      createNode,
+      content,
+    });
+  }
   /* ЭКЗЕМПЛЯРЫ КЛАССОВ */
   const mainApi = new MainApi(API_URL, CONTENT_TYPE);
 
@@ -100,6 +108,8 @@ import {
   const articleBlock = new ArticleBlock({
     articleBlockConfig,
     createNode,
+    createArticle: createArticleOnMainPage,
+    pageConfig,
   });
 
   const newsSearchForm = new NewsSearchForm({

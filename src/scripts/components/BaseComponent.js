@@ -45,13 +45,22 @@ class BaseComponent {
   }
 
   _insertChild() {
+    console.log('this', this);
+    console.log('this._component', this._component);
+    console.log('this._innerContainerSelector', this._innerContainerSelector);
     this._innerContainer = this._component.querySelector(this._innerContainerSelector);
+    console.log('this._innerContainer', this._innerContainer);
+    console.log('this._contents', this._contents);
     this._innerContainer.appendChild(this._contents);
   }
 
   _removeChild() {
+    // console.log('this', this);
     // this._innerContainer.removeChild(this._contents);
-    this._contents.remove();
+    if (this._contents) {
+      this._contents.remove();
+      this._contents = null;
+    }
   }
 
   _open() {

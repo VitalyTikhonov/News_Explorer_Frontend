@@ -4,37 +4,44 @@ class ArticleBlock extends BaseComponent {
   constructor({
     articleBlockConfig,
     createNode,
+    createArticle,
+    pageConfig,
   }) {
     super({
-      innerContainerSelector: articleBlockConfig.selector,
+      innerContainerSelector: articleBlockConfig.innerContainerSelector,
       createNode,
     });
     this._component = articleBlockConfig.node;
+    this._articleBlockContentsNode = articleBlockConfig.articleBlockContentsNode;
     this._preloaderMarkup = articleBlockConfig.preloader.markup;
-    this._noNewsBumper = articleBlockConfig.noNewsBumper.markup;
+    this._noNewsBumperMarkup = articleBlockConfig.noNewsBumper.markup;
+    this._createArticle = createArticle;
+    this._removalClassName = pageConfig.accessMarkers.removalClassName;
+    // this.renderArticles = this.renderArticles.bind(this);
   }
 
   showPreloader() {
-    // this._component.removeChild(this._contents);
-    if (this._contents) {
-      this._removeChild();
-    }
+    this._removeChild();
     this._contents = this._createNode(this._preloaderMarkup);
     this._component.appendChild(this._contents);
-    /* _insertChild не подходит */
   }
 
   showNoNewsBumper() {
-    // this._component.removeChild(this._contents);
-    if (this._contents) {
-      this._removeChild();
-    }
-    this._contents = this._createNode(this._noNewsBumper);
+    this._removeChild();
+    this._contents = this._createNode(this._noNewsBumperMarkup);
     this._component.appendChild(this._contents);
   }
 
-  renderArticles() {
-
+  renderArticles(articleData) {
+    this._removeChild();
+    this._articleBlockContentsNode.classList.remove(this._removalClassName);
+    this._cardArray = [];
+    articleData.articles.forEach((article) => {
+      const card = this._createArticle(article).render();
+      this._cardArray.push(card);
+      this._contents = card;
+      this._insertChild();
+    });
   }
 }
 
