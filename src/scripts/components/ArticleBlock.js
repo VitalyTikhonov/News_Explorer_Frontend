@@ -75,16 +75,7 @@ class ArticleBlock extends BaseComponent {
   renderArticles(articleData) {
     this._articleData = articleData;
     this._clearAllSection();
-    if (!this._articleBlockShell) {
-      //   console.log('ra tr');
-      //   this._clearCards(); Это никогда не нужно делать,
-      // так как перед любым поиском показывается прелоадер, который все сносит.
-      // По неустановл. причине вызов BaseComponent.removeChildren в _clearCards
-      // прерывал исполнение
-      // } else {
-      //   console.log('ra f');
-      this._renderArticleBlockShell();
-    }
+    this._renderArticleBlockShell();
     if (!this._getUserStatus()) {
       this._renderArticlesForNonAuth();
     } else {

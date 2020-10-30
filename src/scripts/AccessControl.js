@@ -6,7 +6,7 @@ import BaseComponent from './components/BaseComponent';
 class AccessControl extends BaseComponent {
   constructor({
     api,
-    pageRootSelector,
+    pageRootNode,
     nonAuthorizedSelector,
     authorizedSelector,
     removalClassName,
@@ -14,11 +14,11 @@ class AccessControl extends BaseComponent {
   }) {
     super({});
     this._api = api;
-    this._pageRootSelector = pageRootSelector;
+    this._pageRootNode = pageRootNode;
     this._nonAuthorizedSelector = nonAuthorizedSelector;
     this._authorizedSelector = authorizedSelector;
     this._controlClassName = removalClassName;
-    this._cardSaveBtSel = articleBlockConf.articleBlockProperConf.article.selectors.saveButton;
+    this._cardSaveBtSel = articleBlockConf.articleBlockProperConf.article.saveButton.selector;
     /* inner */
     this.isUserLoggedIn = false;
     this.signout = this.signout.bind(this);
@@ -29,7 +29,7 @@ class AccessControl extends BaseComponent {
 
   checkUserStatus() {
     return this._api.authenticate()
-      .then((res) => {
+      .then(() => {
         this.isUserLoggedIn = true;
         /* isLoggedIn — залогинен ли пользователь;
         userName */
@@ -68,10 +68,8 @@ class AccessControl extends BaseComponent {
   // }
 
   _configurePage(isUserLoggedIn) {
-    this._cardSaveButtonArray = this._pageRootSelector.querySelectorAll(this._cardSaveBtSel);
+    this._cardSaveButtonArray = this._pageRootNode.querySelectorAll(this._cardSaveBtSel);
     if (isUserLoggedIn) {
-      // console.log('this', this);
-      // console.log('this._cardSaveButtonArray', this._cardSaveButtonArray);
       // _setupHeaderForAuth() {
       this._elemsToRemoveClass = this._elemsForAuth;
       this._elemsToAddClass = this._elemsForNonAuth;
@@ -82,7 +80,6 @@ class AccessControl extends BaseComponent {
       this._moveClassBetweenElements();
     } else {
       // _setupHeaderForNonAuth() {
-      // console.log('this._cardSaveButtonArray', this._cardSaveButtonArray);
       this._elemsToRemoveClass = this._elemsForNonAuth;
       this._elemsToAddClass = this._elemsForAuth;
       this._moveClassBetweenElements();
@@ -94,8 +91,8 @@ class AccessControl extends BaseComponent {
   }
 
   configurePageOnLoad() {
-    this._elemsForNonAuth = this._pageRootSelector.querySelectorAll(this._nonAuthorizedSelector);
-    this._elemsForAuth = this._pageRootSelector.querySelectorAll(this._authorizedSelector);
+    this._elemsForNonAuth = this._pageRootNode.querySelectorAll(this._nonAuthorizedSelector);
+    this._elemsForAuth = this._pageRootNode.querySelectorAll(this._authorizedSelector);
     this.checkUserStatus()
       .then(() => {
         if (this.isUserLoggedIn) {

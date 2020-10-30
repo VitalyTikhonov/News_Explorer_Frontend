@@ -27,14 +27,14 @@ class NewsApi {
   getNews(searchTerm) {
     const from = this._formatDate(this._getPeriodStartDate(this._NEWSAPI_PERIOD));
     const to = this._formatDate(new Date());
+    // debugger;
     return fetch(
       `${this._API_URL}everything?q=${searchTerm}&from=${from}&to=${to}&pageSize=${this._NEWSAPI_PAGE_SIZE}&apiKey=${this._NEWSAPI_TOKEN}`,
       // eslint-disable-next-line max-len
       // `${this._API_URL}top-headlines?country=ru&q=${searchTerm}&from=${from}&to=${to}&pageSize=${this._NEWSAPI_PAGE_SIZE}&apiKey=${this._NEWSAPI_TOKEN}`,
-      {
-        method: 'GET',
-        credentials: 'omit',
-      },
+      // {
+      //   method: 'GET',
+      // },
     )
       .then((res) => {
         this._res = res;

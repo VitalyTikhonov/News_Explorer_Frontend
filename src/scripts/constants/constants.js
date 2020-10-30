@@ -63,7 +63,7 @@ const articleBlockConf = {
       <article class="card">
         <a href="" class="card__link-wrap link" target="_blank" rel="noopener noreferrer">
           <div class="card__cover">
-            <img src="<%=require('./images/image_07.png')%>" alt="Фото зарослей" class="card__image">
+            <img src="./images/image_07.png" alt="Фото зарослей" class="card__image">
             <!-- заменить на дефолтную картинку -->
             <button type="button"
               class="card__breadcrumb card__breadcrumb_save-button button__breadcrumb button__breadcrumb_icon button__breadcrumb_icon-flag"

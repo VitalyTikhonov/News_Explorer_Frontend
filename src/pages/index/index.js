@@ -52,7 +52,7 @@ import {
 
   const accessControl = new AccessControl({
     api: mainApi,
-    pageRootSelector: pageConfig.rootNode,
+    pageRootNode: pageConfig.rootNode,
     nonAuthorizedSelector: pageConfig.accessMarkers.nonAuthorizedSelector,
     authorizedSelector: pageConfig.accessMarkers.authorizedSelector,
     removalClassName: pageConfig.accessMarkers.removalClassName,
