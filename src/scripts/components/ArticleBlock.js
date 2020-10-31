@@ -54,7 +54,7 @@ class ArticleBlock extends BaseComponent {
   _renderArticlesForNonAuth() {
     this._cardArray = [];
     this._articleData.articles.forEach((article) => {
-      const card = this._createArticle(article).render();
+      const card = this._createArticle(article, this._articleData.keyword).render();
       this._cardArray.push(card);
       /* tooltip */
       const tooltip = card.querySelector(this._cardTooltipSel);

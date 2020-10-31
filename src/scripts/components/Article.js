@@ -24,6 +24,13 @@ class Article extends BaseComponent {
     this._saveButtonSelector = articleBlockConf.articleBlockProper.article.saveButton.selector;
     this._unsavedButtonClass = articleBlockConf.articleBlockProper.article.saveButton.unsavedClass;
     this._savedButtonClass = articleBlockConf.articleBlockProper.article.saveButton.savedClass;
+    /* ----------- */
+    this._cardTooltipSel = articleBlockConf.articleBlockProper.article.tooltip.selector;
+    // this._ttipTextSel = articleBlockConf.articleBlockProper.article.tooltip.textSelector;
+    // this._ttipNonAuthMarkup
+    // = articleBlockConf.articleBlockProper.article.tooltip.nonAuthTextMarkup;
+    this._ttipUnsavedMarkup = articleBlockConf.articleBlockProper.article.tooltip.unsavedTextMarkup;
+    this._ttipSavedMarkup = articleBlockConf.articleBlockProper.article.tooltip.savedTextMarkup;
     /* data */
     this._defaultImageAddress = articleBlockConf.articleBlockProper.article.defaultImageAddress;
     this._keyword = keyword;
@@ -38,6 +45,13 @@ class Article extends BaseComponent {
     this._popup = popup;
     this._save = this._save.bind(this);
     this._delete = this._delete.bind(this);
+  }
+
+  _setTooltipText(markup) {
+    const tooltip = this._component.querySelector(this._cardTooltipSel);
+    BaseComponent.removeChildren(tooltip);
+    const texNode = BaseComponent.create(markup);
+    BaseComponent.insertChild(tooltip, texNode);
   }
 
   _save() {
@@ -64,6 +78,7 @@ class Article extends BaseComponent {
         this._configureClassesOnElem();
         BaseComponent.removeHandlers(this._saveButtonHandlerMap);
         BaseComponent.setHandlers(this._deleteButtonHandlerMap);
+        this._setTooltipText(this._ttipSavedMarkup);
       })
       .catch((err) => {
         this._popup.createErrorMessage(err.message);
@@ -84,6 +99,7 @@ class Article extends BaseComponent {
         this._configureClassesOnElem();
         BaseComponent.removeHandlers(this._deleteButtonHandlerMap);
         BaseComponent.setHandlers(this._saveButtonHandlerMap);
+        this._setTooltipText(this._ttipUnsavedMarkup);
       })
       .catch((err) => {
         this._popup.createErrorMessage(err.message);
