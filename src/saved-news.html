@@ -15,43 +15,33 @@
 <body>
   <div class="root">
     <header class="header header_black-on-white header_thicker-border">
-      <!-- МЕНЮ – ШАГ 1 из 4: ᐃᐃᐃ закрыто или не скрывается – открыто ᐁᐁᐁ -->
-      <!-- <header class="header header_white-saved-news header_thicker-border"> -->
       <div class="header__bar root__child-width header__bar_thicker-border">
-        <!-- МЕНЮ – ШАГ 2 из 4: ᐃᐃᐃ закрыто или не скрывается – открыто ᐁᐁᐁ -->
-        <!-- <div class="header__bar root__child-width"> -->
         <h1 class="header__headline">NewsExplorer</h1>
 
         <button type="button"
           class="header__menu-button button__modal button__modal_burger-black button_hover-on-white"></button>
-        <!-- МЕНЮ – ШАГ 3 из 4: ᐃᐃᐃ закрыто или не скрывается – открыто ᐁᐁᐁ -->
-        <!-- <button type="button" class="header__menu-button button__modal button__modal_cross-white button_hover-on-black"></button> -->
       </div>
 
       <nav class="header__menu menu root__child-width header__menu_thicker-border" aria-labelledby="header-navigation">
-        <!-- МЕНЮ – ШАГ 4 из 4: ᐃᐃᐃ закрыто или не скрывается – открыто ᐁᐁᐁ -->
-        <!-- <nav class="header__menu menu root__child-width header__menu_show" aria-labelledby="header-navigation"> -->
         <h2 class="aria-labelledby-title" id="header-navigation">Основное меню</h2>
 
         <div class="menu__options">
           <ul class="menu__text-options header__menu-options list">
-            <!-- НЕАКТИВНЫЙ ПУНКТ МЕНЮ -->
             <li class="menu__text-path menu__text-path_header"><a href="./" class="link">Главная</a></li>
 
-            <!-- АКТИВНЫЙ ПУНКТ МЕНЮ -->
             <li class="menu__text-path menu__text-path_header menu___text-path_current-black-on-white"><a
                 href="./saved-news" class="link">Сохранённые статьи</a>
             </li>
           </ul>
 
-          <!-- visibility__on-mob visibility__on-tab-and-dt -->
-          <button type="button"
-            class="menu__auth-button visibility__on-tab-and-dt button__rounded button__rounded_white-outline-grey button_hover-on-white button__rounded_with-icon">Грета<span
-              class="button__icon button__icon_logout-black"></span></button>
-          <!-- ᐃᐃᐃ с JS заменить на манипуляцию модификатором? ᐁᐁᐁ -->
-          <button type="button"
-            class="menu__auth-button visibility__on-mob button__rounded button__rounded_size_parent button__rounded_black-outline-white button_hover-on-black button__rounded_with-icon">Грета<span
-              class="button__icon button__icon_logout-white"></span></button>
+          <div class="menu__auth-button-logout">
+            <button type="button"
+              class="menu__auth-button visibility__on-mob button__rounded button__rounded_size_parent button__rounded_black-outline-white button_hover-on-black button__rounded_with-icon">Выйти<span
+                class="button__icon button__icon_logout-white"></span></button>
+            <button type="button"
+              class="menu__auth-button visibility__on-tab-and-dt button__rounded button__rounded_white-outline-grey button_hover-on-white button__rounded_with-icon">Выйти<span
+                class="button__icon button__icon_logout-black"></span></button>
+          </div>
         </div>
       </nav>
     </header>
@@ -70,145 +60,7 @@
         <h2 class="article-block__headline section-headline visibility__removed">Ваши статьи</h2>
 
         <div class="article-block__card-container">
-          <article class="card">
-            <div class="card__cover">
-              <img src="<%=require('./images/image_07.png')%>" alt="Фото зарослей" class="card__image">
-              <button type="button"
-                class="card__breadcrumb card__breadcrumb_keyword-button button__breadcrumb button__breadcrumb_labelled button__breadcrumb_labelled-keyword">Природа</button>
-              <button type="button"
-                class="card__breadcrumb card__breadcrumb_delete-button button__breadcrumb button__breadcrumb_icon button__breadcrumb_icon-trashbin"></button>
-              <button type="button"
-                class="card__breadcrumb card__breadcrumb_tooltip visibility__removed button__breadcrumb button__breadcrumb_labelled button__breadcrumb_labelled-tooltip">Войдите,
-                чтобы сохранять статьи</button>
-            </div>
-
-            <div class="card__body">
-              <p class="card__date">2 августа 2019 г.</p>
-
-              <h3 class="card__headline">Национальное достояние – парки</h3>
-
-              <p class="card__text">В 2016 году Америка отмечала важный юбилей: сто лет назад здесь начала складываться
-                система национальных парков – охраняемых территорий, где и сегодня каждый может приобщиться к природе.
-                Сто с небольшим лет назад, в начале 1916 года, Америкой завладела великая, провидческая, хотя и не до
-                конца понятая тогда идея: создание национальных парков – охраняемых территорий девственной природы, куда
-                может прийти каждый, а не место для избранных вроде королевских охотничьих угодий.</p>
-
-              <p class="card__source-name">Лента.ру</p>
-            </div>
-          </article>
-
-          <article class="card">
-            <div class="card__cover">
-              <img src="<%=require('./images/image_07.png')%>" alt="Фото зарослей" class="card__image">
-              <button type="button"
-                class="card__breadcrumb card__breadcrumb_keyword-button button__breadcrumb button__breadcrumb_labelled button__breadcrumb_labelled-keyword">Природа</button>
-              <button type="button"
-                class="card__breadcrumb card__breadcrumb_delete-button button__breadcrumb button__breadcrumb_icon button__breadcrumb_icon-trashbin"></button>
-              <button type="button"
-                class="card__breadcrumb card__breadcrumb_tooltip visibility__removed button__breadcrumb button__breadcrumb_labelled button__breadcrumb_labelled-tooltip">Войдите,
-                чтобы сохранять статьи</button>
-            </div>
-
-            <div class="card__body">
-              <p class="card__date">2 августа 2019 г.</p>
-
-              <h3 class="card__headline">Национальное достояние – парки</h3>
-
-              <p class="card__text">В 2016 году Америка отмечала важный юбилей: сто лет назад здесь начала складываться
-                система национальных парков – охраняемых территорий, где и сегодня каждый может приобщиться к природе.
-                Сто с небольшим лет назад, в начале 1916 года, Америкой завладела великая, провидческая, хотя и не до
-                конца понятая тогда идея: создание национальных парков – охраняемых территорий девственной природы, куда
-                может прийти каждый, а не место для избранных вроде королевских охотничьих угодий.</p>
-
-              <p class="card__source-name">Лента.ру</p>
-            </div>
-          </article>
-
-          <article class="card">
-            <div class="card__cover">
-              <img src="<%=require('./images/image_07.png')%>" alt="Фото зарослей" class="card__image">
-              <button type="button"
-                class="card__breadcrumb card__breadcrumb_keyword-button button__breadcrumb button__breadcrumb_labelled button__breadcrumb_labelled-keyword">Природа</button>
-              <button type="button"
-                class="card__breadcrumb card__breadcrumb_delete-button button__breadcrumb button__breadcrumb_icon button__breadcrumb_icon-trashbin"></button>
-              <button type="button"
-                class="card__breadcrumb card__breadcrumb_tooltip visibility__removed button__breadcrumb button__breadcrumb_labelled button__breadcrumb_labelled-tooltip">Войдите,
-                чтобы сохранять статьи</button>
-            </div>
-
-            <div class="card__body">
-              <p class="card__date">2 августа 2019 г.</p>
-
-              <h3 class="card__headline">Национальное достояние – парки</h3>
-
-              <p class="card__text">В 2016 году Америка отмечала важный юбилей: сто лет назад здесь начала складываться
-                система национальных парков – охраняемых территорий, где и сегодня каждый может приобщиться к природе.
-                Сто с небольшим лет назад, в начале 1916 года, Америкой завладела великая, провидческая, хотя и не до
-                конца понятая тогда идея: создание национальных парков – охраняемых территорий девственной природы, куда
-                может прийти каждый, а не место для избранных вроде королевских охотничьих угодий.</p>
-
-              <p class="card__source-name">Лента.ру</p>
-            </div>
-          </article>
-
-          <article class="card">
-            <div class="card__cover">
-              <img src="<%=require('./images/image_07.png')%>" alt="Фото зарослей" class="card__image">
-              <button type="button"
-                class="card__breadcrumb card__breadcrumb_keyword-button button__breadcrumb button__breadcrumb_labelled button__breadcrumb_labelled-keyword">Природа</button>
-              <button type="button"
-                class="card__breadcrumb card__breadcrumb_delete-button button__breadcrumb button__breadcrumb_icon button__breadcrumb_icon-trashbin"></button>
-              <button type="button"
-                class="card__breadcrumb card__breadcrumb_tooltip visibility__removed button__breadcrumb button__breadcrumb_labelled button__breadcrumb_labelled-tooltip">Войдите,
-                чтобы сохранять статьи</button>
-            </div>
-
-            <div class="card__body">
-              <p class="card__date">2 августа 2019 г.</p>
-
-              <h3 class="card__headline">Национальное достояние – парки</h3>
-
-              <p class="card__text">В 2016 году Америка отмечала важный юбилей: сто лет назад здесь начала складываться
-                система национальных парков – охраняемых территорий, где и сегодня каждый может приобщиться к природе.
-                Сто с небольшим лет назад, в начале 1916 года, Америкой завладела великая, провидческая, хотя и не до
-                конца понятая тогда идея: создание национальных парков – охраняемых территорий девственной природы, куда
-                может прийти каждый, а не место для избранных вроде королевских охотничьих угодий.</p>
-
-              <p class="card__source-name">Лента.ру</p>
-            </div>
-          </article>
-
-          <article class="card">
-            <div class="card__cover">
-              <img src="<%=require('./images/image_07.png')%>" alt="Фото зарослей" class="card__image">
-              <button type="button"
-                class="card__breadcrumb card__breadcrumb_keyword-button button__breadcrumb button__breadcrumb_labelled button__breadcrumb_labelled-keyword">Природа</button>
-              <button type="button"
-                class="card__breadcrumb card__breadcrumb_delete-button button__breadcrumb button__breadcrumb_icon button__breadcrumb_icon-trashbin"></button>
-              <button type="button"
-                class="card__breadcrumb card__breadcrumb_tooltip visibility__removed button__breadcrumb button__breadcrumb_labelled button__breadcrumb_labelled-tooltip">Войдите,
-                чтобы сохранять статьи</button>
-            </div>
-
-            <div class="card__body">
-              <p class="card__date">2 августа 2019 г.</p>
-
-              <h3 class="card__headline">Национальное достояние – парки</h3>
-
-              <p class="card__text">В 2016 году Америка отмечала важный юбилей: сто лет назад здесь начала складываться
-                система национальных парков – охраняемых территорий, где и сегодня каждый может приобщиться к природе.
-                Сто с небольшим лет назад, в начале 1916 года, Америкой завладела великая, провидческая, хотя и не до
-                конца понятая тогда идея: создание национальных парков – охраняемых территорий девственной природы, куда
-                может прийти каждый, а не место для избранных вроде королевских охотничьих угодий.</p>
-
-              <p class="card__source-name">Лента.ру</p>
-            </div>
-          </article>
         </div>
-
-        <button type="button"
-          class="article-block__button visibility__removed button__rounded button__rounded_white button_hover-on-black">Показать
-          ещё</button>
       </section>
     </main>
 

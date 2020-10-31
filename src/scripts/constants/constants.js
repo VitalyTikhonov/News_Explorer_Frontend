@@ -10,17 +10,35 @@ const accessMarkers = {
 const headerMenuConfig = {
   elements: {
     header: rootNode.querySelector('.header'),
+    headerBar: header.querySelector('.header__bar'),
     headerMenuButton: header.querySelector('.header__menu-button'),
     headerMenu: header.querySelector('.header__menu'),
   },
-  defaultClassNames: {
-    headerMenuButton: 'button__modal_burger-white',
-    headerMenu: 'header__menu_thinner-border',
+  index: {
+    defaultClassNames: {
+      headerMenuButton: 'button__modal_burger-white',
+      headerMenu: 'header__menu_thinner-border',
+    },
+    openClassNames: {
+      header: 'header_white-index',
+      headerMenuButton: 'button__modal_cross-white',
+      headerMenu: 'header__menu_show',
+    },
   },
-  openClassNames: {
-    header: 'header_white-index',
-    headerMenuButton: 'button__modal_cross-white',
-    headerMenu: 'header__menu_show',
+  savedNews: {
+    defaultClassNames: {
+      header: 'header_black-on-white',
+      headerBar: 'header__bar_thicker-border',
+      headerMenuButtonA: 'button__modal_burger-black',
+      headerMenuButtonB: 'button_hover-on-white',
+      headerMenu: 'header__menu_thicker-border',
+    },
+    openClassNames: {
+      header: 'header_white-saved-news',
+      headerMenuButtonA: 'button__modal_cross-white',
+      headerMenuButtonB: 'button_hover-on-black',
+      headerMenu: 'header__menu_show',
+    },
   },
 };
 const articleBlockConf = {

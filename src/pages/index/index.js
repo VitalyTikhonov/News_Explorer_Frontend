@@ -126,6 +126,7 @@ import {
   });
 
   const headerObj = new Header({
+    pageName: 'index',
     accessControl,
     pageConfig,
     popup,
