@@ -7,6 +7,7 @@
 @import url(./__text/card__text.css);
 @import url(./__source-name/card__source-name.css);
 .card {
+  position: relative;
   border-radius: 16px/16px;
   overflow: hidden;
   background: #FFFFFF;

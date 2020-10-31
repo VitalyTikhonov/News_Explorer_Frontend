@@ -30,6 +30,7 @@ class NewsSearchForm extends BaseComponent {
           this._articleBlock.showNoNewsBumper();
           return;
         }
+        res.keyword = this._field.value;
         this._articleBlock.renderArticles(res);
       })
       .catch((err) => {

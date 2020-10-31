@@ -26,7 +26,7 @@ const headerMenuConfig = {
 const articleBlockConf = {
   node: document.querySelector('.article-block'),
   selector: '.article-block',
-  articleBlockProperConf: {
+  articleBlockProper: {
     // selector: '.article-block__proper',
     innerContainerSelector: '.article-block__card-container',
     markup: `
@@ -55,24 +55,25 @@ const articleBlockConf = {
       },
       saveButton: {
         selector: '.card__breadcrumb_save-button',
-        unsavedArticleClass: 'button__breadcrumb_icon-flag',
-        savedArticleClass: 'button__breadcrumb_icon-flag-marked',
+        unsavedClass: 'button__breadcrumb_icon-flag',
+        savedClass: 'button__breadcrumb_icon-flag-marked',
       },
+      defaultImageAddress: './src/images/what.png',
       markup: {
         forMainPage: `
       <article class="card">
+        <button type="button"
+          class="card__breadcrumb card__breadcrumb_save-button button__breadcrumb button__breadcrumb_icon button__breadcrumb_icon-flag"
+          disabled></button>
+        <button type="button"
+          class="card__breadcrumb card__breadcrumb_tooltip visibility__removed button__breadcrumb button__breadcrumb_labelled button__breadcrumb_labelled-tooltip">Войдите,
+          чтобы сохранять статьи</button>
         <a href="" class="card__link-wrap link" target="_blank" rel="noopener noreferrer">
           <div class="card__cover">
             <img
                 onerror="this.onerror=null;this.src='./src/images/what.png';"
                 alt="Изображение – обложка карточки"
                 class="card__image">
-            <button type="button"
-              class="card__breadcrumb card__breadcrumb_save-button button__breadcrumb button__breadcrumb_icon button__breadcrumb_icon-flag"
-              disabled></button>
-            <button type="button"
-              class="card__breadcrumb card__breadcrumb_tooltip visibility__removed button__breadcrumb button__breadcrumb_labelled button__breadcrumb_labelled-tooltip">Войдите,
-              чтобы сохранять статьи</button>
           </div>
 
           <div class="card__body">

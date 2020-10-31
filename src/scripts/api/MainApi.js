@@ -90,6 +90,37 @@ class MainApi {
         return this._primaryResponseHandler();
       });
   }
+
+  saveArticle(articleData) {
+    return fetch(
+      `${this._API_URL}/articles`,
+      {
+        method: 'POST',
+        headers: { 'Content-Type': this._CONTENT_TYPE },
+        credentials: 'include',
+        body: JSON.stringify(articleData),
+      },
+    )
+      .then((res) => {
+        this._res = res;
+        return this._primaryResponseHandler();
+      });
+  }
+
+  deleteArticle(articleId) {
+    return fetch(
+      `${this._API_URL}/articles/${articleId}`,
+      {
+        method: 'DELETE',
+        headers: { 'Content-Type': this._CONTENT_TYPE },
+        credentials: 'include',
+      },
+    )
+      .then((res) => {
+        this._res = res;
+        return this._primaryResponseHandler();
+      });
+  }
 }
 
 export { MainApi as default };

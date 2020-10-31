@@ -18,7 +18,7 @@ class AccessControl extends BaseComponent {
     this._nonAuthorizedSelector = nonAuthorizedSelector;
     this._authorizedSelector = authorizedSelector;
     this._controlClassName = removalClassName;
-    this._cardSaveBtSel = articleBlockConf.articleBlockProperConf.article.saveButton.selector;
+    this._cardSaveBtSel = articleBlockConf.articleBlockProper.article.saveButton.selector;
     /* inner */
     this.isUserLoggedIn = false;
     this.signout = this.signout.bind(this);

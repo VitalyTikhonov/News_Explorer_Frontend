@@ -38,13 +38,16 @@ import {
 
 (function site() {
   /* КОЛБЕКИ */
-  function createArticleOnMainPage(content) {
+  function createArticleOnMainPage(content, keyword) {
     return new Article({
       articleBlockConf,
       createNode,
       content,
       // eslint-disable-next-line no-use-before-define
-      // accessControl,
+      mainApi,
+      // eslint-disable-next-line no-use-before-define
+      popup,
+      keyword,
     });
   }
   /* ЭКЗЕМПЛЯРЫ КЛАССОВ */

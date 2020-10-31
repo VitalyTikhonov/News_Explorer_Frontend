@@ -146,7 +146,7 @@ class BaseComponent {
       combination.element.classList.remove(combination.classToRemove);
       combination.element.classList.add(combination.classToAdd);
     });
-    this._elemClassMap = null;
+    this._elemClassMap = [];
   }
 }
 

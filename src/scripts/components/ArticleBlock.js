@@ -13,12 +13,12 @@ class ArticleBlock extends BaseComponent {
       createNode,
     });
     this._component = articleBlockConf.node;
-    this._markup = articleBlockConf.articleBlockProperConf.markup;
-    this._cardContainerSel = articleBlockConf.articleBlockProperConf.innerContainerSelector;
+    this._markup = articleBlockConf.articleBlockProper.markup;
+    this._cardContainerSel = articleBlockConf.articleBlockProper.innerContainerSelector;
     // this._innerContainer = articleBlockConf.selector;
     this._preloaderMarkup = articleBlockConf.preloader.markup;
     this._noNewsBumperMarkup = articleBlockConf.noNewsBumper.markup;
-    this._cardSaveBtSel = articleBlockConf.articleBlockProperConf.article.saveButton.selector;
+    this._cardSaveBtSel = articleBlockConf.articleBlockProper.article.saveButton.selector;
     this._createArticle = createArticle;
     this._removalClassName = pageConfig.accessMarkers.removalClassName;
     this._checkUserStatus = accessControl.checkUserStatus;
@@ -57,7 +57,7 @@ class ArticleBlock extends BaseComponent {
   _renderArticlesForAuth() {
     this._cardArray = [];
     this._articleData.articles.forEach((article) => {
-      const card = this._createArticle(article).render();
+      const card = this._createArticle(article, this._articleData.keyword).render();
       this._cardArray.push(card);
       this._contents = card;
       const button = card.querySelector(this._cardSaveBtSel);
