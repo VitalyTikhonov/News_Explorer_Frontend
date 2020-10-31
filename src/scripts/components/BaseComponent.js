@@ -67,10 +67,17 @@ class BaseComponent {
     container.appendChild(child);
   }
 
-  // // BaseComponent.removeChild(node);
-  // static removeChild(node) {
-  //   node.remove();
-  // }
+  // BaseComponent.removeChild(node);
+  static removeChild(childNode) {
+    childNode.remove();
+  }
+
+  // BaseComponent.replaceChildWithNewlyCreated(parent, childNode, newChildMarkup);
+  static replaceChildWithNewlyCreated(parent, childNode, newChildMarkup) {
+    this.removeChild(childNode);
+    const newTextNode = this.create(newChildMarkup);
+    this.insertChild(parent, newTextNode);
+  }
 
   // BaseComponent.removeChildren(node);
   static removeChildren(node) {

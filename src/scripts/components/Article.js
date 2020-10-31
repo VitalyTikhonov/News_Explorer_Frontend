@@ -110,13 +110,9 @@ class Article extends BaseComponent {
       );
     this._descElem.textContent = this._descData;
     this._imageElem.setAttribute('src', this._imageData);
-    // console.log('src', this._imageElem.getAttribute('src'));
     this._originUrlElem.setAttribute('href', this._originUrl);
     this._sourceElem.textContent = this._sourceData;
-    // console.log('this._setButtonState', this._setButtonState);
-    // console.log('this._saveButtonElem', this._saveButtonElem);
     this._saveButtonElem = this._component.querySelector(this._saveButtonSelector);
-    // BaseComponent.enableButton(this._saveButtonElem);
     this._saveButtonHandlerMap = [{
       domElement: this._saveButtonElem,
       event: 'click',

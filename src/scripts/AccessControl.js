@@ -19,6 +19,14 @@ class AccessControl extends BaseComponent {
     this._authorizedSelector = authorizedSelector;
     this._controlClassName = removalClassName;
     this._cardSaveBtSel = articleBlockConf.articleBlockProper.article.saveButton.selector;
+    this._cardTooltipSel = articleBlockConf.articleBlockProper.article.tooltip.selector;
+    this._tooltipNonAuthText = articleBlockConf.articleBlockProper.article.tooltip.nonAuthText;
+    this._tooltipUnsavedText = articleBlockConf.articleBlockProper.article.tooltip.unsavedText;
+    this._tooltipSavedText = articleBlockConf.articleBlockProper.article.tooltip.savedText;
+    this._ttipTextSel = articleBlockConf.articleBlockProper.article.tooltip.textSelector;
+    this._ttipNonAuthMarkup = articleBlockConf.articleBlockProper.article.tooltip.nonAuthTextMarkup;
+    this._ttipUnsavedMarkup = articleBlockConf.articleBlockProper.article.tooltip.unsavedTextMarkup;
+    this._ttipSavedMarkup = articleBlockConf.articleBlockProper.article.tooltip.savedTextMarkup;
     /* inner */
     this.isUserLoggedIn = false;
     this.signout = this.signout.bind(this);
@@ -67,17 +75,24 @@ class AccessControl extends BaseComponent {
   //   }
   // }
 
-  _configurePage(isUserLoggedIn) {
+  _configurePage() {
     this._cardSaveButtonArray = this._pageRootNode.querySelectorAll(this._cardSaveBtSel);
-    if (isUserLoggedIn) {
+    this._cardTooltipArray = this._pageRootNode.querySelectorAll(this._cardTooltipSel);
+    if (this.isUserLoggedIn) {
       // _setupHeaderForAuth() {
       this._elemsToRemoveClass = this._elemsForAuth;
       this._elemsToAddClass = this._elemsForNonAuth;
+      this._moveClassBetweenElements();
       // _setupCardsForAuth() {
       this._cardSaveButtonArray.forEach((button) => {
         button.removeAttribute('disabled');
       });
-      this._moveClassBetweenElements();
+      this._cardTooltipArray.forEach((tooltip) => {
+        // eslint-disable-next-line no-param-reassign
+        // tooltip.textContent = this._tooltipUnsavedText;
+        const texNode = tooltip.querySelector(this._ttipTextSel);
+        BaseComponent.replaceChildWithNewlyCreated(tooltip, texNode, this._ttipUnsavedMarkup);
+      });
     } else {
       // _setupHeaderForNonAuth() {
       this._elemsToRemoveClass = this._elemsForNonAuth;
@@ -86,6 +101,10 @@ class AccessControl extends BaseComponent {
       // _setupCardsForNonAuth() {
       this._cardSaveButtonArray.forEach((button) => {
         button.setAttribute('disabled', 'disabled');
+      });
+      this._cardTooltipArray.forEach((tooltip) => {
+        const texNode = tooltip.querySelector(this._ttipTextSel);
+        BaseComponent.replaceChildWithNewlyCreated(tooltip, texNode, this._ttipNonAuthMarkup);
       });
     }
   }
@@ -96,7 +115,7 @@ class AccessControl extends BaseComponent {
     this.checkUserStatus()
       .then(() => {
         if (this.isUserLoggedIn) {
-          this._configurePage(this.isUserLoggedIn);
+          this._configurePage();
         }
       })
       .catch((err) => {

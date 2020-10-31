@@ -58,6 +58,16 @@ const articleBlockConf = {
         unsavedClass: 'button__breadcrumb_icon-flag',
         savedClass: 'button__breadcrumb_icon-flag-marked',
       },
+      tooltip: {
+        selector: '.card__breadcrumb_tooltip',
+        nonAuthText: 'Войдите, чтобы сохранять статьи',
+        unsavedText: 'Сохранить',
+        savedText: 'Удалить',
+        textSelector: '.card__tooltip-text',
+        nonAuthTextMarkup: '<span class="card__tooltip-text">Войдите, чтобы сохранять статьи</span>',
+        unsavedTextMarkup: '<span class="card__tooltip-text">Сохранить</span>',
+        savedTextMarkup: '<span class="card__tooltip-text">Удалить</span>',
+      },
       defaultImageAddress: './src/images/what.png',
       markup: {
         forMainPage: `
@@ -66,8 +76,7 @@ const articleBlockConf = {
           class="card__breadcrumb card__breadcrumb_save-button button__breadcrumb button__breadcrumb_icon button__breadcrumb_icon-flag"
           disabled></button>
         <button type="button"
-          class="card__breadcrumb card__breadcrumb_tooltip visibility__removed button__breadcrumb button__breadcrumb_labelled button__breadcrumb_labelled-tooltip">Войдите,
-          чтобы сохранять статьи</button>
+          class="card__breadcrumb card__breadcrumb_tooltip visibility__removed button__breadcrumb button__breadcrumb_labelled button__breadcrumb_labelled-tooltip"></button>
         <a href="" class="card__link-wrap link" target="_blank" rel="noopener noreferrer">
           <div class="card__cover">
             <img

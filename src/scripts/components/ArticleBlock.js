@@ -19,9 +19,15 @@ class ArticleBlock extends BaseComponent {
     this._preloaderMarkup = articleBlockConf.preloader.markup;
     this._noNewsBumperMarkup = articleBlockConf.noNewsBumper.markup;
     this._cardSaveBtSel = articleBlockConf.articleBlockProper.article.saveButton.selector;
+    /* ----------- */
+    this._cardTooltipSel = articleBlockConf.articleBlockProper.article.tooltip.selector;
+    this._ttipTextSel = articleBlockConf.articleBlockProper.article.tooltip.textSelector;
+    this._ttipNonAuthMarkup = articleBlockConf.articleBlockProper.article.tooltip.nonAuthTextMarkup;
+    this._ttipUnsavedMarkup = articleBlockConf.articleBlockProper.article.tooltip.unsavedTextMarkup;
+    // this._ttipSavedMarkup = articleBlockConf.articleBlockProper.article.tooltip.savedTextMarkup;
+    /* ----------- */
     this._createArticle = createArticle;
     this._removalClassName = pageConfig.accessMarkers.removalClassName;
-    this._checkUserStatus = accessControl.checkUserStatus;
     this._getUserStatus = accessControl.getUserStatus;
   }
 
@@ -50,6 +56,11 @@ class ArticleBlock extends BaseComponent {
     this._articleData.articles.forEach((article) => {
       const card = this._createArticle(article).render();
       this._cardArray.push(card);
+      /* tooltip */
+      const tooltip = card.querySelector(this._cardTooltipSel);
+      const texNode = BaseComponent.create(this._ttipNonAuthMarkup);
+      BaseComponent.insertChild(tooltip, texNode);
+      /* end tooltip */
       BaseComponent.insertChild(this._cardContainer, card);
     });
   }
@@ -59,6 +70,11 @@ class ArticleBlock extends BaseComponent {
     this._articleData.articles.forEach((article) => {
       const card = this._createArticle(article, this._articleData.keyword).render();
       this._cardArray.push(card);
+      /* tooltip */
+      const tooltip = card.querySelector(this._cardTooltipSel);
+      const texNode = BaseComponent.create(this._ttipUnsavedMarkup);
+      BaseComponent.insertChild(tooltip, texNode);
+      /* end tooltip */
       this._contents = card;
       const button = card.querySelector(this._cardSaveBtSel);
       BaseComponent.enableButton(button);
