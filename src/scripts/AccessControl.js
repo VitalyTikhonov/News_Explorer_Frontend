@@ -5,7 +5,6 @@ import BaseComponent from './components/BaseComponent';
 
 class AccessControl extends BaseComponent {
   constructor({
-    globalEventHandlerMap,
     api,
     pageRootNode,
     nonAuthorizedSelector,
@@ -13,7 +12,7 @@ class AccessControl extends BaseComponent {
     removalClassName,
     articleBlockConf,
   }) {
-    super({ globalEventHandlerMap });
+    super({});
     this._api = api;
     this._pageRootNode = pageRootNode;
     this._nonAuthorizedSelector = nonAuthorizedSelector;

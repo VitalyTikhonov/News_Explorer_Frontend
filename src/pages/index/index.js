@@ -25,7 +25,6 @@ import {
   // addClassToElems,
 } from '../../scripts/utils/utils';
 import {
-  globalEventHandlerMap,
   pageConfig,
   popupShellConfig,
   genFormConfig,
@@ -41,7 +40,6 @@ import {
   /* КОЛБЕКИ */
   function createArticleOnMainPage(content, keyword) {
     return new Article({
-      globalEventHandlerMap,
       articleBlockConf,
       createNode,
       content,
@@ -56,7 +54,6 @@ import {
   const mainApi = new MainApi(API_URL, CONTENT_TYPE);
 
   const accessControl = new AccessControl({
-    globalEventHandlerMap,
     api: mainApi,
     pageRootNode: pageConfig.rootNode,
     nonAuthorizedSelector: pageConfig.accessMarkers.nonAuthorizedSelector,
@@ -75,7 +72,6 @@ import {
   );
 
   const signupForm = new DialogForm({
-    globalEventHandlerMap,
     markup: signupFormConfig.markup,
     createNode,
     nameAttr: signupFormConfig.nameAttr,
@@ -88,7 +84,6 @@ import {
   });
 
   const loginForm = new DialogForm({
-    globalEventHandlerMap,
     markup: loginFormConfig.markup,
     createNode,
     nameAttr: loginFormConfig.nameAttr,
@@ -101,7 +96,6 @@ import {
   });
 
   const popup = new Popup({
-    globalEventHandlerMap,
     parent: pageConfig.rootNode,
     innerContainerSelector: popupShellConfig.innerContainerSelector,
     markup: popupShellConfig.markup,
@@ -115,7 +109,6 @@ import {
   });
 
   const articleBlock = new ArticleBlock({
-    globalEventHandlerMap,
     articleBlockConf,
     createNode,
     createArticle: createArticleOnMainPage,
@@ -124,7 +117,6 @@ import {
   });
 
   const newsSearchForm = new NewsSearchForm({
-    globalEventHandlerMap,
     newsSearchFormConfig,
     // eslint-disable-next-line no-use-before-define
     api: newsApi,
@@ -134,7 +126,6 @@ import {
   });
 
   const headerObj = new Header({
-    globalEventHandlerMap,
     accessControl,
     pageConfig,
     popup,

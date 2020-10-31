@@ -1,12 +1,10 @@
 class BaseComponent {
   constructor({
-    globalEventHandlerMap,
     parent,
     innerContainerSelector,
     markup,
     createNode,
   }) {
-    this._globalEventHandlerMap = globalEventHandlerMap;
     this._parent = parent;
     this._innerContainerSelector = innerContainerSelector;
     this._markup = markup;
@@ -16,7 +14,6 @@ class BaseComponent {
     this._component = null;
     this._innerContainer = null;
     this._elemClassMap = [];
-    this._allHandlersMap = [];
   }
 
   static setHandlers(map) { // super.setHandlers
@@ -31,15 +28,6 @@ class BaseComponent {
     });
   }
 
-  // this._setHandlersAndAddToMap(localMap);
-  // console.log('this._globalEventHandlerMap', this._globalEventHandlerMap);
-  _setHandlersAndAddToMap(localMap) {
-    console.log('localMap', localMap);
-    console.log('localMap.value', localMap.value);
-    this._globalEventHandlerMap[localMap.name] = localMap.value;
-    BaseComponent.setHandlers(localMap.value);
-  }
-
   static removeHandlers(map) { // super.removeHandlers
     map.forEach((combination) => {
       const {
@@ -50,12 +38,6 @@ class BaseComponent {
       } = combination;
       domElement.removeEventListener(event, handler, useCapture);
     });
-  }
-
-  // this._removeHandlersFromMap();
-  // console.log(this._allHandlersMap);
-  _removeHandlersFromMap() {
-    BaseComponent.removeHandlers(this._allHandlersMap);
   }
 
   // BaseComponent.enableButton(button);

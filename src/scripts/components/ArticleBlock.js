@@ -2,7 +2,6 @@ import BaseComponent from './BaseComponent';
 
 class ArticleBlock extends BaseComponent {
   constructor({
-    globalEventHandlerMap,
     articleBlockConf,
     createNode,
     createArticle,
@@ -10,7 +9,6 @@ class ArticleBlock extends BaseComponent {
     accessControl,
   }) {
     super({
-      globalEventHandlerMap,
       innerContainerSelector: articleBlockConf.innerContainerSelector,
       createNode,
     });
@@ -38,7 +36,6 @@ class ArticleBlock extends BaseComponent {
   }
 
   clearAllSection() {
-    // this._removeHandlersFromMap();
     BaseComponent.removeChildren(this._component);
   }
 
@@ -87,7 +84,7 @@ class ArticleBlock extends BaseComponent {
     if (this._cardAdditionConfig.remainder > 0 && !this._moreButton) {
       this._moreButton = BaseComponent.create(this._moreButtonMarkup);
       BaseComponent.insertChild(this._articleBlockShell, this._moreButton);
-      this._setHandlersAndAddToMap([
+      BaseComponent.setHandlers([
         {
           domElement: this._moreButton,
           event: 'click',
@@ -126,7 +123,6 @@ class ArticleBlock extends BaseComponent {
       remainder: this._articleArray.length, // !== articleData.totalResults !!!
     };
     this._pleaseRenderTheArticlesWillYou(this._getUserStatus());
-    console.log('this._globalEventHandlerMap', this._globalEventHandlerMap);
   }
 }
 

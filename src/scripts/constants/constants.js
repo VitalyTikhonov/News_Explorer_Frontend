@@ -1,4 +1,3 @@
-const globalEventHandlerMap = {};
 const rootNode = document.querySelector('.root');
 const header = rootNode.querySelector('.header');
 const authButton = header.querySelector('.menu__auth-button-login');
@@ -266,7 +265,6 @@ const messageConfig = {
 };
 
 module.exports = {
-  globalEventHandlerMap,
   pageConfig: {
     rootNode,
     header,
