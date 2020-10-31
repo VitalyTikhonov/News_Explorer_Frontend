@@ -2,6 +2,7 @@ import BaseComponent from './BaseComponent';
 
 class DialogForm extends BaseComponent {
   constructor({
+    globalEventHandlerMap,
     markup,
     createNode,
     nameAttr,
@@ -11,7 +12,7 @@ class DialogForm extends BaseComponent {
     accessControl,
     api,
   }) {
-    super({ markup, createNode });
+    super({ globalEventHandlerMap, markup, createNode });
     this._nameAttr = nameAttr;
     this._fieldSelectors = fieldSelectors;
     this._submitButtonSelector = genFormConfig.submitButtonSelector;

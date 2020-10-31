@@ -2,12 +2,13 @@ import BaseComponent from './BaseComponent';
 
 class NewsSearchForm extends BaseComponent {
   constructor({
+    globalEventHandlerMap,
     newsSearchFormConfig,
     api,
     articleBlock,
     popup,
   }) {
-    super({});
+    super({ globalEventHandlerMap });
     this._selector = newsSearchFormConfig.selector;
     this._fieldSelector = newsSearchFormConfig.fieldSelector;
     this._submitButtonSelector = newsSearchFormConfig.submitButtonSelector;

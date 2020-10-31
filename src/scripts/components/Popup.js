@@ -2,6 +2,7 @@ import BaseComponent from './BaseComponent';
 
 class Popup extends BaseComponent {
   constructor({
+    globalEventHandlerMap,
     parent,
     innerContainerSelector,
     markup,
@@ -16,6 +17,7 @@ class Popup extends BaseComponent {
     messageConfig,
   }) {
     super({
+      globalEventHandlerMap,
       parent,
       innerContainerSelector,
       markup,

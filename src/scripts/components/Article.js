@@ -2,6 +2,7 @@ import BaseComponent from './BaseComponent';
 
 class Article extends BaseComponent {
   constructor({
+    globalEventHandlerMap,
     articleBlockConf,
     createNode,
     content,
@@ -11,6 +12,7 @@ class Article extends BaseComponent {
     // accessControl,
   }) {
     super({
+      globalEventHandlerMap,
       markup: articleBlockConf.articleBlockProper.article.markup.forMainPage,
       createNode,
     });
@@ -77,7 +79,7 @@ class Article extends BaseComponent {
         );
         this._configureClassesOnElem();
         BaseComponent.removeHandlers(this._saveButtonHandlerMap);
-        BaseComponent.setHandlers(this._deleteButtonHandlerMap);
+        this._setHandlersAndAddToMap(this._deleteButtonHandlerMap);
         this._setTooltipText(this._ttipSavedMarkup);
       })
       .catch((err) => {
@@ -129,17 +131,21 @@ class Article extends BaseComponent {
     this._originUrlElem.setAttribute('href', this._originUrl);
     this._sourceElem.textContent = this._sourceData;
     this._saveButtonElem = this._component.querySelector(this._saveButtonSelector);
-    this._saveButtonHandlerMap = [{
-      domElement: this._saveButtonElem,
-      event: 'click',
-      handler: this._save,
-    }];
+    this._saveButtonHandlerMap = {
+      name: '_saveButtonHandlerMap',
+      value: [{
+        domElement: this._saveButtonElem,
+        event: 'click',
+        handler: this._save,
+      }],
+    };
     this._deleteButtonHandlerMap = [{
       domElement: this._saveButtonElem,
       event: 'click',
       handler: this._delete,
     }];
-    BaseComponent.setHandlers(this._saveButtonHandlerMap);
+    this._setHandlersAndAddToMap(this._saveButtonHandlerMap);
+    console.log('from here');
     return this._component;
   }
 }

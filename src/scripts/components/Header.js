@@ -2,12 +2,13 @@ import BaseComponent from './BaseComponent';
 
 class Header extends BaseComponent {
   constructor({
+    globalEventHandlerMap,
     accessControl,
     pageConfig,
     popup,
     headerMenuConfig,
   }) {
-    super({});
+    super({ globalEventHandlerMap });
     this._accessControl = accessControl;
     this._authButton = pageConfig.authButton;
     this._logoutButton = pageConfig.logoutButton;
