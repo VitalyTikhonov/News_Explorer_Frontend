@@ -8,7 +8,9 @@ const NEWSAPI_BASE_PATH = process.env.NODE_ENV === 'development'
   ? NEWSAPI_URL
   : NEWSAPI_YANDEX_PROXY_URL;
 const NEWSAPI_PERIOD = 7;
-const NEWSAPI_PAGE_SIZE = 10;
+const NEWSAPI_PAGE_SIZE = process.env.NODE_ENV === 'development'
+  ? 10
+  : 100;
 
 module.exports = {
   API_URL,
