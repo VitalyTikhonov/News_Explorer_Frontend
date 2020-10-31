@@ -51,8 +51,8 @@ class Article extends BaseComponent {
         { year: 'numeric', month: 'long', day: 'numeric' },
       );
     this._descElem.textContent = this._descData;
-    console.log('this._imageData', this._imageData);
     this._imageElem.setAttribute('src', this._imageData);
+    // console.log('src', this._imageElem.getAttribute('src'));
     this._originUrlElem.setAttribute('href', this._originUrl);
     this._sourceElem.textContent = this._sourceData;
     // console.log('this._setButtonState', this._setButtonState);
