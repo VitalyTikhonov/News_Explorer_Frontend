@@ -25,7 +25,7 @@ class NewsSearchForm extends BaseComponent {
     // this.toggleButtonText(false);
     this._api.getNews(this._field.value)
       .then((res) => {
-        // console.log('res\n', res);
+        console.log('res\n', res);
         if (res.totalResults === 0) {
           this._articleBlock.showNoNewsBumper();
           return;
@@ -34,7 +34,7 @@ class NewsSearchForm extends BaseComponent {
         this._articleBlock.renderArticles(res);
       })
       .catch((err) => {
-        // console.log(err);
+        console.log(err);
         this._articleBlock.clearAllSection();
         this._popup.createErrorMessage(err.message);
       });

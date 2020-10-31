@@ -19,6 +19,7 @@ class ArticleBlock extends BaseComponent {
     this._preloaderMarkup = articleBlockConf.preloader.markup;
     this._noNewsBumperMarkup = articleBlockConf.noNewsBumper.markup;
     this._cardSaveBtSel = articleBlockConf.articleBlockProper.article.saveButton.selector;
+    this._moreButtonMarkup = articleBlockConf.articleBlockProper.moreButton.markup;
     /* ----------- */
     this._cardTooltipSel = articleBlockConf.articleBlockProper.article.tooltip.selector;
     this._ttipTextSel = articleBlockConf.articleBlockProper.article.tooltip.textSelector;
@@ -29,6 +30,7 @@ class ArticleBlock extends BaseComponent {
     this._createArticle = createArticle;
     this._removalClassName = pageConfig.accessMarkers.removalClassName;
     this._getUserStatus = accessControl.getUserStatus;
+    this._pleaseRenderTheArticlesWillYou = this._pleaseRenderTheArticlesWillYou.bind(this);
   }
 
   _clearCards() {
@@ -51,33 +53,29 @@ class ArticleBlock extends BaseComponent {
     BaseComponent.insertChild(this._component, this._noNewsBumper);
   }
 
-  _renderArticlesForNonAuth() {
-    this._cardArray = [];
-    this._articleData.articles.forEach((article) => {
-      const card = this._createArticle(article, this._articleData.keyword).render();
-      this._cardArray.push(card);
+  _pleaseRenderTheArticlesWillYou(isUserLoggedIn) {
+    const currentEnd = this._cardAdditionConfig.currentStart + this._cardAdditionConfig.increment;
+    const portion = this._articleArray.slice(this._cardAdditionConfig.currentStart, currentEnd);
+    this._cardAdditionConfig.currentStart += this._cardAdditionConfig.increment;
+    this._cardAdditionConfig.remainder -= this._cardAdditionConfig.increment;
+    portion.forEach((article) => {
+      const card = this._createArticle(article, this._keyword).render();
       /* tooltip */
       const tooltip = card.querySelector(this._cardTooltipSel);
-      const texNode = BaseComponent.create(this._ttipNonAuthMarkup);
+      const texNode = BaseComponent.create(
+        !isUserLoggedIn
+          ? this._ttipNonAuthMarkup
+          // eslint-disable-next-line comma-dangle
+          : this._ttipUnsavedMarkup
+      );
       BaseComponent.insertChild(tooltip, texNode);
-      /* end tooltip */
-      BaseComponent.insertChild(this._cardContainer, card);
-    });
-  }
-
-  _renderArticlesForAuth() {
-    this._cardArray = [];
-    this._articleData.articles.forEach((article) => {
-      const card = this._createArticle(article, this._articleData.keyword).render();
-      this._cardArray.push(card);
-      /* tooltip */
-      const tooltip = card.querySelector(this._cardTooltipSel);
-      const texNode = BaseComponent.create(this._ttipUnsavedMarkup);
-      BaseComponent.insertChild(tooltip, texNode);
-      /* end tooltip */
-      this._contents = card;
-      const button = card.querySelector(this._cardSaveBtSel);
-      BaseComponent.enableButton(button);
+      /* button */
+      if (isUserLoggedIn) {
+        this._contents = card;
+        const button = card.querySelector(this._cardSaveBtSel);
+        BaseComponent.enableButton(button);
+      }
+      /* end button */
       BaseComponent.insertChild(this._cardContainer, card);
     });
     /* More button */
@@ -112,7 +110,6 @@ class ArticleBlock extends BaseComponent {
   }
 
   renderArticles(articleData) {
-    this._articleData = articleData;
     this.clearAllSection();
     this._renderArticleBlockShell();
     this._keyword = articleData.keyword;

@@ -16,6 +16,7 @@ class BaseComponent {
     this._elemClassMap = [];
   }
 
+  // BaseComponent.setHandlers(map)
   static setHandlers(map) { // super.setHandlers
     map.forEach((combination) => {
       const {
