@@ -102,6 +102,7 @@ import {
     loginForm,
     signupFormNameAttr: signupFormConfig.nameAttr,
     loginFormNameAttr: loginFormConfig.nameAttr,
+    messageConfig,
   });
 
   const articleBlock = new ArticleBlock({
@@ -117,6 +118,8 @@ import {
     // eslint-disable-next-line no-use-before-define
     api: newsApi,
     articleBlock,
+    popup,
+    messageConfig,
   });
 
   const headerObj = new Header({

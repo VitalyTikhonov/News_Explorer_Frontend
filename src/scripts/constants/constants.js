@@ -63,7 +63,7 @@ const articleBlockConf = {
       <article class="card">
         <a href="" class="card__link-wrap link" target="_blank" rel="noopener noreferrer">
           <div class="card__cover">
-            <img src="./images/image_07.png" alt="Фото зарослей" class="card__image">
+            <img src="./images/image_07.png" alt="Изображение – обложка карточки" class="card__image">
             <!-- заменить на дефолтную картинку -->
             <button type="button"
               class="card__breadcrumb card__breadcrumb_save-button button__breadcrumb button__breadcrumb_icon button__breadcrumb_icon-flag"
@@ -229,6 +229,16 @@ const messageConfig = {
     <p class="popup__prompt"><span class="popup__prompt-link">Войти</span></p>
     </div>
 `, // messageConfig.signupSuccess.markup
+  error: {
+    textSelector: '.popup__message', // messageConfig.error.textSelector
+    markup: `
+    <div class="popup__content">
+    <h3 class="popup__title">Ошибка!</h3>
+
+    <p class="popup__message"></p>
+    </div>
+    `, // messageConfig.error.markup
+  },
   // signupSuccess:
   // {
   //   markup: `

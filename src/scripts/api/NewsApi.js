@@ -28,6 +28,12 @@ class NewsApi {
     const from = this._formatDate(this._getPeriodStartDate(this._NEWSAPI_PERIOD));
     const to = this._formatDate(new Date());
     // debugger;
+    // const promise = new Promise((resolve, reject) => {
+    //   setTimeout(() => {
+    //     reject('Test Error');
+    //   }, 10);
+    // });
+    // promise
     return fetch(
       `${this._API_URL}everything?q=${searchTerm}&from=${from}&to=${to}&pageSize=${this._NEWSAPI_PAGE_SIZE}&apiKey=${this._NEWSAPI_TOKEN}`,
       // eslint-disable-next-line max-len

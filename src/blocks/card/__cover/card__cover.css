@@ -3,6 +3,7 @@
   display: flex;
   z-index: 0;
   height: 150px;
+  /* background-image: url(../../../images/image_07.png); */
 }
 
 /* @media (min-width: 321px) and (max-width: 1241px) {

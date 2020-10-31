@@ -5,6 +5,7 @@ class NewsSearchForm extends BaseComponent {
     newsSearchFormConfig,
     api,
     articleBlock,
+    popup,
   }) {
     super({});
     this._selector = newsSearchFormConfig.selector;
@@ -12,6 +13,7 @@ class NewsSearchForm extends BaseComponent {
     this._submitButtonSelector = newsSearchFormConfig.submitButtonSelector;
     this._api = api;
     this._articleBlock = articleBlock;
+    this._popup = popup;
     /* inner */
     this.render = this.render.bind(this);
     this._formSubmitHandler = this._formSubmitHandler.bind(this);
@@ -23,7 +25,7 @@ class NewsSearchForm extends BaseComponent {
     // this.toggleButtonText(false);
     this._api.getNews(this._field.value)
       .then((res) => {
-        console.log('res\n', res);
+        // console.log('res\n', res);
         if (res.totalResults === 0) {
           this._articleBlock.showNoNewsBumper();
           return;
@@ -31,7 +33,9 @@ class NewsSearchForm extends BaseComponent {
         this._articleBlock.renderArticles(res);
       })
       .catch((err) => {
-        console.log(err);
+        // console.log(err);
+        this._articleBlock.clearAllSection();
+        this._popup.createErrorMessage(err.message);
       });
     // .finally(() => {
     // this.toggleButtonText(true);

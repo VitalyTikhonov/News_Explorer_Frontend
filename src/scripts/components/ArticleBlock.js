@@ -29,18 +29,18 @@ class ArticleBlock extends BaseComponent {
     BaseComponent.removeChildren(this._cardContainer);
   }
 
-  _clearAllSection() {
+  clearAllSection() {
     BaseComponent.removeChildren(this._component);
   }
 
   showPreloader() {
-    this._clearAllSection();
+    this.clearAllSection();
     this._preloader = BaseComponent.create(this._preloaderMarkup);
     BaseComponent.insertChild(this._component, this._preloader);
   }
 
   showNoNewsBumper() {
-    this._clearAllSection();
+    this.clearAllSection();
     this._noNewsBumper = BaseComponent.create(this._noNewsBumperMarkup);
     BaseComponent.insertChild(this._component, this._noNewsBumper);
   }
@@ -74,7 +74,7 @@ class ArticleBlock extends BaseComponent {
 
   renderArticles(articleData) {
     this._articleData = articleData;
-    this._clearAllSection();
+    this.clearAllSection();
     this._renderArticleBlockShell();
     if (!this._getUserStatus()) {
       this._renderArticlesForNonAuth();

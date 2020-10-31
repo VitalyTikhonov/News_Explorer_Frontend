@@ -13,6 +13,7 @@ class Popup extends BaseComponent {
     signupFormNameAttr,
     loginFormNameAttr,
     // formPromptLinkSelector,
+    messageConfig,
   }) {
     super({
       parent,
@@ -26,17 +27,21 @@ class Popup extends BaseComponent {
     this._loginForm = loginForm;
     this._signupFormNameAttr = signupFormNameAttr;
     this._loginFormNameAttr = loginFormNameAttr;
+    this._errMessageMarkup = messageConfig.error.markup;
+    this._errMessageSelector = messageConfig.error.textSelector;
     // this._createSignupForm = generateContents.createSignupForm;
     // this._createLoginForm = generateContents.createLoginForm;
     // this._signupFormNameAttr = generateContents.signupFormNameAttr;
     // this._loginFormNameAttr = generateContents.loginFormNameAttr;
     /* inner */
+    this._domEventHandlerMap = []; // !!!
     this.open = this.open.bind(this);
     this._dismiss = this._dismiss.bind(this);
     this._escapeHandler = this._escapeHandler.bind(this);
     this._clickAwayHandler = this._clickAwayHandler.bind(this);
     this._childDismissalHandler = this._childDismissalHandler.bind(this);
     this._changeFormHandler = this._changeFormHandler.bind(this);
+    // this._setAltContents = this._setAltContents.bind(this);
   }
 
   _childDismissalHandler(event) {
@@ -71,6 +76,18 @@ class Popup extends BaseComponent {
 
   _createContents() {
     this._form = this._loginForm.create();
+    this._domEventHandlerMap.push(
+      {
+        domElement: this._form,
+        event: 'dismissal',
+        handler: this._childDismissalHandler,
+      },
+      {
+        domElement: this._form,
+        event: 'formChangeRequest',
+        handler: this._changeFormHandler,
+      },
+    );
     return this._form;
   }
 
@@ -102,13 +119,31 @@ class Popup extends BaseComponent {
     super._dismiss();
   }
 
+  /* to optionally call before open */
+  _setAltContents(alternativeNode) {
+    this._alternativeNode = alternativeNode;
+  }
+
+  createErrorMessage(text) {
+    const errorMessageNode = BaseComponent.create(this._errMessageMarkup);
+    const errMessageNode = errorMessageNode.querySelector(this._errMessageSelector);
+    errMessageNode.textContent = text;
+    this._setAltContents(errorMessageNode);
+    this.open();
+  }
+
   open() {
     this._create();
     this._popup = this._component;
     this._closeIcon = this._popup.querySelector(this._closeIconSelector);
-    this._contents = this._createContents();
+    if (!this._alternativeNode) {
+      this._contents = this._createContents();
+    } else {
+      this._contents = this._alternativeNode;
+    }
     this._insertChild();
-    this._domEventHandlerMap = [
+    this._alternativeNode = null;
+    this._domEventHandlerMap.push(
       {
         domElement: this._closeIcon,
         event: 'click',
@@ -124,17 +159,7 @@ class Popup extends BaseComponent {
         event: 'click',
         handler: this._clickAwayHandler,
       },
-      {
-        domElement: this._form,
-        event: 'dismissal',
-        handler: this._childDismissalHandler,
-      },
-      {
-        domElement: this._form,
-        event: 'formChangeRequest',
-        handler: this._changeFormHandler,
-      },
-    ];
+    );
     BaseComponent.setHandlers(this._domEventHandlerMap);
     this._open();
     this._popup.focus();
