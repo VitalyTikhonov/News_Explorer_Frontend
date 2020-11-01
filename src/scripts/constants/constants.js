@@ -51,14 +51,24 @@ const articleBlockConf = {
   articleBlockProper: {
     // selector: '.article-block__proper',
     innerContainerSelector: '.article-block__card-container',
-    markup: `
-      <div class="article-block__proper root__child-width">
-        <h2 class="article-block__headline section-headline">Результаты поиска</h2>
+    markup: {
+      [pageNames.index]: `
+        <div class="article-block__proper root__child-width">
+          <h2 class="article-block__headline section-headline">Результаты поиска</h2>
 
-        <div class="article-block__card-container">
+          <div class="article-block__card-container">
+          </div>
         </div>
-      </div>
-    `,
+      `,
+      [pageNames.savedNews]: `
+        <div class="article-block__proper root__child-width">
+          <h2 class="article-block__headline section-headline visibility__removed">Ваши статьи</h2>
+
+          <div class="article-block__card-container">
+          </div>
+        </div>
+      `,
+    },
     moreButton: {
       markup: `
         <button type="button"
@@ -178,8 +188,8 @@ const articleBlockConf = {
     titleSelector: '.article-block__bumper-title',
     textSelector: '.article-block__bumper-message',
     noNewNewsTitle: 'Ничего не найдено',
-    noSavedNewsTitle: 'К сожалению, по Вашему запросу ничего не найдено.',
-    noNewNewsText: 'Статьи не найдены',
+    noSavedNewsTitle: 'Статьи не найдены',
+    noNewNewsText: 'К сожалению, по Вашему запросу ничего не найдено.',
     noSavedNewsText: 'Вы ещё не сохранили ни одну статью.',
   },
 };

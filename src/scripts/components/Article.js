@@ -43,6 +43,7 @@ class Article extends BaseComponent {
     this._defaultImageAddress = articleBlockConf.articleBlockProper.article.defaultImageAddress;
     // this._keyword = keyword;
     this._keywordData = keyword || content.keyword; // ?----------------------
+    this._id = content._id;
     this._titleData = content.title;
     this._descData = content.description;
     this._dateData = content.publishedAt;
@@ -71,7 +72,7 @@ class Article extends BaseComponent {
       date: this._dateData,
       source: this._sourceData,
       link: this._originUrlData,
-      image: this._imageData,
+      urlToImage: this._imageData,
     };
     this._mainApi.saveArticle(articleData)
       .then((res) => {
@@ -95,9 +96,10 @@ class Article extends BaseComponent {
   }
 
   _delete() {
+    console.log('this', this);
+    console.log('this._id', this._id);
     this._mainApi.deleteArticle(this._id)
       .then(() => {
-        // console.log(res);
         BaseComponent.removeHandlers(this._deleteButtonHandlerMap);
         switch (this._pageName) {
           case this._indexPageName:
@@ -146,6 +148,11 @@ class Article extends BaseComponent {
     this._originUrlElem.setAttribute('href', this._originUrlData);
     this._sourceElem.textContent = this._sourceData;
     this._saveButtonElem = this._component.querySelector(this._saveButtonSelector);
+    this._deleteButtonHandlerMap = [{
+      domElement: this._saveButtonElem,
+      event: 'click',
+      handler: this._delete,
+    }];
     switch (this._pageName) {
       case this._indexPageName:
         this._saveButtonHandlerMap = [{
@@ -153,19 +160,15 @@ class Article extends BaseComponent {
           event: 'click',
           handler: this._save,
         }];
+        BaseComponent.setHandlers(this._saveButtonHandlerMap);
         break;
       case this._savedNewsPageName:
         this._keyword = this._component.querySelector(this._keywordSelector);
         this._keyword.textContent = this._keywordData;
+        BaseComponent.setHandlers(this._deleteButtonHandlerMap);
         break;
       default:
     }
-    this._deleteButtonHandlerMap = [{
-      domElement: this._saveButtonElem,
-      event: 'click',
-      handler: this._delete,
-    }];
-    BaseComponent.setHandlers(this._saveButtonHandlerMap);
     return this._component;
   }
 }

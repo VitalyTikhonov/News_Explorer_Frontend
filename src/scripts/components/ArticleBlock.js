@@ -3,20 +3,28 @@ import BaseComponent from './BaseComponent';
 class ArticleBlock extends BaseComponent {
   constructor({
     api,
+    pageName,
+    indexPageName,
+    savedNewsPageName,
     articleBlockConf,
     createNode,
     createArticle,
     pageConfig,
     accessControl,
+    popup,
   }) {
     super({
       innerContainerSelector: articleBlockConf.innerContainerSelector,
       createNode,
+      pageName,
+      indexPageName,
+      savedNewsPageName,
     });
     this._api = api;
     this._component = articleBlockConf.node;
-    this._markup = articleBlockConf.articleBlockProper.markup;
+    this._markup = articleBlockConf.articleBlockProper.markup[this._pageName];
     this._cardContainerSel = articleBlockConf.articleBlockProper.innerContainerSelector;
+    this._popup = popup;
     // this._innerContainer = articleBlockConf.selector;
     /* ----------- */
     this._preloaderMarkup = articleBlockConf.preloader.markup;
@@ -135,18 +143,19 @@ class ArticleBlock extends BaseComponent {
     // this.toggleButtonText(false);
     this._api.getArticles()
       .then((res) => {
-        console.log('res\n', res);
-        if (res.totalResults === 0) {
+        // console.log('res\n', res);
+        this.renderArticles(res);
+      })
+      .catch((err) => {
+        console.log(err);
+        console.log('err.prototype', err.prototype);
+        if (err.message === 'Статьи не найдены') {
           this.showNoNewsBumper(
             this._noNewsBumperNoSavedNewsTitle,
             this._noNewsBumperNoSavedNewsText,
           );
           return;
         }
-        // this.renderNewArticles(res);
-      })
-      .catch((err) => {
-        console.log(err);
         this.clearAllSection();
         this._popup.createErrorMessage(err.message);
       });
@@ -155,17 +164,36 @@ class ArticleBlock extends BaseComponent {
     // });
   }
 
-  renderNewArticles(articleData) {
+  renderArticles(articleData) {
+    // console.log('articleData', articleData);
     this.clearAllSection();
+    switch (this._pageName) {
+      case this._indexPageName:
+        this._keyword = articleData.keyword;
+        this._articleArray = articleData.articles;
+        break;
+      case this._savedNewsPageName:
+        this._articleArray = articleData;
+        break;
+      default:
+    }
     this._renderArticleBlockShell();
-    this._keyword = articleData.keyword;
-    this._articleArray = articleData.articles;
     this._cardAdditionConfig = {
       increment: 3,
       currentStart: 0,
       remainder: this._articleArray.length, // !== articleData.totalResults !!!
     };
     this._renderPortionOfArticles();
+    // this.clearAllSection();                                                         // new
+    // this._keyword = articleData.keyword;                                            // new
+    // this._articleArray = articleData.articles;                                      // new
+    // this._renderArticleBlockShell();                                                //
+    // this._cardAdditionConfig = {                                                    //
+    //   increment: 3,
+    //   currentStart: 0,
+    //   remainder: this._articleArray.length, // !== articleData.totalResults !!!
+    // };
+    // this._renderPortionOfArticles();                                                //
   }
 }
 

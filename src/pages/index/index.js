@@ -116,11 +116,15 @@ import {
   });
 
   const articleBlock = new ArticleBlock({
+    pageName: pageConfig.pageNames.index,
+    indexPageName: pageConfig.pageNames.index,
+    savedNewsPageName: pageConfig.pageNames.savedNews,
     articleBlockConf,
     createNode,
     createArticle: createArticleOnMainPage,
     pageConfig,
     accessControl,
+    popup,
   });
 
   const newsSearchForm = new NewsSearchForm({

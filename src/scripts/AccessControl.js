@@ -133,22 +133,14 @@ class AccessControl extends BaseComponent {
             if (!this.isUserLoggedIn) {
               AccessControl.redirectToIndex();
             } else {
-              // this._configurePage();
               this._createArticleBlockObj().renderSavedArticles();
             }
             break;
           default:
         }
-        // if (this.isUserLoggedIn && this._pageName === this._indexPageName) {
-        //   this._configurePage();
-        // } else if (!this.isUserLoggedIn && this._pageName === this._savedNewsPageName) {
-        //   AccessControl.redirectToIndex();
-        // }
       })
       .catch((err) => {
-        const error = new Error();
-        error.message = err;
-        throw error;
+        console.log(err);
       });
   }
 

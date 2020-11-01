@@ -16,8 +16,6 @@ import {
 import {
   pageConfig,
   popupShellConfig,
-  signupFormConfig,
-  loginFormConfig,
   messageConfig,
   articleBlockConf,
   headerMenuConfig,
@@ -43,6 +41,9 @@ import {
 
   function createArticleBlockObj() {
     return new ArticleBlock({
+      pageName: pageConfig.pageNames.savedNews,
+      indexPageName: pageConfig.pageNames.index,
+      savedNewsPageName: pageConfig.pageNames.savedNews,
       // eslint-disable-next-line no-use-before-define
       api: mainApi,
       articleBlockConf,
@@ -51,6 +52,8 @@ import {
       pageConfig,
       // eslint-disable-next-line no-use-before-define
       accessControl,
+      // eslint-disable-next-line no-use-before-define
+      popup,
     });
   }
   /* ЭКЗЕМПЛЯРЫ КЛАССОВ */
@@ -75,8 +78,6 @@ import {
     markup: popupShellConfig.markup,
     createNode,
     closeIconSelector: popupShellConfig.closeIconSelector,
-    signupFormNameAttr: signupFormConfig.nameAttr,
-    loginFormNameAttr: loginFormConfig.nameAttr,
     messageConfig,
   });
 
