@@ -9,20 +9,18 @@ class AccessControl extends BaseComponent {
     pageName,
     indexPageName,
     savedNewsPageName,
-    pageRootNode,
-    nonAuthorizedSelector,
-    authorizedSelector,
-    removalClassName,
+    pageConfig,
     articleBlockConf,
     createArticleBlockObj,
     generateSigninEvent,
   }) {
     super({ pageName, indexPageName, savedNewsPageName });
     this._api = api;
-    this._pageRootNode = pageRootNode;
-    this._nonAuthorizedSelector = nonAuthorizedSelector;
-    this._authorizedSelector = authorizedSelector;
-    this._controlClassName = removalClassName;
+    this._pageRootNode = pageConfig.rootNode;
+    this._logoutButtonProperArray = pageConfig.logoutButtonProperArray;
+    this._nonAuthorizedSelector = pageConfig.accessMarkers.nonAuthorizedSelector;
+    this._authorizedSelector = pageConfig.accessMarkers.authorizedSelector;
+    this._controlClassName = pageConfig.accessMarkers.removalClassName;
     this._cardSaveBtSel = articleBlockConf.articleBlockProper.article.saveButton.selector;
     this._cardTooltipSel = articleBlockConf.articleBlockProper.article.tooltip.selector;
     this._tooltipNonAuthText = articleBlockConf.articleBlockProper.article.tooltip.nonAuthText;
@@ -45,12 +43,13 @@ class AccessControl extends BaseComponent {
   checkUserStatus() {
     return this._api.authenticate()
       .then((res) => {
+        // console.log('checkUserStatus res', res);
         this.userName = res.name;
         this.isUserLoggedIn = true;
-        this._generateSigninEvent(res.name);
+        // this._generateSigninEvent(res.name);
       })
-      .catch((err) => {
-        console.log(err);
+      .catch(() => {
+        // console.log('checkUserStatus', err); // добавить err в параметры
         this.isUserLoggedIn = false;
       });
   }
@@ -82,6 +81,18 @@ class AccessControl extends BaseComponent {
   //   }
   // }
 
+  _setLogoutButtonText() {
+    this._logoutButtonProperArray.forEach((button) => {
+      button.prepend(this.userName);
+    });
+  }
+
+  _removetLogoutButtonText() {
+    this._logoutButtonProperArray.forEach((button) => {
+      button.firstChild.remove();
+    });
+  }
+
   _configurePage() {
     this._cardSaveButtonArray = this._pageRootNode.querySelectorAll(this._cardSaveBtSel);
     this._cardTooltipArray = this._pageRootNode.querySelectorAll(this._cardTooltipSel);
@@ -90,7 +101,7 @@ class AccessControl extends BaseComponent {
       this._elemsToRemoveClass = this._elemsForAuth;
       this._elemsToAddClass = this._elemsForNonAuth;
       this._moveClassBetweenElements();
-      // _setupCardsForAuth() {
+      this._setLogoutButtonText();
       this._cardSaveButtonArray.forEach((button) => {
         button.removeAttribute('disabled');
       });
@@ -105,6 +116,7 @@ class AccessControl extends BaseComponent {
       this._elemsToRemoveClass = this._elemsForNonAuth;
       this._elemsToAddClass = this._elemsForAuth;
       this._moveClassBetweenElements();
+      this._removetLogoutButtonText();
       // _setupCardsForNonAuth() {
       this._cardSaveButtonArray.forEach((button) => {
         button.setAttribute('disabled', 'disabled');
@@ -125,6 +137,9 @@ class AccessControl extends BaseComponent {
     this._elemsForAuth = this._pageRootNode.querySelectorAll(this._authorizedSelector);
     this.checkUserStatus()
       .then(() => {
+        // console.log('this._savedNewsPageName', this._savedNewsPageName);
+        // console.log('this.isUserLoggedIn', this.isUserLoggedIn);
+        // console.log('this._pageName', this._pageName);
         switch (this._pageName) {
           case this._indexPageName:
             if (this.isUserLoggedIn) {
@@ -135,6 +150,7 @@ class AccessControl extends BaseComponent {
             if (!this.isUserLoggedIn) {
               AccessControl.redirectToIndex();
             } else {
+              this._setLogoutButtonText();
               this._createArticleBlockObj().renderSavedArticles();
             }
             break;
@@ -149,7 +165,7 @@ class AccessControl extends BaseComponent {
   signin(fieldValueMap) {
     return this._api.signin(fieldValueMap)
       .then((res) => {
-        // console.log(res);
+        this.userName = res.name;
         this.isUserLoggedIn = true;
         this._configurePage(this.isUserLoggedIn);
         return res;

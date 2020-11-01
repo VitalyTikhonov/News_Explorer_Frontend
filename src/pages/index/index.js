@@ -63,10 +63,7 @@ import {
     indexPageName: pageConfig.pageNames.index,
     savedNewsPageName: pageConfig.pageNames.savedNews,
     api: mainApi,
-    pageRootNode: pageConfig.rootNode,
-    nonAuthorizedSelector: pageConfig.accessMarkers.nonAuthorizedSelector,
-    authorizedSelector: pageConfig.accessMarkers.authorizedSelector,
-    removalClassName: pageConfig.accessMarkers.removalClassName,
+    pageConfig,
     articleBlockConf,
     generateSigninEvent,
   });

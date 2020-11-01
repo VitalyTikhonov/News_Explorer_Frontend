@@ -42,7 +42,7 @@ class Header extends BaseComponent {
     /* ----------- */
     this._openMenu = this._openMenu.bind(this);
     this._closeMenu = this._closeMenu.bind(this);
-    this._setLogoutButtonText = this._setLogoutButtonText.bind(this);
+    // this._setLogoutButtonText = this._setLogoutButtonText.bind(this);
   }
 
   _setElemClassMap() {
