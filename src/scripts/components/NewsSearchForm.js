@@ -31,7 +31,7 @@ class NewsSearchForm extends BaseComponent {
           return;
         }
         res.keyword = this._field.value;
-        this._articleBlock.renderArticles(res);
+        this._articleBlock.renderNewArticles(res);
       })
       .catch((err) => {
         console.log(err);

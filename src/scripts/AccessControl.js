@@ -134,7 +134,7 @@ class AccessControl extends BaseComponent {
               AccessControl.redirectToIndex();
             } else {
               // this._configurePage();
-              this.this._createArticleBlockObj();
+              this._createArticleBlockObj().renderSavedArticles();
             }
             break;
           default:

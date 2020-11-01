@@ -121,6 +121,21 @@ class MainApi {
         return this._primaryResponseHandler();
       });
   }
+
+  getArticles() {
+    return fetch(
+      `${this._API_URL}/articles`,
+      {
+        method: 'GET',
+        headers: { 'Content-Type': this._CONTENT_TYPE },
+        credentials: 'include',
+      },
+    )
+      .then((res) => {
+        this._res = res;
+        return this._primaryResponseHandler();
+      });
+  }
 }
 
 export { MainApi as default };

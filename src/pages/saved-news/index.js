@@ -25,8 +25,11 @@ import {
 
 (function site() {
   /* КОЛБЕКИ */
-  function createArticleForNonAuth(content, keyword) {
+  function createArticleForNonAuth(content) {
     return new Article({
+      pageName: pageConfig.pageNames.savedNews,
+      indexPageName: pageConfig.pageNames.index,
+      savedNewsPageName: pageConfig.pageNames.savedNews,
       markup: articleBlockConf.articleBlockProper.article.markup.forSavedNewsPage,
       articleBlockConf,
       createNode,
@@ -35,12 +38,13 @@ import {
       mainApi,
       // eslint-disable-next-line no-use-before-define
       popup,
-      keyword,
     });
   }
 
   function createArticleBlockObj() {
     return new ArticleBlock({
+      // eslint-disable-next-line no-use-before-define
+      api: mainApi,
       articleBlockConf,
       createNode,
       createArticle: createArticleForNonAuth,

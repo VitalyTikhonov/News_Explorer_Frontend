@@ -74,6 +74,7 @@ const articleBlockConf = {
         image: '.card__image',
         source: '.card__source-name',
         originUrl: '.card__link-wrap',
+        keyword: '.card__breadcrumb_keyword-button',
       },
       saveButton: {
         selector: '.card__control-button',
@@ -157,21 +158,29 @@ const articleBlockConf = {
     <div class="article-block__bumper">
       <i class="article-block__bumper-preloader-circle"></i>
 
-      <p class="article-block__bumper-message">Идет поиск новостей&hellip;</p>
+      <p class="article-block__bumper-message"></p>
     </div>
     `,
+    textSelector: '.article-block__bumper-message',
+    newsSearchText: 'Идет поиск новостей…',
+    loadText: 'Загрузка…',
   },
   noNewsBumper: {
     markup: `
     <div class="article-block__bumper">
       <img src="./src/images/no-news-icon.png" alt="Значок &laquo;Ничего не найдено&raquo;"
         class="article-block__bumper-no-news-icon">
-      <h3 class="article-block__bumper-title">Ничего не найдено</h3>
+      <h3 class="article-block__bumper-title"></h3>
 
-      <p class="article-block__bumper-message">К сожалению, по Вашему запросу
-          ничего не найдено.</p>
+      <p class="article-block__bumper-message"></p>
     </div>
     `,
+    titleSelector: '.article-block__bumper-title',
+    textSelector: '.article-block__bumper-message',
+    noNewNewsTitle: 'Ничего не найдено',
+    noSavedNewsTitle: 'К сожалению, по Вашему запросу ничего не найдено.',
+    noNewNewsText: 'Статьи не найдены',
+    noSavedNewsText: 'Вы ещё не сохранили ни одну статью.',
   },
 };
 const popupShellConfig = {

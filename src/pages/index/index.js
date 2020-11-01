@@ -40,6 +40,9 @@ import {
   /* КОЛБЕКИ */
   function createArticleOnMainPage(content, keyword) {
     return new Article({
+      pageName: pageConfig.pageNames.index,
+      indexPageName: pageConfig.pageNames.index,
+      savedNewsPageName: pageConfig.pageNames.savedNews,
       markup: articleBlockConf.articleBlockProper.article.markup.forMainPage,
       articleBlockConf,
       createNode,
