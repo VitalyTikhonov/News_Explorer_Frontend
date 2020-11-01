@@ -15,6 +15,7 @@ class AccessControl extends BaseComponent {
     removalClassName,
     articleBlockConf,
     createArticleBlockObj,
+    generateSigninEvent,
   }) {
     super({ pageName, indexPageName, savedNewsPageName });
     this._api = api;
@@ -32,6 +33,7 @@ class AccessControl extends BaseComponent {
     this._ttipUnsavedMarkup = articleBlockConf.articleBlockProper.article.tooltip.unsavedTextMarkup;
     this._ttipSavedMarkup = articleBlockConf.articleBlockProper.article.tooltip.savedTextMarkup;
     this._createArticleBlockObj = createArticleBlockObj;
+    this._generateSigninEvent = generateSigninEvent;
     /* inner */
     this.isUserLoggedIn = false;
     this.signout = this.signout.bind(this);
@@ -42,23 +44,23 @@ class AccessControl extends BaseComponent {
 
   checkUserStatus() {
     return this._api.authenticate()
-      .then(() => {
+      .then((res) => {
+        this.userName = res.name;
         this.isUserLoggedIn = true;
-        /* isLoggedIn — залогинен ли пользователь;
-        userName */
-        // console.log(res);
-        // console.log('this AccessC', this);
-        // console.log('this.isUserLoggedIn', this.isUserLoggedIn);
+        this._generateSigninEvent(res.name);
       })
-      .catch(() => {
-        // console.log(err);
+      .catch((err) => {
+        console.log(err);
         this.isUserLoggedIn = false;
-        // console.log('catch chekUS', this.isUserLoggedIn);
       });
   }
 
   getUserStatus() {
     return this.isUserLoggedIn;
+  }
+
+  getUserName() {
+    return this.userName;
   }
   // setButtonState(button) {
   //   if (this.isUserLoggedIn) {

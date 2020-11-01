@@ -147,8 +147,6 @@ class ArticleBlock extends BaseComponent {
         this.renderArticles(res);
       })
       .catch((err) => {
-        console.log(err);
-        console.log('err.prototype', err.prototype);
         if (err.message === 'Статьи не найдены') {
           this.showNoNewsBumper(
             this._noNewsBumperNoSavedNewsTitle,

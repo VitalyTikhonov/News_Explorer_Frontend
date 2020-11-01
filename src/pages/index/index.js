@@ -23,6 +23,7 @@ import {
   getPeriodStartDate,
   // removeClassFromElems,
   // addClassToElems,
+  generateSigninEvent,
 } from '../../scripts/utils/utils';
 import {
   pageConfig,
@@ -67,6 +68,7 @@ import {
     authorizedSelector: pageConfig.accessMarkers.authorizedSelector,
     removalClassName: pageConfig.accessMarkers.removalClassName,
     articleBlockConf,
+    generateSigninEvent,
   });
 
   const newsApi = new NewsApi(

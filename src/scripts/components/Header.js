@@ -15,6 +15,7 @@ class Header extends BaseComponent {
     this._accessControl = accessControl;
     this._authButton = pageConfig.authButton;
     this._logoutButton = pageConfig.logoutButton;
+    this._logoutButtonProperArray = pageConfig.logoutButtonProperArray;
     this._optionForAuthUsers = pageConfig.optionForAuthUsers;
     this._authorizedSelector = pageConfig.accessMarkers.authorizedSelector;
     this._nonAuthorizedSelector = pageConfig.accessMarkers.nonAuthorizedSelector;
@@ -41,6 +42,7 @@ class Header extends BaseComponent {
     /* ----------- */
     this._openMenu = this._openMenu.bind(this);
     this._closeMenu = this._closeMenu.bind(this);
+    this._setLogoutButtonText = this._setLogoutButtonText.bind(this);
   }
 
   _setElemClassMap() {
@@ -62,6 +64,11 @@ class Header extends BaseComponent {
             event: 'click',
             handler: this._openMenu,
           },
+          // {
+          //   domElement: document,
+          //   event: 'signin',
+          //   handler: this._setLogoutButtonText,
+          // },
         ];
         this._menuOpenMap = {
           handlers: {
@@ -239,6 +246,12 @@ class Header extends BaseComponent {
       default:
     }
   }
+
+  // _setLogoutButtonText(event) {
+  //   this._logoutButtonProperArray.forEach((button) => {
+  //     button.prepend(event.detail.name);
+  //   });
+  // }
 
   _openMenu() {
     BaseComponent.removeHandlers(this._menuOpenMap.handlers.remove);

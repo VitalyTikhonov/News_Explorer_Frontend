@@ -6,6 +6,7 @@ const pageNames = {
 const header = rootNode.querySelector('.header');
 const authButton = header.querySelector('.menu__auth-button-login');
 const logoutButton = header.querySelector('.menu__auth-button-logout');
+const logoutButtonProperArray = logoutButton.querySelectorAll('.menu__auth-button');
 const accessMarkers = {
   authorizedSelector: '.visibility__for-authorized',
   nonAuthorizedSelector: '.visibility__for-non-authorized',
@@ -341,6 +342,7 @@ module.exports = {
     header,
     authButton,
     logoutButton,
+    logoutButtonProperArray,
     accessMarkers,
   },
   popupShellConfig,

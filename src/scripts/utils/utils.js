@@ -15,6 +15,16 @@ export function getPeriodStartDate(period) {
   return localeString;
 }
 
+export function generateSigninEvent(detail) {
+  console.log('detail', detail);
+  const signinEvent = new CustomEvent(
+    'signin',
+    {
+      detail: { name: detail },
+    },
+  );
+  document.dispatchEvent(signinEvent);
+}
 // export function removeClassFromElems(elemsToRemoveClassArray, className) {
 //   elemsToRemoveClassArray.forEach((element) => {
 //     element.classList.remove(className);

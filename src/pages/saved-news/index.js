@@ -10,6 +10,7 @@ import Header from '../../scripts/components/Header';
 import Popup from '../../scripts/components/Popup';
 import ArticleBlock from '../../scripts/components/ArticleBlock';
 import Article from '../../scripts/components/Article';
+import SavedNewsIntro from '../../scripts/components/SavedNewsIntro';
 import {
   createNode,
 } from '../../scripts/utils/utils';
@@ -90,6 +91,8 @@ import {
     popup,
     headerMenuConfig,
   });
+
+  const savedNewsIntro = new SavedNewsIntro({});
 
   /* ВЫЗОВЫ ФУНКЦИЙ */
   accessControl.configurePageOnLoad();

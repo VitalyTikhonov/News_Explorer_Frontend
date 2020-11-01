@@ -5,14 +5,6 @@ class MainApi {
     this.signout = this.signout.bind(this);
   }
 
-  /*
-  signup         регистрирует нового пользователя;
-  signin         аутентифицирует пользователя на основе почты и пароля;
-  getArticles        забирает все статьи;
-  createArticle        создаёт статью;
-  removeArticle        удаляет статью.
-   */
-
   _primaryResponseHandler() {
     if (this._res.ok) {
       return this._res.json();
