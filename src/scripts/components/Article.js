@@ -66,7 +66,7 @@ class Article extends BaseComponent {
     };
     this._mainApi.saveArticle(articleData)
       .then((res) => {
-        console.log(res);
+        // console.log(res);
         this._id = res._id;
         this._elemClassMap.push(
           {
@@ -87,8 +87,8 @@ class Article extends BaseComponent {
 
   _delete() {
     this._mainApi.deleteArticle(this._id)
-      .then((res) => {
-        console.log(res);
+      .then(() => {
+        // console.log(res);
         this._elemClassMap.push(
           {
             element: this._saveButtonElem,

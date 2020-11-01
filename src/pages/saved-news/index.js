@@ -69,7 +69,7 @@ import {
   });
 
   const headerObj = new Header({
-    pageName: 'savedNews',
+    pageName: pageConfig.pageNames.savedNews,
     accessControl,
     pageConfig,
     popup,

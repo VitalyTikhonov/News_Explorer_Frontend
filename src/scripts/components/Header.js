@@ -11,6 +11,8 @@ class Header extends BaseComponent {
   }) {
     super({});
     this._accessControl = accessControl;
+    this._indexPageName = pageConfig.pageNames.index;
+    this._savedNewsPageName = pageConfig.pageNames.savedNews;
     this._authButton = pageConfig.authButton;
     this._logoutButton = pageConfig.logoutButton;
     this._optionForAuthUsers = pageConfig.optionForAuthUsers;
@@ -26,13 +28,14 @@ class Header extends BaseComponent {
     /* ----------- */
     this._headerDefClass = headerMenuConfig.savedNews.defaultClassNames.header;
     this._headerBarDefClass = headerMenuConfig.savedNews.defaultClassNames.headerBar;
-    this._headerMenuButtonDefClass = headerMenuConfig[this._pageName].defaultClassNames.headerMenuButton;
+    this._headerMenuButtonDefClass = headerMenuConfig.index.defaultClassNames.headerMenuButton;
     this._headerMenuButtonDefClassA = headerMenuConfig.savedNews.defaultClassNames.headerMenuButtonA;
     this._headerMenuButtonDefClassB = headerMenuConfig.savedNews.defaultClassNames.headerMenuButtonB;
     this._headerMenuDefClass = headerMenuConfig[this._pageName].defaultClassNames.headerMenu;
     /* ----------- */
     this._headerOpenClass = headerMenuConfig[this._pageName].openClassNames.header;
-    this._headerMenuButtonOpenClass = headerMenuConfig[this._pageName].openClassNames.headerMenuButton;
+    this._headerMenuButtonOpenClass = headerMenuConfig.index.openClassNames.headerMenuButton;
+    this._headerMenuButtonOpenClassA = headerMenuConfig.savedNews.openClassNames.headerMenuButtonA;
     this._headerMenuButtonDefClassA = headerMenuConfig.savedNews.defaultClassNames.headerMenuButtonA;
     this._headerMenuButtonDefClassB = headerMenuConfig.savedNews.defaultClassNames.headerMenuButtonB;
     this._headerMenuOpenClass = headerMenuConfig[this._pageName].openClassNames.headerMenu;
@@ -41,103 +44,220 @@ class Header extends BaseComponent {
     this._closeMenu = this._closeMenu.bind(this);
   }
 
+  _setElemClassMap() {
+    switch (this._pageName) {
+      case this._indexPageName:
+        this._baseHandlerSettingMap = [
+          {
+            domElement: this._authButton,
+            event: 'click',
+            handler: this._popup.open,
+          },
+          {
+            domElement: this._logoutButton,
+            event: 'click',
+            handler: this._accessControl.signout,
+          },
+          {
+            domElement: this._headerMenuButton,
+            event: 'click',
+            handler: this._openMenu,
+          },
+        ];
+        this._menuOpenMap = {
+          handlers: {
+            set: [
+              {
+                domElement: this._headerMenuButton,
+                event: 'click',
+                handler: this._closeMenu,
+              },
+            ], // this._menuOpenMap.handlers.set
+            remove: [
+              {
+                domElement: this._headerMenuButton,
+                event: 'click',
+                handler: this._openMenu,
+              },
+            ], // this._menuOpenMap.handlers.remove
+          },
+          classes: [
+            {
+              element: this._header,
+              // classToRemove: ,
+              classToAdd: this._headerOpenClass,
+            },
+            {
+              element: this._headerMenuButton,
+              classToRemove: this._headerMenuButtonDefClass,
+              classToAdd: this._headerMenuButtonOpenClass,
+            },
+            {
+              element: this._headerMenu,
+              classToRemove: this._headerMenuDefClass,
+              classToAdd: this._headerMenuOpenClass,
+            },
+          ], // this._menuOpenMap.classes
+        };
+        this._menuCloseMap = {
+          handlers: {
+            set: [
+              {
+                domElement: this._headerMenuButton,
+                event: 'click',
+                handler: this._openMenu,
+              },
+            ], // this._menuCloseMap.handlers.set
+            remove: [
+              {
+                domElement: this._headerMenuButton,
+                event: 'click',
+                handler: this._closeMenu,
+              },
+            ], // this._menuCloseMap.handlers.remove
+          },
+          classes: [
+            {
+              element: this._header,
+              classToRemove: this._headerOpenClass,
+              // classToAdd: ,
+            },
+            {
+              element: this._headerMenuButton,
+              classToRemove: this._headerMenuButtonOpenClass,
+              classToAdd: this._headerMenuButtonDefClass,
+            },
+            {
+              element: this._headerMenu,
+              classToRemove: this._headerMenuOpenClass,
+              classToAdd: this._headerMenuDefClass,
+            },
+          ], // this._menuCloseMap.classes
+        };
+        break;
+      case this._savedNewsPageName:
+        this._baseHandlerSettingMap = [
+          {
+            domElement: this._logoutButton,
+            event: 'click',
+            handler: this._accessControl.signout,
+          },
+          {
+            domElement: this._headerMenuButton,
+            event: 'click',
+            handler: this._openMenu,
+          },
+        ];
+        this._menuOpenMap = {
+          handlers: {
+            set: [
+              {
+                domElement: this._headerMenuButton,
+                event: 'click',
+                handler: this._closeMenu,
+              },
+            ], // this._menuOpenMap.handlers.set
+            remove: [
+              {
+                domElement: this._headerMenuButton,
+                event: 'click',
+                handler: this._openMenu,
+              },
+            ], // this._menuOpenMap.handlers.remove
+          },
+          classes: [
+            {
+              element: this._header,
+              classToRemove: this._headerDefClass,
+              classToAdd: this._headerOpenClass,
+            },
+            {
+              element: this._headerBar,
+              classToRemove: this._headerBarDefClass,
+            },
+            {
+              element: this._headerMenuButton,
+              classToRemove: this._headerMenuButtonDefClassA,
+              classToAdd: this._headerMenuButtonOpenClassA,
+            },
+            {
+              element: this._headerMenuButton,
+              classToRemove: this._headerMenuButtonDefClassB,
+              classToAdd: this._headerMenuButtonOpenClassB,
+            },
+            {
+              element: this._headerMenu,
+              classToRemove: this._headerMenuDefClass,
+              classToAdd: this._headerMenuOpenClass,
+            },
+          ], // this._menuOpenMap.classes
+        };
+        this._menuCloseMap = {
+          handlers: {
+            set: [
+              {
+                domElement: this._headerMenuButton,
+                event: 'click',
+                handler: this._openMenu,
+              },
+            ], // this._menuCloseMap.handlers.set
+            remove: [
+              {
+                domElement: this._headerMenuButton,
+                event: 'click',
+                handler: this._closeMenu,
+              },
+            ], // this._menuCloseMap.handlers.remove
+          },
+          classes: [
+            {
+              element: this._header,
+              classToRemove: this._headerOpenClass,
+              classToAdd: this._headerDefClass,
+            },
+            {
+              element: this._headerBar,
+              classToAdd: this._headerBarDefClass,
+            },
+            {
+              element: this._headerMenuButton,
+              classToRemove: this._headerMenuButtonOpenClassA,
+              classToAdd: this._headerMenuButtonDefClassA,
+            },
+            {
+              element: this._headerMenuButton,
+              classToRemove: this._headerMenuButtonOpenClassB,
+              classToAdd: this._headerMenuButtonDefClassB,
+            },
+            {
+              element: this._headerMenu,
+              classToRemove: this._headerMenuOpenClass,
+              classToAdd: this._headerMenuDefClass,
+            },
+          ], // this._menuOpenMap.classes
+        };
+        break;
+      default:
+    }
+  }
+
   _openMenu() {
-    BaseComponent.removeHandlers([
-      {
-        domElement: this._headerMenuButton,
-        event: 'click',
-        handler: this._openMenu,
-      },
-    ]);
-
-    BaseComponent.setHandlers([
-      {
-        domElement: this._headerMenuButton,
-        event: 'click',
-        handler: this._closeMenu,
-      },
-    ]);
-
-    this._elemClassMap = [].concat(
-      {
-        element: this._header,
-        // classToRemove: ,
-        classToAdd: this._headerOpenClass,
-      },
-      {
-        element: this._headerMenuButton,
-        classToRemove: this._headerMenuButtonDefClass,
-        classToAdd: this._headerMenuButtonOpenClass,
-      },
-      {
-        element: this._headerMenu,
-        classToRemove: this._headerMenuDefClass,
-        classToAdd: this._headerMenuOpenClass,
-      },
-    );
+    BaseComponent.removeHandlers(this._menuOpenMap.handlers.remove);
+    BaseComponent.setHandlers(this._menuOpenMap.handlers.set);
+    this._elemClassMap = [].concat(this._menuOpenMap.classes);
     this._configureClassesOnElem();
   }
 
   _closeMenu() {
-    BaseComponent.removeHandlers([
-      {
-        domElement: this._headerMenuButton,
-        event: 'click',
-        handler: this._closeMenu,
-      },
-    ]);
-
-    BaseComponent.setHandlers([
-      {
-        domElement: this._headerMenuButton,
-        event: 'click',
-        handler: this._openMenu,
-      },
-    ]);
-
-    this._elemClassMap = [].concat(
-      {
-        element: this._header,
-        classToRemove: this._headerOpenClass,
-        // classToAdd: ,
-      },
-      {
-        element: this._headerMenuButton,
-        classToRemove: this._headerMenuButtonOpenClass,
-        classToAdd: this._headerMenuButtonDefClass,
-      },
-      {
-        element: this._headerMenu,
-        classToRemove: this._headerMenuOpenClass,
-        classToAdd: this._headerMenuDefClass,
-      },
-      // {
-      //   element: ,
-      //   classToRemove:,
-      //   classToAdd:,
-      // },
-    );
+    BaseComponent.removeHandlers(this._menuCloseMap.handlers.remove);
+    BaseComponent.setHandlers(this._menuCloseMap.handlers.set);
+    this._elemClassMap = [].concat(this._menuCloseMap.classes);
     this._configureClassesOnElem();
   }
 
   render() {
-    BaseComponent.setHandlers([
-      // {
-      //   domElement: this._authButton,
-      //   event: 'click',
-      //   handler: this._popup.open,
-      // },
-      // {
-      //   domElement: this._logoutButton,
-      //   event: 'click',
-      //   handler: this._accessControl.signout,
-      // },
-      // {
-      //   domElement: this._headerMenuButton,
-      //   event: 'click',
-      //   handler: this._openMenu,
-      // },
-    ]);
+    this._setElemClassMap();
+    BaseComponent.setHandlers(this._baseHandlerSettingMap);
   }
 }
 

@@ -1,4 +1,8 @@
 const rootNode = document.querySelector('.root');
+const pageNames = {
+  index: 'index',
+  savedNews: 'savedNews',
+};
 const header = rootNode.querySelector('.header');
 const authButton = header.querySelector('.menu__auth-button-login');
 const logoutButton = header.querySelector('.menu__auth-button-logout');
@@ -285,6 +289,7 @@ const messageConfig = {
 module.exports = {
   pageConfig: {
     rootNode,
+    pageNames,
     header,
     authButton,
     logoutButton,
