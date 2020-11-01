@@ -40,6 +40,7 @@ import {
   /* КОЛБЕКИ */
   function createArticleOnMainPage(content, keyword) {
     return new Article({
+      markup: articleBlockConf.articleBlockProper.article.markup.forMainPage,
       articleBlockConf,
       createNode,
       content,

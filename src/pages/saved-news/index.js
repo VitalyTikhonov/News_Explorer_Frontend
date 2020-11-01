@@ -25,8 +25,9 @@ import {
 
 (function site() {
   /* КОЛБЕКИ */
-  function createArticleOnMainPage(content, keyword) {
+  function createArticleForNonAuth(content, keyword) {
     return new Article({
+      markup: articleBlockConf.articleBlockProper.article.markup.forSavedNewsPage,
       articleBlockConf,
       createNode,
       content,
@@ -35,6 +36,17 @@ import {
       // eslint-disable-next-line no-use-before-define
       popup,
       keyword,
+    });
+  }
+
+  function createArticleBlockObj() {
+    return new ArticleBlock({
+      articleBlockConf,
+      createNode,
+      createArticle: createArticleForNonAuth,
+      pageConfig,
+      // eslint-disable-next-line no-use-before-define
+      accessControl,
     });
   }
   /* ЭКЗЕМПЛЯРЫ КЛАССОВ */
@@ -50,6 +62,7 @@ import {
     authorizedSelector: pageConfig.accessMarkers.authorizedSelector,
     removalClassName: pageConfig.accessMarkers.removalClassName,
     articleBlockConf,
+    createArticleBlockObj,
   });
 
   const popup = new Popup({
@@ -61,14 +74,6 @@ import {
     signupFormNameAttr: signupFormConfig.nameAttr,
     loginFormNameAttr: loginFormConfig.nameAttr,
     messageConfig,
-  });
-
-  const articleBlock = new ArticleBlock({
-    articleBlockConf,
-    createNode,
-    createArticle: createArticleOnMainPage,
-    pageConfig,
-    accessControl,
   });
 
   const headerObj = new Header({

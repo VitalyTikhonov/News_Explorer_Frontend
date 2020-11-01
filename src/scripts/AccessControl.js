@@ -14,6 +14,7 @@ class AccessControl extends BaseComponent {
     authorizedSelector,
     removalClassName,
     articleBlockConf,
+    createArticleBlockObj,
   }) {
     super({ pageName, indexPageName, savedNewsPageName });
     this._api = api;
@@ -30,6 +31,7 @@ class AccessControl extends BaseComponent {
     this._ttipNonAuthMarkup = articleBlockConf.articleBlockProper.article.tooltip.nonAuthTextMarkup;
     this._ttipUnsavedMarkup = articleBlockConf.articleBlockProper.article.tooltip.unsavedTextMarkup;
     this._ttipSavedMarkup = articleBlockConf.articleBlockProper.article.tooltip.savedTextMarkup;
+    this._createArticleBlockObj = createArticleBlockObj;
     /* inner */
     this.isUserLoggedIn = false;
     this.signout = this.signout.bind(this);
@@ -121,11 +123,27 @@ class AccessControl extends BaseComponent {
     this._elemsForAuth = this._pageRootNode.querySelectorAll(this._authorizedSelector);
     this.checkUserStatus()
       .then(() => {
-        if (this.isUserLoggedIn && this._pageName === this._indexPageName) {
-          this._configurePage();
-        } else if (!this.isUserLoggedIn && this._pageName === this._savedNewsPageName) {
-          AccessControl.redirectToIndex();
+        switch (this._pageName) {
+          case this._indexPageName:
+            if (this.isUserLoggedIn) {
+              this._configurePage();
+            }
+            break;
+          case this._savedNewsPageName:
+            if (!this.isUserLoggedIn) {
+              AccessControl.redirectToIndex();
+            } else {
+              // this._configurePage();
+              this.this._createArticleBlockObj();
+            }
+            break;
+          default:
         }
+        // if (this.isUserLoggedIn && this._pageName === this._indexPageName) {
+        //   this._configurePage();
+        // } else if (!this.isUserLoggedIn && this._pageName === this._savedNewsPageName) {
+        //   AccessControl.redirectToIndex();
+        // }
       })
       .catch((err) => {
         const error = new Error();

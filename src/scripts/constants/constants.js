@@ -76,7 +76,7 @@ const articleBlockConf = {
         originUrl: '.card__link-wrap',
       },
       saveButton: {
-        selector: '.card__breadcrumb_save-button',
+        selector: '.card__control-button',
         unsavedClass: 'button__breadcrumb_icon-flag',
         savedClass: 'button__breadcrumb_icon-flag-marked',
       },
@@ -95,7 +95,7 @@ const articleBlockConf = {
         forMainPage: `
       <article class="card">
         <button type="button"
-          class="card__breadcrumb card__breadcrumb_save-button button__breadcrumb button__breadcrumb_icon button__breadcrumb_icon-flag"
+          class="card__breadcrumb card__control-button card__breadcrumb_save-button button__breadcrumb button__breadcrumb_icon button__breadcrumb_icon-flag"
           disabled></button>
         <button type="button"
           class="card__breadcrumb card__breadcrumb_tooltip visibility__removed button__breadcrumb button__breadcrumb_labelled button__breadcrumb_labelled-tooltip"></button>
@@ -119,7 +119,36 @@ const articleBlockConf = {
         </a>
       </article>
       `,
-        // forSavedNewsPage: ``,
+        forSavedNewsPage: `
+        <article class="card">
+          <button type="button"
+            class="card__breadcrumb card__breadcrumb_keyword-button button__breadcrumb
+            button__breadcrumb_labelled button__breadcrumb_labelled-keyword"></button>
+          <button type="button"
+            class="card__breadcrumb card__control-button card__breadcrumb_delete-button button__breadcrumb
+            button__breadcrumb_icon button__breadcrumb_icon-trashbin"></button>
+          <button type="button"
+            class="card__breadcrumb card__breadcrumb_tooltip visibility__removed button__breadcrumb
+            button__breadcrumb_labelled button__breadcrumb_labelled-tooltip"></button>
+          <a href="" class="card__link-wrap link" target="_blank" rel="noopener noreferrer">
+            <div class="card__cover">
+              <img onerror="this.onerror=null;this.src='./src/images/what.png';"
+              alt="Изображение – обложка карточки"
+                class="card__image">
+            </div>
+
+            <div class="card__body">
+              <p class="card__date"></p>
+
+              <h3 class="card__headline"></h3>
+
+              <p class="card__text"></p>
+
+              <p class="card__source-name"></p>
+            </div>
+          </a>
+        </article>
+        `,
       },
     },
   },

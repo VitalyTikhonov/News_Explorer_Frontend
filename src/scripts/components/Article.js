@@ -2,6 +2,7 @@ import BaseComponent from './BaseComponent';
 
 class Article extends BaseComponent {
   constructor({
+    markup,
     articleBlockConf,
     createNode,
     content,
@@ -11,7 +12,7 @@ class Article extends BaseComponent {
     // accessControl,
   }) {
     super({
-      markup: articleBlockConf.articleBlockProper.article.markup.forMainPage,
+      markup,
       createNode,
     });
     /* selectors */

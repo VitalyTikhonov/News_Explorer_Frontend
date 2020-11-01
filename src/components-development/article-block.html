@@ -10,17 +10,21 @@
 <!-- Кнопка в articleBlockInner -->
 <button type="button" class="article-block__button button__rounded button__rounded_white button_hover-on-black">Показать
   ещё</button>
-<!-- На ГЛАВНОЙ -->
+
+<!-- КАРТОЧКА На ГЛАВНОЙ ======================================================== -->
 <article class="card">
   <button type="button"
-    class="card__breadcrumb card__breadcrumb_save-button button__breadcrumb button__breadcrumb_icon button__breadcrumb_icon-flag"
+    class="card__breadcrumb card__control-button card__breadcrumb_save-button button__breadcrumb
+    button__breadcrumb_icon button__breadcrumb_icon-flag"
     disabled></button>
   <button type="button"
-    class="card__breadcrumb card__breadcrumb_tooltip visibility__removed button__breadcrumb button__breadcrumb_labelled button__breadcrumb_labelled-tooltip"></button>
+    class="card__breadcrumb card__breadcrumb_tooltip visibility__removed button__breadcrumb
+    button__breadcrumb_labelled button__breadcrumb_labelled-tooltip"></button>
   <a href="" class="card__link-wrap link" target="_blank" rel="noopener noreferrer">
     <div class="card__cover">
-      <img src="<%=require('./images/image_07.png')%>" alt="Изображение – обложка карточки" class="card__image">
-      <!-- заменить на дефолтную картинку -->
+      <img onerror="this.onerror=null;this.src='./src/images/what.png';"
+      alt="Изображение – обложка карточки"
+        class="card__image">
     </div>
 
     <div class="card__body">
@@ -35,18 +39,22 @@
   </a>
 </article>
 
-<!-- На ВТОРОЙ -->
+<!-- КАРТОЧКА На ВТОРОЙ ======================================================== -->
 <article class="card">
   <button type="button"
-    class="card__breadcrumb card__breadcrumb_keyword-button button__breadcrumb button__breadcrumb_labelled button__breadcrumb_labelled-keyword"></button>
+    class="card__breadcrumb card__breadcrumb_keyword-button button__breadcrumb
+    button__breadcrumb_labelled button__breadcrumb_labelled-keyword"></button>
   <button type="button"
-    class="card__breadcrumb card__breadcrumb_delete-button button__breadcrumb button__breadcrumb_icon button__breadcrumb_icon-trashbin"></button>
+    class="card__breadcrumb card__control-button card__breadcrumb_delete-button button__breadcrumb
+    button__breadcrumb_icon button__breadcrumb_icon-trashbin"></button>
   <button type="button"
-    class="card__breadcrumb card__breadcrumb_tooltip visibility__removed button__breadcrumb button__breadcrumb_labelled button__breadcrumb_labelled-tooltip"></button>
+    class="card__breadcrumb card__breadcrumb_tooltip visibility__removed button__breadcrumb
+    button__breadcrumb_labelled button__breadcrumb_labelled-tooltip"></button>
   <a href="" class="card__link-wrap link" target="_blank" rel="noopener noreferrer">
     <div class="card__cover">
-      <img src="<%=require('./images/image_07.png')%>" alt="Изображение – обложка карточки" class="card__image">
-      <!-- заменить на дефолтную картинку -->
+      <img onerror="this.onerror=null;this.src='./src/images/what.png';"
+      alt="Изображение – обложка карточки"
+        class="card__image">
     </div>
 
     <div class="card__body">
