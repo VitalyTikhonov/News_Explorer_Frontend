@@ -4,15 +4,15 @@ import BaseComponent from './BaseComponent';
 class Header extends BaseComponent {
   constructor({
     pageName,
+    indexPageName,
+    savedNewsPageName,
     accessControl,
     pageConfig,
     popup,
     headerMenuConfig,
   }) {
-    super({});
+    super({ pageName, indexPageName, savedNewsPageName });
     this._accessControl = accessControl;
-    this._indexPageName = pageConfig.pageNames.index;
-    this._savedNewsPageName = pageConfig.pageNames.savedNews;
     this._authButton = pageConfig.authButton;
     this._logoutButton = pageConfig.logoutButton;
     this._optionForAuthUsers = pageConfig.optionForAuthUsers;
@@ -20,7 +20,6 @@ class Header extends BaseComponent {
     this._nonAuthorizedSelector = pageConfig.accessMarkers.nonAuthorizedSelector;
     this._popup = popup;
     /* ----------- */
-    this._pageName = pageName;
     this._header = headerMenuConfig.elements.header;
     this._headerBar = headerMenuConfig.elements.headerBar;
     this._headerMenuButton = headerMenuConfig.elements.headerMenuButton;

@@ -54,6 +54,9 @@ import {
   const mainApi = new MainApi(API_URL, CONTENT_TYPE);
 
   const accessControl = new AccessControl({
+    pageName: pageConfig.pageNames.index,
+    indexPageName: pageConfig.pageNames.index,
+    savedNewsPageName: pageConfig.pageNames.savedNews,
     api: mainApi,
     pageRootNode: pageConfig.rootNode,
     nonAuthorizedSelector: pageConfig.accessMarkers.nonAuthorizedSelector,
@@ -127,6 +130,8 @@ import {
 
   const headerObj = new Header({
     pageName: pageConfig.pageNames.index,
+    indexPageName: pageConfig.pageNames.index,
+    savedNewsPageName: pageConfig.pageNames.savedNews,
     accessControl,
     pageConfig,
     popup,

@@ -1,5 +1,8 @@
 class BaseComponent {
   constructor({
+    pageName,
+    indexPageName,
+    savedNewsPageName,
     parent,
     innerContainerSelector,
     markup,
@@ -9,6 +12,9 @@ class BaseComponent {
     this._innerContainerSelector = innerContainerSelector;
     this._markup = markup;
     this._createNode = createNode;
+    this._pageName = pageName;
+    this._indexPageName = indexPageName;
+    this._savedNewsPageName = savedNewsPageName;
     /* inner */
     this._contents = null;
     this._component = null;

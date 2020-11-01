@@ -6,13 +6,16 @@ import BaseComponent from './components/BaseComponent';
 class AccessControl extends BaseComponent {
   constructor({
     api,
+    pageName,
+    indexPageName,
+    savedNewsPageName,
     pageRootNode,
     nonAuthorizedSelector,
     authorizedSelector,
     removalClassName,
     articleBlockConf,
   }) {
-    super({});
+    super({ pageName, indexPageName, savedNewsPageName });
     this._api = api;
     this._pageRootNode = pageRootNode;
     this._nonAuthorizedSelector = nonAuthorizedSelector;
@@ -109,13 +112,19 @@ class AccessControl extends BaseComponent {
     }
   }
 
+  static redirectToIndex() {
+    window.location.replace('./');
+  }
+
   configurePageOnLoad() {
     this._elemsForNonAuth = this._pageRootNode.querySelectorAll(this._nonAuthorizedSelector);
     this._elemsForAuth = this._pageRootNode.querySelectorAll(this._authorizedSelector);
     this.checkUserStatus()
       .then(() => {
-        if (this.isUserLoggedIn) {
+        if (this.isUserLoggedIn && this._pageName === this._indexPageName) {
           this._configurePage();
+        } else if (!this.isUserLoggedIn && this._pageName === this._savedNewsPageName) {
+          AccessControl.redirectToIndex();
         }
       })
       .catch((err) => {
@@ -145,7 +154,15 @@ class AccessControl extends BaseComponent {
       })
       .finally(() => {
         this.isUserLoggedIn = false;
-        this._configurePage(this.isUserLoggedIn);
+        switch (this._pageName) {
+          case this._indexPageName:
+            this._configurePage();
+            break;
+          case this._savedNewsPageName:
+            AccessControl.redirectToIndex();
+            break;
+          default:
+        }
       });
   }
 }
