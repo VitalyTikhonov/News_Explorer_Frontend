@@ -12,7 +12,8 @@ class AccessControl extends BaseComponent {
     pageConfig,
     articleBlockConf,
     createArticleBlockObj,
-    generateSigninEvent,
+    // generateSigninEvent,
+    savedNewsIntro,
   }) {
     super({ pageName, indexPageName, savedNewsPageName });
     this._api = api;
@@ -31,7 +32,8 @@ class AccessControl extends BaseComponent {
     this._ttipUnsavedMarkup = articleBlockConf.articleBlockProper.article.tooltip.unsavedTextMarkup;
     this._ttipSavedMarkup = articleBlockConf.articleBlockProper.article.tooltip.savedTextMarkup;
     this._createArticleBlockObj = createArticleBlockObj;
-    this._generateSigninEvent = generateSigninEvent;
+    this._savedNewsIntro = savedNewsIntro;
+    // this._generateSigninEvent = generateSigninEvent;
     /* inner */
     this.isUserLoggedIn = false;
     this.signout = this.signout.bind(this);
@@ -58,9 +60,9 @@ class AccessControl extends BaseComponent {
     return this.isUserLoggedIn;
   }
 
-  getUserName() {
-    return this.userName;
-  }
+  // getUserName() {
+  //   return this.userName;
+  // }
   // setButtonState(button) {
   //   if (this.isUserLoggedIn) {
   //     button.removeAttribute('disabled');
@@ -152,6 +154,7 @@ class AccessControl extends BaseComponent {
             } else {
               this._setLogoutButtonText();
               this._createArticleBlockObj().renderSavedArticles();
+              this._savedNewsIntro.setUserName(this.userName);
             }
             break;
           default:

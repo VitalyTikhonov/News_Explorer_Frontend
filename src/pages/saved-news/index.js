@@ -57,10 +57,14 @@ import {
       accessControl,
       // eslint-disable-next-line no-use-before-define
       popup,
+      // eslint-disable-next-line no-use-before-define
+      savedNewsIntro,
     });
   }
   /* ЭКЗЕМПЛЯРЫ КЛАССОВ */
   const mainApi = new MainApi(API_URL, CONTENT_TYPE);
+
+  const savedNewsIntro = new SavedNewsIntro({ pageConfig, savedNewsIntroConfig });
 
   const accessControl = new AccessControl({
     pageName: pageConfig.pageNames.savedNews,
@@ -70,6 +74,8 @@ import {
     pageConfig,
     articleBlockConf,
     createArticleBlockObj,
+    // eslint-disable-next-line no-use-before-define
+    savedNewsIntro,
   });
 
   const popup = new Popup({
@@ -90,8 +96,6 @@ import {
     popup,
     headerMenuConfig,
   });
-
-  const savedNewsIntro = new SavedNewsIntro({ savedNewsIntroConfig, accessControl });
 
   /* ВЫЗОВЫ ФУНКЦИЙ */
   accessControl.configurePageOnLoad();

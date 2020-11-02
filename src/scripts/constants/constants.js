@@ -327,6 +327,7 @@ const messageConfig = {
   },
 };
 const savedNewsIntroConfig = {
+  node: rootNode.querySelector('.saved-news-intro'),
   subHeadlineNode: rootNode.querySelector('.saved-news-intro__sub-headline'),
   details: {
     // node: rootNode.querySelector('.saved-news-intro__details'),

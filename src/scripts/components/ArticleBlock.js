@@ -9,9 +9,10 @@ class ArticleBlock extends BaseComponent {
     articleBlockConf,
     createNode,
     createArticle,
-    pageConfig,
+    // pageConfig,
     accessControl,
     popup,
+    savedNewsIntro,
   }) {
     super({
       innerContainerSelector: articleBlockConf.innerContainerSelector,
@@ -25,6 +26,7 @@ class ArticleBlock extends BaseComponent {
     this._markup = articleBlockConf.articleBlockProper.markup[this._pageName];
     this._cardContainerSel = articleBlockConf.articleBlockProper.innerContainerSelector;
     this._popup = popup;
+    this._savedNewsIntro = savedNewsIntro;
     // this._innerContainer = articleBlockConf.selector;
     /* ----------- */
     this._preloaderMarkup = articleBlockConf.preloader.markup;
@@ -50,7 +52,7 @@ class ArticleBlock extends BaseComponent {
     // this._ttipSavedMarkup = articleBlockConf.articleBlockProper.article.tooltip.savedTextMarkup;
     /* ----------- */
     this._createArticle = createArticle;
-    this._removalClassName = pageConfig.accessMarkers.removalClassName;
+    // this._removalClassName = pageConfig.accessMarkers.removalClassName;
     this._getUserStatus = accessControl.getUserStatus;
     this._renderPortionOfArticles = this._renderPortionOfArticles.bind(this);
   }
@@ -144,6 +146,8 @@ class ArticleBlock extends BaseComponent {
     this._api.getArticles()
       .then((res) => {
         // console.log('res\n', res);
+        // console.log('isArray', Array.isArray(res));
+        this._savedNewsIntro.setArticleArray(res);
         this.renderArticles(res);
       })
       .catch((err) => {
@@ -156,10 +160,12 @@ class ArticleBlock extends BaseComponent {
         }
         this.clearAllSection();
         this._popup.createErrorMessage(err.message);
+      })
+      .finally(() => {
+        // console.log('res\n', res);
+        // this.toggleButtonText(true);
+        this._savedNewsIntro.render();
       });
-    // .finally(() => {
-    // this.toggleButtonText(true);
-    // });
   }
 
   getArticleArray() {
