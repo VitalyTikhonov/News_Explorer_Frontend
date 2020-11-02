@@ -1,3 +1,6 @@
+import '../../images/what.png';
+import '../../images/nonewsicon.png';
+
 const rootNode = document.querySelector('.root');
 const pageNames = {
   index: 'index',
@@ -102,7 +105,7 @@ const articleBlockConf = {
         unsavedTextMarkup: '<span class="card__tooltip-text">Сохранить</span>',
         savedTextMarkup: '<span class="card__tooltip-text">Удалить</span>',
       },
-      defaultImageAddress: './src/images/what.png',
+      defaultImageAddress: './images/what.png',
       markup: {
         forMainPage: `
       <article class="card">
@@ -114,7 +117,7 @@ const articleBlockConf = {
         <a href="" class="card__link-wrap link" target="_blank" rel="noopener noreferrer">
           <div class="card__cover">
             <img
-                onerror="this.onerror=null;this.src='./src/images/what.png';"
+                onerror="this.onerror=null;this.src='./images/what.png';"
                 alt="Изображение – обложка карточки"
                 class="card__image">
           </div>
@@ -144,7 +147,7 @@ const articleBlockConf = {
             button__breadcrumb_labelled button__breadcrumb_labelled-tooltip"></button>
           <a href="" class="card__link-wrap link" target="_blank" rel="noopener noreferrer">
             <div class="card__cover">
-              <img onerror="this.onerror=null;this.src='./src/images/what.png';"
+              <img onerror="this.onerror=null;this.src='./images/what.png';"
               alt="Изображение – обложка карточки"
                 class="card__image">
             </div>
@@ -179,7 +182,7 @@ const articleBlockConf = {
   noNewsBumper: {
     markup: `
     <div class="article-block__bumper">
-      <img src="./src/images/no-news-icon.png" alt="Значок &laquo;Ничего не найдено&raquo;"
+      <img src="./images/nonewsicon.png" alt="Значок &laquo;Ничего не найдено&raquo;"
         class="article-block__bumper-no-news-icon">
       <h3 class="article-block__bumper-title"></h3>
 

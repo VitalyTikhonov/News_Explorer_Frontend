@@ -11,8 +11,8 @@ const isDev = process.env.NODE_ENV === 'development';
 
 module.exports = {
   entry: {
-    index: './src/index.js',
-    'saved-news': './src/saved-news/index.js',
+    index: './src/pages/index/index.js',
+    'saved-news': './src/pages/saved-news/index.js',
   },
   output: {
     path: path.resolve(__dirname, 'dist'),
@@ -100,7 +100,7 @@ module.exports = {
     }),
     new HtmlWebpackPlugin({
       filename: 'saved-news/index.html',
-      template: './src/saved-news/index.html',
+      template: './src/saved-news.html',
       chunks: ['saved-news'],
     }),
     new MiniCssExtractPlugin({
