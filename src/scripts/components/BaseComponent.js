@@ -53,22 +53,6 @@ class BaseComponent {
     button.removeAttribute('disabled');
   }
 
-  // static disableButton(button) {
-  //   button.setAttribute('disabled', 'disabled');
-  // }
-
-  // static enableMultipleButtons(buttonArray) {
-  //   buttonArray.forEach((button) => {
-  //     this.enableButton(button);
-  //   });
-  // }
-
-  // static disableMultipleButtons(buttonArray) {
-  //   buttonArray.forEach((button) => {
-  //     this.disableButton(button);
-  //   });
-  // }
-
   // BaseComponent.insertChild(container, child);
   static insertChild(container, child) {
     container.appendChild(child);

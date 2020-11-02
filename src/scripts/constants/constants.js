@@ -332,8 +332,9 @@ const savedNewsIntroConfig = {
   details: {
     // node: rootNode.querySelector('.saved-news-intro__details'),
     selector: '.saved-news-intro__details',
-    frameMarkup: '<p class="saved-news-intro__details"></p>',
-    emphasisMarkup: '<b class="emphasized-text"></b>',
+    makeDetailsFrameMarkup: (phrase) => `<p class="saved-news-intro__details">${phrase}</p>`,
+    makeKeywordMarkup: (word) => `<b class="emphasized-text">${word}</b>`,
+    // emphasisMarkup: '<b class="emphasized-text"></b>',
     // markup: `<p class="saved-news-intro__details">
     // По ключевым словам: <b class="emphasized-text">Природа</b>, <b
     //     class="emphasized-text">Тайга</b> и <b class="emphasized-text">2-м другим</b></p>
