@@ -162,6 +162,10 @@ class ArticleBlock extends BaseComponent {
     // });
   }
 
+  getArticleArray() {
+    return this._articleArray;
+  }
+
   renderArticles(articleData) {
     // console.log('articleData', articleData);
     this.clearAllSection();

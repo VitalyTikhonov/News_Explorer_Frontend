@@ -21,6 +21,7 @@ import {
   messageConfig,
   articleBlockConf,
   headerMenuConfig,
+  savedNewsIntroConfig,
 } from '../../scripts/constants/constants';
 
 (function site() {
@@ -90,7 +91,7 @@ import {
     headerMenuConfig,
   });
 
-  // const savedNewsIntro = new SavedNewsIntro({});
+  const savedNewsIntro = new SavedNewsIntro({ savedNewsIntroConfig, accessControl });
 
   /* ВЫЗОВЫ ФУНКЦИЙ */
   accessControl.configurePageOnLoad();

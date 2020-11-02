@@ -325,19 +325,26 @@ const messageConfig = {
     </div>
     `, // messageConfig.error.markup
   },
-  // signupSuccess:
-  // {
-  //   markup: `
-  //     <div class="popup__content">
-  //       <p class="popup__message"></p>
-
-  //       <p class="popup__prompt"><span class="popup__prompt-link">Войти</span></p>
-  //     </div>
-  //   `, // messageConfig.signupSuccess.markup
-  //   text: 'Пользователь успешно зарегистрирован!', // messageConfig.signupSuccess.text
-  // },
 };
-
+const savedNewsIntroConfig = {
+  subHeadlineNode: rootNode.querySelector('.saved-news-intro__sub-headline'),
+  details: {
+    // node: rootNode.querySelector('.saved-news-intro__details'),
+    selector: '.saved-news-intro__details',
+    frameMarkup: '<p class="saved-news-intro__details"></p>',
+    emphasisMarkup: '<b class="emphasized-text"></b>',
+    // markup: `<p class="saved-news-intro__details">
+    // По ключевым словам: <b class="emphasized-text">Природа</b>, <b
+    //     class="emphasized-text">Тайга</b> и <b class="emphasized-text">2-м другим</b></p>
+    //     `,
+  },
+  // getDetails: function(keywordNumber, firstCouple) {
+  //   `<p class="saved-news-intro__details">
+  // По ключевым словам: <b class="emphasized-text">Природа</b>, <b
+  //     class="emphasized-text">Тайга</b> и <b class="emphasized-text">2-м другим</b></p>
+  //     `;
+  //   },
+};
 const pageConfig = {
   rootNode,
   pageNames,
@@ -357,4 +364,5 @@ export {
   messageConfig,
   articleBlockConf,
   headerMenuConfig,
+  savedNewsIntroConfig,
 };
