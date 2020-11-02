@@ -39,6 +39,8 @@ import {
       mainApi,
       // eslint-disable-next-line no-use-before-define
       popup,
+      // eslint-disable-next-line no-use-before-define
+      savedNewsIntro,
     });
   }
 

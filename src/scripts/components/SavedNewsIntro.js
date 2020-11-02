@@ -25,6 +25,25 @@ class SavedNewsIntro extends BaseComponent {
     // console.log('this._articleArray\n', this._articleArray);
   }
 
+  updateOnArticleDeletion(keyword) {
+    this._subHeadlineNode.textContent = '';
+    this._detailsFrame.remove();
+    this._articleNumber -= 1;
+    console.log('keyword', keyword);
+    console.log('this._keywordArray', this._keywordArray);
+    if (this._articleNumber > 0) {
+      const keywordIndex = this._keywordArray.indexOf(keyword);
+      console.log('this._keywordArray[keywordIndex]', this._keywordArray[keywordIndex]);
+      if (keywordIndex > 0) {
+        this._keywordArray.splice(keywordIndex, 1);
+      }
+      this._setSubHeadline();
+      this._makeKeywordSummary();
+    } else {
+      this._node.classList.add(this._controlClassName);
+    }
+  }
+
   _selectAccusativeCase() {
     const caseForms = {
       one: 'сохраненная статья', // …1
@@ -52,9 +71,9 @@ class SavedNewsIntro extends BaseComponent {
     // }
   }
 
-  _setPhrase() {
+  _setSubHeadline() {
     this._numberOfArticlesPhrase = `${this._userName}, у Вас ${this._selectAccusativeCase()}`;
-    return this._numberOfArticlesPhrase;
+    this._subHeadlineNode.textContent = this._numberOfArticlesPhrase;
   }
 
   _getKeyWordStats() {
@@ -83,16 +102,25 @@ class SavedNewsIntro extends BaseComponent {
       case 2: this._keywordSummary = `По ключевым словам: ${this._makeKeywordMarkup(this._sortedKeywords[0])}
           и ${this._makeKeywordMarkup(this._sortedKeywords[1])}`;
         break;
+      case 3: this._keywordSummary = ''.concat(
+        'По ключевым словам: ',
+        this._makeKeywordMarkup(this._sortedKeywords[0]),
+        ', ',
+        this._makeKeywordMarkup(this._sortedKeywords[1]),
+        ' и ещё одному',
+      );
+        break;
       default: this._keywordSummary = ''.concat(
         'По ключевым словам: ',
         this._makeKeywordMarkup(this._sortedKeywords[0]),
         ', ',
         this._makeKeywordMarkup(this._sortedKeywords[1]),
-        this._uniqueKeywordNumber === 3 ? ' и ещё одному' : ` и ${this._uniqueKeywordNumber - 3} другим`,
+        ` и ${this._uniqueKeywordNumber - 3} другим`,
       );
     }
     this._detailsFrameMarkup = this._makeDetailsFrameMarkup(this._keywordSummary);
     this._detailsFrame = BaseComponent.create(this._detailsFrameMarkup);
+    BaseComponent.insertChild(this._node, this._detailsFrame);
   }
 
   render() {
@@ -100,13 +128,9 @@ class SavedNewsIntro extends BaseComponent {
     if (this._articleArray) {
       this._articleNumber = this._articleArray.length;
       this._node.classList.remove(this._controlClassName);
-      this._subHeadlineNode.textContent = this._setPhrase();
       this._keywordArray = this._articleArray.map((article) => article.keyword);
-      // this._uniqueKeywordArray = [...new Set(this._keywordArray)];
-      // console.log('this._keywordArray', this._keywordArray);
-      // console.log('_getKeyWordStats', this._getKeyWordStats());
+      this._setSubHeadline();
       this._makeKeywordSummary();
-      BaseComponent.insertChild(this._node, this._detailsFrame);
     }
   }
 }

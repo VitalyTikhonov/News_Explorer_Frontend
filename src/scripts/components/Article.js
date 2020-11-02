@@ -12,6 +12,7 @@ class Article extends BaseComponent {
     mainApi,
     popup,
     keyword,
+    savedNewsIntro,
     // accessControl,
   }) {
     super({
@@ -32,6 +33,7 @@ class Article extends BaseComponent {
     this._saveButtonSelector = articleBlockConf.articleBlockProper.article.saveButton.selector;
     this._unsavedButtonClass = articleBlockConf.articleBlockProper.article.saveButton.unsavedClass;
     this._savedButtonClass = articleBlockConf.articleBlockProper.article.saveButton.savedClass;
+    this._savedNewsIntro = savedNewsIntro;
     /* ----------- */
     this._cardTooltipSel = articleBlockConf.articleBlockProper.article.tooltip.selector;
     // this._ttipTextSel = articleBlockConf.articleBlockProper.article.tooltip.textSelector;
@@ -98,7 +100,7 @@ class Article extends BaseComponent {
 
   _delete() {
     this._mainApi.deleteArticle(this._id)
-      .then(() => {
+      .then((res) => {
         BaseComponent.removeHandlers(this._deleteButtonHandlerMap);
         switch (this._pageName) {
           case this._indexPageName:
@@ -115,6 +117,7 @@ class Article extends BaseComponent {
             break;
           case this._savedNewsPageName:
             this._component.remove();
+            this._savedNewsIntro.updateOnArticleDeletion(res.keyword);
             break;
           default:
         }
