@@ -335,16 +335,17 @@ const messageConfig = {
   // },
 };
 
-module.exports = {
-  pageConfig: {
-    rootNode,
-    pageNames,
-    header,
-    authButton,
-    logoutButton,
-    logoutButtonProperArray,
-    accessMarkers,
-  },
+const pageConfig = {
+  rootNode,
+  pageNames,
+  header,
+  authButton,
+  logoutButton,
+  logoutButtonProperArray,
+  accessMarkers,
+};
+export {
+  pageConfig,
   popupShellConfig,
   genFormConfig,
   signupFormConfig,

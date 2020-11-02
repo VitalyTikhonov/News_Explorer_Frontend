@@ -98,7 +98,7 @@ class DialogForm extends BaseComponent {
     // this.toggleButtonText(false);
     this._requestApi()
       .catch((err) => {
-        // console.log(err.message);
+        console.log(err);
         this._generalErrorMessage.textContent = err.message;
       })
       .finally(() => {

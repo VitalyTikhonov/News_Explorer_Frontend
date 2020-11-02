@@ -3,24 +3,25 @@ import './index.css';
 import {
   API_URL,
   CONTENT_TYPE,
-} from '../../configs/config';
-import AccessControl from '../../scripts/AccessControl';
-import MainApi from '../../scripts/api/MainApi';
-import Header from '../../scripts/components/Header';
-import Popup from '../../scripts/components/Popup';
-import ArticleBlock from '../../scripts/components/ArticleBlock';
-import Article from '../../scripts/components/Article';
-import SavedNewsIntro from '../../scripts/components/SavedNewsIntro';
+} from '../configs/config';
+import AccessControl from '../scripts/AccessControl';
+import MainApi from '../scripts/api/MainApi';
+import Header from '../scripts/components/Header';
+import Popup from '../scripts/components/Popup';
+import ArticleBlock from '../scripts/components/ArticleBlock';
+import Article from '../scripts/components/Article';
+// eslint-disable-next-line no-unused-vars
+import SavedNewsIntro from '../scripts/components/SavedNewsIntro';
 import {
   createNode,
-} from '../../scripts/utils/utils';
+} from '../scripts/utils/utils';
 import {
   pageConfig,
   popupShellConfig,
   messageConfig,
   articleBlockConf,
   headerMenuConfig,
-} from '../../scripts/constants/constants';
+} from '../scripts/constants/constants';
 
 (function site() {
   /* КОЛБЕКИ */
@@ -89,7 +90,7 @@ import {
     headerMenuConfig,
   });
 
-  const savedNewsIntro = new SavedNewsIntro({});
+  // const savedNewsIntro = new SavedNewsIntro({});
 
   /* ВЫЗОВЫ ФУНКЦИЙ */
   accessControl.configurePageOnLoad();

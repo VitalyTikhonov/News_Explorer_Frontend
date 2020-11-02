@@ -129,7 +129,7 @@ class AccessControl extends BaseComponent {
   }
 
   static redirectToIndex() {
-    window.location.replace('./');
+    window.location.replace('../');
   }
 
   configurePageOnLoad() {

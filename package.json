@@ -7,7 +7,7 @@
     "build": "rimraf dist && cross-env NODE_ENV=production webpack --mode production",
     "dev": "cross-env NODE_ENV=development webpack-dev-server --mode development --open --watch",
     "deploy-gh": "cross-env NODE_ENV=production gh-pages -d dist",
-    "deploy-s": "cross-env NODE_ENV=production npm run build && scp -r ./dist/* mesto-lg@130.193.56.51:/home/mesto-lg/Frontend/webdev/projects/mesto"
+    "deploy-s": "cross-env NODE_ENV=production npm run build && scp -r ./dist/* mesto-lg@130.193.57.121:/home/mesto-lg/Frontend/webdev/projects/news_explorer"
   },
   "repository": {
     "type": "git",

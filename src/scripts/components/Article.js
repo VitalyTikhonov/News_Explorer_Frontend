@@ -45,14 +45,15 @@ class Article extends BaseComponent {
     this._keywordData = keyword || content.keyword; // ?----------------------
     this._id = content._id;
     this._titleData = content.title;
-    this._descData = content.description;
-    this._dateData = content.publishedAt;
-    this._sourceData = content.source.name;
-    this._originUrlData = content.url;
+    this._descData = content.description || content.text;
+    this._dateData = content.publishedAt || content.date;
+    this._sourceData = content.source.name || content.source;
+    this._originUrlData = content.url || content.link;
     this._imageData = content.urlToImage !== null ? content.urlToImage : this._defaultImageAddress;
     /* other */
     this._mainApi = mainApi;
     this._popup = popup;
+    this.render = this.render.bind(this);
     this._save = this._save.bind(this);
     this._delete = this._delete.bind(this);
   }
@@ -96,8 +97,6 @@ class Article extends BaseComponent {
   }
 
   _delete() {
-    console.log('this', this);
-    console.log('this._id', this._id);
     this._mainApi.deleteArticle(this._id)
       .then(() => {
         BaseComponent.removeHandlers(this._deleteButtonHandlerMap);
@@ -126,10 +125,6 @@ class Article extends BaseComponent {
   }
 
   render() {
-    // console.log('this._titleData', this._titleData);
-    // console.log('this._dateData', this._dateData);
-    // console.log('this._descData', this._descData);
-    // console.log('this._imageData', this._imageData);
     this._create();
     this._titleElem = this._component.querySelector(this._titleSelector);
     this._dateElem = this._component.querySelector(this._dateSelector);
