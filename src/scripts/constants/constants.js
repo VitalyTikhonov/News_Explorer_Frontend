@@ -181,7 +181,7 @@ const articleBlockConf = {
   noNewsBumper: {
     markup: `
     <div class="article-block__bumper">
-      <img src="./images/nonewsicon.png" alt="Значок &laquo;Ничего не найдено&raquo;"
+      <img src="../images/nonewsicon.png" alt="Значок &laquo;Ничего не найдено&raquo;"
         class="article-block__bumper-no-news-icon">
       <h3 class="article-block__bumper-title"></h3>
 
