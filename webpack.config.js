@@ -33,9 +33,12 @@ module.exports = {
       {
         test: /\.css$/,
         use: [
-          (isDev ? 'style-loader' : {
-            loader: MiniCssExtractPlugin.loader, options: { publicPath: '../' },
-          }),
+          (isDev
+            ? 'style-loader'
+            : {
+              loader: MiniCssExtractPlugin.loader,
+              options: { publicPath: '../' },
+            }),
           {
             loader: 'css-loader',
             options: {
@@ -60,7 +63,7 @@ module.exports = {
           {
             loader: 'file-loader',
             options: {
-              name: 'images/[name].[ext]',
+              name: './images/[name].[ext]',
               esModule: false,
             },
           },
@@ -94,13 +97,13 @@ module.exports = {
   },
   plugins: [
     new HtmlWebpackPlugin({
-      filename: 'index.html',
       template: './src/index.html',
+      filename: 'index.html',
       chunks: ['index'],
     }),
     new HtmlWebpackPlugin({
-      filename: 'saved-news/index.html',
       template: './src/saved-news.html',
+      filename: 'saved-news/index.html',
       chunks: ['saved-news'],
     }),
     new MiniCssExtractPlugin({
@@ -116,7 +119,7 @@ module.exports = {
     }),
     new WebpackMd5Hash(),
     new webpack.DefinePlugin({
-      'NODE_ENV': JSON.stringify(process.env.NODE_ENV),
+      NODE_ENV: JSON.stringify(process.env.NODE_ENV),
     }),
   ],
 };
