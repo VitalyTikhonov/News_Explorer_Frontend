@@ -3,18 +3,18 @@ import './index.css';
 import {
   API_URL,
   CONTENT_TYPE,
-} from '../../configs/config';
-import AccessControl from '../../scripts/AccessControl';
-import MainApi from '../../scripts/api/MainApi';
-import Header from '../../scripts/components/Header';
-import Popup from '../../scripts/components/Popup';
-import ArticleBlock from '../../scripts/components/ArticleBlock';
-import Article from '../../scripts/components/Article';
+} from '../configs/config';
+import AccessControl from '../scripts/AccessControl';
+import MainApi from '../scripts/api/MainApi';
+import Header from '../scripts/components/Header';
+import Popup from '../scripts/components/Popup';
+import ArticleBlock from '../scripts/components/ArticleBlock';
+import Article from '../scripts/components/Article';
 // eslint-disable-next-line no-unused-vars
-import SavedNewsIntro from '../../scripts/components/SavedNewsIntro';
+import SavedNewsIntro from '../scripts/components/SavedNewsIntro';
 import {
   createNode,
-} from '../../scripts/utils/utils';
+} from '../scripts/utils/utils';
 import {
   pageConfig,
   popupShellConfig,
@@ -22,7 +22,7 @@ import {
   articleBlockConf,
   headerMenuConfig,
   savedNewsIntroConfig,
-} from '../../scripts/constants/constants';
+} from '../scripts/constants/constants';
 
 (function site() {
   /* КОЛБЕКИ */

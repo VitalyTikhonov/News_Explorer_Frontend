@@ -5,7 +5,7 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <meta http-equiv="X-UA-Compatible" content="ie=edge">
-  <link rel="icon" href="<%=require('./images/N.png')%>" type="image/ico">
+  <link rel="icon" href="../<%=require('../images/N.png')%>" type="image/ico">
   <meta name="description"
     content="Сервис для поиска и сохранения новостных статей // A website where you can searh for and store news">
   <meta name="author" content="Виталий Тихонов // Vitaliy Tikhonov">
@@ -27,10 +27,10 @@
 
         <div class="menu__options">
           <ul class="menu__text-options header__menu-options list">
-            <li class="menu__text-path menu__text-path_header"><a href="./" class="link">Главная</a></li>
+            <li class="menu__text-path menu__text-path_header"><a href="../" class="link">Главная</a></li>
 
             <li class="menu__text-path menu__text-path_header menu___text-path_current-black-on-white"><a
-                href="./saved-news" class="link">Сохранённые статьи</a>
+                href="./" class="link">Сохранённые статьи</a>
             </li>
           </ul>
 
@@ -63,7 +63,7 @@
 
         <ul class="menu__text-options footer__menu-options list">
           <li class="menu__text-path menu__text-path_footer">
-            <a href="./" class="link">Главная</a>
+            <a href="../" class="link">Главная</a>
           </li>
 
           <li class="menu__text-path menu__text-path_footer">
@@ -75,13 +75,13 @@
         <ul class="menu__icon-options list">
           <li class="menu__icon-path">
             <a target="_blank" rel="noopener noreferrer" href="https://github.com/VitalyTikhonov" class="link">
-              <img src="<%=require('./images/github.png')%>" alt="Ссылка на GitHub" class="menu__icon">
+              <img src="../<%=require('../images/github.png')%>" alt="Ссылка на GitHub" class="menu__icon">
             </a>
           </li>
 
           <li class="menu__icon-path">
             <a target="_blank" rel="noopener noreferrer" href="https://t.me/VitalSense" class="link">
-              <img src="<%=require('./images/telegram-small.png')%>" alt="Ссылка на Telegram" class="menu__icon">
+              <img src="../<%=require('../images/telegram-small.png')%>" alt="Ссылка на Telegram" class="menu__icon">
             </a>
           </li>
         </ul>

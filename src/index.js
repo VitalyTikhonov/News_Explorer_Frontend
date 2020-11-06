@@ -7,16 +7,16 @@ import {
   NEWSAPI_BASE_PATH,
   NEWSAPI_PERIOD,
   NEWSAPI_PAGE_SIZE,
-} from '../../configs/config';
-import AccessControl from '../../scripts/AccessControl';
-import MainApi from '../../scripts/api/MainApi';
-import NewsApi from '../../scripts/api/NewsApi';
-import Header from '../../scripts/components/Header';
-import Popup from '../../scripts/components/Popup';
-import DialogForm from '../../scripts/components/DialogForm';
-import NewsSearchForm from '../../scripts/components/NewsSearchForm';
-import ArticleBlock from '../../scripts/components/ArticleBlock';
-import Article from '../../scripts/components/Article';
+} from './configs/config';
+import AccessControl from './scripts/AccessControl';
+import MainApi from './scripts/api/MainApi';
+import NewsApi from './scripts/api/NewsApi';
+import Header from './scripts/components/Header';
+import Popup from './scripts/components/Popup';
+import DialogForm from './scripts/components/DialogForm';
+import NewsSearchForm from './scripts/components/NewsSearchForm';
+import ArticleBlock from './scripts/components/ArticleBlock';
+import Article from './scripts/components/Article';
 import {
   createNode,
   formatDate,
@@ -24,7 +24,7 @@ import {
   // removeClassFromElems,
   // addClassToElems,
   generateSigninEvent,
-} from '../../scripts/utils/utils';
+} from './scripts/utils/utils';
 import {
   pageConfig,
   popupShellConfig,
@@ -35,7 +35,7 @@ import {
   messageConfig,
   articleBlockConf,
   headerMenuConfig,
-} from '../../scripts/constants/constants';
+} from './scripts/constants/constants';
 
 (function site() {
   /* КОЛБЕКИ */

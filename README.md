@@ -15,7 +15,7 @@
 <!-- tocstop -->
 
 ##### Описание
-Версия 0.0.1
+Версия 1.0.0
 ##### Размещение
 Проект опубликован:
 [на GitHub Pages](https://vitalytikhonov.github.io/News_Explorer_Frontend/)

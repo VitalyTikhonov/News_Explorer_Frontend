@@ -1,6 +1,6 @@
 {
   "name": "news_explorer_frontend",
-  "version": "0.0.1",
+  "version": "1.0.0",
   "description": "Дипломный проект: бэкенд сайта для поиска новостей // Course final project: backend for a news search website",
   "index": "./src/pages/index/index.js",
   "scripts": {
