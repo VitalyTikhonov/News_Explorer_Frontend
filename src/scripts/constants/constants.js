@@ -1,4 +1,3 @@
-import '../../images/what.png';
 import '../../images/nonewsicon.png';
 
 const rootNode = document.querySelector('.root');
@@ -105,7 +104,7 @@ const articleBlockConf = {
         unsavedTextMarkup: '<span class="card__tooltip-text">Сохранить</span>',
         savedTextMarkup: '<span class="card__tooltip-text">Удалить</span>',
       },
-      defaultImageAddress: './images/what.png',
+      defaultImageAddress: 'https://i.postimg.cc/rmg4HKGk/news-636978-640-1.jpg',
       markup: {
         forMainPage: `
       <article class="card">
@@ -117,7 +116,7 @@ const articleBlockConf = {
         <a href="" class="card__link-wrap link" target="_blank" rel="noopener noreferrer">
           <div class="card__cover">
             <img
-                onerror="this.onerror=null;this.src='./images/what.png';"
+                onerror="this.onerror=null;this.src='https://i.postimg.cc/rmg4HKGk/news-636978-640-1.jpg';"
                 alt="Изображение – обложка карточки"
                 class="card__image">
           </div>
@@ -147,7 +146,7 @@ const articleBlockConf = {
             button__breadcrumb_labelled button__breadcrumb_labelled-tooltip"></button>
           <a href="" class="card__link-wrap link" target="_blank" rel="noopener noreferrer">
             <div class="card__cover">
-              <img onerror="this.onerror=null;this.src='./images/what.png';"
+              <img onerror="this.onerror=null;this.src='https://i.postimg.cc/rmg4HKGk/news-636978-640-1.jpg';"
               alt="Изображение – обложка карточки"
                 class="card__image">
             </div>
