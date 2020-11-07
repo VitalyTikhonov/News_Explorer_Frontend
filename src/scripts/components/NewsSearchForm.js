@@ -1,6 +1,6 @@
-import BaseComponent from './BaseComponent';
+import Form from './Form';
 
-class NewsSearchForm extends BaseComponent {
+class NewsSearchForm extends Form {
   constructor({
     newsSearchFormConfig,
     api,
@@ -55,7 +55,7 @@ class NewsSearchForm extends BaseComponent {
         useCapture: true,
       },
     ];
-    BaseComponent.setHandlers(this._formEventHandlerMap);
+    Form.setHandlers(this._formEventHandlerMap);
   }
 }
 

@@ -1,6 +1,6 @@
-import BaseComponent from './BaseComponent';
+import Form from './Form';
 
-class DialogForm extends BaseComponent {
+class DialogForm extends Form {
   constructor({
     markup,
     createNode,
@@ -40,12 +40,12 @@ class DialogForm extends BaseComponent {
   }
 
   _dismiss(replacingNodeMarkup) {
-    BaseComponent.removeHandlers(this._formEventHandlerMap);
+    Form.removeHandlers(this._formEventHandlerMap);
     // this._dismiss(); // Maximum call stack size exceeded???
     if (replacingNodeMarkup) {
       this._replacingNode = this._createNode(replacingNodeMarkup);
       this._replacingPromptLink = this._replacingNode.querySelector(this._promptLinkSelector);
-      BaseComponent.setHandlers([
+      Form.setHandlers([
         {
           domElement: this._replacingPromptLink,
           event: 'click',
@@ -66,7 +66,7 @@ class DialogForm extends BaseComponent {
   }
 
   _requestFormChange() {
-    BaseComponent.removeHandlers(this._formEventHandlerMap);
+    Form.removeHandlers(this._formEventHandlerMap);
     const formChangeRequestEvent = new CustomEvent(
       'formChangeRequest',
       {
@@ -128,7 +128,7 @@ class DialogForm extends BaseComponent {
         handler: this._requestFormChange,
       },
     ];
-    BaseComponent.setHandlers(this._formEventHandlerMap);
+    Form.setHandlers(this._formEventHandlerMap);
     return this._form;
   }
 }
