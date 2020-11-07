@@ -54,6 +54,7 @@ module.exports = {
           loader: 'file-loader',
           options: {
             name: './vendor/fonts/[name].[ext]',
+            publicPath: '../',
           },
         },
       },
@@ -65,6 +66,7 @@ module.exports = {
             options: {
               name: './images/[name].[ext]',
               esModule: false,
+              publicPath: '../',
             },
           },
           {
