@@ -1,77 +1,21 @@
 class FormValidator {
-  constructor() {
-    this.errorMessages = {
-      empty: 'Это обязательное поле',
-      wronglength: 'Должно быть от 2 до 30 символов',
-      wrongUrl: 'Здесь должна быть ссылка',
-    };
+  constructor({ errorMessages }) {
+    this._errorMessages = errorMessages;
+    // this.checkField = this.checkField.bind(this);
   }
 
-  setError(inputElement, errorMessageElement) {
-    errorMessageElement.textContent = inputElement.validationMessage;
-  }
-
-  resetError(errorMessageElement) {
-    errorMessageElement.textContent = '';
-  }
-
-  resetAllErrors(inputElements) {
-    inputElements.forEach((field) => {
-      this.resetError(field);
-    });
-  }
-
-  isFieldMissingValue(inputElement) {
-    if (inputElement.validity.valueMissing) {
-      inputElement.setCustomValidity(this.errorMessages.empty);
-      return true;
-    }
-    inputElement.setCustomValidity('');
-    return false;
-  }
-
-  isWrongCharNumber(inputElement) {
-    if (inputElement.validity.tooShort || inputElement.validity.tooLong) {
-      inputElement.setCustomValidity(this.errorMessages.wronglength);
-      return true;
-    }
-    inputElement.setCustomValidity('');
-    return false;
-  }
-
-  isNotUrl(inputElement) {
-    if (inputElement.type === 'url' && inputElement.validity.typeMismatch) {
-      inputElement.setCustomValidity(this.errorMessages.wrongUrl);
-      return true;
-    }
-    inputElement.setCustomValidity('');
-    return false;
-  }
-
-  checkField(inputElement) {
-    if (inputElement.type !== 'submit' && inputElement.type !== 'button') {
-      if (this.isFieldMissingValue(inputElement)) {
-        return false;
-      } if (this.isNotUrl(inputElement)) {
-        return false;
-      } if (this.isWrongCharNumber(inputElement)) {
-        return false;
-      }
-      return true;
-    }
-  }
-
-  manageErrorMessage(inputElement, errorMessageElement) {
-    if (this.checkField(inputElement)) {
-      this.resetError(errorMessageElement);
+  checkField(inputNode) {
+    if (inputNode.validity.valueMissing) {
+      inputNode.setCustomValidity(this._errorMessages.empty);
+    } else if (inputNode.validity.tooShort) {
+      inputNode.setCustomValidity(this._errorMessages.tooShort(inputNode.getAttribute('minlength')));
+    } else if (inputNode.validity.tooLong) {
+      inputNode.setCustomValidity(this._errorMessages.tooLong(inputNode.getAttribute('maxlength')));
+    } else if (inputNode.validity.typeMismatch) {
+      inputNode.setCustomValidity(this._errorMessages.wrongType);
     } else {
-      this.setError(inputElement, errorMessageElement);
+      inputNode.setCustomValidity('');
     }
-  }
-
-  checkForm(inputElements) {
-    const valid = inputElements.every((field) => this.checkField(field));
-    return valid;
   }
 }
 

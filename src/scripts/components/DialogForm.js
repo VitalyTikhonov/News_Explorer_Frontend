@@ -6,12 +6,19 @@ class DialogForm extends Form {
     createNode,
     nameAttr,
     fieldSelectors,
+    errMessageSelectorEnding,
     genFormConfig,
     signupSuccess,
     accessControl,
     api,
+    formValidator,
   }) {
-    super({ markup, createNode });
+    super({
+      markup,
+      createNode,
+      formValidator,
+      errMessageSelectorEnding,
+    });
     this._nameAttr = nameAttr;
     this._fieldSelectors = fieldSelectors;
     this._submitButtonSelector = genFormConfig.submitButtonSelector;
@@ -22,15 +29,10 @@ class DialogForm extends Form {
     this._accessControl = accessControl;
     this._api = api;
     /* inner */
-    this.create = this.create.bind(this);
+    this.render = this.render.bind(this);
     this._formSubmitHandler = this._formSubmitHandler.bind(this);
     this._requestFormChange = this._requestFormChange.bind(this);
     // this._getFieldValueMap = this._getFieldValueMap.bind(this);
-  }
-
-  _getFormFields() {
-    this._inputElements = this._fieldSelectors
-      .map((selector) => this._formProper.querySelector(selector));
   }
 
   _getFieldValueMap() {
@@ -106,28 +108,16 @@ class DialogForm extends Form {
       });
   }
 
-  create() {
-    this._create();
-    // console.log('this._component', this._component);
-    this._form = this._component;
-    this._formProper = this._form.querySelector('form');
-    this._getFormFields(); // Заранее создаем массив с полями формы
+  render() {
+    super._render();
     this._generalErrorMessage = this._form.querySelector(this._genErrMessSelector);
-    this._submitButton = this._form.querySelector(this._submitButtonSelector);
-    this._promptLink = this._form.querySelector(this._promptLinkSelector);
-    this._formEventHandlerMap = [
-      {
-        domElement: this._formProper,
-        event: 'submit',
-        handler: this._formSubmitHandler,
-        useCapture: true,
-      },
+    this._formEventHandlerMap.push(
       {
         domElement: this._promptLink,
         event: 'click',
         handler: this._requestFormChange,
       },
-    ];
+    );
     Form.setHandlers(this._formEventHandlerMap);
     return this._form;
   }

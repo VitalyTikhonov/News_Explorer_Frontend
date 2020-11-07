@@ -75,7 +75,7 @@ class Popup extends BaseComponent {
   }
 
   _createContents() {
-    this._form = this._loginForm.create();
+    this._form = this._loginForm.render();
     this._domEventHandlerMap.push(
       {
         domElement: this._form,
@@ -93,9 +93,9 @@ class Popup extends BaseComponent {
 
   _changeFormHandler(event) {
     if (event.detail === this._signupFormNameAttr) {
-      this._form = this._loginForm.create();
+      this._form = this._loginForm.render();
     } else {
-      this._form = this._signupForm.create();
+      this._form = this._signupForm.render();
     }
     this._removeChild();
     this._contents = this._form;

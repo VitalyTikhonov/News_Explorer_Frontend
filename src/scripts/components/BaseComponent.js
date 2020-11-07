@@ -87,7 +87,7 @@ class BaseComponent {
 
   _create() {
     this._component = this._createNode(this._markup);
-    return this._component;
+    return this._component; // убрать, если нигде не используется
   }
 
   _insertChild() {

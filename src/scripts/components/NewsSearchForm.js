@@ -6,8 +6,9 @@ class NewsSearchForm extends Form {
     api,
     articleBlock,
     popup,
+    formValidator,
   }) {
-    super({});
+    super({ formValidator });
     this._selector = newsSearchFormConfig.selector;
     this._fieldSelector = newsSearchFormConfig.fieldSelector;
     this._submitButtonSelector = newsSearchFormConfig.submitButtonSelector;

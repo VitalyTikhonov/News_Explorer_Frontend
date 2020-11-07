@@ -17,6 +17,7 @@ import DialogForm from './scripts/components/DialogForm';
 import NewsSearchForm from './scripts/components/NewsSearchForm';
 import ArticleBlock from './scripts/components/ArticleBlock';
 import Article from './scripts/components/Article';
+import FormValidator from './scripts/FormValidator';
 import {
   createNode,
   formatDate,
@@ -35,6 +36,7 @@ import {
   messageConfig,
   articleBlockConf,
   headerMenuConfig,
+  errorMessages,
 } from './scripts/constants/constants';
 
 (function site() {
@@ -77,16 +79,20 @@ import {
     getPeriodStartDate,
   );
 
+  const formValidator = new FormValidator({ errorMessages });
+
   const signupForm = new DialogForm({
     markup: signupFormConfig.markup,
     createNode,
     nameAttr: signupFormConfig.nameAttr,
     fieldSelectors: signupFormConfig.fieldSelectors,
+    errMessageSelectorEnding: signupFormConfig.errMessageSelectorEnding,
     genFormConfig,
     signupSuccess: messageConfig.signupSuccess,
     // eslint-disable-next-line no-use-before-define
     accessControl,
     api: mainApi,
+    formValidator,
   });
 
   const loginForm = new DialogForm({
@@ -94,11 +100,13 @@ import {
     createNode,
     nameAttr: loginFormConfig.nameAttr,
     fieldSelectors: loginFormConfig.fieldSelectors,
+    errMessageSelectorEnding: loginFormConfig.errMessageSelectorEnding,
     genFormConfig,
     signupSuccess: messageConfig.signupSuccess,
     // eslint-disable-next-line no-use-before-define
     accessControl,
     api: mainApi,
+    formValidator,
   });
 
   const popup = new Popup({
@@ -133,6 +141,7 @@ import {
     articleBlock,
     popup,
     messageConfig,
+    formValidator,
   });
 
   const headerObj = new Header({

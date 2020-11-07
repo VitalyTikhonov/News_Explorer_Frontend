@@ -14,6 +14,7 @@ const accessMarkers = {
   nonAuthorizedSelector: '.visibility__for-non-authorized',
   removalClassName: 'visibility__removed',
 };
+const formErrMessageSelectorEnding = 'Error';
 const headerMenuConfig = {
   elements: {
     header: rootNode.querySelector('.header'),
@@ -211,10 +212,9 @@ const popupShellConfig = {
 const signupFormConfig = {
   nameAttr: 'signupForm',
   markup: `
-  <div class="popup__content">
-    <h3 class="popup__title">Регистрация</h3>
-
     <form class="popup__form" name="signupForm" novalidate>
+      <h3 class="popup__title">Регистрация</h3>
+
       <label class="popup__input-label" for="signupEmail">Email</label>
 
       <input type="email" name="email" id="signupEmail" class="popup__input" placeholder="Введите почту" required
@@ -238,11 +238,10 @@ const signupFormConfig = {
 
       <span class="popup__error popup__error_general" id="signupFormError"></span>
 
-      <button type="submit" class="popup__button button__rounded button__rounded_size_parent button__rounded_blue">Зарегистрироваться</button>
+      <button type="submit" class="popup__button button__rounded button__rounded_size_parent button__rounded_blue" disabled>Зарегистрироваться</button>
 
       <p class="popup__prompt">или <span class="popup__prompt-link">войти</span></p>
     </form>
-  </div>
   `,
   /* Атрибуты name инпутов должны соответствовать именам полей, которые требует бэкенд. */
   fieldSelectors: [
@@ -250,47 +249,48 @@ const signupFormConfig = {
     '#signupPassword',
     '#signupName',
   ],
+  errMessageSelectorEnding: formErrMessageSelectorEnding,
 };
 const loginFormConfig = {
   nameAttr: 'loginForm',
   markup: `
-  <div class="popup__content">
-    <h3 class="popup__title">Вход</h3>
-
     <form class="popup__form" name="loginForm" novalidate>
-      <label class="popup__input-label" for="logiEmail">Email</label>
+      <h3 class="popup__title">Вход</h3>
 
-      <input type="email" name="email" id="logiEmail" class="popup__input" placeholder="Введите почту" required
+      <label class="popup__input-label" for="loginEmail">Email</label>
+
+      <input type="email" name="email" id="loginEmail" class="popup__input" placeholder="Введите почту" required
         minlength="2" maxlength="30">
 
-      <span class="popup__error" id="logiEmailError"></span>
+      <span class="popup__error" id="loginEmailError"></span>
 
       <label class="popup__input-label" for="loginPassword">Пароль</label>
 
       <input type="password" name="password" id="loginPassword" class="popup__input" placeholder="Введите пароль"
-        required minlength="8">
+        required minlength="11">
 
       <span class="popup__error" id="loginPasswordError"></span>
 
       <span class="popup__error popup__error_general" id="loginFormError"></span>
 
-      <button type="submit" class="popup__button button__rounded button__rounded_size_parent button__rounded_blue">Войти</button>
+      <button type="submit" class="popup__button button__rounded button__rounded_size_parent button__rounded_blue" disabled>Войти</button>
 
       <p class="popup__prompt">или <span class="popup__prompt-link">зарегистрироваться</span></p>
     </form>
-  </div>
   `,
   /* Атрибуты name инпутов должны соответствовать именам полей, которые требует бэкенд. */
   fieldSelectors: [
-    '#logiEmail',
+    '#loginEmail',
     '#loginPassword',
   ],
+  errMessageSelectorEnding: formErrMessageSelectorEnding,
 };
 const newsSearchFormConfig = {
   // nameAttr: 'loginForm',
   selector: '.news-search-form',
   fieldSelector: '#newsSearchField',
   submitButtonSelector: '.news-search-form__button',
+  // errMessageSelectorEnding: formErrMessageSelectorEnding,
 };
 const genFormConfig = {
   genErrMessSelector: '.popup__error_general',
@@ -355,6 +355,31 @@ const pageConfig = {
   logoutButtonProperArray,
   accessMarkers,
 };
+
+const errorMessages = {
+  empty: 'Это обязательное поле',
+  wronglength: 'Должно быть от 2 до 30 символов',
+  tooLong(constraint) {
+    const string = constraint.toString();
+    const { length } = string;
+    const lastDigitChar = string.charAt(length - 1);
+    const lastDigit = Number(lastDigitChar);
+    return (lastDigit !== 1 || constraint === 11)
+      ? `Должно быть не более ${constraint} символов`
+      : `Должно быть не более ${constraint} символа`;
+  },
+  tooShort(constraint) {
+    const string = constraint.toString();
+    const { length } = string;
+    const lastDigitChar = string.charAt(length - 1);
+    const lastDigit = Number(lastDigitChar);
+    return lastDigit !== 1 || constraint === 11
+      ? `Должно быть не менее ${constraint} символов`
+      : `Должно быть не менее ${constraint} символа`;
+  },
+  wrongType: 'Введите действительный адрес',
+};
+
 export {
   pageConfig,
   popupShellConfig,
@@ -366,4 +391,5 @@ export {
   articleBlockConf,
   headerMenuConfig,
   savedNewsIntroConfig,
+  errorMessages,
 };
