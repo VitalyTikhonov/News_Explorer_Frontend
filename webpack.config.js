@@ -17,6 +17,7 @@ module.exports = {
   output: {
     path: path.resolve(__dirname, 'dist'),
     filename: 'js/[name].[chunkhash].js',
+    // publicPath: '../',
   },
   module: {
     rules: [
@@ -54,7 +55,16 @@ module.exports = {
           loader: 'file-loader',
           options: {
             name: './vendor/fonts/[name].[ext]',
-            publicPath: '../',
+            publicPath: isDev ? '../' : '',
+            /* Без publicPath здесь и ниже для изображений в дев-сборке не грузились картинки
+            и шрифты: вместо http://localhost:8080/images/logout_black.png запрос за ними
+            уходил на http://localhost:8080/savednews/images/logout_black.png. (В текущей реализации savednews может браться
+            только из new HtmlWebpackPlugin).
+            С этим publicPath не грузятся картинки в продакшене на удаленном сервере: запрос
+            ошибочно поднимается на уровень выше – http://vitaliytikhonov.ru/webdev/projects/images/vitaliytikhonov.jpg
+            вместо Request URL: http://vitaliytikhonov.ru/webdev/projects/news_explorer/images/vitaliytikhonov.jpg.
+            Попытки задать publicPath в new HtmlWebpackPlugin или в output не удается осмыслить,
+            не решают проблему и (output) приводят к ошибкам. */
           },
         },
       },
@@ -66,7 +76,7 @@ module.exports = {
             options: {
               name: './images/[name].[ext]',
               esModule: false,
-              publicPath: '../',
+              publicPath: isDev ? '../' : '',
             },
           },
           {
