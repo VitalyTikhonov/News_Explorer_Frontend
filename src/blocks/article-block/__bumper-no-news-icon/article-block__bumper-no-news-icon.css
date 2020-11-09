@@ -1,4 +1,5 @@
 .article-block__bumper-no-news-icon {
   width: 96px;
   height: 96px;
+  background-image: url(../../../images/nonewsicon.png);
 }

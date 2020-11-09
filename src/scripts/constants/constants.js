@@ -180,10 +180,12 @@ const articleBlockConf = {
     loadText: 'Загрузка…',
   },
   noNewsBumper: {
+    // <img src="../images/nonewsicon.png" alt="Значок &laquo;Ничего не найдено&raquo;"
+    //   class="article-block__bumper-no-news-icon">
     markup: `
     <div class="article-block__bumper">
-      <img src="../images/nonewsicon.png" alt="Значок &laquo;Ничего не найдено&raquo;"
-        class="article-block__bumper-no-news-icon">
+      <div class="article-block__bumper-no-news-icon"></div>
+
       <h3 class="article-block__bumper-title"></h3>
 
       <p class="article-block__bumper-message"></p>
