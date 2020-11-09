@@ -87,6 +87,7 @@ import {
     nameAttr: signupFormConfig.nameAttr,
     fieldSelectors: signupFormConfig.fieldSelectors,
     errMessageSelectorEnding: signupFormConfig.errMessageSelectorEnding,
+    submitButtonTexts: signupFormConfig.submitButtonTexts,
     genFormConfig,
     signupSuccess: messageConfig.signupSuccess,
     // eslint-disable-next-line no-use-before-define
@@ -101,6 +102,7 @@ import {
     nameAttr: loginFormConfig.nameAttr,
     fieldSelectors: loginFormConfig.fieldSelectors,
     errMessageSelectorEnding: loginFormConfig.errMessageSelectorEnding,
+    submitButtonTexts: loginFormConfig.submitButtonTexts,
     genFormConfig,
     signupSuccess: messageConfig.signupSuccess,
     // eslint-disable-next-line no-use-before-define

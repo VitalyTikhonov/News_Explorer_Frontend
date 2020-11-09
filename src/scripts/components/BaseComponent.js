@@ -30,8 +30,9 @@ class BaseComponent {
         event,
         handler,
         useCapture = false,
+        once = false, // Если true, слушатель автоматически удаляется при вызове.
       } = combination;
-      domElement.addEventListener(event, handler, useCapture);
+      domElement.addEventListener(event, handler, { useCapture, once });
     });
   }
 
@@ -42,8 +43,9 @@ class BaseComponent {
         event,
         handler,
         useCapture = false,
+        once = false, // Если true, слушатель автоматически удаляется при вызове.
       } = combination;
-      domElement.removeEventListener(event, handler, useCapture);
+      domElement.removeEventListener(event, handler, { useCapture, once });
     });
   }
 

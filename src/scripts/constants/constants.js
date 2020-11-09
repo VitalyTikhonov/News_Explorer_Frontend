@@ -224,8 +224,16 @@ const signupFormConfig = {
 
       <label class="popup__input-label" for="signupPassword">Пароль</label>
 
-      <input type="password" name="password" id="signupPassword" class="popup__input" placeholder="Введите пароль" required
-        minlength="8">
+      <input
+        type="password"
+        name="password"
+        id="signupPassword"
+        class="popup__input"
+        placeholder="Введите пароль"
+        required
+        minlength="8"
+        autocomplete="new-password"
+        >
 
       <span class="popup__error" id="signupPasswordError"></span>
 
@@ -250,6 +258,9 @@ const signupFormConfig = {
     '#signupName',
   ],
   errMessageSelectorEnding: formErrMessageSelectorEnding,
+  submitButtonTexts: {
+    loading: 'Подождите...',
+  },
 };
 const loginFormConfig = {
   nameAttr: 'loginForm',
@@ -266,8 +277,15 @@ const loginFormConfig = {
 
       <label class="popup__input-label" for="loginPassword">Пароль</label>
 
-      <input type="password" name="password" id="loginPassword" class="popup__input" placeholder="Введите пароль"
-        required minlength="11">
+      <input
+        type="password"
+        name="password"
+        id="loginPassword"
+        class="popup__input"
+        placeholder="Введите пароль"
+        minlength="8"
+        required
+      >
 
       <span class="popup__error" id="loginPasswordError"></span>
 
@@ -284,6 +302,9 @@ const loginFormConfig = {
     '#loginPassword',
   ],
   errMessageSelectorEnding: formErrMessageSelectorEnding,
+  submitButtonTexts: {
+    loading: 'Подождите...',
+  },
 };
 const newsSearchFormConfig = {
   // nameAttr: 'loginForm',
@@ -291,6 +312,9 @@ const newsSearchFormConfig = {
   fieldSelector: '#newsSearchField',
   submitButtonSelector: '.news-search-form__button',
   // errMessageSelectorEnding: formErrMessageSelectorEnding,
+  submitButtonTexts: {
+    loading: 'Подождите...',
+  },
 };
 const genFormConfig = {
   genErrMessSelector: '.popup__error_general',
@@ -360,20 +384,20 @@ const errorMessages = {
   empty: 'Это обязательное поле',
   wronglength: 'Должно быть от 2 до 30 символов',
   tooLong(constraint) {
-    const string = constraint.toString();
-    const { length } = string;
-    const lastDigitChar = string.charAt(length - 1);
+    const { length } = constraint;
+    const lastDigitChar = constraint.charAt(length - 1);
+    const number = Number(constraint);
     const lastDigit = Number(lastDigitChar);
-    return (lastDigit !== 1 || constraint === 11)
+    return lastDigit !== 1 || number === 11
       ? `Должно быть не более ${constraint} символов`
       : `Должно быть не более ${constraint} символа`;
   },
   tooShort(constraint) {
-    const string = constraint.toString();
-    const { length } = string;
-    const lastDigitChar = string.charAt(length - 1);
+    const { length } = constraint;
+    const lastDigitChar = constraint.charAt(length - 1);
+    const number = Number(constraint);
     const lastDigit = Number(lastDigitChar);
-    return lastDigit !== 1 || constraint === 11
+    return lastDigit !== 1 || number === 11
       ? `Должно быть не менее ${constraint} символов`
       : `Должно быть не менее ${constraint} символа`;
   },

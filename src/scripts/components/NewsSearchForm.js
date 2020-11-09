@@ -8,7 +8,7 @@ class NewsSearchForm extends Form {
     popup,
     formValidator,
   }) {
-    super({ formValidator });
+    super({ formValidator, submitButtonTexts: newsSearchFormConfig.submitButtonTexts });
     this._selector = newsSearchFormConfig.selector;
     this._fieldSelector = newsSearchFormConfig.fieldSelector;
     this._submitButtonSelector = newsSearchFormConfig.submitButtonSelector;

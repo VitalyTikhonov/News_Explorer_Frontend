@@ -7,6 +7,7 @@ class DialogForm extends Form {
     nameAttr,
     fieldSelectors,
     errMessageSelectorEnding,
+    submitButtonTexts,
     genFormConfig,
     signupSuccess,
     accessControl,
@@ -18,6 +19,7 @@ class DialogForm extends Form {
       createNode,
       formValidator,
       errMessageSelectorEnding,
+      submitButtonTexts,
     });
     this._nameAttr = nameAttr;
     this._fieldSelectors = fieldSelectors;
@@ -35,11 +37,11 @@ class DialogForm extends Form {
     // this._getFieldValueMap = this._getFieldValueMap.bind(this);
   }
 
-  _getFieldValueMap() {
-    const rawfieldValueMapMap = this._inputElements.map((input) => [input.name, input.value]);
-    this._fieldValueMap = Object.fromEntries(rawfieldValueMapMap);
-    // console.log('this._fieldValueMap', this._fieldValueMap);
-  }
+  // _getFieldValueMap() {
+  //   const rawfieldValueMapMap = this._inputNodes.map((input) => [input.name, input.value]);
+  //   this._fieldValueMap = Object.fromEntries(rawfieldValueMapMap);
+  //   // console.log('this._fieldValueMap', this._fieldValueMap);
+  // }
 
   _dismiss(replacingNodeMarkup) {
     Form.removeHandlers(this._formEventHandlerMap);
@@ -95,16 +97,14 @@ class DialogForm extends Form {
   }
 
   _formSubmitHandler(event) {
-    event.preventDefault();
-    this._getFieldValueMap();
-    // this.toggleButtonText(false);
+    super._formSubmitHandler(event);
     this._requestApi()
       .catch((err) => {
         console.log(err);
         this._generalErrorMessage.textContent = err.message;
       })
       .finally(() => {
-        // this.toggleButtonText(true);
+        this._toggleButtonText(true);
       });
   }
 
@@ -116,6 +116,12 @@ class DialogForm extends Form {
         domElement: this._promptLink,
         event: 'click',
         handler: this._requestFormChange,
+      },
+      {
+        domElement: this._form,
+        event: 'submit',
+        handler: this._formSubmitHandler,
+        useCapture: true,
       },
     );
     Form.setHandlers(this._formEventHandlerMap);
