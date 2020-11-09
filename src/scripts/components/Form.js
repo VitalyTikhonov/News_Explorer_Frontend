@@ -30,8 +30,8 @@ class Form extends BaseComponent {
     }
   }
 
-  _toggleButtonState() {
-    if (this._form.checkValidity()) {
+  _toggleButtonState(isFormValid) {
+    if (isFormValid) {
       this._submitButton.removeAttribute('disabled');
     } else {
       this._submitButton.setAttribute('disabled', 'disabled');
@@ -51,10 +51,21 @@ class Form extends BaseComponent {
     this._toggleButtonState(this._form.checkValidity());
   }
 
+  _blockForm() {
+    this._toggleInputsState(false); // declared in child classes
+    this._toggleButtonState(false);
+    this._toggleButtonText(false);
+  }
+
+  _unBlockForm() {
+    this._toggleInputsState(true); // declared in child classes
+    this._toggleButtonState(true);
+    this._toggleButtonText(true);
+  }
+
   _formSubmitHandler(event) {
     event.preventDefault();
-    this._toggleButtonText(false);
-    // form blocking!!!
+    this._blockForm();
   }
 
   _render() {

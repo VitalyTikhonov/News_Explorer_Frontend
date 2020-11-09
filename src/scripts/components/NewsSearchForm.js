@@ -25,6 +25,14 @@ class NewsSearchForm extends Form {
     this._formSubmitHandler = this._formSubmitHandler.bind(this);
   }
 
+  _toggleInputsState(boolean) {
+    if (boolean) {
+      this._field.removeAttribute('disabled');
+    } else {
+      this._field.setAttribute('disabled', 'disabled');
+    }
+  }
+
   _formSubmitHandler(event) {
     super._formSubmitHandler(event);
     this._articleBlock.showPreloader();
@@ -44,7 +52,7 @@ class NewsSearchForm extends Form {
         this._popup.createErrorMessage(err.message);
       })
       .finally(() => {
-        this._toggleButtonText(true);
+        this._unBlockForm();
       });
   }
 

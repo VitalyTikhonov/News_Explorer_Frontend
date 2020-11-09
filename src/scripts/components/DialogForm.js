@@ -87,6 +87,14 @@ class DialogForm extends Form {
       });
   }
 
+  _toggleInputsState(boolean) {
+    if (boolean) {
+      this._inputNodes.forEach((field) => field.removeAttribute('disabled'));
+    } else {
+      this._inputNodes.forEach((field) => field.setAttribute('disabled', 'disabled'));
+    }
+  }
+
   _setFieldValueMap() {
     const rawfieldValueMapMap = this._inputNodes.map((input) => [input.name, input.value]);
     this._fieldValueMap = Object.fromEntries(rawfieldValueMapMap);
@@ -101,7 +109,7 @@ class DialogForm extends Form {
         this._generalErrorMessage.textContent = err.message;
       })
       .finally(() => {
-        this._toggleButtonText(true);
+        this._unBlockForm();
       });
   }
 
