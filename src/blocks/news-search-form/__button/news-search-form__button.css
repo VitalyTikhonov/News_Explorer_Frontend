@@ -1,5 +1,6 @@
 .news-search-form__button {
   margin-top: 16px;
+  outline: none;
 }
 
 @media (min-width: 450px) and (max-width: 1241px) {

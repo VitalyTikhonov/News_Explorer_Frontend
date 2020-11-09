@@ -60,10 +60,22 @@
           кабинете.</p>
 
         <form class="news-search-form">
-          <input type="text" id="newsSearchField" class="news-search-form__bar" placeholder="Политика" required>
+          <div class="news-search-form__bar-and-button-group">
+            <input
+            type="text"
+            name="searchTerm"
+            id="newsSearchField"
+            class="news-search-form__bar"
+            placeholder="Политика"
+            minlength="2"
+            maxlength="150"
+            >
 
-          <button type="submit"
-            class="news-search-form__button button__rounded button__rounded_size_parent button__rounded_blue">Искать</button>
+            <button type="submit"
+              class="news-search-form__button button__rounded button__rounded_size_parent button__rounded_blue" disabled>Искать
+            </button>
+          </div>
+          <p class="news-search-form__error" id="newsSearchFieldError"></p>
         </form>
       </section>
 

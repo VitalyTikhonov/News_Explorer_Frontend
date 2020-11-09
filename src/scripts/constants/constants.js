@@ -315,6 +315,10 @@ const newsSearchFormConfig = {
   submitButtonTexts: {
     loading: 'Подождите...',
   },
+  // fieldSelectors: [
+  //   '#newsSearchField',
+  // ],
+  errMessageSelectorEnding: formErrMessageSelectorEnding,
 };
 const genFormConfig = {
   genErrMessSelector: '.popup__error_general',

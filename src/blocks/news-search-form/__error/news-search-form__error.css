@@ -1,0 +1,10 @@
+.news-search-form__error {
+  margin: 5px 0 0;
+  min-height: 22px;
+  text-align: center;
+  font-family: Roboto, Arial, Calibri, sans-serif;
+  font-style: normal;
+  font-weight: normal;
+  font-size: 12px;
+  line-height: 22px;
+}

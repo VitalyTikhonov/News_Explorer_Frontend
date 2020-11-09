@@ -3,7 +3,7 @@
 
 .search-panel {
   padding-top: 86px;
-  padding-bottom: 32px;
+  padding-bottom: 7px;
   background-image: url(../../images/georgia-de-lotz--UsJoNxLaNo-unsplash-320.png);
   background-size: cover;
   background-repeat: no-repeat;
@@ -22,7 +22,7 @@
 @media (min-width: 450px) and (max-width: 1241px) {
   .search-panel {
     padding-top: 104px;
-    padding-bottom: 48px;
+    padding-bottom: 21px;
     padding-left: 20.83vw;
     padding-right: 20.83vw;
     background-image: url(../../images/georgia-de-lotz--UsJoNxLaNo-unsplash-768.png);
@@ -31,7 +31,7 @@
 
 @media (min-width: 1242px) {
   .search-panel {
-    padding: 159px 28.89vw 80px;
+    padding: 159px 28.89vw 53px;
     background-image: url(../../images/georgia-de-lotz--UsJoNxLaNo-unsplash-768.png);
   }
 }

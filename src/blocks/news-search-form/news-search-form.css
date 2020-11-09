@@ -1,4 +1,6 @@
+@import url(./__bar-and-button-group/news-search-form__bar-and-button-group.css);
 @import url(./__bar/news-search-form__bar.css);
+@import url(./__error/news-search-form__error.css);
 @import url(./__button/news-search-form__button.css);
 
 .news-search-form {
@@ -9,11 +11,9 @@
 
 @media (min-width: 450px) {
   .news-search-form {
-    position: relative;
     margin: 0;
     width: 100%;
     align-self: flex-start;
-    flex-direction: row;
   }
 }
 

@@ -3,6 +3,7 @@
   background: #FFFFFF;
   border: 1px solid #D1D2D6;
   border-radius: 100px;
+  outline: none;
 }
 
 .news-search-form__bar {

@@ -8,10 +8,15 @@ class NewsSearchForm extends Form {
     popup,
     formValidator,
   }) {
-    super({ formValidator, submitButtonTexts: newsSearchFormConfig.submitButtonTexts });
+    super({
+      formValidator,
+      errMessageSelectorEnding: newsSearchFormConfig.errMessageSelectorEnding,
+      submitButtonTexts: newsSearchFormConfig.submitButtonTexts,
+      submitButtonSelector: newsSearchFormConfig.submitButtonSelector,
+    });
     this._selector = newsSearchFormConfig.selector;
     this._fieldSelector = newsSearchFormConfig.fieldSelector;
-    this._submitButtonSelector = newsSearchFormConfig.submitButtonSelector;
+    // this._submitButtonSelector = newsSearchFormConfig.submitButtonSelector;
     this._api = api;
     this._articleBlock = articleBlock;
     this._popup = popup;
@@ -21,9 +26,8 @@ class NewsSearchForm extends Form {
   }
 
   _formSubmitHandler(event) {
-    event.preventDefault();
+    super._formSubmitHandler(event);
     this._articleBlock.showPreloader();
-    // this.toggleButtonText(false);
     this._api.getNews(this._field.value)
       .then((res) => {
         console.log('res\n', res);
@@ -38,24 +42,35 @@ class NewsSearchForm extends Form {
         console.log(err);
         this._articleBlock.clearAllSection();
         this._popup.createErrorMessage(err.message);
+      })
+      .finally(() => {
+        this._toggleButtonText(true);
       });
-    // .finally(() => {
-    // this.toggleButtonText(true);
-    // });
+  }
+
+  _setFormFields() {
+    this._field = this._form.querySelector(this._fieldSelector);
+    this._formEventHandlerMap.push(
+      {
+        domElement: this._field,
+        event: 'input',
+        handler: this._formInputHandler,
+      },
+    );
   }
 
   render() {
-    this._formProper = document.querySelector(this._selector);
-    this._field = this._formProper.querySelector(this._fieldSelector);
-    this._submitButton = this._formProper.querySelector(this._submitButtonSelector);
-    this._formEventHandlerMap = [
+    this._form = document.querySelector(this._selector); // prior to super.render
+    super._render();
+    this._setFormFields();
+    this._formEventHandlerMap.push(
       {
-        domElement: this._formProper,
+        domElement: this._form,
         event: 'submit',
         handler: this._formSubmitHandler,
         useCapture: true,
       },
-    ];
+    );
     Form.setHandlers(this._formEventHandlerMap);
   }
 }

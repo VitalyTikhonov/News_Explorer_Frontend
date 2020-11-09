@@ -1,0 +1,11 @@
+.news-search-form__bar-and-button-group {
+  display: flex;
+  flex-direction: column;
+}
+
+@media (min-width: 450px) {
+  .news-search-form {
+    position: relative;
+    flex-direction: row;
+  }
+}

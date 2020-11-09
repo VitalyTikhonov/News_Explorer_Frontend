@@ -15,15 +15,15 @@ class DialogForm extends Form {
     formValidator,
   }) {
     super({
-      markup,
       createNode,
       formValidator,
       errMessageSelectorEnding,
       submitButtonTexts,
+      submitButtonSelector: genFormConfig.submitButtonSelector,
     });
+    this._markup = markup;
     this._nameAttr = nameAttr;
     this._fieldSelectors = fieldSelectors;
-    this._submitButtonSelector = genFormConfig.submitButtonSelector;
     this._genErrMessSelector = genFormConfig.genErrMessSelector;
     this._promptLinkSelector = genFormConfig.promptLinkSelector;
     this._signupFormNameAttr = genFormConfig.nameAttributes.signupFormNameAttr;
@@ -34,14 +34,7 @@ class DialogForm extends Form {
     this.render = this.render.bind(this);
     this._formSubmitHandler = this._formSubmitHandler.bind(this);
     this._requestFormChange = this._requestFormChange.bind(this);
-    // this._getFieldValueMap = this._getFieldValueMap.bind(this);
   }
-
-  // _getFieldValueMap() {
-  //   const rawfieldValueMapMap = this._inputNodes.map((input) => [input.name, input.value]);
-  //   this._fieldValueMap = Object.fromEntries(rawfieldValueMapMap);
-  //   // console.log('this._fieldValueMap', this._fieldValueMap);
-  // }
 
   _dismiss(replacingNodeMarkup) {
     Form.removeHandlers(this._formEventHandlerMap);
@@ -83,21 +76,25 @@ class DialogForm extends Form {
   _requestApi() {
     if (this._nameAttr === this._signupFormNameAttr) {
       return this._api.signup(this._fieldValueMap)
-      // return this._api.signup(this._fieldValueMap)
         .then(() => {
           this._dismiss(this._signupSuccess);
         });
     }
     return this._accessControl.signin(this._fieldValueMap)
-    // return this._api.signin(this._fieldValueMap)
       .then((res) => {
         console.log(res);
         this._dismiss();
       });
   }
 
+  _setFieldValueMap() {
+    const rawfieldValueMapMap = this._inputNodes.map((input) => [input.name, input.value]);
+    this._fieldValueMap = Object.fromEntries(rawfieldValueMapMap);
+  }
+
   _formSubmitHandler(event) {
     super._formSubmitHandler(event);
+    this._setFieldValueMap();
     this._requestApi()
       .catch((err) => {
         console.log(err);
@@ -108,8 +105,23 @@ class DialogForm extends Form {
       });
   }
 
+  _setFormFields() {
+    this._inputNodes = this._fieldSelectors
+      .map((selector) => this._form.querySelector(selector));
+    this._inputNodes.forEach((node) => this._formEventHandlerMap.push(
+      {
+        domElement: node,
+        event: 'input',
+        handler: this._formInputHandler,
+      },
+    ));
+  }
+
   render() {
+    this._form = Form.create(this._markup); // prior to super.render
     super._render();
+    this._setFormFields(); // Заранее создаем массив с полями формы
+    this._promptLink = this._form.querySelector(this._promptLinkSelector);
     this._generalErrorMessage = this._form.querySelector(this._genErrMessSelector);
     this._formEventHandlerMap.push(
       {
