@@ -7,6 +7,7 @@ import {
   NEWSAPI_BASE_PATH,
   NEWSAPI_PERIOD,
   NEWSAPI_PAGE_SIZE,
+  ARTICLE_PORTION_SIZE,
 } from './configs/config';
 import AccessControl from './scripts/AccessControl';
 import MainApi from './scripts/api/MainApi';
@@ -24,7 +25,8 @@ import {
   getPeriodStartDate,
   // removeClassFromElems,
   // addClassToElems,
-  generateSigninEvent,
+  // generateSigninEvent,
+  getAsNumberAndLastDigit,
 } from './scripts/utils/utils';
 import {
   pageConfig,
@@ -67,7 +69,7 @@ import {
     api: mainApi,
     pageConfig,
     articleBlockConf,
-    generateSigninEvent,
+    // generateSigninEvent,
   });
 
   const newsApi = new NewsApi(
@@ -79,7 +81,7 @@ import {
     getPeriodStartDate,
   );
 
-  const formValidator = new FormValidator({ errorMessages });
+  const formValidator = new FormValidator({ errorMessages, getAsNumberAndLastDigit });
 
   const signupForm = new DialogForm({
     markup: signupFormConfig.markup,
@@ -134,6 +136,7 @@ import {
     pageConfig,
     accessControl,
     popup,
+    ARTICLE_PORTION_SIZE,
   });
 
   const newsSearchForm = new NewsSearchForm({

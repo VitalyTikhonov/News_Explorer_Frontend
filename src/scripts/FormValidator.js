@@ -1,6 +1,7 @@
 class FormValidator {
-  constructor({ errorMessages }) {
+  constructor({ errorMessages, getAsNumberAndLastDigit }) {
     this._errorMessages = errorMessages;
+    this._getAsNumberAndLastDigit = getAsNumberAndLastDigit;
     // this.checkField = this.checkField.bind(this);
   }
 
@@ -8,9 +9,13 @@ class FormValidator {
     if (inputNode.validity.valueMissing) {
       inputNode.setCustomValidity(this._errorMessages.empty);
     } else if (inputNode.validity.tooShort) {
-      inputNode.setCustomValidity(this._errorMessages.tooShort(inputNode.getAttribute('minlength')));
+      const lengthValue = inputNode.getAttribute('minlength');
+      const lengthValueProcessed = this._getAsNumberAndLastDigit(lengthValue);
+      inputNode.setCustomValidity(this._errorMessages.tooShort(lengthValueProcessed));
     } else if (inputNode.validity.tooLong) {
-      inputNode.setCustomValidity(this._errorMessages.tooLong(inputNode.getAttribute('maxlength')));
+      const lengthValue = inputNode.getAttribute('maxlength');
+      const lengthValueProcessed = this._getAsNumberAndLastDigit(lengthValue);
+      inputNode.setCustomValidity(this._errorMessages.tooLong(lengthValueProcessed));
     } else if (inputNode.validity.typeMismatch) {
       inputNode.setCustomValidity(this._errorMessages.wrongType);
     } else {

@@ -5,6 +5,7 @@ class SavedNewsIntro extends BaseComponent {
   constructor({
     pageConfig,
     savedNewsIntroConfig,
+    getAsNumberAndLastDigit,
   }) {
     super({});
     this._controlClassName = pageConfig.accessMarkers.removalClassName;
@@ -14,6 +15,7 @@ class SavedNewsIntro extends BaseComponent {
     this._makeDetailsFrameMarkup = savedNewsIntroConfig.details.makeDetailsFrameMarkup;
     // this._detailsEmphasisMarkup = savedNewsIntroConfig.details.emphasisMarkup;
     this._makeKeywordMarkup = savedNewsIntroConfig.details.makeKeywordMarkup;
+    this._getAsNumberAndLastDigit = getAsNumberAndLastDigit;
   }
 
   setUserName(userName) {
@@ -26,17 +28,23 @@ class SavedNewsIntro extends BaseComponent {
   }
 
   updateOnArticleDeletion(keyword) {
+    // console.clear();
     this._subHeadlineNode.textContent = '';
     this._detailsFrame.remove();
     this._articleNumber -= 1;
-    console.log('keyword', keyword);
-    console.log('this._keywordArray', this._keywordArray);
+    // console.log('console.log.clear keyword', keyword);
+    // console.log('this._keywordArray', this._keywordArray);
     if (this._articleNumber > 0) {
       const keywordIndex = this._keywordArray.indexOf(keyword);
-      console.log('this._keywordArray[keywordIndex]', this._keywordArray[keywordIndex]);
-      if (keywordIndex > 0) {
+      // console.log('this._keywordArray[keywordIndex]', this._keywordArray[keywordIndex]);
+      // console.log('keywordIndex', keywordIndex);
+      if (keywordIndex >= 0) { // >= !!!
         this._keywordArray.splice(keywordIndex, 1);
+        // const res = this._keywordArray.splice(keywordIndex, 1);
+        // console.log('res', res);
       }
+      // console.log('this._keywordArray', this._keywordArray);
+      // console.log('REMOVED this._keywordArray[keywordIndex]', this._keywordArray[keywordIndex]);
       this._setSubHeadline();
       this._makeKeywordSummary();
     } else {
@@ -44,39 +52,44 @@ class SavedNewsIntro extends BaseComponent {
     }
   }
 
-  _selectAccusativeCase() {
+  _matchNumInAccusativeCase() {
     const caseForms = {
-      one: 'сохраненная статья', // …1
-      twoFour: 'сохраненные статьи', // …2–4
-      zeroFiveNineTenTwenty: 'сохраненных статей', // 0, …5–9, 10–20
+      accusativeSingular: 'сохраненная статья', // …1, кроме …11
+      accusativePlural: 'сохраненные статьи', // …2–4, кроме …12–…14
+      genitivePlural: 'сохраненных статей', // 0, …5–9, 10–20, …11
     };
-    const string = this._articleNumber.toString();
-    const { length } = string;
-    const lastDigitChar = string.charAt(length - 1);
-    const lastDigit = Number(lastDigitChar);
-    if ((lastDigit >= 5 && lastDigit <= 9) || (this._articleNumber >= 10 && this._articleNumber <= 20)) {
-      this._numberOfArticlesPhrase = `${string} ${caseForms.zeroFiveNineTenTwenty}`;
+    const {
+      string: artNumbAsStr,
+      lastDigitNum: lastDigit,
+      lastButOneDigitNum: lastButOneDigit,
+    } = this._getAsNumberAndLastDigit(this._articleNumber);
+    if (
+      (lastDigit >= 5 && lastDigit <= 9)
+      || lastDigit === 0
+      || lastButOneDigit === 1
+    ) {
+      this._numberOfArticlesPhrase = `${artNumbAsStr} ${caseForms.genitivePlural}`;
       return this._numberOfArticlesPhrase;
     }
     if (lastDigit >= 2 && lastDigit <= 4) {
-      this._numberOfArticlesPhrase = `${string} ${caseForms.twoFour}`;
+      this._numberOfArticlesPhrase = `${artNumbAsStr} ${caseForms.accusativePlural}`;
       return this._numberOfArticlesPhrase;
     }
     if (lastDigit === 1) {
-      this._numberOfArticlesPhrase = `${string} ${caseForms.one}`;
+      this._numberOfArticlesPhrase = `${artNumbAsStr} ${caseForms.accusativeSingular}`;
     }
     return this._numberOfArticlesPhrase;
     // if (lastDigit === 0) {
-    //   this._numberOfArticlesPhrase = `нет ${caseForms.zeroFiveNineTenTwenty}`;
+    //   this._numberOfArticlesPhrase = `нет ${caseForms.genitivePlural}`;
     // }
   }
 
   _setSubHeadline() {
-    this._numberOfArticlesPhrase = `${this._userName}, у Вас ${this._selectAccusativeCase()}`;
+    this._numberOfArticlesPhrase = `${this._userName}, у Вас ${this._matchNumInAccusativeCase()}`;
     this._subHeadlineNode.textContent = this._numberOfArticlesPhrase;
   }
 
-  _getKeyWordStats() {
+  _getKeywordStats() {
     const counts = {};
 
     // eslint-disable-next-line no-plusplus
@@ -86,16 +99,23 @@ class SavedNewsIntro extends BaseComponent {
       // console.log('keyword', keyword);
       counts[keyword] = counts[keyword] ? counts[keyword] + 1 : 1;
     }
+    // console.log('counts', counts);
 
     const arrToSort = Object.keys(counts).map((key) => ({ value: key, freq: counts[key] }));
 
-    this._sortedKeywordStats = arrToSort.sort((a, b) => ((a.freq < b.freq) ? 1 : -1));
-    this._sortedKeywords = this._sortedKeywordStats.map((entry) => entry.value);
+    arrToSort.sort((a, b) => ((a.freq < b.freq) ? 1 : -1));
+    // this._sortedKeywords = arrToSort.map((entry) => entry.value);
+    this._sortedKeywords = arrToSort.map((entry) => entry.value);
+    // console.log('entry', entry);
+    // return entry.value;
+    // });
+    // console.log('this._sortedKeywords', this._sortedKeywords);
     this._uniqueKeywordNumber = this._sortedKeywords.length;
+    // console.log('this._uniqueKeywordNumber', this._uniqueKeywordNumber);
   }
 
   _makeKeywordSummary() {
-    this._getKeyWordStats();
+    this._getKeywordStats();
     switch (this._uniqueKeywordNumber) {
       case 1: this._keywordSummary = `По ключевому слову: ${this._makeKeywordMarkup(this._sortedKeywords[0])}`;
         break;
@@ -110,13 +130,26 @@ class SavedNewsIntro extends BaseComponent {
         ' и ещё одному',
       );
         break;
-      default: this._keywordSummary = ''.concat(
-        'По ключевым словам: ',
-        this._makeKeywordMarkup(this._sortedKeywords[0]),
-        ', ',
-        this._makeKeywordMarkup(this._sortedKeywords[1]),
-        ` и ${this._uniqueKeywordNumber - 3} другим`,
-      );
+      default: {
+        const {
+          lastDigitNum,
+          lastTwoDigitsNum,
+        } = this._getAsNumberAndLastDigit(this._uniqueKeywordNumber - 2);
+        /*
+        1, …1, кроме …11: другому
+        2, …2: другим
+        */
+        this._keywordSummary = ''.concat(
+          'По ключевым словам: ',
+          this._makeKeywordMarkup(this._sortedKeywords[0]),
+          ', ',
+          this._makeKeywordMarkup(this._sortedKeywords[1]),
+          ` и ${this._uniqueKeywordNumber - 2} `,
+          lastDigitNum !== 1 || lastTwoDigitsNum === 11
+            ? 'другим'
+            : 'другому',
+        );
+      }
     }
     this._detailsFrameMarkup = this._makeDetailsFrameMarkup(this._keywordSummary);
     this._detailsFrame = BaseComponent.create(this._detailsFrameMarkup);
@@ -127,7 +160,9 @@ class SavedNewsIntro extends BaseComponent {
     // console.log('render');
     if (this._articleArray) {
       this._articleNumber = this._articleArray.length;
+      // console.log('START this._articleNumber', this._articleNumber);
       this._keywordArray = this._articleArray.map((article) => article.keyword);
+      // console.log('START this._keywordArray', this._keywordArray);
       this._setSubHeadline();
       this._makeKeywordSummary();
       this._node.classList.remove(this._controlClassName);

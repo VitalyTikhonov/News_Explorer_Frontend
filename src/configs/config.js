@@ -15,8 +15,9 @@ const NEWSAPI_BASE_PATH = process.env.NODE_ENV === 'development'
   : NEWSAPI_YANDEX_PROXY_URL;
 const NEWSAPI_PERIOD = 7;
 const NEWSAPI_PAGE_SIZE = process.env.NODE_ENV === 'development'
-  ? 10
+  ? 70
   : 100;
+const ARTICLE_PORTION_SIZE = 22;
 
 export {
   API_URL,
@@ -25,4 +26,5 @@ export {
   NEWSAPI_BASE_PATH,
   NEWSAPI_PERIOD,
   NEWSAPI_PAGE_SIZE,
+  ARTICLE_PORTION_SIZE,
 };

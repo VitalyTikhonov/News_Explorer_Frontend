@@ -13,6 +13,7 @@ class ArticleBlock extends BaseComponent {
     accessControl,
     popup,
     savedNewsIntro,
+    ARTICLE_PORTION_SIZE,
   }) {
     super({
       innerContainerSelector: articleBlockConf.innerContainerSelector,
@@ -27,6 +28,7 @@ class ArticleBlock extends BaseComponent {
     this._cardContainerSel = articleBlockConf.articleBlockProper.innerContainerSelector;
     this._popup = popup;
     this._savedNewsIntro = savedNewsIntro;
+    this._ARTICLE_PORTION_SIZE = ARTICLE_PORTION_SIZE;
     // this._innerContainer = articleBlockConf.selector;
     /* ----------- */
     this._preloaderMarkup = articleBlockConf.preloader.markup;
@@ -187,7 +189,7 @@ class ArticleBlock extends BaseComponent {
     }
     this._renderArticleBlockShell();
     this._cardAdditionConfig = {
-      increment: 3,
+      increment: this._ARTICLE_PORTION_SIZE,
       currentStart: 0,
       remainder: this._articleArray.length, // !== articleData.totalResults !!!
     };

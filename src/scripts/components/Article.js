@@ -161,8 +161,8 @@ class Article extends BaseComponent {
         BaseComponent.setHandlers(this._saveButtonHandlerMap);
         break;
       case this._savedNewsPageName:
-        this._keyword = this._component.querySelector(this._keywordSelector);
-        this._keyword.textContent = this._keywordData;
+        this._keywordNode = this._component.querySelector(this._keywordSelector);
+        this._keywordNode.textContent = this._keywordData;
         BaseComponent.setHandlers(this._deleteButtonHandlerMap);
         break;
       default:

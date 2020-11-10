@@ -3,6 +3,7 @@ import './index.css';
 import {
   API_URL,
   CONTENT_TYPE,
+  ARTICLE_PORTION_SIZE,
 } from '../configs/config';
 import AccessControl from '../scripts/AccessControl';
 import MainApi from '../scripts/api/MainApi';
@@ -14,6 +15,7 @@ import Article from '../scripts/components/Article';
 import SavedNewsIntro from '../scripts/components/SavedNewsIntro';
 import {
   createNode,
+  getAsNumberAndLastDigit,
 } from '../scripts/utils/utils';
 import {
   pageConfig,
@@ -61,12 +63,13 @@ import {
       popup,
       // eslint-disable-next-line no-use-before-define
       savedNewsIntro,
+      ARTICLE_PORTION_SIZE,
     });
   }
   /* ЭКЗЕМПЛЯРЫ КЛАССОВ */
   const mainApi = new MainApi(API_URL, CONTENT_TYPE);
 
-  const savedNewsIntro = new SavedNewsIntro({ pageConfig, savedNewsIntroConfig });
+  const savedNewsIntro = new SavedNewsIntro({ pageConfig, savedNewsIntroConfig, getAsNumberAndLastDigit });
 
   const accessControl = new AccessControl({
     pageName: pageConfig.pageNames.savedNews,

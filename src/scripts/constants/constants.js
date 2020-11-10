@@ -390,22 +390,24 @@ const errorMessages = {
   empty: 'Это обязательное поле',
   wronglength: 'Должно быть от 2 до 30 символов',
   tooLong(constraint) {
-    const { length } = constraint;
-    const lastDigitChar = constraint.charAt(length - 1);
-    const number = Number(constraint);
-    const lastDigit = Number(lastDigitChar);
-    return lastDigit !== 1 || number === 11
-      ? `Должно быть не более ${constraint} символов`
-      : `Должно быть не более ${constraint} символа`;
+    const {
+      lastTwoDigitsNum,
+      string,
+      lastDigitNum,
+    } = constraint;
+    return lastDigitNum !== 1 || lastTwoDigitsNum === 11
+      ? `Должно быть не более ${string} символов`
+      : `Должно быть не более ${string} символа`;
   },
   tooShort(constraint) {
-    const { length } = constraint;
-    const lastDigitChar = constraint.charAt(length - 1);
-    const number = Number(constraint);
-    const lastDigit = Number(lastDigitChar);
-    return lastDigit !== 1 || number === 11
-      ? `Должно быть не менее ${constraint} символов`
-      : `Должно быть не менее ${constraint} символа`;
+    const {
+      lastTwoDigitsNum,
+      string,
+      lastDigitNum,
+    } = constraint;
+    return lastDigitNum !== 1 || lastTwoDigitsNum === 11
+      ? `Должно быть не менее ${string} символов`
+      : `Должно быть не менее ${string} символа`;
   },
   wrongType: 'Введите действительный адрес',
 };
