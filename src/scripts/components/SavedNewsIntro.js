@@ -127,10 +127,10 @@ class SavedNewsIntro extends BaseComponent {
     // console.log('render');
     if (this._articleArray) {
       this._articleNumber = this._articleArray.length;
-      this._node.classList.remove(this._controlClassName);
       this._keywordArray = this._articleArray.map((article) => article.keyword);
       this._setSubHeadline();
       this._makeKeywordSummary();
+      this._node.classList.remove(this._controlClassName);
     }
   }
 }

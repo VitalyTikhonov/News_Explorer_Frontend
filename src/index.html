@@ -3,12 +3,27 @@
 
 <head>
   <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <meta http-equiv="X-UA-Compatible" content="ie=edge">
-  <link rel="icon" href="<%=require('./images/N.png')%>" type="image/ico">
-  <meta name="description"
-    content="Сервис для поиска и сохранения новостных статей // A website where you can searh for and store news">
-  <meta name="author" content="Виталий Тихонов // Vitaliy Tikhonov">
+  <meta
+    name="viewport"
+    content="width=device-width, initial-scale=1.0"
+  >
+  <meta
+    http-equiv="X-UA-Compatible"
+    content="ie=edge"
+  >
+  <link
+    rel="icon"
+    href="<%=require('./images/N.png')%>"
+    type="image/ico"
+  >
+  <meta
+    name="description"
+    content="Сервис для поиска и сохранения новостных статей // A website where you can searh for and store news"
+  >
+  <meta
+    name="author"
+    content="Виталий Тихонов // Vitaliy Tikhonov"
+  >
   <title>NewsExplorer</title>
 </head>
 
@@ -18,34 +33,54 @@
       <div class="header__bar root__child-width">
         <h1 class="header__headline">NewsExplorer</h1>
 
-        <button type="button"
-          class="header__menu-button button__modal button__modal_burger-white button_hover-on-black"></button>
+        <button
+          type="button"
+          class="header__menu-button button__modal button__modal_burger-white button_hover-on-black"
+        ></button>
       </div>
 
-      <nav class="header__menu menu root__child-width header__menu_thinner-border" aria-labelledby="header-navigation">
-        <h2 class="aria-labelledby-title" id="header-navigation">Основное меню</h2>
+      <nav
+        class="header__menu menu root__child-width header__menu_thinner-border"
+        aria-labelledby="header-navigation"
+      >
+        <h2
+          class="aria-labelledby-title"
+          id="header-navigation"
+        >Основное меню</h2>
 
         <div class="menu__options">
           <ul class="menu__text-options header__menu-options list">
-            <li class="menu__text-path menu__text-path_header menu___text-path_current"><a href="./"
-                class="link">Главная</a></li>
+            <li class="menu__text-path menu__text-path_header menu___text-path_current"><a
+                href="./"
+                class="link"
+              >Главная</a></li>
 
             <li class="menu__text-path visibility__removed menu__text-path_header visibility__for-authorized"><a
-                href="./savednews/" class="link">Сохранённые статьи</a></li>
+                href="./savednews/"
+                class="link"
+              >Сохранённые статьи</a></li>
           </ul>
 
           <div class="menu__auth-button-login">
-            <button type="button"
-              class="menu__auth-button visibility__on-mob button__rounded button__rounded_size_parent button__rounded_black-outline-white button_hover-on-black visibility__for-non-authorized">Авторизоваться</button>
-            <button type="button"
-              class="menu__auth-button visibility__on-tab-and-dt button__rounded button__rounded_size_parent button__rounded_transparent-outline-white button_hover-on-black visibility__for-non-authorized">Авторизоваться</button>
+            <button
+              type="button"
+              class="menu__auth-button visibility__on-mob button__rounded button__rounded_size_parent button__rounded_black-outline-white button_hover-on-black visibility__for-non-authorized"
+            >Авторизоваться</button>
+            <button
+              type="button"
+              class="menu__auth-button visibility__on-tab-and-dt button__rounded button__rounded_size_parent button__rounded_transparent-outline-white button_hover-on-black visibility__for-non-authorized"
+            >Авторизоваться</button>
           </div>
           <div class="menu__auth-button-logout">
-            <button type="button"
-              class="menu__auth-button visibility__on-mob visibility__removed button__rounded button__rounded_black-outline-white button_hover-on-black button__rounded_with-icon visibility__for-authorized">
+            <button
+              type="button"
+              class="menu__auth-button visibility__on-mob visibility__removed button__rounded button__rounded_black-outline-white button_hover-on-black button__rounded_with-icon visibility__for-authorized"
+            >
               <span class="button__icon button__icon_logout-white"></span></button>
-            <button type="button"
-              class="menu__auth-button visibility__on-tab-and-dt visibility__removed button__rounded button__rounded_transparent-outline-white button_hover-on-black button__rounded_with-icon visibility__for-authorized">
+            <button
+              type="button"
+              class="menu__auth-button visibility__on-tab-and-dt visibility__removed button__rounded button__rounded_transparent-outline-white button_hover-on-black button__rounded_with-icon visibility__for-authorized"
+            >
               <span class="button__icon button__icon_logout-white"></span></button>
           </div>
         </div>
@@ -62,20 +97,26 @@
         <form class="news-search-form">
           <div class="news-search-form__bar-and-button-group">
             <input
-            type="text"
-            name="searchTerm"
-            id="newsSearchField"
-            class="news-search-form__bar"
-            placeholder="Политика"
-            minlength="2"
-            maxlength="150"
+              type="text"
+              name="searchTerm"
+              id="newsSearchField"
+              class="news-search-form__bar"
+              placeholder="Политика"
+              minlength="2"
+              maxlength="150"
             >
 
-            <button type="submit"
-              class="news-search-form__button button__rounded button__rounded_size_parent button__rounded_blue" disabled>Искать
+            <button
+              type="submit"
+              class="news-search-form__button button__rounded button__rounded_size_parent button__rounded_blue"
+              disabled
+            >Искать
             </button>
           </div>
-          <p class="news-search-form__error" id="newsSearchFieldError"></p>
+          <p
+            class="news-search-form__error"
+            id="newsSearchFieldError"
+          ></p>
         </form>
       </section>
 
@@ -83,7 +124,11 @@
       </section>
 
       <section class="user-profile root__child-width">
-        <img src="<%=require('./images/vitaliytikhonov.jpg')%>" alt="Фото автора" class="user-profile__avatar">
+        <img
+          src="<%=require('./images/vitaliytikhonov.jpg')%>"
+          alt="Фото автора"
+          class="user-profile__avatar"
+        >
 
         <div class="user-profile__description">
           <h3 class="user-profile__headline section-headline">Об авторе</h3>
@@ -98,30 +143,61 @@
     </main>
 
     <footer class="footer root__child-width">
-      <nav class="menu footer__menu" aria-labelledby="footer-navigation">
-        <h2 class="aria-labelledby-title" id="footer-navigation">Меню в нижней части страницы</h2>
+      <nav
+        class="menu footer__menu"
+        aria-labelledby="footer-navigation"
+      >
+        <h2
+          class="aria-labelledby-title"
+          id="footer-navigation"
+        >Меню в нижней части страницы</h2>
 
         <ul class="menu__text-options footer__menu-options list">
           <li class="menu__text-path menu__text-path_footer">
-            <a href="./" class="link">Главная</a>
+            <a
+              href="./"
+              class="link"
+            >Главная</a>
           </li>
 
           <li class="menu__text-path menu__text-path_footer">
-            <a target="_blank" rel="noopener noreferrer" href="https://praktikum.yandex.ru/"
-              class="link">Яндекс.Практикум</a>
+            <a
+              target="_blank"
+              rel="noopener noreferrer"
+              href="https://praktikum.yandex.ru/"
+              class="link"
+            >Яндекс.Практикум</a>
           </li>
         </ul>
 
         <ul class="menu__icon-options list">
           <li class="menu__icon-path">
-            <a target="_blank" rel="noopener noreferrer" href="https://github.com/VitalyTikhonov" class="link">
-              <img src="<%=require('./images/github.png')%>" alt="Ссылка на GitHub" class="menu__icon">
+            <a
+              target="_blank"
+              rel="noopener noreferrer"
+              href="https://github.com/VitalyTikhonov"
+              class="link"
+            >
+              <img
+                src="<%=require('./images/github.png')%>"
+                alt="Ссылка на GitHub"
+                class="menu__icon"
+              >
             </a>
           </li>
 
           <li class="menu__icon-path">
-            <a target="_blank" rel="noopener noreferrer" href="https://t.me/VitalSense" class="link">
-              <img src="<%=require('./images/telegram-small.png')%>" alt="Ссылка на Telegram" class="menu__icon">
+            <a
+              target="_blank"
+              rel="noopener noreferrer"
+              href="https://t.me/VitalSense"
+              class="link"
+            >
+              <img
+                src="<%=require('./images/telegram-small.png')%>"
+                alt="Ссылка на Telegram"
+                class="menu__icon"
+              >
             </a>
           </li>
         </ul>

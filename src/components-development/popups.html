@@ -1,8 +1,10 @@
 <!-- <div class="popup visibility__removed"> -->
 <div class="popup">
   <div class="popup__body">
-    <button type="button"
-      class="popup__close-icon button__modal button__modal_cross-white button_hover-on-black"></button>
+    <button
+      type="button"
+      class="popup__close-icon button__modal button__modal_cross-white button_hover-on-black"
+    ></button>
   </div>
 </div>
 
@@ -12,62 +14,150 @@
 <div class="popup__content">
   <h3 class="popup__title">Вход</h3>
 
-  <form class="popup__form" name="loginForm" novalidate>
-    <label class="popup__input-label" for="logiEmail">Email</label>
+  <form
+    class="popup__form"
+    name="loginForm"
+    novalidate
+  >
+    <label
+      class="popup__input-label"
+      for="logiEmail"
+    >Email</label>
 
-    <input type="email" name="email" id="logiEmail" class="popup__input" placeholder="Введите почту" required
-      minlength="2" maxlength="30">
+    <input
+      type="email"
+      name="email"
+      id="logiEmail"
+      class="popup__input"
+      placeholder="Введите почту"
+      required
+      minlength="2"
+      maxlength="30"
+    >
 
-    <span class="popup__error" id="logiEmailError"></span>
+    <span
+      class="popup__error"
+      id="logiEmailError"
+    ></span>
 
-    <label class="popup__input-label" for="loginPassword">Пароль</label>
+    <label
+      class="popup__input-label"
+      for="loginPassword"
+    >Пароль</label>
 
-    <input type="password" name="password" id="loginPassword" class="popup__input" placeholder="Введите пароль"
-      required minlength="8">
+    <input
+      type="password"
+      name="password"
+      id="loginPassword"
+      class="popup__input"
+      placeholder="Введите пароль"
+      required
+      minlength="8"
+    >
 
-    <span class="popup__error" id="loginPasswordError"></span>
+    <span
+      class="popup__error"
+      id="loginPasswordError"
+    ></span>
 
-    <span class="popup__error popup__error_general" id="loginFormError"></span>
+    <span
+      class="popup__error popup__error_general"
+      id="loginFormError"
+    ></span>
 
-    <button type="submit" class="popup__button button__rounded button__rounded_size_parent button__rounded_blue">Войти</button>
+    <button
+      type="submit"
+      class="popup__button button__rounded button__rounded_size_parent button__rounded_blue"
+    >Войти</button>
 
     <p class="popup__prompt">или <span class="popup__prompt-link">зарегистрироваться</span></p>
   </form>
 </div>
 
 <!-- ПОПАП "РЕГИСТРАЦИЯ" – ШАГ 2 из 2: ᐃᐃᐃ закрыт – открыт ᐁᐁᐁ  -->
-    <div class="popup__content">
-      <h3 class="popup__title">Регистрация</h3>
+<div class="popup__content">
+  <h3 class="popup__title">Регистрация</h3>
 
-      <form class="popup__form" name="signupForm" novalidate>
-        <label class="popup__input-label" for="signupEmail">Email</label>
+  <form
+    class="popup__form"
+    name="signupForm"
+    novalidate
+  >
+    <label
+      class="popup__input-label"
+      for="signupEmail"
+    >Email</label>
 
-        <input type="email" name="email" id="signupEmail" class="popup__input" placeholder="Введите почту" required
-          minlength="2" maxlength="30">
+    <input
+      type="email"
+      name="email"
+      id="signupEmail"
+      class="popup__input"
+      placeholder="Введите почту"
+      required
+      minlength="2"
+      maxlength="30"
+    >
 
-        <span class="popup__error" id="signupEmailError"></span>
+    <span
+      class="popup__error"
+      id="signupEmailError"
+    ></span>
 
-        <label class="popup__input-label" for="signupPassword">Пароль</label>
+    <label
+      class="popup__input-label"
+      for="signupPassword"
+    >Пароль</label>
 
-        <input type="password" name="password" id="signupPassword" class="popup__input" placeholder="Введите пароль" required
-          minlength="8">
+    <input
+      type="password"
+      name="password"
+      id="signupPassword"
+      class="popup__input"
+      placeholder="Введите пароль"
+      required
+      minlength="8"
+    >
 
-        <span class="popup__error" id="signupPasswordError"></span>
+    <span
+      class="popup__error"
+      id="signupPasswordError"
+    ></span>
 
-        <label class="popup__input-label" for="signupName">Имя</label>
+    <label
+      class="popup__input-label"
+      for="signupName"
+    >Имя</label>
 
-        <input type="text" name="name" id="signupName" class="popup__input" placeholder="Введите имя" required
-          minlength="2" maxlength="30">
+    <input
+      type="text"
+      name="name"
+      id="signupName"
+      class="popup__input"
+      placeholder="Введите имя"
+      required
+      minlength="2"
+      maxlength="30"
+    >
 
-        <span class="popup__error" id="signupNameError"></span>
+    <span
+      class="popup__error"
+      id="signupNameError"
+    ></span>
 
-        <span class="popup__error popup__error_general" id="signupFormError"></span>
+    <span
+      class="popup__error popup__error_general"
+      id="signupFormError"
+    ></span>
 
-        <button type="submit" class="popup__button button__rounded button__rounded_size_parent button__rounded_blue">Зарегистрироваться</button>
+    <button
+      type="submit"
+      class="popup__button button__rounded button__rounded_size_parent button__rounded_blue"
+    >Зарегистрироваться</button>
 
-        <p class="popup__prompt">или <span class="popup__prompt-link">войти</span></p>
-      </form>
-    </div>
+    <p class="popup__prompt">или <span class="popup__prompt-link">войти</span></p>
+  </form>
+</div>
 
 <!-- ПОПАП "СООБЩЕНИЕ" – ШАГ 2 из 2: ᐃᐃᐃ закрыт – открыт ᐁᐁᐁ  -->
 <div class="popup__content">
@@ -82,4 +172,4 @@
   <h3 class="popup__title">Ошибка!</h3>
 
   <p class="popup__message"></p>
-  </div>
+</div>

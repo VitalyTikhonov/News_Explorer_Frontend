@@ -1,12 +1,4 @@
 .card__breadcrumb.card__breadcrumb_save-button {
-  top: 7.56%;
-  right: 5.56%;
-}
-
-/* @media (min-width: 321px) and (max-width: 768px) { */
-@media (min-width: 321px) {
-  .card__breadcrumb.card__breadcrumb_save-button {
-    top: 5%;
-    right: 3%;
-  }
+  top: 23.11px;
+  right: 23.11px;
 }
