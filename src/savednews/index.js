@@ -69,7 +69,11 @@ import {
   /* ЭКЗЕМПЛЯРЫ КЛАССОВ */
   const mainApi = new MainApi(API_URL, CONTENT_TYPE);
 
-  const savedNewsIntro = new SavedNewsIntro({ pageConfig, savedNewsIntroConfig, getAsNumberAndLastDigit });
+  const savedNewsIntro = new SavedNewsIntro({
+    pageConfig,
+    savedNewsIntroConfig,
+    getAsNumberAndLastDigit,
+  });
 
   const accessControl = new AccessControl({
     pageName: pageConfig.pageNames.savedNews,
