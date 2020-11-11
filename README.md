@@ -22,11 +22,13 @@
 
 [Наверх :arrow_up:](#news-explorer-frontend)
 ##### Функционал проекта
+
 На первой странице:
 – регистрация, вход и выход пользователя;
 - поиск новостей по ключевым словам;
 - сохранение найденный статей в своем аккаунте;
 - удаление ранее сохраненных статей.
+
 На второй странице:
 - выход пользователя;
 - удаление ранее сохраненных статей.
@@ -50,11 +52,13 @@ View it on http://vitaliytikhonov.ru/webdev/projects/news_explorer/
 
 [To top :arrow_up:](#news-explorer-frontend)
 ##### Project functionality
+
 On the main page:
 – user signup, signin and signout;
 - news search;
 - saving found news in your account;
 - deleting previously saved articles.
+
 На второй странице:
 - user signout;
 - deleting previously saved articles.
