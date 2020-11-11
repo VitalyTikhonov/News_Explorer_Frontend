@@ -1,6 +1,7 @@
 # News Explorer Frontend
-###### В рамках курса "Веб-разработка" в Яндекс.Практикуме
-###### As part of the Web-Development course at Yandex.Praktikum
+В рамках курса "Веб-разработка" в Яндекс.Практикуме
+
+As part of the Web-Development course at Yandex.Praktikum
 <!-- toc -->
 ##### По-русски
 - [Описание](#Описание)
@@ -14,16 +15,16 @@
 - [Technologies used](#Technologies-used)
 <!-- tocstop -->
 
-##### Описание
+#### Описание
 Версия 1.0.0
 
 Дипломный проект курса: двустраничный сайт, на котором можно искать новости из агрегатора NewsAPI и сохранять их в своем аккаунте.
-##### Размещение
+#### Размещение
 Проект опубликован:
 - по адресу http://vitaliytikhonov.ru/webdev/projects/news_explorer/
 - [на GitHub Pages](https://vitalytikhonov.github.io/News_Explorer_Frontend/)
 
-##### Функционал проекта
+#### Функционал проекта
 На первой странице:
 - регистрация, вход и выход пользователя;
 - поиск новостей по ключевым словам;
@@ -34,7 +35,7 @@
 - выход пользователя;
 - удаление ранее сохраненных статей.
 
-##### Используемые технологии
+#### Используемые технологии
 - нативный JavaScript
 - HTML
 - CSS
@@ -42,16 +43,16 @@
 
 [Наверх :arrow_up:](#news-explorer-frontend)
 ***
-##### About
+#### About
 Version 0.0.1
 
 Course final project: a two-page website, where you can search for news (as provided by the NewsAPI aggregator) and store it in your account.
-##### Access
-View it
-- on http://vitaliytikhonov.ru/webdev/projects/news_explorer/
+#### Access
+View it on
+- http://vitaliytikhonov.ru/webdev/projects/news_explorer/
 - [GitHub Pages](https://vitalytikhonov.github.io/News_Explorer_Frontend/)
 
-##### Project functionality
+#### Project functionality
 On the main page:
 - user signup, signin and signout;
 - news search;
@@ -62,7 +63,7 @@ On Page 2:
 - user signout;
 - deleting previously saved articles.
 
-##### Technologies used
+#### Technologies used
 - native JavaScript
 - HTML
 - CSS
