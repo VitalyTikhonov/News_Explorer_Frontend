@@ -54,7 +54,7 @@ View it on http://vitaliytikhonov.ru/webdev/projects/news_explorer/
 ##### Project functionality
 
 On the main page:
-– user signup, signin and signout;
+- user signup, signin and signout;
 - news search;
 - saving found news in your account;
 - deleting previously saved articles.
