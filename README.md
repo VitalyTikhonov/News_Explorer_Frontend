@@ -17,8 +17,8 @@
 Дипломный проект курса: двустраничный сайт, на котором можно искать новости из агрегатора NewsAPI и сохранять их в своем аккаунте.
 ##### Размещение
 Проект опубликован:
-по адресу http://vitaliytikhonov.ru/webdev/projects/news_explorer/
-[на GitHub Pages](https://vitalytikhonov.github.io/News_Explorer_Frontend/)
+- по адресу http://vitaliytikhonov.ru/webdev/projects/news_explorer/
+- [на GitHub Pages](https://vitalytikhonov.github.io/News_Explorer_Frontend/)
 
 [Наверх :arrow_up:](#news-explorer-frontend)
 ##### Функционал проекта
@@ -47,8 +47,9 @@
 Version 0.0.1
 Course final project: a two-page website, where you can search for news (as provided by the NewsAPI aggregator) and store it in your account.
 ##### Access
-View it on http://vitaliytikhonov.ru/webdev/projects/news_explorer/
-[on GitHub Pages](https://vitalytikhonov.github.io/News_Explorer_Frontend/)
+View it
+- on http://vitaliytikhonov.ru/webdev/projects/news_explorer/
+- [GitHub Pages](https://vitalytikhonov.github.io/News_Explorer_Frontend/)
 
 [To top :arrow_up:](#news-explorer-frontend)
 ##### Project functionality
