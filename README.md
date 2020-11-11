@@ -1,4 +1,6 @@
 # News Explorer Frontend
+###### В рамках курса "Веб-разработка" в Яндекс.Практикуме
+###### As part of the Web-Development course at Yandex.Praktikum
 <!-- toc -->
 ##### По-русски
 - [Описание](#Описание)
@@ -13,8 +15,8 @@
 <!-- tocstop -->
 
 ##### Описание
-###### В рамках курса "Веб-разработка" в Яндекс.Практикуме
 Версия 1.0.0
+
 Дипломный проект курса: двустраничный сайт, на котором можно искать новости из агрегатора NewsAPI и сохранять их в своем аккаунте.
 ##### Размещение
 Проект опубликован:
@@ -41,8 +43,8 @@
 [Наверх :arrow_up:](#news-explorer-frontend)
 ***
 ##### About
-###### As part of the Web-Development course at Yandex.Praktikum
 Version 0.0.1
+
 Course final project: a two-page website, where you can search for news (as provided by the NewsAPI aggregator) and store it in your account.
 ##### Access
 View it
