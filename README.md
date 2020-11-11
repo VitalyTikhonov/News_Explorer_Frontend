@@ -20,7 +20,7 @@
 по адресу http://vitaliytikhonov.ru/webdev/projects/news_explorer/
 [на GitHub Pages](https://vitalytikhonov.github.io/News_Explorer_Frontend/)
 
-[Наверх :arrow_up:](#news-explorer-backend)
+[Наверх :arrow_up:](#news-explorer-frontend)
 ##### Функционал проекта
 На первой странице:
 – регистрация, вход и выход пользователя;
@@ -31,14 +31,14 @@
 - выход пользователя;
 - удаление ранее сохраненных статей.
 
-[Наверх :arrow_up:](#news-explorer-backend)
+[Наверх :arrow_up:](#news-explorer-frontend)
 ##### Используемые технологии
 - нативный JavaScript
 - HTML
 - CSS
 - WebPack
 
-[Наверх :arrow_up:](#news-explorer-backend)
+[Наверх :arrow_up:](#news-explorer-frontend)
 ###### В рамках курса "Веб-разработка" в Яндекс.Практикуме
 ***
 ##### About
@@ -48,7 +48,7 @@ Course final project: a two-page website, where you can search for news (as prov
 View it on http://vitaliytikhonov.ru/webdev/projects/news_explorer/
 [on GitHub Pages](https://vitalytikhonov.github.io/News_Explorer_Frontend/)
 
-[To top :arrow_up:](#news-explorer-backend)
+[To top :arrow_up:](#news-explorer-frontend)
 ##### Project functionality
 On the main page:
 – user signup, signin and signout;
@@ -59,12 +59,12 @@ On the main page:
 - user signout;
 - deleting previously saved articles.
 
-[To top :arrow_up:](#news-explorer-backend)
+[To top :arrow_up:](#news-explorer-frontend)
 ##### Technologies used
 - native JavaScript
 - HTML
 - CSS
 - WebPack
 
-[To top :arrow_up:](#news-explorer-backend)
+[To top :arrow_up:](#news-explorer-frontend)
 ###### As part of the Web-Development course at Yandex.Praktikum
