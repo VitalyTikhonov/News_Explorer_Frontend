@@ -6,6 +6,7 @@
 @media (min-width: 450px) and (max-width: 1241px) {
   .news-search-form__button {
     width: 36%;
+    min-width: 140px;
     position: absolute;
     right: -1%;
     margin-top: 0;
