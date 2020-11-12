@@ -376,15 +376,6 @@ const savedNewsIntroConfig = {
   //     `;
   //   },
 };
-const pageConfig = {
-  rootNode,
-  pageNames,
-  header,
-  authButton,
-  logoutButton,
-  logoutButtonProperArray,
-  accessMarkers,
-};
 
 const errorMessages = {
   empty: 'Это обязательное поле',
@@ -410,6 +401,16 @@ const errorMessages = {
       : `Должно быть не менее ${string} символа`;
   },
   wrongType: 'Введите действительный адрес',
+};
+
+const pageConfig = {
+  rootNode,
+  pageNames,
+  header,
+  authButton,
+  logoutButton,
+  logoutButtonProperArray,
+  accessMarkers,
 };
 
 export {

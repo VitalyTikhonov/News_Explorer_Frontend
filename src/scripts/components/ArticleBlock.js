@@ -194,16 +194,6 @@ class ArticleBlock extends BaseComponent {
       remainder: this._articleArray.length, // !== articleData.totalResults !!!
     };
     this._renderPortionOfArticles();
-    // this.clearAllSection();                                                         // new
-    // this._keyword = articleData.keyword;                                            // new
-    // this._articleArray = articleData.articles;                                      // new
-    // this._renderArticleBlockShell();                                                //
-    // this._cardAdditionConfig = {                                                    //
-    //   increment: 3,
-    //   currentStart: 0,
-    //   remainder: this._articleArray.length, // !== articleData.totalResults !!!
-    // };
-    // this._renderPortionOfArticles();                                                //
   }
 }
 

@@ -10,6 +10,7 @@
     top: 23.11px;
     right: calc(23.11px + 40px + 3px);
     max-width: calc(100% - 23.11px * 2 - 40px - 3px);
+    /* 23.11px – отступы, 40px – значок "сохранить", 3px – отступ от значка */
     text-align: left;
   }
 }
