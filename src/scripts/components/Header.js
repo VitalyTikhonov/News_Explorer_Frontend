@@ -19,9 +19,6 @@ class Header extends BaseComponent {
     this._optionForAuthUsers = pageConfig.optionForAuthUsers;
     this._authorizedSelector = pageConfig.accessMarkers.authorizedSelector;
     this._nonAuthorizedSelector = pageConfig.accessMarkers.nonAuthorizedSelector;
-    this._headerScrolledClass = pageConfig.headerScrollClasses.headerScrolledClass;
-    this._headerScrollAnimClass = pageConfig.headerScrollClasses.headerScrollAnimClass;
-    this._headerReversedScrollAnimClass = pageConfig.headerScrollClasses.headerReversedScrollAnimClass;
     this._popup = popup;
     /* ----------- */
     this._header = headerMenuConfig.elements.header;
@@ -48,26 +45,12 @@ class Header extends BaseComponent {
     this._setHeaderBackground = this._setHeaderBackground.bind(this);
   }
 
-  _animateHeaderDarkening() {
-    this._header.classList.remove(this._headerReversedScrollAnimClass);
-    this._header.classList.remove(this._headerScrolledClass);
-    this._header.classList.add(this._headerScrollAnimClass);
-  }
-
-  _animateHeaderLightening() {
-    this._header.classList.remove(this._headerScrolledClass);
-    this._header.classList.remove(this._headerScrollAnimClass);
-    this._header.classList.add(this._headerReversedScrollAnimClass);
-  }
-
-  _makeHeaderDark() {
-    this._header.classList.remove(this._headerReversedScrollAnimClass);
-    this._header.classList.remove(this._headerScrollAnimClass);
-    this._header.classList.add(this._headerScrolledClass);
-  }
-
   _setHeaderBackground() {
     if (this._pageName !== this._indexPageName) {
+      return;
+    }
+    if (this._isMenuOpen) {
+      this._header.setAttribute('style', 'background-color:#1A1B22');
       return;
     }
     const scrollValue = window.scrollY;
