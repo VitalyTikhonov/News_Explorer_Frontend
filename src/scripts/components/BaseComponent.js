@@ -148,6 +148,16 @@ class BaseComponent {
     });
     this._elemClassMap = [];
   }
+
+  // BaseComponent.swapClassesOnElem({
+  //     element: ,
+  //     classToRemove: ,
+  //     classToAdd: ,
+  //   });
+  static swapClassesOnElem(map) {
+    map.element.classList.remove(map.classToRemove);
+    map.element.classList.add(map.classToAdd);
+  }
 }
 
 export { BaseComponent as default };

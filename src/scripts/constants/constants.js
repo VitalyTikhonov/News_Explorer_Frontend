@@ -9,6 +9,11 @@ const header = rootNode.querySelector('.header');
 const authButton = header.querySelector('.menu__auth-button-login');
 const logoutButton = header.querySelector('.menu__auth-button-logout');
 const logoutButtonProperArray = logoutButton.querySelectorAll('.menu__auth-button');
+const headerScrollClasses = {
+  headerScrolledClass: 'header__bar_scrolled',
+  headerScrollAnimClass: 'header__bar_anim-on-scroll',
+  headerReversedScrollAnimClass: 'header__bar_anim-on-reversed-scroll',
+};
 const accessMarkers = {
   authorizedSelector: '.visibility__for-authorized',
   nonAuthorizedSelector: '.visibility__for-non-authorized',
@@ -384,6 +389,7 @@ const pageConfig = {
   logoutButton,
   logoutButtonProperArray,
   accessMarkers,
+  headerScrollClasses,
 };
 
 const errorMessages = {

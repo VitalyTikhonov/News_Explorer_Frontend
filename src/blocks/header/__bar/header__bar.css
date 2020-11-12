@@ -1,4 +1,5 @@
 @import url(./_thicker-border/header__bar_thicker-border.css);
+@import url(./_scrolled/header__bar_scrolled.css);
 .header__bar {
   /* scheme */
   display: flex;

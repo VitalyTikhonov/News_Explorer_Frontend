@@ -4,5 +4,5 @@
 @import url(./_tooltip/card__breadcrumb_tooltip.css);
 .card__breadcrumb {
   position: absolute;
-  z-index: 1;
+  /* z-index: 1; */
 }

@@ -19,6 +19,9 @@ class Header extends BaseComponent {
     this._optionForAuthUsers = pageConfig.optionForAuthUsers;
     this._authorizedSelector = pageConfig.accessMarkers.authorizedSelector;
     this._nonAuthorizedSelector = pageConfig.accessMarkers.nonAuthorizedSelector;
+    this._headerScrolledClass = pageConfig.headerScrollClasses.headerScrolledClass;
+    this._headerScrollAnimClass = pageConfig.headerScrollClasses.headerScrollAnimClass;
+    this._headerReversedScrollAnimClass = pageConfig.headerScrollClasses.headerReversedScrollAnimClass;
     this._popup = popup;
     /* ----------- */
     this._header = headerMenuConfig.elements.header;
@@ -42,7 +45,37 @@ class Header extends BaseComponent {
     /* ----------- */
     this._openMenu = this._openMenu.bind(this);
     this._closeMenu = this._closeMenu.bind(this);
-    // this._setLogoutButtonText = this._setLogoutButtonText.bind(this);
+    this._setHeaderBackground = this._setHeaderBackground.bind(this);
+  }
+
+  _animateHeaderDarkening() {
+    this._header.classList.remove(this._headerReversedScrollAnimClass);
+    this._header.classList.remove(this._headerScrolledClass);
+    this._header.classList.add(this._headerScrollAnimClass);
+  }
+
+  _animateHeaderLightening() {
+    this._header.classList.remove(this._headerScrolledClass);
+    this._header.classList.remove(this._headerScrollAnimClass);
+    this._header.classList.add(this._headerReversedScrollAnimClass);
+  }
+
+  _makeHeaderDark() {
+    this._header.classList.remove(this._headerReversedScrollAnimClass);
+    this._header.classList.remove(this._headerScrollAnimClass);
+    this._header.classList.add(this._headerScrolledClass);
+  }
+
+  _setHeaderBackground() {
+    if (this._pageName !== this._indexPageName) {
+      return;
+    }
+    const scrollValue = window.scrollY;
+    const ratio = 0.006;
+    const maxOpacity = 0.75;
+    const maxOpacityScroll = 125;
+    const opacityValue = window.scrollY <= maxOpacityScroll ? scrollValue * ratio : maxOpacity;
+    this._header.setAttribute('style', `background-color:rgba(0, 0, 0, ${opacityValue})`);
   }
 
   _setElemClassMap() {
@@ -63,6 +96,11 @@ class Header extends BaseComponent {
             domElement: this._headerMenuButton,
             event: 'click',
             handler: this._openMenu,
+          },
+          {
+            domElement: window,
+            event: 'scroll',
+            handler: this._setHeaderBackground,
           },
           // {
           //   domElement: document,
@@ -247,17 +285,13 @@ class Header extends BaseComponent {
     }
   }
 
-  // _setLogoutButtonText(event) {
-  //   this._logoutButtonProperArray.forEach((button) => {
-  //     button.prepend(event.detail.name);
-  //   });
-  // }
-
   _openMenu() {
     BaseComponent.removeHandlers(this._menuOpenMap.handlers.remove);
     BaseComponent.setHandlers(this._menuOpenMap.handlers.set);
     this._elemClassMap = [].concat(this._menuOpenMap.classes);
     this._configureClassesOnElem();
+    this._isMenuOpen = true;
+    this._setHeaderBackground();
   }
 
   _closeMenu() {
@@ -265,6 +299,8 @@ class Header extends BaseComponent {
     BaseComponent.setHandlers(this._menuCloseMap.handlers.set);
     this._elemClassMap = [].concat(this._menuCloseMap.classes);
     this._configureClassesOnElem();
+    this._isMenuOpen = false;
+    this._setHeaderBackground();
   }
 
   render() {
