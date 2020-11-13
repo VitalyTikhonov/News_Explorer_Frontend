@@ -2,7 +2,6 @@ import BaseComponent from './BaseComponent';
 
 class ArticleBlock extends BaseComponent {
   constructor({
-    api,
     pageName,
     indexPageName,
     savedNewsPageName,
@@ -10,9 +9,7 @@ class ArticleBlock extends BaseComponent {
     createNode,
     createArticle,
     // pageConfig,
-    accessControl,
     popup,
-    savedNewsIntro,
     ARTICLE_PORTION_SIZE,
   }) {
     super({
@@ -22,12 +19,10 @@ class ArticleBlock extends BaseComponent {
       indexPageName,
       savedNewsPageName,
     });
-    this._api = api;
     this._component = articleBlockConf.node;
     this._markup = articleBlockConf.articleBlockProper.markup[this._pageName];
     this._cardContainerSel = articleBlockConf.articleBlockProper.innerContainerSelector;
     this._popup = popup;
-    this._savedNewsIntro = savedNewsIntro;
     this._ARTICLE_PORTION_SIZE = ARTICLE_PORTION_SIZE;
     // this._innerContainer = articleBlockConf.selector;
     /* ----------- */
@@ -55,8 +50,14 @@ class ArticleBlock extends BaseComponent {
     /* ----------- */
     this._createArticle = createArticle;
     // this._removalClassName = pageConfig.accessMarkers.removalClassName;
-    this._getUserStatus = accessControl.getUserStatus;
     this._renderPortionOfArticles = this._renderPortionOfArticles.bind(this);
+  }
+
+  setDependencies(dependencies) {
+    super.setDependencies(dependencies);
+    this._getUserStatus = this._dependencies.accessControl.getUserStatus;
+    this._mainApi = this._dependencies.mainApi;
+    this._savedNewsIntro = this._dependencies.savedNewsIntro;
   }
 
   // _clearCards() {
@@ -76,13 +77,18 @@ class ArticleBlock extends BaseComponent {
     BaseComponent.insertChild(this._component, this._preloader);
   }
 
-  showNoNewsBumper(title, text) {
+  showNoNewsBumper(isForNewNews) {
     this.clearAllSection();
     this._noNewsBumper = BaseComponent.create(this._noNewsBumperMarkup);
     const titleNode = this._noNewsBumper.querySelector(this._noNewsBumperTitleSelector);
     const textNode = this._noNewsBumper.querySelector(this._noNewsBumperTextSelector);
-    titleNode.textContent = title || this._noNewsBumperNoNewNewsTitle;
-    textNode.textContent = text || this._noNewsBumperNoNewNewsText;
+    if (isForNewNews) {
+      titleNode.textContent = this._noNewsBumperNoNewNewsTitle;
+      textNode.textContent = this._noNewsBumperNoNewNewsText;
+    } else {
+      titleNode.textContent = this._noNewsBumperNoSavedNewsTitle;
+      textNode.textContent = this._noNewsBumperNoSavedNewsText;
+    }
     BaseComponent.insertChild(this._component, this._noNewsBumper);
   }
 
@@ -145,7 +151,7 @@ class ArticleBlock extends BaseComponent {
   renderSavedArticles() {
     this.showPreloader(this._preloaderLoadText);
     // this.toggleButtonText(false);
-    this._api.getArticles()
+    this._mainApi.getArticles()
       .then((res) => {
         // console.log('res\n', res);
         // console.log('isArray', Array.isArray(res));
@@ -154,10 +160,7 @@ class ArticleBlock extends BaseComponent {
       })
       .catch((err) => {
         if (err.message === 'Статьи не найдены') {
-          this.showNoNewsBumper(
-            this._noNewsBumperNoSavedNewsTitle,
-            this._noNewsBumperNoSavedNewsText,
-          );
+          this.showNoNewsBumper();
           return;
         }
         this.clearAllSection();

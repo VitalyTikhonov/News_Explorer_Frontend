@@ -160,6 +160,9 @@ import {
   });
 
   /* ВЫЗОВЫ ФУНКЦИЙ */
+  accessControl.setDependencies({ articleBlock, mainApi });
+  articleBlock.setDependencies({ accessControl });
+
   accessControl.configurePageOnLoad();
   headerObj.render();
   newsSearchForm.render();

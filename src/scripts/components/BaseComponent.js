@@ -22,6 +22,10 @@ class BaseComponent {
     this._elemClassMap = [];
   }
 
+  setDependencies(dependencies) {
+    this._dependencies = dependencies;
+  }
+
   // BaseComponent.setHandlers(map)
   static setHandlers(map) { // super.setHandlers
     map.forEach((combination) => {

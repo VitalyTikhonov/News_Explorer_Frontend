@@ -40,7 +40,7 @@ class NewsSearchForm extends Form {
       .then((res) => {
         console.log('res\n', res);
         if (res.totalResults === 0) {
-          this._articleBlock.showNoNewsBumper();
+          this._articleBlock.showNoNewsBumper(true);
           return;
         }
         res.keyword = this._field.value;

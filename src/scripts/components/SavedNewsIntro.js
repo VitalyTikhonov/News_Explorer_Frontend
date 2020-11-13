@@ -17,6 +17,11 @@ class SavedNewsIntro extends BaseComponent {
     this._getAsNumberAndLastDigit = getAsNumberAndLastDigit;
   }
 
+  setDependencies(dependencies) {
+    super.setDependencies(dependencies);
+    this._articleBlock = this._dependencies.articleBlock;
+  }
+
   setUserName(userName) {
     this._userName = userName;
   }
@@ -37,7 +42,9 @@ class SavedNewsIntro extends BaseComponent {
       this._setSubHeadline();
       this._makeKeywordSummary();
     } else {
-      this._node.classList.add(this._controlClassName);
+      this._setSubHeadline();
+      this._articleBlock.showNoNewsBumper();
+      // this._node.classList.add(this._controlClassName);
     }
   }
 
@@ -48,10 +55,15 @@ class SavedNewsIntro extends BaseComponent {
       genitivePlural: 'сохраненных статей', // 0, …5–9, 10–20, …11
     };
     const {
+      number: artNumber,
       string: artNumbAsStr,
       lastDigitNum: lastDigit,
       lastButOneDigitNum: lastButOneDigit,
     } = this._getAsNumberAndLastDigit(this._articleNumber);
+    if (artNumber === 0) {
+      this._numberOfArticlesPhrase = `нет ${caseForms.genitivePlural}`;
+      return this._numberOfArticlesPhrase;
+    }
     if (
       (lastDigit >= 5 && lastDigit <= 9)
       || lastDigit === 0
@@ -66,11 +78,9 @@ class SavedNewsIntro extends BaseComponent {
     }
     if (lastDigit === 1) {
       this._numberOfArticlesPhrase = `${artNumbAsStr} ${caseForms.accusativeSingular}`;
+      return this._numberOfArticlesPhrase;
     }
     return this._numberOfArticlesPhrase;
-    // if (lastDigit === 0) {
-    //   this._numberOfArticlesPhrase = `нет ${caseForms.genitivePlural}`;
-    // }
   }
 
   _setSubHeadline() {

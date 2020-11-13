@@ -11,7 +11,6 @@ class AccessControl extends BaseComponent {
     savedNewsPageName,
     pageConfig,
     articleBlockConf,
-    createArticleBlockObj,
     // generateSigninEvent,
     savedNewsIntro,
   }) {
@@ -31,7 +30,6 @@ class AccessControl extends BaseComponent {
     this._ttipNonAuthMarkup = articleBlockConf.articleBlockProper.article.tooltip.nonAuthTextMarkup;
     this._ttipUnsavedMarkup = articleBlockConf.articleBlockProper.article.tooltip.unsavedTextMarkup;
     this._ttipSavedMarkup = articleBlockConf.articleBlockProper.article.tooltip.savedTextMarkup;
-    this._createArticleBlockObj = createArticleBlockObj;
     this._savedNewsIntro = savedNewsIntro;
     // this._generateSigninEvent = generateSigninEvent;
     /* inner */
@@ -40,6 +38,11 @@ class AccessControl extends BaseComponent {
     this.checkUserStatus = this.checkUserStatus.bind(this);
     this.getUserStatus = this.getUserStatus.bind(this);
     // this.setButtonState = this.setButtonState.bind(this);
+  }
+
+  setDependencies(dependencies) {
+    this._dependencies = dependencies;
+    this._articleBlock = this._dependencies.articleBlock;
   }
 
   checkUserStatus() {
@@ -153,7 +156,7 @@ class AccessControl extends BaseComponent {
               AccessControl.redirectToIndex();
             } else {
               this._setLogoutButtonText();
-              this._createArticleBlockObj().renderSavedArticles();
+              this._articleBlock.renderSavedArticles();
               this._savedNewsIntro.setUserName(this.userName);
             }
             break;
