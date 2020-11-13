@@ -21,7 +21,6 @@ const headerMenuConfig = {
     headerBar: header.querySelector('.header__bar'),
     headerMenuButton: header.querySelector('.header__menu-button'),
     headerMenu: header.querySelector('.header__menu'),
-    pageDimmer: header.querySelector('.header__menu-page-dimmer'),
   },
   index: {
     defaultClassNames: {

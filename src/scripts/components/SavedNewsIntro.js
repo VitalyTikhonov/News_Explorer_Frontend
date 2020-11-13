@@ -109,7 +109,7 @@ class SavedNewsIntro extends BaseComponent {
       case 1: this._keywordSummary = `По ключевому слову "${this._sortedKeywords[0]}"`;
         break;
       case 2: this._keywordSummary = `По ключевым словам "${this._sortedKeywords[0]}"
-          и "${this._sortedKeywords[1]}"`;
+            и "${this._sortedKeywords[1]}"`;
         break;
       case 3: this._keywordSummary = ''.concat(
         'По ключевым словам "',
