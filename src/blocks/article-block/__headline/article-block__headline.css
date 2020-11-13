@@ -1,0 +1,9 @@
+.article-block__headline {
+  margin-top: 32px;
+}
+
+@media (min-width: 321px) {
+  .article-block__headline {
+    margin-top: 81px;
+  }
+}
