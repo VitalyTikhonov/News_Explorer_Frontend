@@ -7,6 +7,7 @@
 @import url(./_black-on-white/header_black-on-white.css);
 @import url(./_white-index/header_white-index.css);
 @import url(./_white-saved-news/header_white-saved-news.css);
+@import url(./__menu-page-dimmer/header__menu-page-dimmer.css);
 .header {
   /* scheme */
   display: flex;

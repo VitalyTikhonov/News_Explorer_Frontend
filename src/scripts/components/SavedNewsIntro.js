@@ -12,8 +12,7 @@ class SavedNewsIntro extends BaseComponent {
     this._node = savedNewsIntroConfig.node;
     this._subHeadlineNode = savedNewsIntroConfig.subHeadlineNode;
     this._detailsSelector = savedNewsIntroConfig.details.selector;
-    this._makeDetailsFrameMarkup = savedNewsIntroConfig.details.makeDetailsFrameMarkup;
-    this._makeKeywordMarkup = savedNewsIntroConfig.details.makeKeywordMarkup;
+    this._detailsFrameMarkup = savedNewsIntroConfig.details.frameMarkup;
     this._getAsNumberAndLastDigit = getAsNumberAndLastDigit;
   }
 
@@ -107,20 +106,20 @@ class SavedNewsIntro extends BaseComponent {
   _makeKeywordSummary() {
     this._getKeywordStats();
     switch (this._uniqueKeywordNumber) {
-      case 1: this._keywordSummary = `По ключевому слову: ${this._makeKeywordMarkup(this._sortedKeywords[0])}`;
+      case 1: this._keywordSummary = `По ключевому слову "${this._sortedKeywords[0]}"`;
         break;
-      case 2: this._keywordSummary = `По ключевым словам: ${this._makeKeywordMarkup(this._sortedKeywords[0])}
-          и ${this._makeKeywordMarkup(this._sortedKeywords[1])}`;
+      case 2: this._keywordSummary = `По ключевым словам "${this._sortedKeywords[0]}"
+          и "${this._sortedKeywords[1]}"`;
         break;
       case 3: this._keywordSummary = ''.concat(
-        'По ключевым словам: ',
-        this._makeKeywordMarkup(this._sortedKeywords[0]),
-        ', ',
-        this._makeKeywordMarkup(this._sortedKeywords[1]),
-        ' и ещё одному',
+        'По ключевым словам "',
+        this._sortedKeywords[0],
+        '", "',
+        this._sortedKeywords[1],
+        '" и ещё одному',
       );
         break;
-      default: {
+      default: { // вынести в первый case, перерасположить варианты по вероятности
         const {
           lastDigitNum,
           lastTwoDigitsNum,
@@ -130,19 +129,19 @@ class SavedNewsIntro extends BaseComponent {
         2, …2: другим
         */
         this._keywordSummary = ''.concat(
-          'По ключевым словам: ',
-          this._makeKeywordMarkup(this._sortedKeywords[0]),
-          ', ',
-          this._makeKeywordMarkup(this._sortedKeywords[1]),
-          ` и ${this._uniqueKeywordNumber - 2} `,
+          'По ключевым словам "',
+          this._sortedKeywords[0],
+          '", "',
+          this._sortedKeywords[1],
+          `" и ${this._uniqueKeywordNumber - 2} `,
           lastDigitNum !== 1 || lastTwoDigitsNum === 11
             ? 'другим'
             : 'другому',
         );
       }
     }
-    this._detailsFrameMarkup = this._makeDetailsFrameMarkup(this._keywordSummary);
     this._detailsFrame = BaseComponent.create(this._detailsFrameMarkup);
+    this._detailsFrame.textContent = this._keywordSummary;
     BaseComponent.insertChild(this._node, this._detailsFrame);
   }
 

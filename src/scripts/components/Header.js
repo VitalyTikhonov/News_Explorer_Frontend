@@ -19,12 +19,14 @@ class Header extends BaseComponent {
     this._optionForAuthUsers = pageConfig.optionForAuthUsers;
     this._authorizedSelector = pageConfig.accessMarkers.authorizedSelector;
     this._nonAuthorizedSelector = pageConfig.accessMarkers.nonAuthorizedSelector;
+    this._removalClassName = pageConfig.accessMarkers.removalClassName;
     this._popup = popup;
     /* ----------- */
     this._header = headerMenuConfig.elements.header;
     this._headerBar = headerMenuConfig.elements.headerBar;
     this._headerMenuButton = headerMenuConfig.elements.headerMenuButton;
     this._headerMenu = headerMenuConfig.elements.headerMenu;
+    this._pageDimmer = headerMenuConfig.elements.pageDimmer;
     /* ----------- */
     this._headerDefClass = headerMenuConfig.savedNews.defaultClassNames.header;
     this._headerBarDefClass = headerMenuConfig.savedNews.defaultClassNames.headerBar;
@@ -43,6 +45,8 @@ class Header extends BaseComponent {
     this._openMenu = this._openMenu.bind(this);
     this._closeMenu = this._closeMenu.bind(this);
     this._setHeaderBackground = this._setHeaderBackground.bind(this);
+    // this._escapeHandler = this._escapeHandler.bind(this);
+    // this._clickAwayHandler = this._clickAwayHandler.bind(this);
   }
 
   _setHeaderBackground() {
@@ -50,7 +54,8 @@ class Header extends BaseComponent {
       return;
     }
     if (this._isMenuOpen) {
-      this._header.setAttribute('style', 'background-color:#1A1B22');
+      // this._header.setAttribute('style', 'background-color:#1A1B22');
+      this._header.classList.add(this._headerOpenClass);
       return;
     }
     const scrollValue = window.scrollY;
@@ -58,8 +63,24 @@ class Header extends BaseComponent {
     const maxOpacity = 0.75;
     const maxOpacityScroll = 125;
     const opacityValue = window.scrollY <= maxOpacityScroll ? scrollValue * ratio : maxOpacity;
+    this._header.classList.remove(this._headerOpenClass);
     this._header.setAttribute('style', `background-color:rgba(0, 0, 0, ${opacityValue})`);
   }
+
+  // _escapeHandler(event) {
+  //   if (event.key === 'Escape' && this._isMenuOpen) {
+  //     this._closeMenu();
+  //   }
+  // }
+
+  // _clickAwayHandler(event) {
+  //   console.log('event.target', event.target);
+  //   console.log('event.currentTarget', event.currentTarget);
+  //   // if (event.target !== this._header && this._isMenuOpen) {
+  //   // if (this._isMenuOpen) {
+  //   //   this._closeMenu();
+  //   // }
+  // }
 
   _setElemClassMap() {
     switch (this._pageName) {
@@ -99,6 +120,16 @@ class Header extends BaseComponent {
                 event: 'click',
                 handler: this._closeMenu,
               },
+              // {
+              //   domElement: document,
+              //   event: 'keydown',
+              //   handler: this._escapeHandler,
+              // },
+              // {
+              //   domElement: document,
+              //   event: 'click',
+              //   handler: this._clickAwayHandler,
+              // },
             ], // this._menuOpenMap.handlers.set
             remove: [
               {
@@ -106,6 +137,16 @@ class Header extends BaseComponent {
                 event: 'click',
                 handler: this._openMenu,
               },
+              // {
+              //   domElement: document,
+              //   event: 'keydown',
+              //   handler: this._escapeHandler,
+              // },
+              // {
+              //   domElement: document,
+              //   event: 'click',
+              //   handler: this._clickAwayHandler,
+              // },
             ], // this._menuOpenMap.handlers.remove
           },
           classes: [
@@ -124,6 +165,11 @@ class Header extends BaseComponent {
               classToRemove: this._headerMenuDefClass,
               classToAdd: this._headerMenuOpenClass,
             },
+            // { // -------------------------------------------------_pageDimmer
+            //   element: this._pageDimmer,
+            //   classToRemove: this._removalClassName,
+            //   // classToAdd: this._removalClassName,
+            // },
           ], // this._menuOpenMap.classes
         };
         this._menuCloseMap = {
@@ -159,6 +205,11 @@ class Header extends BaseComponent {
               classToRemove: this._headerMenuOpenClass,
               classToAdd: this._headerMenuDefClass,
             },
+            // { // -------------------------------------------------_pageDimmer
+            //   element: this._pageDimmer,
+            //   // classToRemove: this._removalClassName,
+            //   classToAdd: this._removalClassName,
+            // },
           ], // this._menuCloseMap.classes
         };
         break;
@@ -174,6 +225,16 @@ class Header extends BaseComponent {
             event: 'click',
             handler: this._openMenu,
           },
+          // {
+          //   domElement: document,
+          //   event: 'keydown',
+          //   handler: this._escapeHandler,
+          // },
+          // {
+          //   domElement: this._pageDimmer,
+          //   event: 'click',
+          //   handler: this._clickAwayHandler,
+          // },
         ];
         this._menuOpenMap = {
           handlers: {

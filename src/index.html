@@ -39,52 +39,55 @@
         ></button>
       </div>
 
-      <nav
-        class="header__menu menu root__child-width header__menu_thinner-border"
-        aria-labelledby="header-navigation"
-      >
-        <h2
-          class="aria-labelledby-title"
-          id="header-navigation"
-        >Основное меню</h2>
+        <nav
+          class="header__menu menu root__child-width header__menu_thinner-border"
+          aria-labelledby="header-navigation"
+        >
+          <h2
+            class="aria-labelledby-title"
+            id="header-navigation"
+          >Основное меню</h2>
 
-        <div class="menu__options">
-          <ul class="menu__text-options header__menu-options list">
-            <li class="menu__text-path menu__text-path_header menu___text-path_current"><a
-                href="./"
-                class="link"
-              >Главная</a></li>
+          <div class="menu__options">
+            <ul class="menu__text-options header__menu-options list">
+              <li class="menu__text-path menu__text-path_header menu___text-path_current"><a
+                  href="./"
+                  class="link"
+                >Главная</a></li>
 
-            <li class="menu__text-path visibility__removed menu__text-path_header visibility__for-authorized"><a
-                href="./savednews/"
-                class="link"
-              >Сохранённые статьи</a></li>
-          </ul>
+              <li class="menu__text-path visibility__removed menu__text-path_header visibility__for-authorized"><a
+                  href="./savednews/"
+                  class="link"
+                >Сохранённые статьи</a></li>
+            </ul>
 
-          <div class="menu__auth-button-login">
-            <button
-              type="button"
-              class="menu__auth-button visibility__on-mob button__rounded button__rounded_size_parent button__rounded_black-outline-white button_hover-on-black visibility__for-non-authorized"
-            >Авторизоваться</button>
-            <button
-              type="button"
-              class="menu__auth-button visibility__on-tab-and-dt button__rounded button__rounded_size_parent button__rounded_transparent-outline-white button_hover-on-black visibility__for-non-authorized"
-            >Авторизоваться</button>
+            <div class="menu__auth-button-login">
+              <button
+                type="button"
+                class="menu__auth-button visibility__on-mob button__rounded button__rounded_size_parent button__rounded_black-outline-white button_hover-on-black visibility__for-non-authorized"
+              >Авторизоваться</button>
+              <button
+                type="button"
+                class="menu__auth-button visibility__on-tab-and-dt button__rounded button__rounded_size_parent button__rounded_transparent-outline-white button_hover-on-black visibility__for-non-authorized"
+              >Авторизоваться</button>
+            </div>
+            <div class="menu__auth-button-logout">
+              <button
+                type="button"
+                class="menu__auth-button visibility__on-mob visibility__removed button__rounded button__rounded_black-outline-white button_hover-on-black button__rounded_with-icon visibility__for-authorized"
+              >
+                <span class="button__icon button__icon_logout-white"></span></button>
+              <button
+                type="button"
+                class="menu__auth-button visibility__on-tab-and-dt visibility__removed button__rounded button__rounded_transparent-outline-white button_hover-on-black button__rounded_with-icon visibility__for-authorized"
+              >
+                <span class="button__icon button__icon_logout-white"></span></button>
+            </div>
           </div>
-          <div class="menu__auth-button-logout">
-            <button
-              type="button"
-              class="menu__auth-button visibility__on-mob visibility__removed button__rounded button__rounded_black-outline-white button_hover-on-black button__rounded_with-icon visibility__for-authorized"
-            >
-              <span class="button__icon button__icon_logout-white"></span></button>
-            <button
-              type="button"
-              class="menu__auth-button visibility__on-tab-and-dt visibility__removed button__rounded button__rounded_transparent-outline-white button_hover-on-black button__rounded_with-icon visibility__for-authorized"
-            >
-              <span class="button__icon button__icon_logout-white"></span></button>
-          </div>
-        </div>
-      </nav>
+          <!-- <div class="header__menu-page-dimmer"></div> -->
+        </nav>
+
+        <div class="header__menu-page-dimmer visibility__removed"></div>
     </header>
 
     <main class="main">
@@ -139,7 +142,8 @@
 
           <p class="user-profile__text">Вы находитесь на одном из первых созданных мной веб-сайтов.</p>
 
-          <p class="user-profile__text">Здесь можно искать новости из агрегатора NewsAPI и сохранять их в своем аккаунте.</p>
+          <p class="user-profile__text">Здесь можно искать новости из агрегатора NewsAPI и сохранять их в своем
+            аккаунте.</p>
         </div>
       </section>
     </main>

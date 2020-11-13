@@ -21,6 +21,7 @@ const headerMenuConfig = {
     headerBar: header.querySelector('.header__bar'),
     headerMenuButton: header.querySelector('.header__menu-button'),
     headerMenu: header.querySelector('.header__menu'),
+    pageDimmer: header.querySelector('.header__menu-page-dimmer'),
   },
   index: {
     defaultClassNames: {
@@ -359,22 +360,9 @@ const savedNewsIntroConfig = {
   node: rootNode.querySelector('.saved-news-intro'),
   subHeadlineNode: rootNode.querySelector('.saved-news-intro__sub-headline'),
   details: {
-    // node: rootNode.querySelector('.saved-news-intro__details'),
     selector: '.saved-news-intro__details',
-    makeDetailsFrameMarkup: (phrase) => `<p class="saved-news-intro__details">${phrase}</p>`,
-    makeKeywordMarkup: (word) => `<b class="emphasized-text">${word}</b>`,
-    // emphasisMarkup: '<b class="emphasized-text"></b>',
-    // markup: `<p class="saved-news-intro__details">
-    // По ключевым словам: <b class="emphasized-text">Природа</b>, <b
-    //     class="emphasized-text">Тайга</b> и <b class="emphasized-text">2-м другим</b></p>
-    //     `,
+    frameMarkup: '<p class="saved-news-intro__details"></p>',
   },
-  // getDetails: function(keywordNumber, firstCouple) {
-  //   `<p class="saved-news-intro__details">
-  // По ключевым словам: <b class="emphasized-text">Природа</b>, <b
-  //     class="emphasized-text">Тайга</b> и <b class="emphasized-text">2-м другим</b></p>
-  //     `;
-  //   },
 };
 
 const errorMessages = {
