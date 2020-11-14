@@ -1,0 +1,8 @@
+/* @media (min-width: 690px) and (max-width: 768px) { */
+@media (min-width: 690px) {
+  .header__menu-text-options {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+  }
+}

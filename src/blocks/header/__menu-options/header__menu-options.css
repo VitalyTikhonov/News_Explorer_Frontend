@@ -1,8 +1,3 @@
-/* @media (min-width: 690px) and (max-width: 768px) { */
-@media (min-width: 690px) {
   .header__menu-options {
-    display: flex;
-    flex-direction: row;
-    align-items: center;
+    outline: none; /* на случай использования focusout + tabindex */
   }
-}

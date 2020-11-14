@@ -70,8 +70,8 @@ class Header extends BaseComponent {
 
   _clickAwayHandler(event) {
     if (event.target === this._pageDimmer) {
-    // event.stopPropagation();
-    this._closeMenu();
+      // event.stopPropagation();
+      this._closeMenu();
     }
   }
 
@@ -170,6 +170,11 @@ class Header extends BaseComponent {
                 event: 'click',
                 handler: this._closeMenu,
               },
+              {
+                domElement: this._pageDimmer, //            _pageDimmer
+                event: 'click',
+                handler: this._clickAwayHandler,
+              },
             ], // this._menuCloseMap.handlers.remove
           },
           classes: [
@@ -211,6 +216,11 @@ class Header extends BaseComponent {
                 domElement: this._headerMenuButton,
                 event: 'click',
                 handler: this._closeMenu,
+              },
+              {
+                domElement: this._pageDimmer, //            _pageDimmer
+                event: 'click',
+                handler: this._clickAwayHandler,
               },
             ], // this._menuOpenMap.handlers.set
             remove: [
@@ -262,6 +272,11 @@ class Header extends BaseComponent {
                 domElement: this._headerMenuButton,
                 event: 'click',
                 handler: this._closeMenu,
+              },
+              {
+                domElement: this._pageDimmer, //            _pageDimmer
+                event: 'click',
+                handler: this._clickAwayHandler,
               },
             ], // this._menuCloseMap.handlers.remove
           },
