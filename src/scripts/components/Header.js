@@ -25,6 +25,8 @@ class Header extends BaseComponent {
     this._headerBar = headerMenuConfig.elements.headerBar;
     this._headerMenuButton = headerMenuConfig.elements.headerMenuButton;
     this._headerMenu = headerMenuConfig.elements.headerMenu;
+    this._headerMenuOptions = headerMenuConfig.elements.headerMenuOptions;
+    this._pageDimmer = headerMenuConfig.elements.pageDimmer;
     /* ----------- */
     this._headerDefClass = headerMenuConfig.savedNews.defaultClassNames.header;
     this._headerBarDefClass = headerMenuConfig.savedNews.defaultClassNames.headerBar;
@@ -43,6 +45,7 @@ class Header extends BaseComponent {
     this._openMenu = this._openMenu.bind(this);
     this._closeMenu = this._closeMenu.bind(this);
     this._setHeaderBackground = this._setHeaderBackground.bind(this);
+    this._clickAwayHandler = this._clickAwayHandler.bind(this);
   }
 
   _setHeaderBackground() {
@@ -63,6 +66,13 @@ class Header extends BaseComponent {
     const maxOpacityScroll = 125;
     const opacityValue = window.scrollY <= maxOpacityScroll ? scrollValue * ratio : maxOpacity;
     this._header.setAttribute('style', `background-color:rgba(0, 0, 0, ${opacityValue})`);
+  }
+
+  _clickAwayHandler(event) {
+    if (event.target === this._pageDimmer) {
+    // event.stopPropagation();
+    this._closeMenu();
+    }
   }
 
   _setElemClassMap() {
@@ -102,6 +112,21 @@ class Header extends BaseComponent {
                 domElement: this._headerMenuButton,
                 event: 'click',
                 handler: this._closeMenu,
+              },
+              // {
+              //   domElement: this._headerMenuOptions, //            this._headerMenuOptions
+              //   event: 'focusout',
+              //   handler: this._clickAwayHandler,
+              // },
+              // {
+              //   domElement: this._headerMenu, //            this._headerMenu
+              //   event: 'focusout',
+              //   handler: this._clickAwayHandler,
+              // },
+              {
+                domElement: this._pageDimmer, //            _pageDimmer
+                event: 'click',
+                handler: this._clickAwayHandler,
               },
             ], // this._menuOpenMap.handlers.set
             remove: [

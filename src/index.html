@@ -42,13 +42,17 @@
       <nav
         class="header__menu menu root__child-width header__menu_thinner-border"
         aria-labelledby="header-navigation"
+        tabindex="0"
       >
         <h2
           class="aria-labelledby-title"
           id="header-navigation"
         >Основное меню</h2>
 
-        <div class="menu__options">
+        <div
+          class="header__menu-options menu__options"
+          tabindex="0"
+        >
           <ul class="menu__text-options header__menu-options list">
             <li class="menu__text-path menu__text-path_header menu___text-path_current"><a
                 href="./"
@@ -84,6 +88,8 @@
               <span class="button__icon button__icon_logout-white"></span></button>
           </div>
         </div>
+
+        <div class="header__menu-page-dimmer"></div>
       </nav>
     </header>
 
@@ -139,7 +145,8 @@
 
           <p class="user-profile__text">Вы находитесь на одном из первых созданных мной веб-сайтов.</p>
 
-          <p class="user-profile__text">Здесь можно искать новости из агрегатора NewsAPI и сохранять их в своем аккаунте.</p>
+          <p class="user-profile__text">Здесь можно искать новости из агрегатора NewsAPI и сохранять их в своем
+            аккаунте.</p>
         </div>
       </section>
     </main>

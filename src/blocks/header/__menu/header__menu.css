@@ -10,6 +10,7 @@
   padding-top: 88px;
   padding-bottom: 24px;
   z-index: 1;
+  outline: none; /* на случай использования focusout + tabindex */
 }
 
 /* @media (min-width: 690px) and (max-width: 768px) { */
