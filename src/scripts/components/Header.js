@@ -52,11 +52,8 @@ class Header extends BaseComponent {
       return;
     }
     if (this._isMenuOpen) {
-      this._header.setAttribute('style', 'background-color:#1A1B22');
-      /* Не исключается на случай расширения страницы, но пока оставляю так, поскольку
-      ее расширение при открытом меню - маловероятный случай в продакшене (только если
-      пользователь откроет на широком экране узкое окно, откроет меню, после чего увеличит
-      ширину окна). */
+      this._header.removeAttribute('style');
+      this._header.classList.add(this._headerOpenClass);
       return;
     }
     const scrollValue = window.scrollY;
