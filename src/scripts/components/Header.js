@@ -113,16 +113,6 @@ class Header extends BaseComponent {
                 event: 'click',
                 handler: this._closeMenu,
               },
-              // {
-              //   domElement: this._headerMenuOptions, //            this._headerMenuOptions
-              //   event: 'focusout',
-              //   handler: this._clickAwayHandler,
-              // },
-              // {
-              //   domElement: this._headerMenu, //            this._headerMenu
-              //   event: 'focusout',
-              //   handler: this._clickAwayHandler,
-              // },
               {
                 domElement: this._pageDimmer, //            _pageDimmer
                 event: 'click',

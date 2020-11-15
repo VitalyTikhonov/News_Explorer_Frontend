@@ -1,3 +1,11 @@
   .header__menu-options {
-    outline: none; /* на случай использования focusout + tabindex */
+    padding-top: 32px;
+    padding-bottom: 24px;
+  }
+
+  @media (min-width: 690px) {
+    .header__menu-options {
+      padding-top: 0;
+      padding-bottom: 0;
+    }
   }

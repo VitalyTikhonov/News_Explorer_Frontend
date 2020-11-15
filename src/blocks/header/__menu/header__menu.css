@@ -7,10 +7,8 @@
   /* end of scheme */
   box-sizing: border-box;
   margin-top: -56px;
-  padding-top: 88px;
-  padding-bottom: 24px;
+  padding-top: 56px;
   z-index: 1;
-  outline: none; /* на случай использования focusout + tabindex */
 }
 
 /* @media (min-width: 690px) and (max-width: 768px) { */
