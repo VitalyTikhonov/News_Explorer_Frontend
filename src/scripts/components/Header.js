@@ -45,7 +45,6 @@ class Header extends BaseComponent {
     this._openMenu = this._openMenu.bind(this);
     this._closeMenu = this._closeMenu.bind(this);
     this._setHeaderBackground = this._setHeaderBackground.bind(this);
-    this._clickAwayHandler = this._clickAwayHandler.bind(this);
   }
 
   _setHeaderBackground() {
@@ -68,14 +67,7 @@ class Header extends BaseComponent {
     this._header.setAttribute('style', `background-color:rgba(0, 0, 0, ${opacityValue})`);
   }
 
-  _clickAwayHandler(event) {
-    if (event.target === this._pageDimmer) {
-      // event.stopPropagation();
-      this._closeMenu();
-    }
-  }
-
-  _setElemClassMap() {
+  _setPageMaps() {
     switch (this._pageName) {
       case this._indexPageName:
         this._baseHandlerSettingMap = [
@@ -116,7 +108,7 @@ class Header extends BaseComponent {
               {
                 domElement: this._pageDimmer, //            _pageDimmer
                 event: 'click',
-                handler: this._clickAwayHandler,
+                handler: this._closeMenu,
               },
             ], // this._menuOpenMap.handlers.set
             remove: [
@@ -163,7 +155,7 @@ class Header extends BaseComponent {
               {
                 domElement: this._pageDimmer, //            _pageDimmer
                 event: 'click',
-                handler: this._clickAwayHandler,
+                handler: this._closeMenu,
               },
             ], // this._menuCloseMap.handlers.remove
           },
@@ -210,7 +202,7 @@ class Header extends BaseComponent {
               {
                 domElement: this._pageDimmer, //            _pageDimmer
                 event: 'click',
-                handler: this._clickAwayHandler,
+                handler: this._closeMenu,
               },
             ], // this._menuOpenMap.handlers.set
             remove: [
@@ -266,7 +258,7 @@ class Header extends BaseComponent {
               {
                 domElement: this._pageDimmer, //            _pageDimmer
                 event: 'click',
-                handler: this._clickAwayHandler,
+                handler: this._closeMenu,
               },
             ], // this._menuCloseMap.handlers.remove
           },
@@ -321,7 +313,7 @@ class Header extends BaseComponent {
   }
 
   render() {
-    this._setElemClassMap();
+    this._setPageMaps();
     BaseComponent.setHandlers(this._baseHandlerSettingMap);
   }
 }
