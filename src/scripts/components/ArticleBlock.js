@@ -8,7 +8,7 @@ class ArticleBlock extends BaseComponent {
     articleBlockConf,
     createNode,
     createArticle,
-    // pageConfig,
+    pageConfig,
     popup,
     ARTICLE_PORTION_SIZE,
   }) {
@@ -19,12 +19,12 @@ class ArticleBlock extends BaseComponent {
       indexPageName,
       savedNewsPageName,
     });
+    this._pageRootNode = pageConfig.rootNode;
     this._component = articleBlockConf.node;
     this._markup = articleBlockConf.articleBlockProper.markup[this._pageName];
     this._cardContainerSel = articleBlockConf.articleBlockProper.innerContainerSelector;
     this._popup = popup;
     this._ARTICLE_PORTION_SIZE = ARTICLE_PORTION_SIZE;
-    // this._innerContainer = articleBlockConf.selector;
     /* ----------- */
     this._preloaderMarkup = articleBlockConf.preloader.markup;
     this._preloaderTextSelector = articleBlockConf.preloader.textSelector;
@@ -46,10 +46,9 @@ class ArticleBlock extends BaseComponent {
     this._ttipTextSel = articleBlockConf.articleBlockProper.article.tooltip.textSelector;
     this._ttipNonAuthMarkup = articleBlockConf.articleBlockProper.article.tooltip.nonAuthTextMarkup;
     this._ttipUnsavedMarkup = articleBlockConf.articleBlockProper.article.tooltip.unsavedTextMarkup;
-    // this._ttipSavedMarkup = articleBlockConf.articleBlockProper.article.tooltip.savedTextMarkup;
     /* ----------- */
     this._createArticle = createArticle;
-    // this._removalClassName = pageConfig.accessMarkers.removalClassName;
+    this._cardSetConfig = [];
     this._renderPortionOfArticles = this._renderPortionOfArticles.bind(this);
   }
 
@@ -60,13 +59,28 @@ class ArticleBlock extends BaseComponent {
     this._savedNewsIntro = this._dependencies.savedNewsIntro;
   }
 
-  // _clearCards() {
-  //   BaseComponent.removeChildren(this._cardContainer);
-  // }
-
   clearAllSection() {
-    BaseComponent.removeChildren(this._component);
     this._moreButton = null;
+    const cardListenerRemovalMap = [];
+    if (this._cardSetConfig.length > 0) {
+      this._cardSetConfig.forEach((card) => {
+        cardListenerRemovalMap.push(
+          {
+            domElement: card.saveButton,
+            event: 'click',
+            handler: card.saveMethod,
+          },
+          {
+            domElement: card.saveButton,
+            event: 'click',
+            handler: card.deleteMethod,
+          },
+        );
+      });
+      BaseComponent.removeHandlers(cardListenerRemovalMap);
+      this._cardSetConfig = [];
+    }
+    BaseComponent.removeChildren(this._component);
   }
 
   showPreloader(text) {
@@ -99,7 +113,13 @@ class ArticleBlock extends BaseComponent {
     this._cardAdditionConfig.currentStart += this._cardAdditionConfig.increment;
     this._cardAdditionConfig.remainder -= this._cardAdditionConfig.increment;
     portion.forEach((article) => {
-      const card = this._createArticle(article, this._keyword).render();
+      const cardObj = this._createArticle(article, this._keyword);
+      const card = cardObj.render();
+      this._cardSetConfig.push({
+        saveButton: card.querySelector(this._cardSaveBtSel),
+        saveMethod: cardObj._save,
+        deleteMethod: cardObj._delete,
+      });
       /* tooltip */
       const tooltip = card.querySelector(this._cardTooltipSel);
       const texNode = BaseComponent.create(

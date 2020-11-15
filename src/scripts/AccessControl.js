@@ -63,29 +63,6 @@ class AccessControl extends BaseComponent {
     return this.isUserLoggedIn;
   }
 
-  // getUserName() {
-  //   return this.userName;
-  // }
-  // setButtonState(button) {
-  //   if (this.isUserLoggedIn) {
-  //     button.removeAttribute('disabled');
-  //   } else {
-  //     button.setAttribute('disabled', 'disabled');
-  //   }
-  // }
-
-  // setMultipleButtonsState(buttonArray) {
-  //   if (this.isUserLoggedIn) {
-  //     buttonArray.forEach((button) => {
-  //       button.removeAttribute('disabled');
-  //     });
-  //   } else {
-  //     buttonArray.forEach((button) => {
-  //       button.setAttribute('disabled', 'disabled');
-  //     });
-  //   }
-  // }
-
   _setLogoutButtonText() {
     this._logoutButtonProperArray.forEach((button) => {
       button.prepend(this.userName);
