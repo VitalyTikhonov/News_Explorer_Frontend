@@ -1,4 +1,4 @@
-@media (min-width: 450px) {
+@media (min-width: 690px) {
   .menu___text-path_current-black-on-white {
     height: 100%;
     display: block;
@@ -6,7 +6,7 @@
     box-sizing: border-box;
   }
 }
-@media (min-width: 450px) and (max-width: 1241px) {
+@media (min-width: 690px) and (max-width: 1241px) {
   .menu___text-path_current-black-on-white {
     padding: 23px 0 18px;
   }

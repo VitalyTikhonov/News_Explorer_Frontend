@@ -17,7 +17,7 @@ const NEWSAPI_PERIOD = 7;
 const NEWSAPI_PAGE_SIZE = process.env.NODE_ENV === 'development'
   ? 70
   : 100;
-const ARTICLE_PORTION_SIZE = 22;
+const ARTICLE_PORTION_SIZE = 5;
 
 export {
   API_URL,

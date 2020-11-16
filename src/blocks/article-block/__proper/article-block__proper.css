@@ -1,7 +1,7 @@
 .article-block__proper {
   display: flex;
   flex-direction: column;
-  padding-top: 32px;
+  /* padding-top: 32px; */
   padding-bottom: 32px;
   background: #F5F6F7;
 }
@@ -10,7 +10,7 @@
 /* @media (min-width: 321px) and (max-width: 768px) { */
   .article-block__proper {
     max-width: 100vw;
-    padding-top: 81px;
+    /* padding-top: 81px; */
     padding-bottom: 41px;
   }
 }

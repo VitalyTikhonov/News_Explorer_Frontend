@@ -22,6 +22,10 @@ class BaseComponent {
     this._elemClassMap = [];
   }
 
+  setDependencies(dependencies) {
+    this._dependencies = dependencies;
+  }
+
   // BaseComponent.setHandlers(map)
   static setHandlers(map) { // super.setHandlers
     map.forEach((combination) => {
@@ -50,7 +54,6 @@ class BaseComponent {
   }
 
   // BaseComponent.enableButton(button);
-  // BaseComponent.disableButton(button);
   static enableButton(button) {
     button.removeAttribute('disabled');
   }
@@ -104,13 +107,6 @@ class BaseComponent {
     }
   }
 
-  // _removeAllChildren() {
-  //   const { firstChild } = this._innerContainer;
-  //   while (firstChild) {
-  //     this._innerContainer.removeChild(firstChild);
-  //   }
-  // }
-
   _open() {
     this._parent.appendChild(this._component);
   }
@@ -147,6 +143,16 @@ class BaseComponent {
       combination.element.classList.add(combination.classToAdd);
     });
     this._elemClassMap = [];
+  }
+
+  // BaseComponent.swapClassesOnElem({
+  //     element: ,
+  //     classToRemove: ,
+  //     classToAdd: ,
+  //   });
+  static swapClassesOnElem(map) {
+    map.element.classList.remove(map.classToRemove);
+    map.element.classList.add(map.classToAdd);
   }
 }
 

@@ -46,27 +46,18 @@ import {
     });
   }
 
-  function createArticleBlockObj() {
-    return new ArticleBlock({
-      pageName: pageConfig.pageNames.savedNews,
-      indexPageName: pageConfig.pageNames.index,
-      savedNewsPageName: pageConfig.pageNames.savedNews,
-      // eslint-disable-next-line no-use-before-define
-      api: mainApi,
-      articleBlockConf,
-      createNode,
-      createArticle: createArticleForNonAuth,
-      pageConfig,
-      // eslint-disable-next-line no-use-before-define
-      accessControl,
-      // eslint-disable-next-line no-use-before-define
-      popup,
-      // eslint-disable-next-line no-use-before-define
-      savedNewsIntro,
-      ARTICLE_PORTION_SIZE,
-    });
-  }
   /* ЭКЗЕМПЛЯРЫ КЛАССОВ */
+  const articleBlock = new ArticleBlock({
+    pageName: pageConfig.pageNames.savedNews,
+    indexPageName: pageConfig.pageNames.index,
+    savedNewsPageName: pageConfig.pageNames.savedNews,
+    articleBlockConf,
+    createNode,
+    createArticle: createArticleForNonAuth,
+    pageConfig,
+    ARTICLE_PORTION_SIZE,
+  });
+
   const mainApi = new MainApi(API_URL, CONTENT_TYPE);
 
   const savedNewsIntro = new SavedNewsIntro({
@@ -82,7 +73,6 @@ import {
     api: mainApi,
     pageConfig,
     articleBlockConf,
-    createArticleBlockObj,
     // eslint-disable-next-line no-use-before-define
     savedNewsIntro,
   });
@@ -107,6 +97,10 @@ import {
   });
 
   /* ВЫЗОВЫ ФУНКЦИЙ */
+  accessControl.setDependencies({ articleBlock });
+  articleBlock.setDependencies({ accessControl, mainApi, savedNewsIntro });
+  savedNewsIntro.setDependencies({ articleBlock });
+
   accessControl.configurePageOnLoad();
   headerObj.render();
 }());

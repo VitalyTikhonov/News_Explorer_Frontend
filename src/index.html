@@ -40,16 +40,18 @@
       </div>
 
       <nav
-        class="header__menu menu root__child-width header__menu_thinner-border"
+        class="header__menu menu header__menu_thinner-border"
         aria-labelledby="header-navigation"
-      >
+        >
         <h2
           class="aria-labelledby-title"
           id="header-navigation"
         >Основное меню</h2>
 
-        <div class="menu__options">
-          <ul class="menu__text-options header__menu-options list">
+        <div
+          class="header__menu-options root__child-width menu__options"
+          >
+          <ul class="menu__text-options header__menu-text-options list">
             <li class="menu__text-path menu__text-path_header menu___text-path_current"><a
                 href="./"
                 class="link"
@@ -74,7 +76,7 @@
           <div class="menu__auth-button-logout">
             <button
               type="button"
-              class="menu__auth-button visibility__on-mob visibility__removed button__rounded button__rounded_black-outline-white button_hover-on-black button__rounded_with-icon visibility__for-authorized"
+              class="menu__auth-button visibility__on-mob visibility__removed button__rounded button__rounded_size_parent button__rounded_black-outline-white button_hover-on-black button__rounded_with-icon visibility__for-authorized"
             >
               <span class="button__icon button__icon_logout-white"></span></button>
             <button
@@ -84,6 +86,8 @@
               <span class="button__icon button__icon_logout-white"></span></button>
           </div>
         </div>
+
+        <div class="header__menu-page-dimmer"></div>
       </nav>
     </header>
 
@@ -133,11 +137,14 @@
         <div class="user-profile__description">
           <h3 class="user-profile__headline section-headline">Об авторе</h3>
 
-          <p class="user-profile__text">Это блок с описанием автора проекта. Здесь следует указать, как вас зовут, чем
-            вы занимаетесь, какими технологиями разработки владеете.</p>
+          <p class="user-profile__text">Я Виталий Тихонов, веб-разработчик. В 2020 г. прошел обучение этой профессии в
+            Яндекс.Практикуме. Мой стек технологий: HTML, CSS, нативный JavaScript, Webpack, бэкенд-фреймворк
+            Express.js, MongoDB.</p>
 
-          <p class="user-profile__text">Также можно рассказать о процессе обучения в Практикуме, чему вы тут научились,
-            и чем можете помочь потенциальным заказчикам.</p>
+          <p class="user-profile__text">Вы находитесь на одном из первых созданных мной веб-сайтов.</p>
+
+          <p class="user-profile__text">Здесь можно искать новости из агрегатора NewsAPI и сохранять их в своем
+            аккаунте.</p>
         </div>
       </section>
     </main>
@@ -202,7 +209,7 @@
           </li>
         </ul>
       </nav>
-      <p class="footer__copyright-notice">&copy; 2020 Supersite, Powered by News API</p>
+      <p class="footer__copyright-notice">&copy; 2020 NewsExplorer, powered by News API</p>
     </footer>
   </div>
 </body>

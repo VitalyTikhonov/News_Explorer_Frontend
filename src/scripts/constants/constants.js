@@ -21,6 +21,8 @@ const headerMenuConfig = {
     headerBar: header.querySelector('.header__bar'),
     headerMenuButton: header.querySelector('.header__menu-button'),
     headerMenu: header.querySelector('.header__menu'),
+    headerMenuOptions: header.querySelector('.header__menu-options'),
+    pageDimmer: header.querySelector('.header__menu-page-dimmer'),
   },
   index: {
     defaultClassNames: {
@@ -53,7 +55,6 @@ const articleBlockConf = {
   node: document.querySelector('.article-block'),
   selector: '.article-block',
   articleBlockProper: {
-    // selector: '.article-block__proper',
     innerContainerSelector: '.article-block__card-container',
     markup: {
       [pageNames.index]: `
@@ -180,8 +181,6 @@ const articleBlockConf = {
     loadText: 'Загрузка…',
   },
   noNewsBumper: {
-    // <img src="../images/nonewsicon.png" alt="Значок &laquo;Ничего не найдено&raquo;"
-    //   class="article-block__bumper-no-news-icon">
     markup: `
     <div class="article-block__bumper">
       <div class="article-block__bumper-no-news-icon"></div>
@@ -309,17 +308,12 @@ const loginFormConfig = {
   },
 };
 const newsSearchFormConfig = {
-  // nameAttr: 'loginForm',
   selector: '.news-search-form',
   fieldSelector: '#newsSearchField',
   submitButtonSelector: '.news-search-form__button',
-  // errMessageSelectorEnding: formErrMessageSelectorEnding,
   submitButtonTexts: {
     loading: 'Подождите...',
   },
-  // fieldSelectors: [
-  //   '#newsSearchField',
-  // ],
   errMessageSelectorEnding: formErrMessageSelectorEnding,
 };
 const genFormConfig = {
@@ -330,11 +324,6 @@ const genFormConfig = {
     signupFormNameAttr: signupFormConfig.nameAttr, // nameAttributes.signupFormNameAttr
     loginFormNameAttr: loginFormConfig.nameAttr, // nameAttributes.loginFormNameAttr
   },
-  /*
-  genFormConfig.genErrMessSelector
-  genFormConfig.submitButtonSelector
-  genFormConfig.promptLinkSelector
-   */
 };
 const messageConfig = {
   signupSuccess: `
@@ -359,31 +348,9 @@ const savedNewsIntroConfig = {
   node: rootNode.querySelector('.saved-news-intro'),
   subHeadlineNode: rootNode.querySelector('.saved-news-intro__sub-headline'),
   details: {
-    // node: rootNode.querySelector('.saved-news-intro__details'),
     selector: '.saved-news-intro__details',
-    makeDetailsFrameMarkup: (phrase) => `<p class="saved-news-intro__details">${phrase}</p>`,
-    makeKeywordMarkup: (word) => `<b class="emphasized-text">${word}</b>`,
-    // emphasisMarkup: '<b class="emphasized-text"></b>',
-    // markup: `<p class="saved-news-intro__details">
-    // По ключевым словам: <b class="emphasized-text">Природа</b>, <b
-    //     class="emphasized-text">Тайга</b> и <b class="emphasized-text">2-м другим</b></p>
-    //     `,
+    frameMarkup: '<p class="saved-news-intro__details"></p>',
   },
-  // getDetails: function(keywordNumber, firstCouple) {
-  //   `<p class="saved-news-intro__details">
-  // По ключевым словам: <b class="emphasized-text">Природа</b>, <b
-  //     class="emphasized-text">Тайга</b> и <b class="emphasized-text">2-м другим</b></p>
-  //     `;
-  //   },
-};
-const pageConfig = {
-  rootNode,
-  pageNames,
-  header,
-  authButton,
-  logoutButton,
-  logoutButtonProperArray,
-  accessMarkers,
 };
 
 const errorMessages = {
@@ -410,6 +377,16 @@ const errorMessages = {
       : `Должно быть не менее ${string} символа`;
   },
   wrongType: 'Введите действительный адрес',
+};
+
+const pageConfig = {
+  rootNode,
+  pageNames,
+  header,
+  authButton,
+  logoutButton,
+  logoutButtonProperArray,
+  accessMarkers,
 };
 
 export {

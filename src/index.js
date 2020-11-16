@@ -23,9 +23,6 @@ import {
   createNode,
   formatDate,
   getPeriodStartDate,
-  // removeClassFromElems,
-  // addClassToElems,
-  // generateSigninEvent,
   getAsNumberAndLastDigit,
 } from './scripts/utils/utils';
 import {
@@ -69,7 +66,6 @@ import {
     api: mainApi,
     pageConfig,
     articleBlockConf,
-    // generateSigninEvent,
   });
 
   const newsApi = new NewsApi(
@@ -160,6 +156,9 @@ import {
   });
 
   /* ВЫЗОВЫ ФУНКЦИЙ */
+  accessControl.setDependencies({ articleBlock, mainApi });
+  articleBlock.setDependencies({ accessControl });
+
   accessControl.configurePageOnLoad();
   headerObj.render();
   newsSearchForm.render();

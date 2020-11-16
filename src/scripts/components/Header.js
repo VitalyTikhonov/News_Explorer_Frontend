@@ -25,6 +25,8 @@ class Header extends BaseComponent {
     this._headerBar = headerMenuConfig.elements.headerBar;
     this._headerMenuButton = headerMenuConfig.elements.headerMenuButton;
     this._headerMenu = headerMenuConfig.elements.headerMenu;
+    this._headerMenuOptions = headerMenuConfig.elements.headerMenuOptions;
+    this._pageDimmer = headerMenuConfig.elements.pageDimmer;
     /* ----------- */
     this._headerDefClass = headerMenuConfig.savedNews.defaultClassNames.header;
     this._headerBarDefClass = headerMenuConfig.savedNews.defaultClassNames.headerBar;
@@ -42,10 +44,27 @@ class Header extends BaseComponent {
     /* ----------- */
     this._openMenu = this._openMenu.bind(this);
     this._closeMenu = this._closeMenu.bind(this);
-    // this._setLogoutButtonText = this._setLogoutButtonText.bind(this);
+    this._setHeaderBackground = this._setHeaderBackground.bind(this);
   }
 
-  _setElemClassMap() {
+  _setHeaderBackground() {
+    if (this._pageName !== this._indexPageName) {
+      return;
+    }
+    if (this._isMenuOpen) {
+      this._header.removeAttribute('style');
+      this._header.classList.add(this._headerOpenClass);
+      return;
+    }
+    const scrollValue = window.scrollY;
+    const ratio = 0.006;
+    const maxOpacity = 0.75;
+    const maxOpacityScroll = 125;
+    const opacityValue = window.scrollY <= maxOpacityScroll ? scrollValue * ratio : maxOpacity;
+    this._header.setAttribute('style', `background-color:rgba(0, 0, 0, ${opacityValue})`);
+  }
+
+  _setPageMaps() {
     switch (this._pageName) {
       case this._indexPageName:
         this._baseHandlerSettingMap = [
@@ -64,17 +83,22 @@ class Header extends BaseComponent {
             event: 'click',
             handler: this._openMenu,
           },
-          // {
-          //   domElement: document,
-          //   event: 'signin',
-          //   handler: this._setLogoutButtonText,
-          // },
+          {
+            domElement: window,
+            event: 'scroll',
+            handler: this._setHeaderBackground,
+          },
         ];
         this._menuOpenMap = {
           handlers: {
             set: [
               {
                 domElement: this._headerMenuButton,
+                event: 'click',
+                handler: this._closeMenu,
+              },
+              {
+                domElement: this._pageDimmer, //            _pageDimmer
                 event: 'click',
                 handler: this._closeMenu,
               },
@@ -120,6 +144,11 @@ class Header extends BaseComponent {
                 event: 'click',
                 handler: this._closeMenu,
               },
+              {
+                domElement: this._pageDimmer, //            _pageDimmer
+                event: 'click',
+                handler: this._closeMenu,
+              },
             ], // this._menuCloseMap.handlers.remove
           },
           classes: [
@@ -159,6 +188,11 @@ class Header extends BaseComponent {
             set: [
               {
                 domElement: this._headerMenuButton,
+                event: 'click',
+                handler: this._closeMenu,
+              },
+              {
+                domElement: this._pageDimmer, //            _pageDimmer
                 event: 'click',
                 handler: this._closeMenu,
               },
@@ -213,6 +247,11 @@ class Header extends BaseComponent {
                 event: 'click',
                 handler: this._closeMenu,
               },
+              {
+                domElement: this._pageDimmer, //            _pageDimmer
+                event: 'click',
+                handler: this._closeMenu,
+              },
             ], // this._menuCloseMap.handlers.remove
           },
           classes: [
@@ -247,17 +286,13 @@ class Header extends BaseComponent {
     }
   }
 
-  // _setLogoutButtonText(event) {
-  //   this._logoutButtonProperArray.forEach((button) => {
-  //     button.prepend(event.detail.name);
-  //   });
-  // }
-
   _openMenu() {
     BaseComponent.removeHandlers(this._menuOpenMap.handlers.remove);
     BaseComponent.setHandlers(this._menuOpenMap.handlers.set);
     this._elemClassMap = [].concat(this._menuOpenMap.classes);
     this._configureClassesOnElem();
+    this._isMenuOpen = true;
+    this._setHeaderBackground();
   }
 
   _closeMenu() {
@@ -265,10 +300,12 @@ class Header extends BaseComponent {
     BaseComponent.setHandlers(this._menuCloseMap.handlers.set);
     this._elemClassMap = [].concat(this._menuCloseMap.classes);
     this._configureClassesOnElem();
+    this._isMenuOpen = false;
+    this._setHeaderBackground();
   }
 
   render() {
-    this._setElemClassMap();
+    this._setPageMaps();
     BaseComponent.setHandlers(this._baseHandlerSettingMap);
   }
 }

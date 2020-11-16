@@ -13,7 +13,6 @@ class Article extends BaseComponent {
     popup,
     keyword,
     savedNewsIntro,
-    // accessControl,
   }) {
     super({
       markup,
@@ -36,15 +35,11 @@ class Article extends BaseComponent {
     this._savedNewsIntro = savedNewsIntro;
     /* ----------- */
     this._cardTooltipSel = articleBlockConf.articleBlockProper.article.tooltip.selector;
-    // this._ttipTextSel = articleBlockConf.articleBlockProper.article.tooltip.textSelector;
-    // this._ttipNonAuthMarkup
-    // = articleBlockConf.articleBlockProper.article.tooltip.nonAuthTextMarkup;
     this._ttipUnsavedMarkup = articleBlockConf.articleBlockProper.article.tooltip.unsavedTextMarkup;
     this._ttipSavedMarkup = articleBlockConf.articleBlockProper.article.tooltip.savedTextMarkup;
     /* data */
     this._defaultImageAddress = articleBlockConf.articleBlockProper.article.defaultImageAddress;
-    // this._keyword = keyword;
-    this._keywordData = keyword || content.keyword; // ?----------------------
+    this._keywordData = keyword || content.keyword;
     this._id = content._id;
     this._titleData = content.title;
     this._descData = content.description || content.text;
@@ -79,7 +74,6 @@ class Article extends BaseComponent {
     };
     this._mainApi.saveArticle(articleData)
       .then((res) => {
-        // console.log(res);
         this._id = res._id;
         this._elemClassMap.push(
           {

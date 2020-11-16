@@ -16,7 +16,6 @@ class NewsSearchForm extends Form {
     });
     this._selector = newsSearchFormConfig.selector;
     this._fieldSelector = newsSearchFormConfig.fieldSelector;
-    // this._submitButtonSelector = newsSearchFormConfig.submitButtonSelector;
     this._api = api;
     this._articleBlock = articleBlock;
     this._popup = popup;
@@ -40,7 +39,7 @@ class NewsSearchForm extends Form {
       .then((res) => {
         console.log('res\n', res);
         if (res.totalResults === 0) {
-          this._articleBlock.showNoNewsBumper();
+          this._articleBlock.showNoNewsBumper(true);
           return;
         }
         res.keyword = this._field.value;

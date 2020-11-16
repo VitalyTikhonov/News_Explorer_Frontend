@@ -3,12 +3,18 @@
 @import url(./__headline/saved-news-intro__headline.css);
 
 .saved-news-intro {
-  padding-top: 65px;
+  padding-top: 70px;
   padding-bottom: 32px;
+}
+
+@media (min-width: 690px) and (max-width: 1241px) {
+  .saved-news-intro {
+    padding-top: 80px;
+  }
 }
 
 @media (min-width: 1242px) {
   .saved-news-intro {
-    padding-top: 119px;
+    padding-top: 90px;
   }
 }
