@@ -43,7 +43,6 @@ class SavedNewsIntro extends BaseComponent {
     } else {
       this._setSubHeadline();
       this._articleBlock.showNoNewsBumper();
-      // this._node.classList.add(this._controlClassName);
     }
   }
 

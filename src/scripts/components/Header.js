@@ -88,11 +88,6 @@ class Header extends BaseComponent {
             event: 'scroll',
             handler: this._setHeaderBackground,
           },
-          // {
-          //   domElement: document,
-          //   event: 'signin',
-          //   handler: this._setLogoutButtonText,
-          // },
         ];
         this._menuOpenMap = {
           handlers: {

@@ -54,7 +54,6 @@ class BaseComponent {
   }
 
   // BaseComponent.enableButton(button);
-  // BaseComponent.disableButton(button);
   static enableButton(button) {
     button.removeAttribute('disabled');
   }
@@ -107,13 +106,6 @@ class BaseComponent {
       this._contents = null;
     }
   }
-
-  // _removeAllChildren() {
-  //   const { firstChild } = this._innerContainer;
-  //   while (firstChild) {
-  //     this._innerContainer.removeChild(firstChild);
-  //   }
-  // }
 
   _open() {
     this._parent.appendChild(this._component);

@@ -16,7 +16,6 @@ class Form extends BaseComponent {
     this._formInputHandler = this._formInputHandler.bind(this);
     this._formSubmitHandler = this._formSubmitHandler.bind(this);
     this._toggleButtonText = this._toggleButtonText.bind(this);
-    // this._checkForm = this._checkForm.bind(this);
     this._formEventHandlerMap = [];
     this._submitButtonTexts = submitButtonTexts;
     this._submitButtonSelector = submitButtonSelector;

@@ -55,7 +55,6 @@ const articleBlockConf = {
   node: document.querySelector('.article-block'),
   selector: '.article-block',
   articleBlockProper: {
-    // selector: '.article-block__proper',
     innerContainerSelector: '.article-block__card-container',
     markup: {
       [pageNames.index]: `
@@ -182,8 +181,6 @@ const articleBlockConf = {
     loadText: 'Загрузка…',
   },
   noNewsBumper: {
-    // <img src="../images/nonewsicon.png" alt="Значок &laquo;Ничего не найдено&raquo;"
-    //   class="article-block__bumper-no-news-icon">
     markup: `
     <div class="article-block__bumper">
       <div class="article-block__bumper-no-news-icon"></div>
@@ -311,17 +308,12 @@ const loginFormConfig = {
   },
 };
 const newsSearchFormConfig = {
-  // nameAttr: 'loginForm',
   selector: '.news-search-form',
   fieldSelector: '#newsSearchField',
   submitButtonSelector: '.news-search-form__button',
-  // errMessageSelectorEnding: formErrMessageSelectorEnding,
   submitButtonTexts: {
     loading: 'Подождите...',
   },
-  // fieldSelectors: [
-  //   '#newsSearchField',
-  // ],
   errMessageSelectorEnding: formErrMessageSelectorEnding,
 };
 const genFormConfig = {
@@ -332,11 +324,6 @@ const genFormConfig = {
     signupFormNameAttr: signupFormConfig.nameAttr, // nameAttributes.signupFormNameAttr
     loginFormNameAttr: loginFormConfig.nameAttr, // nameAttributes.loginFormNameAttr
   },
-  /*
-  genFormConfig.genErrMessSelector
-  genFormConfig.submitButtonSelector
-  genFormConfig.promptLinkSelector
-   */
 };
 const messageConfig = {
   signupSuccess: `

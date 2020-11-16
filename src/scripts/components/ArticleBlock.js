@@ -170,11 +170,8 @@ class ArticleBlock extends BaseComponent {
 
   renderSavedArticles() {
     this.showPreloader(this._preloaderLoadText);
-    // this.toggleButtonText(false);
     this._mainApi.getArticles()
       .then((res) => {
-        // console.log('res\n', res);
-        // console.log('isArray', Array.isArray(res));
         this._savedNewsIntro.setArticleArray(res);
         this.renderArticles(res);
       })
@@ -187,8 +184,6 @@ class ArticleBlock extends BaseComponent {
         this._popup.createErrorMessage(err.message);
       })
       .finally(() => {
-        // console.log('res\n', res);
-        // this.toggleButtonText(true);
         this._savedNewsIntro.render();
       });
   }
@@ -198,7 +193,6 @@ class ArticleBlock extends BaseComponent {
   }
 
   renderArticles(articleData) {
-    // console.log('articleData', articleData);
     this.clearAllSection();
     switch (this._pageName) {
       case this._indexPageName:

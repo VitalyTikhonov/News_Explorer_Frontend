@@ -12,7 +12,6 @@ class Popup extends BaseComponent {
     loginForm,
     signupFormNameAttr,
     loginFormNameAttr,
-    // formPromptLinkSelector,
     messageConfig,
   }) {
     super({
@@ -29,10 +28,6 @@ class Popup extends BaseComponent {
     this._loginFormNameAttr = loginFormNameAttr;
     this._errMessageMarkup = messageConfig.error.markup;
     this._errMessageSelector = messageConfig.error.textSelector;
-    // this._createSignupForm = generateContents.createSignupForm;
-    // this._createLoginForm = generateContents.createLoginForm;
-    // this._signupFormNameAttr = generateContents.signupFormNameAttr;
-    // this._loginFormNameAttr = generateContents.loginFormNameAttr;
     /* inner */
     this._domEventHandlerMap = []; // !!!
     this.open = this.open.bind(this);
@@ -41,7 +36,6 @@ class Popup extends BaseComponent {
     this._clickAwayHandler = this._clickAwayHandler.bind(this);
     this._childDismissalHandler = this._childDismissalHandler.bind(this);
     this._changeFormHandler = this._changeFormHandler.bind(this);
-    // this._setAltContents = this._setAltContents.bind(this);
   }
 
   _childDismissalHandler(event) {

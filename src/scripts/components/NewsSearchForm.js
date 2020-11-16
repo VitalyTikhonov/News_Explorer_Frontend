@@ -16,7 +16,6 @@ class NewsSearchForm extends Form {
     });
     this._selector = newsSearchFormConfig.selector;
     this._fieldSelector = newsSearchFormConfig.fieldSelector;
-    // this._submitButtonSelector = newsSearchFormConfig.submitButtonSelector;
     this._api = api;
     this._articleBlock = articleBlock;
     this._popup = popup;
