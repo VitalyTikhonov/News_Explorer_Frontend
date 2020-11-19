@@ -16,6 +16,7 @@
 @media (min-width: 321px) and (max-width: 767px) {
   .card {
     border-radius: 14px/14px;
+    max-width: 288px;
   }
   .card:nth-child(odd) {
     justify-self: end;

@@ -36,6 +36,7 @@ import {
   articleBlockConf,
   headerMenuConfig,
   errorMessages,
+  urlRegex,
 } from './scripts/constants/constants';
 
 (function site() {
@@ -54,6 +55,7 @@ import {
       // eslint-disable-next-line no-use-before-define
       popup,
       keyword,
+      urlRegex,
     });
   }
   /* ЭКЗЕМПЛЯРЫ КЛАССОВ */
@@ -131,7 +133,6 @@ import {
     createArticle: createArticleOnMainPage,
     pageConfig,
     accessControl,
-    popup,
     ARTICLE_PORTION_SIZE,
   });
 
@@ -157,7 +158,7 @@ import {
 
   /* ВЫЗОВЫ ФУНКЦИЙ */
   accessControl.setDependencies({ articleBlock, mainApi });
-  articleBlock.setDependencies({ accessControl });
+  articleBlock.setDependencies({ accessControl, popup });
 
   accessControl.configurePageOnLoad();
   headerObj.render();

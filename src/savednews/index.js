@@ -98,7 +98,12 @@ import {
 
   /* ВЫЗОВЫ ФУНКЦИЙ */
   accessControl.setDependencies({ articleBlock });
-  articleBlock.setDependencies({ accessControl, mainApi, savedNewsIntro });
+  articleBlock.setDependencies({
+    accessControl,
+    mainApi,
+    savedNewsIntro,
+    popup,
+  });
   savedNewsIntro.setDependencies({ articleBlock });
 
   accessControl.configurePageOnLoad();

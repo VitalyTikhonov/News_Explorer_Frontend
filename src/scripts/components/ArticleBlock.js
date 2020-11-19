@@ -9,7 +9,6 @@ class ArticleBlock extends BaseComponent {
     createNode,
     createArticle,
     pageConfig,
-    popup,
     ARTICLE_PORTION_SIZE,
   }) {
     super({
@@ -23,7 +22,6 @@ class ArticleBlock extends BaseComponent {
     this._component = articleBlockConf.node;
     this._markup = articleBlockConf.articleBlockProper.markup[this._pageName];
     this._cardContainerSel = articleBlockConf.articleBlockProper.innerContainerSelector;
-    this._popup = popup;
     this._ARTICLE_PORTION_SIZE = ARTICLE_PORTION_SIZE;
     /* ----------- */
     this._preloaderMarkup = articleBlockConf.preloader.markup;
@@ -57,6 +55,7 @@ class ArticleBlock extends BaseComponent {
     this._getUserStatus = this._dependencies.accessControl.getUserStatus;
     this._mainApi = this._dependencies.mainApi;
     this._savedNewsIntro = this._dependencies.savedNewsIntro;
+    this._popup = this._dependencies.popup;
   }
 
   clearAllSection() {

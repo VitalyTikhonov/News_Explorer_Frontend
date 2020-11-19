@@ -13,6 +13,7 @@ class Article extends BaseComponent {
     popup,
     keyword,
     savedNewsIntro,
+    urlRegex,
   }) {
     super({
       markup,
@@ -46,7 +47,8 @@ class Article extends BaseComponent {
     this._dateData = content.publishedAt || content.date;
     this._sourceData = content.source.name || content.source;
     this._originUrlData = content.url || content.link;
-    this._imageData = content.urlToImage !== null ? content.urlToImage : this._defaultImageAddress;
+    this._urlRegex = urlRegex;
+    this._imageData = content.urlToImage;
     /* other */
     this._mainApi = mainApi;
     this._popup = popup;
@@ -136,7 +138,6 @@ class Article extends BaseComponent {
         { year: 'numeric', month: 'long', day: 'numeric' },
       );
     this._descElem.textContent = this._descData;
-    this._imageElem.setAttribute('src', this._imageData);
     this._originUrlElem.setAttribute('href', this._originUrlData);
     this._sourceElem.textContent = this._sourceData;
     this._saveButtonElem = this._component.querySelector(this._saveButtonSelector);
@@ -147,6 +148,9 @@ class Article extends BaseComponent {
     }];
     switch (this._pageName) {
       case this._indexPageName:
+        this._imageData = this._urlRegex.test(this._imageData)
+          ? this._imageData
+          : this._defaultImageAddress;
         this._saveButtonHandlerMap = [{
           domElement: this._saveButtonElem,
           event: 'click',
@@ -161,6 +165,7 @@ class Article extends BaseComponent {
         break;
       default:
     }
+    this._imageElem.setAttribute('src', this._imageData);
     return this._component;
   }
 }
